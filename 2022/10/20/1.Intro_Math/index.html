@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="" />
+  <meta name="referrer" content="unsafe-url">
+  
+  <title>Intro_Math.md</title>
+  <meta name="author" content="Peirsist">
+  <meta name="description" content="Introduction对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号：$$X_{N\times p}&amp;#x3D;(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}&amp;#x3D;(x_{i1},x_{i2},\cdots,x_{ip})^{T}">
+  
+  
+  <meta property="og:title" content="Intro_Math.md"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="EEWIKI"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="EEWIKI" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="main-ctnr">
+      <div class="behind">
+  <a href="/" class="back black-color">
+    <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+        <path d="M2 30 L30 2 M30 30 L2 2"></path>
+    </svg>
+  </a>
+  
+</div>
+
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        Intro_Math.md
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      <time datetime="2022-10-20T13:44:41.000Z" itemprop="datePublished">
+  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2022-10-20
+</time>
+
+
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/机器学习/">机器学习</a>
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E7%8E%87%E6%B4%BE%E7%9A%84%E8%A7%82%E7%82%B9"><span class="toc-text">频率派的观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B4%BE%E7%9A%84%E8%A7%82%E7%82%B9"><span class="toc-text">贝叶斯派的观点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-text">小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MathBasics"><span class="toc-text">MathBasics</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%96%AF%E5%88%86%E5%B8%83"><span class="toc-text">高斯分布</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%83%85%E5%86%B5-MLE"><span class="toc-text">一维情况 MLE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%83%85%E5%86%B5"><span class="toc-text">多维情况</span></a></li></ol></li></ol></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号：<br>$$<br>X_{N\times p}&#x3D;(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}&#x3D;(x_{i1},x_{i2},\cdots,x_{ip})^{T}<br>$$<br> 这个记号表示有 $N$ 个样本，每个样本都是 $p$ 维向量。其中每个观测都是由 $p(x|\theta)$ 生成的。</p>
+<h2 id="频率派的观点"><a href="#频率派的观点" class="headerlink" title="频率派的观点"></a>频率派的观点</h2><p>$p(x|\theta)$中的 $\theta$ 是一个常量。对于 $N$ 个观测来说观测集的概率为 $p(X|\theta)\mathop{&#x3D;}\limits _{iid}\prod\limits <em>{i&#x3D;1}^{N}p(x</em>{i}|\theta))$ 。为了求 $\theta$ 的大小，我们采用最大对数似然MLE的方法：</p>
+<p>$$<br>\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)<br>$$</p>
+<h2 id="贝叶斯派的观点"><a href="#贝叶斯派的观点" class="headerlink" title="贝叶斯派的观点"></a>贝叶斯派的观点</h2><p>贝叶斯派认为 $p(x|\theta)$ 中的 $\theta$ 不是一个常量。这个 $\theta$ 满足一个预设的先验的分布 $\theta\sim p(\theta)$ 。于是根据贝叶斯定理依赖观测集参数的后验可以写成：</p>
+<p>$$<br>p(\theta|X)&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{p(X)}&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}<br>$$<br>为了求 $\theta$ 的值，我们要最大化这个参数后验MAP：</p>
+<p>$$<br>\theta_{MAP}&#x3D;\mathop{argmax}\limits _{\theta}p(\theta|X)&#x3D;\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)<br>$$<br>其中第二个等号是由于分母和 $\theta$ 没有关系。求解这个 $\theta$ 值后计算$\frac{p(X|\theta)\cdot p(\theta)}{\int\limits <em>{\theta}p(X|\theta)\cdot p(\theta)d\theta}$ ，就得到了参数的后验概率。其中 $p(X|\theta)$ 叫似然，是我们的模型分布。得到了参数的后验分布后，我们可以将这个分布用于预测贝叶斯预测：<br>$$<br>p(x</em>{new}|X)&#x3D;\int\limits <em>{\theta}p(x</em>{new}|\theta)\cdot p(\theta|X)d\theta<br>$$<br> 其中积分中的被乘数是模型，乘数是后验分布。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>频率派和贝叶斯派分别给出了一系列的机器学习算法。频率派的观点导出了一系列的统计机器学习算法而贝叶斯派导出了概率图理论。在应用频率派的 MLE 方法时最优化理论占有重要地位。而贝叶斯派的算法无论是后验概率的建模还是应用这个后验进行推断时积分占有重要地位。因此采样积分方法如 MCMC 有很多应用。</p>
+<h1 id="MathBasics"><a href="#MathBasics" class="headerlink" title="MathBasics"></a>MathBasics</h1><h2 id="高斯分布"><a href="#高斯分布" class="headerlink" title="高斯分布"></a>高斯分布</h2><h3 id="一维情况-MLE"><a href="#一维情况-MLE" class="headerlink" title="一维情况 MLE"></a>一维情况 MLE</h3><p>高斯分布在机器学习中占有举足轻重的作用。在 MLE 方法中：</p>
+<p>$$<br>\theta&#x3D;(\mu,\Sigma)&#x3D;(\mu,\sigma^{2}),\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)<br>$$<br>一般地，高斯分布的概率密度函数PDF写为：</p>
+<p>$$<br>p(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{p&#x2F;2}|\Sigma|^{1&#x2F;2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}<br>$$<br>带入 MLE 中我们考虑一维的情况</p>
+<p>$$<br>\log p(X|\theta)&#x3D;\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)&#x3D;\sum\limits <em>{i&#x3D;1}^{N}\log\frac{1}{\sqrt{2\pi}\sigma}\exp(-(x</em>{i}-\mu)^{2}&#x2F;2\sigma^{2})<br>$$<br>首先对 $\mu$ 的极值可以得到 ：<br>$$<br>\mu_{MLE}&#x3D;\mathop{argmax}\limits <em>{\mu}\log p(X|\theta)&#x3D;\mathop{argmax}\limits <em>{\mu}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$<br> 于是：<br>$$<br>\frac{\partial}{\partial\mu}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}&#x3D;0\longrightarrow\mu</em>{MLE}&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}<br>$$<br>其次对 $\theta$ 中的另一个参数 $\sigma$ ，有：<br>$$<br>\begin{align}<br>\sigma</em>{MLE}&#x3D;\mathop{argmax}\limits <em>{\sigma}\log p(X|\theta)&amp;&#x3D;\mathop{argmax}\limits <em>{\sigma}\sum\limits <em>{i&#x3D;1}^{N}[-\log\sigma-\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]\nonumber\<br>&amp;&#x3D;\mathop{argmin}\limits <em>{\sigma}\sum\limits <em>{i&#x3D;1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]<br>\end{align}<br>$$<br>于是：<br>$$<br>\frac{\partial}{\partial\sigma}\sum\limits <em>{i&#x3D;1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]&#x3D;0\longrightarrow\sigma</em>{MLE}^{2}&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$<br>值得注意的是，上面的推导中，首先对 $\mu$ 求 MLE， 然后利用这个结果求 $\sigma</em>{MLE}$ ，因此可以预期的是对数据集求期望时 $\mathbb{E}</em>{\mathcal{D}}[\mu_{MLE}]$ 是无偏差的：<br>$$<br>\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}]&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}\mathbb{E}</em>{\mathcal{D}}[x</em>{i}]&#x3D;\mu<br>$$<br>但是当对 $\sigma_{MLE}$ 求 期望的时候由于使用了单个数据集的 $\mu_{MLE}$，因此对所有数据集求期望的时候我们会发现 $\sigma_{MLE}$ 是 有偏的：</p>
+<p>$$<br>\begin{align}<br>\mathbb{E}<em>{\mathcal{D}}[\sigma</em>{MLE}^{2}]&amp;&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu</em>{MLE})^{2}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}^{2}-2x</em>{i}\mu_{MLE}+\mu_{MLE}^{2})\nonumber<br>\&amp;&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu</em>{MLE}^{2}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu^{2}+\mu^{2}-\mu</em>{MLE}^{2}]\nonumber\<br>&amp;&#x3D; \mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu^{2}]-\mathbb{E}</em>{\mathcal{D}}[\mu_{MLE}^{2}-\mu^{2}]&#x3D;\sigma^{2}-(\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}^{2}]-\mu^{2})\nonumber\&amp;&#x3D;\sigma^{2}-(\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}^{2}]-\mathbb{E}<em>{\mathcal{D}}^{2}[\mu</em>{MLE}])&#x3D;\sigma^{2}-Var[\mu_{MLE}]\nonumber\&amp;&#x3D;\sigma^{2}-Var[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}]&#x3D;\sigma^{2}-\frac{1}{N^{2}}\sum\limits <em>{i&#x3D;1}^{N}Var[x</em>{i}]&#x3D;\frac{N-1}{N}\sigma^{2}<br>\end{align}<br>$$<br>所以：<br>$$<br>\hat{\sigma}^{2}&#x3D;\frac{1}{N-1}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$</p>
+<h3 id="多维情况"><a href="#多维情况" class="headerlink" title="多维情况"></a>多维情况</h3><p>多维高斯分布表达式为：<br>$$<br>p(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{p&#x2F;2}|\Sigma|^{1&#x2F;2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}<br>$$<br>其中 $x,\mu\in\mathbb{R}^{p},\Sigma\in\mathbb{R}^{p\times p}$ ，$\Sigma$ 为协方差矩阵，一般而言也是半正定矩阵。这里我们只考虑正定矩阵。首先我们处理指数上的数字，指数上的数字可以记为 $x$ 和 $\mu$ 之间的马氏距离。对于对称的协方差矩阵可进行特征值分解，$\Sigma&#x3D;U\Lambda U^{T}&#x3D;(u_{1},u_{2},\cdots,u_{p})diag(\lambda_{i})(u_{1},u_{2},\cdots,u_{p})^{T}&#x3D;\sum\limits <em>{i&#x3D;1}^{p}u</em>{i}\lambda_{i}u_{i}^{T}$ ，于是：</p>
+<p>$$<br>\Sigma^{-1}&#x3D;\sum\limits <em>{i&#x3D;1}^{p}u</em>{i}\frac{1}{\lambda_{i}}u_{i}^{T}<br>$$</p>
+<p>$$<br>\Delta&#x3D;(x-\mu)^{T}\Sigma^{-1}(x-\mu)&#x3D;\sum\limits <em>{i&#x3D;1}^{p}(x-\mu)^{T}u</em>{i}\frac{1}{\lambda_{i}}u_{i}^{T}(x-\mu)&#x3D;\sum\limits <em>{i&#x3D;1}^{p}\frac{y</em>{i}^{2}}{\lambda_{i}}<br>$$</p>
+<p>我们注意到 $y_{i}$ 是 $x-\mu$ 在特征向量 $u_{i}$ 上的投影长度，因此上式子就是 $\Delta$ 取不同值时的同心椭圆。</p>
+<p>下面我们看多维高斯模型在实际应用时的两个问题</p>
+<ol>
+<li><p>参数 $\Sigma,\mu$ 的自由度为 $O(p^{2})$ 对于维度很高的数据其自由度太高。解决方案：高自由度的来源是 $\Sigma$ 有 $\frac{p(p+1)}{2}$ 个自由参数，可以假设其是对角矩阵，甚至在各向同性假设中假设其对角线上的元素都相同。前一种的算法有 Factor Analysis，后一种有概率 PCA(p-PCA) 。</p>
+</li>
+<li><p>第二个问题是单个高斯分布是单峰的，对有多个峰的数据分布不能得到好的结果。解决方案：高斯混合GMM 模型。</p>
+</li>
+</ol>
+<p>下面对多维高斯分布的常用定理进行介绍。</p>
+<p>我们记 $x&#x3D;(x_1, x_2,\cdots,x_p)^T&#x3D;(x_{a,m\times 1}, x_{b,n\times1})^T,\mu&#x3D;(\mu_{a,m\times1}, \mu_{b,n\times1}),\Sigma&#x3D;\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}$，已知 $x\sim\mathcal{N}(\mu,\Sigma)$。</p>
+<p>首先是一个高斯分布的定理：</p>
+<blockquote>
+<p>  定理：已知 $x\sim\mathcal{N}(\mu,\Sigma), y\sim Ax+b$，那么 $y\sim\mathcal{N}(A\mu+b, A\Sigma A^T)$。</p>
+<p>  证明：$\mathbb{E}[y]&#x3D;\mathbb{E}[Ax+b]&#x3D;A\mathbb{E}[x]+b&#x3D;A\mu+b$，$Var[y]&#x3D;Var[Ax+b]&#x3D;Var[Ax]&#x3D;A\cdot Var[x]\cdot A^T$。</p>
+</blockquote>
+<p>下面利用这个定理得到 $p(x_a),p(x_b),p(x_a|x_b),p(x_b|x_a)$ 这四个量。</p>
+<ol>
+<li><p>$x_a&#x3D;\begin{pmatrix}\mathbb{I}<em>{m\times m}&amp;\mathbb{O}</em>{m\times n})\end{pmatrix}\begin{pmatrix}x_a\x_b\end{pmatrix}$，代入定理中得到：<br>$$<br>\mathbb{E}[x_a]&#x3D;\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\mu_a\\mu_b\end{pmatrix}&#x3D;\mu_a\<br>Var[x_a]&#x3D;\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}\mathbb{I}\\mathbb{O}\end{pmatrix}&#x3D;\Sigma_{aa}<br>$$<br>所以 $x_a\sim\mathcal{N}(\mu_a,\Sigma_{aa})$。</p>
+</li>
+<li><p>同样的，$x_b\sim\mathcal{N}(\mu_b,\Sigma_{bb})$。</p>
+</li>
+<li><p>对于两个条件概率，我们引入三个量：<br>$$<br>x_{b\cdot a}&#x3D;x_b-\Sigma_{ba}\Sigma_{aa}^{-1}x_a\<br>\mu_{b\cdot a}&#x3D;\mu_b-\Sigma_{ba}\Sigma_{aa}^{-1}\mu_a\<br>\Sigma_{bb\cdot a}&#x3D;\Sigma_{bb}-\Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}<br>$$<br>特别的，最后一个式子叫做 $\Sigma_{bb}$ 的 Schur Complementary。可以看到：<br>$$<br>x_{b\cdot a}&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}x_a\x_b\end{pmatrix}<br>$$<br>所以：<br>$$<br>\mathbb{E}[x</em>{b\cdot a}]&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}\mu_a\\mu_b\end{pmatrix}&#x3D;\mu</em>{b\cdot a}\<br>Var[x_{b\cdot a}]&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}\Sigma</em>{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}-\Sigma_{aa}^{-1}\Sigma_{ba}^T\\mathbb{I}<em>{n\times n}\end{pmatrix}&#x3D;\Sigma</em>{bb\cdot a}<br>$$<br>利用这三个量可以得到 $x_b&#x3D;x_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a$。因此：<br>$$<br>\mathbb{E}[x_b|x_a]&#x3D;\mu_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a<br>$$</p>
+<p>$$<br>Var[x_b|x_a]&#x3D;\Sigma_{bb\cdot a}<br>$$</p>
+<p>这里同样用到了定理。</p>
+</li>
+<li><p>同样：<br>$$<br>x_{a\cdot b}&#x3D;x_a-\Sigma_{ab}\Sigma_{bb}^{-1}x_b\<br>\mu_{a\cdot b}&#x3D;\mu_a-\Sigma_{ab}\Sigma_{bb}^{-1}\mu_b\<br>\Sigma_{aa\cdot b}&#x3D;\Sigma_{aa}-\Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ba}<br>$$<br>所以：<br>$$<br>\mathbb{E}[x_a|x_b]&#x3D;\mu_{a\cdot b}+\Sigma_{ab}\Sigma_{bb}^{-1}x_b<br>$$</p>
+<p>$$<br>Var[x_a|x_b]&#x3D;\Sigma_{aa\cdot b}<br>$$</p>
+</li>
+</ol>
+<p>下面利用上边四个量，求解线性模型：</p>
+<blockquote>
+<p>  已知：$p(x)&#x3D;\mathcal{N}(\mu,\Lambda^{-1}),p(y|x)&#x3D;\mathcal{N}(Ax+b,L^{-1})$，求解：$p(y),p(x|y)$。</p>
+<p>  解：令 $y&#x3D;Ax+b+\epsilon,\epsilon\sim\mathcal{N}(0,L^{-1})$，所以 $\mathbb{E}[y]&#x3D;\mathbb{E}[Ax+b+\epsilon]&#x3D;A\mu+b$，$Var[y]&#x3D;A \Lambda^{-1}A^T+L^{-1}$，因此：<br>  $$<br>  p(y)&#x3D;\mathcal{N}(A\mu+b,L^{-1}+A\Lambda^{-1}A^T)<br>  $$<br>  引入 $z&#x3D;\begin{pmatrix}x\y\end{pmatrix}$，我们可以得到 $Cov[x,y]&#x3D;\mathbb{E}[(x-\mathbb{E}[x])(y-\mathbb{E}[y])^T]$。对于这个协方差可以直接计算：<br>  $$<br>  \begin{align}<br>  Cov(x,y)&amp;&#x3D;\mathbb{E}[(x-\mu)(Ax-A\mu+\epsilon)^T]&#x3D;\mathbb{E}[(x-\mu)(x-\mu)^TA^T]&#x3D;Var[x]A^T&#x3D;\Lambda^{-1}A^T<br>  \end{align}<br>  $$<br>  注意到协方差矩阵的对称性，所以 $p(z)&#x3D;\mathcal{N}\begin{pmatrix}\mu\A\mu+b\end{pmatrix},\begin{pmatrix}\Lambda^{-1}&amp;\Lambda^{-1}A^T\A\Lambda^{-1}&amp;L^{-1}+A\Lambda^{-1}A^T\end{pmatrix})$。根据之前的公式，我们可以得到：<br>  $$<br>  \mathbb{E}[x|y]&#x3D;\mu+\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}(y-A\mu-b)<br>  $$</p>
+<p>  $$<br>  Var[x|y]&#x3D;\Lambda^{-1}-\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}A\Lambda^{-1}<br>  $$</p>
+</blockquote>
+
+
+  </article>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+    
+
+
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © XXX 2016-2020
+    </div>
+    <div class="secondrow">
+        <a target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>
