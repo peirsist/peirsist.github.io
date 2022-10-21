@@ -1616,7 +1616,18 @@ blockquote {
 <ol type="1">
 <li><a href="https://www.jianshu.com/p/e17711e44e00">Hexo使用攻略-添加分类及标签 - 简书 (jianshu.com)</a></li>
 <li><a href="https://blog.csdn.net/xinyflove/article/details/108791970">Hexo博客添加搜索功能_PeakXin的博客-CSDN博客_hexo搜索功能</a></li>
+<li>hexo显示pdf
+<ul>
+<li><strong><a href="https://blog.csdn.net/weixin_37726222/article/details/123071678">【有用】hexo post中pdf文件的插入_时间里的河的博客-CSDN博客_hexo 插入pdf</a></strong></li>
 <li><strong><a href="https://blog.csdn.net/weixin_45926582/article/details/107559639?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5">hexo如何分类分标签进行展示与pdf、图片_月球转转转的博客-CSDN博客</a></strong></li>
+</ul></li>
+<li>hexo上传图片
+<ul>
+<li><strong><a href="https://blog.csdn.net/weixin_44783934/article/details/107798324?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&amp;utm_relevant_index=2">解决PicGo+GitHub搭建个人图床上传失败问题_wnhyang的博客-CSDN博客</a></strong></li>
+<li><mark>PicGo上传失败，改用PicX</mark> <strong><a href="https://picx.xpoet.cn/#/upload">图片上传 | PicX 图床神器 (xpoet.cn)</a></strong></li>
+<li><a href="https://blog.csdn.net/qq_38140292/article/details/118885686?">【Typora】github-与PicGO搭建图床_指尖听戏的博客-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_38140292/article/details/119076411">【hexo】基础教程-二-文章新增图片上传_指尖听戏的博客-CSDN博客_hexo怎么传照片</a></li>
+</ul></li>
 <li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置首页分页之前默认就有，这里就不额外加了</span></span><br><span class="line"><span class="comment"># index_generator:</span></span><br><span class="line"><span class="comment">#   per_page: 5</span></span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br><span class="line">  yearly: <span class="literal">true</span>  <span class="comment">#是否按年生成归档</span></span><br><span class="line">  monthly: <span class="literal">false</span>  <span class="comment">#为了加快生成速度，按月归档就不要了</span></span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br></pre></td></tr></table></figure>
@@ -1845,8 +1856,26 @@ blockquote {
   </entry>
   <entry>
     <title>Back Propagation</title>
-    <url>/2022/10/21/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</url>
-    <content><![CDATA[<h2 id="梯度下降">梯度下降</h2>
+    <url>/2022/10/21/BP/</url>
+    <content><![CDATA[
+
+	<div class="row">
+    <embed src="BP.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<!-- 
+
+	<div class="row">
+    <embed src="https://cloud.tsinghua.edu.cn/f/952edbd1e02d409cbd01/" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>--&gt;</p>
+<!-- <iframe src="BP.pdf" width="800px" height="800px" frameborder="0" scrolling="no"></iframe> -->
+<h2 id="梯度下降">梯度下降</h2>
 <ol type="1">
 <li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
 </ol>
@@ -1857,12 +1886,13 @@ blockquote {
 <p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
 <h3 id="数学表示">数学表示</h3>
 <p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
-<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;" /></p>
+<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;"></p>
 <p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
 <p><strong><mark>α</mark></strong></p>
 <p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
 <p><strong><mark>梯度要乘以一个负号</mark></strong></p>
 <p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
 ]]></content>
       <categories>
         <category>机器学习</category>
