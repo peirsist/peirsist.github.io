@@ -1461,19 +1461,19 @@ blockquote {
   <entry>
     <title>虚拟机安装Ubuntu18.04</title>
     <url>/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/</url>
-    <content><![CDATA[<h2 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h2>
-<h3 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h3>
+    <content><![CDATA[<h1 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h1>
+<h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
 <ul>
 <li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
 <li>但仍然无法复制粘贴 参考<a href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
 <li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
 </ul>
-<h3 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h3>
+<h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
 <ul>
 <li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
 <li><p><code>Ubuntu</code>更改源</p></li>
 </ul>
-<h3 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h3>
+<h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
 <ul>
 <li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
 <li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
@@ -1486,32 +1486,33 @@ blockquote {
 <li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
 </ul>
 <p>原因在于python依赖的安装包没有安装。</p>
-<p>### <strong>python Binding解决</strong></p>
-<pre><code>- 安装python3
-
-- ```bash
-  sudo apt-get install python3-pip
-  pip3 install pybindgen
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - **[Python报错解决Command &#x27;pip&#x27; not found, but there are 18 similar ones.](https://www.lipsuper.com/index.php/2020/10/13/python-pit/)**</span><br><span class="line"></span><br><span class="line">  - **[ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.](https://blog.csdn.net/qq_31648921/article/details/112404288)**</span><br><span class="line"></span><br><span class="line">  - **[ubuntu18下 ndnSIM安装过程详解。](https://blog.csdn.net/weixin_43974413/article/details/104899594)**</span><br><span class="line"></span><br><span class="line">###  **PyViz visualizer解决**</span><br><span class="line"></span><br><span class="line">  - ```pyhton</span><br><span class="line">    sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
-
-- **[在NS-3中安装可视化工具pyviz的一些问题的解决](https://blog.csdn.net/qq_31676673/article/details/88107454)**
-
-- **[ndnSIM仿真平台使用之安装](https://www.dazhuanlan.com/chenalonso/topics/1556322)**
-
-- 可以再把与python有关的再装一遍
-
-- ![可以看到ndnSIM是enabled的](https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70)
-
-- 出现以下图片后
-
-- ```shell
-  ./waf
-  ```
-
-- 进行编译，但会出现卡了，这时需要增大虚拟机内存
-
-- 重新编译，终于安装好了</code></pre>
-<h3 id="其他参考网站">其他参考网站</h3>
+<h3 id="python-binding解决">python Binding解决</h3>
+<ol type="1">
+<li>安装python3</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
+<li><a href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
+<li><a href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
+</ul>
+<h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
+<li><p><strong><a href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
+<li><p>可以再把与python有关的再装一遍</p></li>
+<li><figure>
+<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" /><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
+</figure></li>
+<li><p>出现以下图片后</p></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进行编译，但会出现卡了，这时需要增大虚拟机内存</li>
+<li>重新编译，终于安装好了</li>
+</ul>
+<h2 id="其他参考网站">其他参考网站</h2>
 <ul>
 <li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
 <li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
@@ -1615,8 +1616,10 @@ blockquote {
 <ol type="1">
 <li><a href="https://www.jianshu.com/p/e17711e44e00">Hexo使用攻略-添加分类及标签 - 简书 (jianshu.com)</a></li>
 <li><a href="https://blog.csdn.net/xinyflove/article/details/108791970">Hexo博客添加搜索功能_PeakXin的博客-CSDN博客_hexo搜索功能</a></li>
-<li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 设置首页分页之前默认就有，这里就不额外加了</span><br><span class="line"># index_generator:</span><br><span class="line">#   per_page: 5</span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  #值为0表示不分页，按需填写</span><br><span class="line">  yearly: true  #是否按年生成归档</span><br><span class="line">  monthly: false  #为了加快生成速度，按月归档就不要了</span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  #值为0表示不分页，按需填写</span><br></pre></td></tr></table></figure></li>
+<li><strong><a href="https://blog.csdn.net/weixin_45926582/article/details/107559639?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5">hexo如何分类分标签进行展示与pdf、图片_月球转转转的博客-CSDN博客</a></strong></li>
+<li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a></li>
 </ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置首页分页之前默认就有，这里就不额外加了</span></span><br><span class="line"><span class="comment"># index_generator:</span></span><br><span class="line"><span class="comment">#   per_page: 5</span></span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br><span class="line">  yearly: <span class="literal">true</span>  <span class="comment">#是否按年生成归档</span></span><br><span class="line">  monthly: <span class="literal">false</span>  <span class="comment">#为了加快生成速度，按月归档就不要了</span></span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
@@ -1838,6 +1841,31 @@ blockquote {
 ]]></content>
       <categories>
         <category>学习链接</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Back Propagation</title>
+    <url>/2022/10/21/%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/</url>
+    <content><![CDATA[<h2 id="梯度下降">梯度下降</h2>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
+</ol>
+<p><a href="https://so.csdn.net/so/search?q=梯度下降&amp;spm=1001.2101.3001.7020">梯度下降</a>（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主要目的是通过迭代找到目标函数的最小值，或者收敛到最小值。</p>
+<h3 id="思想">思想</h3>
+<p><strong>梯度下降法的基本思想可以类比为一个下山的过程。</strong> 假设这样一个场景：一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)。但此时山上的浓雾很大，导致可视度很低；因此，下山的路径就无法确定，必须利用自己周围的信息一步一步地找到下山的路。这个时候，便可利用梯度下降算法来帮助自己下山。怎么做呢，<strong>首先以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着下降方向走一步，然后又继续以当前位置为基准，再找最陡峭的地方，再走直到最后到达最低处；同理上山也是如此，只是这时候就变成梯度上升算法了。</strong></p>
+<p>梯度下降的基本过程就和下山的场景很类似。</p>
+<p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
+<h3 id="数学表示">数学表示</h3>
+<p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;" /></p>
+<p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
+<p><strong><mark>α</mark></strong></p>
+<p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
+<p><strong><mark>梯度要乘以一个负号</mark></strong></p>
+<p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
       </categories>
   </entry>
 </search>

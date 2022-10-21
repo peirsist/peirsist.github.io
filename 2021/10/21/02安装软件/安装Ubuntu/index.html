@@ -80,24 +80,24 @@
     </div>
     <hr>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ubuntu%E5%92%8Cndnsim%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">安装Ubuntu和ndnSIM遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A5%BDubuntu%E5%90%8E%E6%97%A0%E6%B3%95%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">安装好Ubuntu后，无法复制粘贴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ubuntu%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E6%9B%B4%E6%94%B9"><span class="toc-text">Ubuntu字体大小更改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ndnsim%E5%90%8E%E6%97%A0%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">安装ndnSIM后，无法可视化。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="toc-text">其他参考网站</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ubuntu%E5%92%8Cndnsim%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">安装Ubuntu和ndnSIM遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%A5%BDubuntu%E5%90%8E%E6%97%A0%E6%B3%95%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">安装好Ubuntu后，无法复制粘贴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ubuntu%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E6%9B%B4%E6%94%B9"><span class="toc-text">Ubuntu字体大小更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ndnsim%E5%90%8E%E6%97%A0%E6%B3%95%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-text">安装ndnSIM后，无法可视化。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python-binding%E8%A7%A3%E5%86%B3"><span class="toc-text">python Binding解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pyviz-visualizer%E8%A7%A3%E5%86%B3"><span class="toc-text">PyViz visualizer解决</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%8F%82%E8%80%83%E7%BD%91%E7%AB%99"><span class="toc-text">其他参考网站</span></a></li></ol></li></ol>
     
     <div class="picture-container">
       
     </div>
-    <h2 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h2>
-<h3 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h3>
+    <h1 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h1>
+<h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
 <ul>
 <li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
 <li>但仍然无法复制粘贴 参考<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
 <li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
 </ul>
-<h3 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h3>
+<h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
 <ul>
 <li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
 <li><p><code>Ubuntu</code>更改源</p></li>
 </ul>
-<h3 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h3>
+<h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
 <ul>
 <li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
 <li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
@@ -110,32 +110,33 @@
 <li><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
 </ul>
 <p>原因在于python依赖的安装包没有安装。</p>
-<p>### <strong>python Binding解决</strong></p>
-<pre><code>- 安装python3
-
-- ```bash
-  sudo apt-get install python3-pip
-  pip3 install pybindgen
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - **[Python报错解决Command &#x27;pip&#x27; not found, but there are 18 similar ones.](https://www.lipsuper.com/index.php/2020/10/13/python-pit/)**</span><br><span class="line"></span><br><span class="line">  - **[ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.](https://blog.csdn.net/qq_31648921/article/details/112404288)**</span><br><span class="line"></span><br><span class="line">  - **[ubuntu18下 ndnSIM安装过程详解。](https://blog.csdn.net/weixin_43974413/article/details/104899594)**</span><br><span class="line"></span><br><span class="line">###  **PyViz visualizer解决**</span><br><span class="line"></span><br><span class="line">  - ```pyhton</span><br><span class="line">    sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
-
-- **[在NS-3中安装可视化工具pyviz的一些问题的解决](https://blog.csdn.net/qq_31676673/article/details/88107454)**
-
-- **[ndnSIM仿真平台使用之安装](https://www.dazhuanlan.com/chenalonso/topics/1556322)**
-
-- 可以再把与python有关的再装一遍
-
-- ![可以看到ndnSIM是enabled的](https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70)
-
-- 出现以下图片后
-
-- ```shell
-  ./waf
-  ```
-
-- 进行编译，但会出现卡了，这时需要增大虚拟机内存
-
-- 重新编译，终于安装好了</code></pre>
-<h3 id="其他参考网站">其他参考网站</h3>
+<h3 id="python-binding解决">python Binding解决</h3>
+<ol type="1">
+<li>安装python3</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
+</ul>
+<h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
+<li><p>可以再把与python有关的再装一遍</p></li>
+<li><figure>
+<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" /><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
+</figure></li>
+<li><p>出现以下图片后</p></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进行编译，但会出现卡了，这时需要增大虚拟机内存</li>
+<li>重新编译，终于安装好了</li>
+</ul>
+<h2 id="其他参考网站">其他参考网站</h2>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
