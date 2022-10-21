@@ -3,63 +3,139 @@
   <entry>
     <title>Intro_Math.md</title>
     <url>/2022/10/20/1.Intro_Math/</url>
-    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号：<br>$$<br>X_{N\times p}&#x3D;(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}&#x3D;(x_{i1},x_{i2},\cdots,x_{ip})^{T}<br>$$<br> 这个记号表示有 $N$ 个样本，每个样本都是 $p$ 维向量。其中每个观测都是由 $p(x|\theta)$ 生成的。</p>
-<h2 id="频率派的观点"><a href="#频率派的观点" class="headerlink" title="频率派的观点"></a>频率派的观点</h2><p>$p(x|\theta)$中的 $\theta$ 是一个常量。对于 $N$ 个观测来说观测集的概率为 $p(X|\theta)\mathop{&#x3D;}\limits _{iid}\prod\limits <em>{i&#x3D;1}^{N}p(x</em>{i}|\theta))$ 。为了求 $\theta$ 的大小，我们采用最大对数似然MLE的方法：</p>
-<p>$$<br>\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)<br>$$</p>
-<h2 id="贝叶斯派的观点"><a href="#贝叶斯派的观点" class="headerlink" title="贝叶斯派的观点"></a>贝叶斯派的观点</h2><p>贝叶斯派认为 $p(x|\theta)$ 中的 $\theta$ 不是一个常量。这个 $\theta$ 满足一个预设的先验的分布 $\theta\sim p(\theta)$ 。于是根据贝叶斯定理依赖观测集参数的后验可以写成：</p>
-<p>$$<br>p(\theta|X)&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{p(X)}&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}<br>$$<br>为了求 $\theta$ 的值，我们要最大化这个参数后验MAP：</p>
-<p>$$<br>\theta_{MAP}&#x3D;\mathop{argmax}\limits _{\theta}p(\theta|X)&#x3D;\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)<br>$$<br>其中第二个等号是由于分母和 $\theta$ 没有关系。求解这个 $\theta$ 值后计算$\frac{p(X|\theta)\cdot p(\theta)}{\int\limits <em>{\theta}p(X|\theta)\cdot p(\theta)d\theta}$ ，就得到了参数的后验概率。其中 $p(X|\theta)$ 叫似然，是我们的模型分布。得到了参数的后验分布后，我们可以将这个分布用于预测贝叶斯预测：<br>$$<br>p(x</em>{new}|X)&#x3D;\int\limits <em>{\theta}p(x</em>{new}|\theta)\cdot p(\theta|X)d\theta<br>$$<br> 其中积分中的被乘数是模型，乘数是后验分布。</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>频率派和贝叶斯派分别给出了一系列的机器学习算法。频率派的观点导出了一系列的统计机器学习算法而贝叶斯派导出了概率图理论。在应用频率派的 MLE 方法时最优化理论占有重要地位。而贝叶斯派的算法无论是后验概率的建模还是应用这个后验进行推断时积分占有重要地位。因此采样积分方法如 MCMC 有很多应用。</p>
-<h1 id="MathBasics"><a href="#MathBasics" class="headerlink" title="MathBasics"></a>MathBasics</h1><h2 id="高斯分布"><a href="#高斯分布" class="headerlink" title="高斯分布"></a>高斯分布</h2><h3 id="一维情况-MLE"><a href="#一维情况-MLE" class="headerlink" title="一维情况 MLE"></a>一维情况 MLE</h3><p>高斯分布在机器学习中占有举足轻重的作用。在 MLE 方法中：</p>
-<p>$$<br>\theta&#x3D;(\mu,\Sigma)&#x3D;(\mu,\sigma^{2}),\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)<br>$$<br>一般地，高斯分布的概率密度函数PDF写为：</p>
-<p>$$<br>p(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{p&#x2F;2}|\Sigma|^{1&#x2F;2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}<br>$$<br>带入 MLE 中我们考虑一维的情况</p>
-<p>$$<br>\log p(X|\theta)&#x3D;\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)&#x3D;\sum\limits <em>{i&#x3D;1}^{N}\log\frac{1}{\sqrt{2\pi}\sigma}\exp(-(x</em>{i}-\mu)^{2}&#x2F;2\sigma^{2})<br>$$<br>首先对 $\mu$ 的极值可以得到 ：<br>$$<br>\mu_{MLE}&#x3D;\mathop{argmax}\limits <em>{\mu}\log p(X|\theta)&#x3D;\mathop{argmax}\limits <em>{\mu}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$<br> 于是：<br>$$<br>\frac{\partial}{\partial\mu}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}&#x3D;0\longrightarrow\mu</em>{MLE}&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}<br>$$<br>其次对 $\theta$ 中的另一个参数 $\sigma$ ，有：<br>$$<br>\begin{align}<br>\sigma</em>{MLE}&#x3D;\mathop{argmax}\limits <em>{\sigma}\log p(X|\theta)&amp;&#x3D;\mathop{argmax}\limits <em>{\sigma}\sum\limits <em>{i&#x3D;1}^{N}[-\log\sigma-\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]\nonumber\<br>&amp;&#x3D;\mathop{argmin}\limits <em>{\sigma}\sum\limits <em>{i&#x3D;1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]<br>\end{align}<br>$$<br>于是：<br>$$<br>\frac{\partial}{\partial\sigma}\sum\limits <em>{i&#x3D;1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x</em>{i}-\mu)^{2}]&#x3D;0\longrightarrow\sigma</em>{MLE}^{2}&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$<br>值得注意的是，上面的推导中，首先对 $\mu$ 求 MLE， 然后利用这个结果求 $\sigma</em>{MLE}$ ，因此可以预期的是对数据集求期望时 $\mathbb{E}</em>{\mathcal{D}}[\mu_{MLE}]$ 是无偏差的：<br>$$<br>\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}]&#x3D;\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}\mathbb{E}</em>{\mathcal{D}}[x</em>{i}]&#x3D;\mu<br>$$<br>但是当对 $\sigma_{MLE}$ 求 期望的时候由于使用了单个数据集的 $\mu_{MLE}$，因此对所有数据集求期望的时候我们会发现 $\sigma_{MLE}$ 是 有偏的：</p>
-<p>$$<br>\begin{align}<br>\mathbb{E}<em>{\mathcal{D}}[\sigma</em>{MLE}^{2}]&amp;&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu</em>{MLE})^{2}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}^{2}-2x</em>{i}\mu_{MLE}+\mu_{MLE}^{2})\nonumber<br>\&amp;&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu</em>{MLE}^{2}]&#x3D;\mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu^{2}+\mu^{2}-\mu</em>{MLE}^{2}]\nonumber\<br>&amp;&#x3D; \mathbb{E}<em>{\mathcal{D}}[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}^{2}-\mu^{2}]-\mathbb{E}</em>{\mathcal{D}}[\mu_{MLE}^{2}-\mu^{2}]&#x3D;\sigma^{2}-(\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}^{2}]-\mu^{2})\nonumber\&amp;&#x3D;\sigma^{2}-(\mathbb{E}<em>{\mathcal{D}}[\mu</em>{MLE}^{2}]-\mathbb{E}<em>{\mathcal{D}}^{2}[\mu</em>{MLE}])&#x3D;\sigma^{2}-Var[\mu_{MLE}]\nonumber\&amp;&#x3D;\sigma^{2}-Var[\frac{1}{N}\sum\limits <em>{i&#x3D;1}^{N}x</em>{i}]&#x3D;\sigma^{2}-\frac{1}{N^{2}}\sum\limits <em>{i&#x3D;1}^{N}Var[x</em>{i}]&#x3D;\frac{N-1}{N}\sigma^{2}<br>\end{align}<br>$$<br>所以：<br>$$<br>\hat{\sigma}^{2}&#x3D;\frac{1}{N-1}\sum\limits <em>{i&#x3D;1}^{N}(x</em>{i}-\mu)^{2}<br>$$</p>
-<h3 id="多维情况"><a href="#多维情况" class="headerlink" title="多维情况"></a>多维情况</h3><p>多维高斯分布表达式为：<br>$$<br>p(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{p&#x2F;2}|\Sigma|^{1&#x2F;2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}<br>$$<br>其中 $x,\mu\in\mathbb{R}^{p},\Sigma\in\mathbb{R}^{p\times p}$ ，$\Sigma$ 为协方差矩阵，一般而言也是半正定矩阵。这里我们只考虑正定矩阵。首先我们处理指数上的数字，指数上的数字可以记为 $x$ 和 $\mu$ 之间的马氏距离。对于对称的协方差矩阵可进行特征值分解，$\Sigma&#x3D;U\Lambda U^{T}&#x3D;(u_{1},u_{2},\cdots,u_{p})diag(\lambda_{i})(u_{1},u_{2},\cdots,u_{p})^{T}&#x3D;\sum\limits <em>{i&#x3D;1}^{p}u</em>{i}\lambda_{i}u_{i}^{T}$ ，于是：</p>
-<p>$$<br>\Sigma^{-1}&#x3D;\sum\limits <em>{i&#x3D;1}^{p}u</em>{i}\frac{1}{\lambda_{i}}u_{i}^{T}<br>$$</p>
-<p>$$<br>\Delta&#x3D;(x-\mu)^{T}\Sigma^{-1}(x-\mu)&#x3D;\sum\limits <em>{i&#x3D;1}^{p}(x-\mu)^{T}u</em>{i}\frac{1}{\lambda_{i}}u_{i}^{T}(x-\mu)&#x3D;\sum\limits <em>{i&#x3D;1}^{p}\frac{y</em>{i}^{2}}{\lambda_{i}}<br>$$</p>
-<p>我们注意到 $y_{i}$ 是 $x-\mu$ 在特征向量 $u_{i}$ 上的投影长度，因此上式子就是 $\Delta$ 取不同值时的同心椭圆。</p>
+    <content><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号： <span class="math display">\[
+X_{N\times p}=(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}=(x_{i1},x_{i2},\cdots,x_{ip})^{T}
+\]</span> 这个记号表示有 <span class="math inline">\(N\)</span> 个样本，每个样本都是 <span class="math inline">\(p\)</span> 维向量。其中每个观测都是由 <span class="math inline">\(p(x|\theta)\)</span> 生成的。</p>
+<h2 id="频率派的观点">频率派的观点</h2>
+<p><span class="math inline">\(p(x|\theta)\)</span>中的 <span class="math inline">\(\theta\)</span> 是一个常量。对于 <span class="math inline">\(N\)</span> 个观测来说观测集的概率为 <span class="math inline">\(p(X|\theta)\mathop{=}\limits _{iid}\prod\limits _{i=1}^{N}p(x_{i}|\theta))\)</span> 。为了求 <span class="math inline">\(\theta\)</span> 的大小，我们采用最大对数似然MLE的方法：</p>
+<p><span class="math display">\[
+\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
+\]</span></p>
+<h2 id="贝叶斯派的观点">贝叶斯派的观点</h2>
+<p>贝叶斯派认为 <span class="math inline">\(p(x|\theta)\)</span> 中的 <span class="math inline">\(\theta\)</span> 不是一个常量。这个 <span class="math inline">\(\theta\)</span> 满足一个预设的先验的分布 <span class="math inline">\(\theta\sim p(\theta)\)</span> 。于是根据贝叶斯定理依赖观测集参数的后验可以写成：</p>
+<p><span class="math display">\[
+p(\theta|X)=\frac{p(X|\theta)\cdot p(\theta)}{p(X)}=\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}
+\]</span> 为了求 <span class="math inline">\(\theta\)</span> 的值，我们要最大化这个参数后验MAP：</p>
+<p><span class="math display">\[
+\theta_{MAP}=\mathop{argmax}\limits _{\theta}p(\theta|X)=\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)
+\]</span> 其中第二个等号是由于分母和 <span class="math inline">\(\theta\)</span> 没有关系。求解这个 <span class="math inline">\(\theta\)</span> 值后计算<span class="math inline">\(\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}\)</span> ，就得到了参数的后验概率。其中 <span class="math inline">\(p(X|\theta)\)</span> 叫似然，是我们的模型分布。得到了参数的后验分布后，我们可以将这个分布用于预测贝叶斯预测： <span class="math display">\[
+p(x_{new}|X)=\int\limits _{\theta}p(x_{new}|\theta)\cdot p(\theta|X)d\theta
+\]</span> 其中积分中的被乘数是模型，乘数是后验分布。</p>
+<h2 id="小结">小结</h2>
+<p>频率派和贝叶斯派分别给出了一系列的机器学习算法。频率派的观点导出了一系列的统计机器学习算法而贝叶斯派导出了概率图理论。在应用频率派的 MLE 方法时最优化理论占有重要地位。而贝叶斯派的算法无论是后验概率的建模还是应用这个后验进行推断时积分占有重要地位。因此采样积分方法如 MCMC 有很多应用。</p>
+<h1 id="mathbasics">MathBasics</h1>
+<h2 id="高斯分布">高斯分布</h2>
+<h3 id="一维情况-mle">一维情况 MLE</h3>
+<p>高斯分布在机器学习中占有举足轻重的作用。在 MLE 方法中：</p>
+<p><span class="math display">\[
+\theta=(\mu,\Sigma)=(\mu,\sigma^{2}),\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
+\]</span> 一般地，高斯分布的概率密度函数PDF写为：</p>
+<p><span class="math display">\[
+p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
+\]</span> 带入 MLE 中我们考虑一维的情况</p>
+<p><span class="math display">\[
+\log p(X|\theta)=\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)=\sum\limits _{i=1}^{N}\log\frac{1}{\sqrt{2\pi}\sigma}\exp(-(x_{i}-\mu)^{2}/2\sigma^{2})
+\]</span> 首先对 <span class="math inline">\(\mu\)</span> 的极值可以得到 ： <span class="math display">\[
+\mu_{MLE}=\mathop{argmax}\limits _{\mu}\log p(X|\theta)=\mathop{argmax}\limits _{\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span> 于是： <span class="math display">\[
+\frac{\partial}{\partial\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}=0\longrightarrow\mu_{MLE}=\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}
+\]</span> 其次对 <span class="math inline">\(\theta\)</span> 中的另一个参数 <span class="math inline">\(\sigma\)</span> ，有： <span class="math display">\[
+\begin{align}
+\sigma_{MLE}=\mathop{argmax}\limits _{\sigma}\log p(X|\theta)&amp;=\mathop{argmax}\limits _{\sigma}\sum\limits _{i=1}^{N}[-\log\sigma-\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]\nonumber\\
+&amp;=\mathop{argmin}\limits _{\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]
+\end{align}
+\]</span> 于是： <span class="math display">\[
+\frac{\partial}{\partial\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]=0\longrightarrow\sigma_{MLE}^{2}=\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span> 值得注意的是，上面的推导中，首先对 <span class="math inline">\(\mu\)</span> 求 MLE， 然后利用这个结果求 <span class="math inline">\(\sigma_{MLE}\)</span> ，因此可以预期的是对数据集求期望时 <span class="math inline">\(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]\)</span> 是无偏差的： <span class="math display">\[
+\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\frac{1}{N}\sum\limits _{i=1}^{N}\mathbb{E}_{\mathcal{D}}[x_{i}]=\mu
+\]</span> 但是当对 <span class="math inline">\(\sigma_{MLE}\)</span> 求 期望的时候由于使用了单个数据集的 <span class="math inline">\(\mu_{MLE}\)</span>，因此对所有数据集求期望的时候我们会发现 <span class="math inline">\(\sigma_{MLE}\)</span> 是 有偏的：</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbb{E}_{\mathcal{D}}[\sigma_{MLE}^{2}]&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu_{MLE})^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}^{2}-2x_{i}\mu_{MLE}+\mu_{MLE}^{2})\nonumber
+\\&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu_{MLE}^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}+\mu^{2}-\mu_{MLE}^{2}]\nonumber\\
+&amp;= \mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}]-\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}-\mu^{2}]=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mu^{2})\nonumber\\&amp;=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mathbb{E}_{\mathcal{D}}^{2}[\mu_{MLE}])=\sigma^{2}-Var[\mu_{MLE}]\nonumber\\&amp;=\sigma^{2}-Var[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\sigma^{2}-\frac{1}{N^{2}}\sum\limits _{i=1}^{N}Var[x_{i}]=\frac{N-1}{N}\sigma^{2}
+\end{align}
+\]</span> 所以： <span class="math display">\[
+\hat{\sigma}^{2}=\frac{1}{N-1}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span></p>
+<h3 id="多维情况">多维情况</h3>
+<p>多维高斯分布表达式为： <span class="math display">\[
+p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
+\]</span> 其中 <span class="math inline">\(x,\mu\in\mathbb{R}^{p},\Sigma\in\mathbb{R}^{p\times p}\)</span> ，<span class="math inline">\(\Sigma\)</span> 为协方差矩阵，一般而言也是半正定矩阵。这里我们只考虑正定矩阵。首先我们处理指数上的数字，指数上的数字可以记为 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(\mu\)</span> 之间的马氏距离。对于对称的协方差矩阵可进行特征值分解，<span class="math inline">\(\Sigma=U\Lambda U^{T}=(u_{1},u_{2},\cdots,u_{p})diag(\lambda_{i})(u_{1},u_{2},\cdots,u_{p})^{T}=\sum\limits _{i=1}^{p}u_{i}\lambda_{i}u_{i}^{T}\)</span> ，于是：</p>
+<p><span class="math display">\[
+\Sigma^{-1}=\sum\limits _{i=1}^{p}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}
+\]</span></p>
+<p><span class="math display">\[
+\Delta=(x-\mu)^{T}\Sigma^{-1}(x-\mu)=\sum\limits _{i=1}^{p}(x-\mu)^{T}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}(x-\mu)=\sum\limits _{i=1}^{p}\frac{y_{i}^{2}}{\lambda_{i}}
+\]</span></p>
+<p>我们注意到 <span class="math inline">\(y_{i}\)</span> 是 <span class="math inline">\(x-\mu\)</span> 在特征向量 <span class="math inline">\(u_{i}\)</span> 上的投影长度，因此上式子就是 <span class="math inline">\(\Delta\)</span> 取不同值时的同心椭圆。</p>
 <p>下面我们看多维高斯模型在实际应用时的两个问题</p>
-<ol>
-<li><p>参数 $\Sigma,\mu$ 的自由度为 $O(p^{2})$ 对于维度很高的数据其自由度太高。解决方案：高自由度的来源是 $\Sigma$ 有 $\frac{p(p+1)}{2}$ 个自由参数，可以假设其是对角矩阵，甚至在各向同性假设中假设其对角线上的元素都相同。前一种的算法有 Factor Analysis，后一种有概率 PCA(p-PCA) 。</p>
-</li>
-<li><p>第二个问题是单个高斯分布是单峰的，对有多个峰的数据分布不能得到好的结果。解决方案：高斯混合GMM 模型。</p>
-</li>
+<ol type="1">
+<li><p>参数 <span class="math inline">\(\Sigma,\mu\)</span> 的自由度为 <span class="math inline">\(O(p^{2})\)</span> 对于维度很高的数据其自由度太高。解决方案：高自由度的来源是 <span class="math inline">\(\Sigma\)</span> 有 <span class="math inline">\(\frac{p(p+1)}{2}\)</span> 个自由参数，可以假设其是对角矩阵，甚至在各向同性假设中假设其对角线上的元素都相同。前一种的算法有 Factor Analysis，后一种有概率 PCA(p-PCA) 。</p></li>
+<li><p>第二个问题是单个高斯分布是单峰的，对有多个峰的数据分布不能得到好的结果。解决方案：高斯混合GMM 模型。</p></li>
 </ol>
 <p>下面对多维高斯分布的常用定理进行介绍。</p>
-<p>我们记 $x&#x3D;(x_1, x_2,\cdots,x_p)^T&#x3D;(x_{a,m\times 1}, x_{b,n\times1})^T,\mu&#x3D;(\mu_{a,m\times1}, \mu_{b,n\times1}),\Sigma&#x3D;\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}$，已知 $x\sim\mathcal{N}(\mu,\Sigma)$。</p>
+<p>我们记 <span class="math inline">\(x=(x_1, x_2,\cdots,x_p)^T=(x_{a,m\times 1}, x_{b,n\times1})^T,\mu=(\mu_{a,m\times1}, \mu_{b,n\times1}),\Sigma=\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\)</span>，已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma)\)</span>。</p>
 <p>首先是一个高斯分布的定理：</p>
 <blockquote>
-<p>  定理：已知 $x\sim\mathcal{N}(\mu,\Sigma), y\sim Ax+b$，那么 $y\sim\mathcal{N}(A\mu+b, A\Sigma A^T)$。</p>
-<p>  证明：$\mathbb{E}[y]&#x3D;\mathbb{E}[Ax+b]&#x3D;A\mathbb{E}[x]+b&#x3D;A\mu+b$，$Var[y]&#x3D;Var[Ax+b]&#x3D;Var[Ax]&#x3D;A\cdot Var[x]\cdot A^T$。</p>
+<p>定理：已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma), y\sim Ax+b\)</span>，那么 <span class="math inline">\(y\sim\mathcal{N}(A\mu+b, A\Sigma A^T)\)</span>。</p>
+<p>证明：<span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b]=A\mathbb{E}[x]+b=A\mu+b\)</span>，<span class="math inline">\(Var[y]=Var[Ax+b]=Var[Ax]=A\cdot Var[x]\cdot A^T\)</span>。</p>
 </blockquote>
-<p>下面利用这个定理得到 $p(x_a),p(x_b),p(x_a|x_b),p(x_b|x_a)$ 这四个量。</p>
-<ol>
-<li><p>$x_a&#x3D;\begin{pmatrix}\mathbb{I}<em>{m\times m}&amp;\mathbb{O}</em>{m\times n})\end{pmatrix}\begin{pmatrix}x_a\x_b\end{pmatrix}$，代入定理中得到：<br>$$<br>\mathbb{E}[x_a]&#x3D;\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\mu_a\\mu_b\end{pmatrix}&#x3D;\mu_a\<br>Var[x_a]&#x3D;\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}\mathbb{I}\\mathbb{O}\end{pmatrix}&#x3D;\Sigma_{aa}<br>$$<br>所以 $x_a\sim\mathcal{N}(\mu_a,\Sigma_{aa})$。</p>
-</li>
-<li><p>同样的，$x_b\sim\mathcal{N}(\mu_b,\Sigma_{bb})$。</p>
-</li>
-<li><p>对于两个条件概率，我们引入三个量：<br>$$<br>x_{b\cdot a}&#x3D;x_b-\Sigma_{ba}\Sigma_{aa}^{-1}x_a\<br>\mu_{b\cdot a}&#x3D;\mu_b-\Sigma_{ba}\Sigma_{aa}^{-1}\mu_a\<br>\Sigma_{bb\cdot a}&#x3D;\Sigma_{bb}-\Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}<br>$$<br>特别的，最后一个式子叫做 $\Sigma_{bb}$ 的 Schur Complementary。可以看到：<br>$$<br>x_{b\cdot a}&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}x_a\x_b\end{pmatrix}<br>$$<br>所以：<br>$$<br>\mathbb{E}[x</em>{b\cdot a}]&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}\mu_a\\mu_b\end{pmatrix}&#x3D;\mu</em>{b\cdot a}\<br>Var[x_{b\cdot a}]&#x3D;\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}<em>{n\times n}\end{pmatrix}\begin{pmatrix}\Sigma</em>{aa}&amp;\Sigma_{ab}\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}-\Sigma_{aa}^{-1}\Sigma_{ba}^T\\mathbb{I}<em>{n\times n}\end{pmatrix}&#x3D;\Sigma</em>{bb\cdot a}<br>$$<br>利用这三个量可以得到 $x_b&#x3D;x_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a$。因此：<br>$$<br>\mathbb{E}[x_b|x_a]&#x3D;\mu_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a<br>$$</p>
-<p>$$<br>Var[x_b|x_a]&#x3D;\Sigma_{bb\cdot a}<br>$$</p>
-<p>这里同样用到了定理。</p>
-</li>
-<li><p>同样：<br>$$<br>x_{a\cdot b}&#x3D;x_a-\Sigma_{ab}\Sigma_{bb}^{-1}x_b\<br>\mu_{a\cdot b}&#x3D;\mu_a-\Sigma_{ab}\Sigma_{bb}^{-1}\mu_b\<br>\Sigma_{aa\cdot b}&#x3D;\Sigma_{aa}-\Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ba}<br>$$<br>所以：<br>$$<br>\mathbb{E}[x_a|x_b]&#x3D;\mu_{a\cdot b}+\Sigma_{ab}\Sigma_{bb}^{-1}x_b<br>$$</p>
-<p>$$<br>Var[x_a|x_b]&#x3D;\Sigma_{aa\cdot b}<br>$$</p>
-</li>
+<p>下面利用这个定理得到 <span class="math inline">\(p(x_a),p(x_b),p(x_a|x_b),p(x_b|x_a)\)</span> 这四个量。</p>
+<ol type="1">
+<li><p><span class="math inline">\(x_a=\begin{pmatrix}\mathbb{I}_{m\times m}&amp;\mathbb{O}_{m\times n})\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}\)</span>，代入定理中得到： <span class="math display">\[
+\mathbb{E}[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_a\\
+Var[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}\mathbb{I}\\\mathbb{O}\end{pmatrix}=\Sigma_{aa}
+\]</span> 所以 <span class="math inline">\(x_a\sim\mathcal{N}(\mu_a,\Sigma_{aa})\)</span>。</p></li>
+<li><p>同样的，<span class="math inline">\(x_b\sim\mathcal{N}(\mu_b,\Sigma_{bb})\)</span>。</p></li>
+<li><p>对于两个条件概率，我们引入三个量： <span class="math display">\[
+x_{b\cdot a}=x_b-\Sigma_{ba}\Sigma_{aa}^{-1}x_a\\
+\mu_{b\cdot a}=\mu_b-\Sigma_{ba}\Sigma_{aa}^{-1}\mu_a\\
+\Sigma_{bb\cdot a}=\Sigma_{bb}-\Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
+\]</span> 特别的，最后一个式子叫做 <span class="math inline">\(\Sigma_{bb}\)</span> 的 Schur Complementary。可以看到： <span class="math display">\[
+x_{b\cdot a}=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}
+\]</span> 所以： <span class="math display">\[
+\mathbb{E}[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_{b\cdot a}\\
+Var[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}-\Sigma_{aa}^{-1}\Sigma_{ba}^T\\\mathbb{I}_{n\times n}\end{pmatrix}=\Sigma_{bb\cdot a}
+\]</span> 利用这三个量可以得到 <span class="math inline">\(x_b=x_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a\)</span>。因此： <span class="math display">\[
+\mathbb{E}[x_b|x_a]=\mu_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a
+\]</span></p>
+<p><span class="math display">\[
+Var[x_b|x_a]=\Sigma_{bb\cdot a}
+\]</span></p>
+<p>这里同样用到了定理。</p></li>
+<li><p>同样： <span class="math display">\[
+x_{a\cdot b}=x_a-\Sigma_{ab}\Sigma_{bb}^{-1}x_b\\
+\mu_{a\cdot b}=\mu_a-\Sigma_{ab}\Sigma_{bb}^{-1}\mu_b\\
+\Sigma_{aa\cdot b}=\Sigma_{aa}-\Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ba}
+\]</span> 所以： <span class="math display">\[
+\mathbb{E}[x_a|x_b]=\mu_{a\cdot b}+\Sigma_{ab}\Sigma_{bb}^{-1}x_b
+\]</span></p>
+<p><span class="math display">\[
+Var[x_a|x_b]=\Sigma_{aa\cdot b}
+\]</span></p></li>
 </ol>
 <p>下面利用上边四个量，求解线性模型：</p>
 <blockquote>
-<p>  已知：$p(x)&#x3D;\mathcal{N}(\mu,\Lambda^{-1}),p(y|x)&#x3D;\mathcal{N}(Ax+b,L^{-1})$，求解：$p(y),p(x|y)$。</p>
-<p>  解：令 $y&#x3D;Ax+b+\epsilon,\epsilon\sim\mathcal{N}(0,L^{-1})$，所以 $\mathbb{E}[y]&#x3D;\mathbb{E}[Ax+b+\epsilon]&#x3D;A\mu+b$，$Var[y]&#x3D;A \Lambda^{-1}A^T+L^{-1}$，因此：<br>  $$<br>  p(y)&#x3D;\mathcal{N}(A\mu+b,L^{-1}+A\Lambda^{-1}A^T)<br>  $$<br>  引入 $z&#x3D;\begin{pmatrix}x\y\end{pmatrix}$，我们可以得到 $Cov[x,y]&#x3D;\mathbb{E}[(x-\mathbb{E}[x])(y-\mathbb{E}[y])^T]$。对于这个协方差可以直接计算：<br>  $$<br>  \begin{align}<br>  Cov(x,y)&amp;&#x3D;\mathbb{E}[(x-\mu)(Ax-A\mu+\epsilon)^T]&#x3D;\mathbb{E}[(x-\mu)(x-\mu)^TA^T]&#x3D;Var[x]A^T&#x3D;\Lambda^{-1}A^T<br>  \end{align}<br>  $$<br>  注意到协方差矩阵的对称性，所以 $p(z)&#x3D;\mathcal{N}\begin{pmatrix}\mu\A\mu+b\end{pmatrix},\begin{pmatrix}\Lambda^{-1}&amp;\Lambda^{-1}A^T\A\Lambda^{-1}&amp;L^{-1}+A\Lambda^{-1}A^T\end{pmatrix})$。根据之前的公式，我们可以得到：<br>  $$<br>  \mathbb{E}[x|y]&#x3D;\mu+\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}(y-A\mu-b)<br>  $$</p>
-<p>  $$<br>  Var[x|y]&#x3D;\Lambda^{-1}-\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}A\Lambda^{-1}<br>  $$</p>
+<p>已知：<span class="math inline">\(p(x)=\mathcal{N}(\mu,\Lambda^{-1}),p(y|x)=\mathcal{N}(Ax+b,L^{-1})\)</span>，求解：<span class="math inline">\(p(y),p(x|y)\)</span>。</p>
+<p>解：令 <span class="math inline">\(y=Ax+b+\epsilon,\epsilon\sim\mathcal{N}(0,L^{-1})\)</span>，所以 <span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b+\epsilon]=A\mu+b\)</span>，<span class="math inline">\(Var[y]=A \Lambda^{-1}A^T+L^{-1}\)</span>，因此： <span class="math display">\[
+  p(y)=\mathcal{N}(A\mu+b,L^{-1}+A\Lambda^{-1}A^T)
+  \]</span> 引入 <span class="math inline">\(z=\begin{pmatrix}x\\y\end{pmatrix}\)</span>，我们可以得到 <span class="math inline">\(Cov[x,y]=\mathbb{E}[(x-\mathbb{E}[x])(y-\mathbb{E}[y])^T]\)</span>。对于这个协方差可以直接计算： <span class="math display">\[
+  \begin{align}
+  Cov(x,y)&amp;=\mathbb{E}[(x-\mu)(Ax-A\mu+\epsilon)^T]=\mathbb{E}[(x-\mu)(x-\mu)^TA^T]=Var[x]A^T=\Lambda^{-1}A^T
+  \end{align}
+  \]</span> 注意到协方差矩阵的对称性，所以 <span class="math inline">\(p(z)=\mathcal{N}\begin{pmatrix}\mu\\A\mu+b\end{pmatrix},\begin{pmatrix}\Lambda^{-1}&amp;\Lambda^{-1}A^T\\A\Lambda^{-1}&amp;L^{-1}+A\Lambda^{-1}A^T\end{pmatrix})\)</span>。根据之前的公式，我们可以得到： <span class="math display">\[
+  \mathbb{E}[x|y]=\mu+\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}(y-A\mu-b)
+  \]</span></p>
+<p><span class="math display">\[
+  Var[x|y]=\Lambda^{-1}-\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}A\Lambda^{-1}
+  \]</span></p>
 </blockquote>
 ]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -177,9 +253,6 @@ s.t. ||w||_1\lt C
       <categories>
         <category>机器学习</category>
       </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>test.md</title>
@@ -188,42 +261,6 @@ s.t. ||w||_1\lt C
 ]]></content>
       <tags>
         <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建hexo博客</title>
-    <url>/2022/10/20/00/%E6%90%AD%E5%BB%BAhexo/</url>
-    <content><![CDATA[<h1 id="搭建hexo博客">搭建hexo博客</h1>
-<h2 id="hexo">hexo</h2>
-<ol type="1">
-<li><p>很简洁的主题，很喜欢<a href="https://gaoryrt.com/categories/随笔与个人文集/">pln主题</a>，</p>
-<ul>
-<li><a href="https://github.com/gaoryrt/hexo-theme-pln">gaoryrt/hexo-theme-pln: 📝 Plain theme for Hexo. (github.com)</a></li>
-</ul></li>
-<li><p><a href="https://hexo.io/themes/">Themes | Hexo</a></p></li>
-<li><p><a href="https://www.bilibili.com/video/BV18z4y197J7/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Hexo博客教程之写文章_哔哩哔哩_bilibili</a></p></li>
-</ol>
-<h2 id="指令">指令</h2>
-<ol type="1">
-<li>hexo g 生成静态页面</li>
-<li>hexo d 发布本地内容到仓库</li>
-<li>hexo s 生成静态页面</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h2 id="错误">错误</h2>
-<ol type="1">
-<li>错误如下：解决<a href="https://blog.csdn.net/qq_45020818/article/details/126949337">解决Hexo部署时报错：Error: Spawn failed_薛定谔的壳的博客-CSDN博客</a></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">atal: unable to access <span class="string">&#x27;https://github.com/a956551943/a956551943.github.io/&#x27;</span>: Encountered end of file</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/usr/local/src/hexo/hanyubolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:376:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
-<h2 id="配置">配置</h2>
-<ol type="1">
-<li><a href="https://www.jianshu.com/p/e17711e44e00">Hexo使用攻略-添加分类及标签 - 简书 (jianshu.com)</a></li>
-<li><a href="https://blog.csdn.net/xinyflove/article/details/108791970">Hexo博客添加搜索功能_PeakXin的博客-CSDN博客_hexo搜索功能</a></li>
-<li></li>
-</ol>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -251,7 +288,6 @@ s.t. ||w||_1\lt C
         <category>科研</category>
       </categories>
       <tags>
-        <tag>科研</tag>
         <tag>文献</tag>
       </tags>
   </entry>
@@ -259,20 +295,22 @@ s.t. ||w||_1\lt C
     <title>Weekly Meeting</title>
     <url>/2022/10/21/weeklymeeting/</url>
     <content><![CDATA[<h1 id="weekly-meeting">Weekly Meeting</h1>
+<hr />
 <h1 id="section">2022-10-25</h1>
 <h2 id="comments">1、comments</h2>
 <h2 id="近期工作">2、近期工作</h2>
 <ol type="1">
-<li><p>20221019，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</p>
+<li>20221019，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
+</ol>
 <ul>
 <li><p><strong><mark>如何输出变量到CSV文件</mark></strong></p>
 <ol type="1">
 <li><a href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang的博客-CSDN博客_c++ 追加写文件</a></li>
 <li><a href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv文本文件（也可用excel打开）_浦柳人的博客-CSDN博客_c++输出csv文件</a></li>
 </ol></li>
-</ul></li>
-</ol>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
 <h1 id="section-1">2022-10-18</h1>
 <h2 id="comments-1">1、comments</h2>
 <h2 id="近期工作-1">2、近期工作</h2>
@@ -323,7 +361,6 @@ s.t. ||w||_1\lt C
       </categories>
       <tags>
         <tag>汇报</tag>
-        <tag>科研</tag>
       </tags>
   </entry>
   <entry>
@@ -368,10 +405,6 @@ s.t. ||w||_1\lt C
       <categories>
         <category>机器学习</category>
       </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>科研</tag>
-      </tags>
   </entry>
   <entry>
     <title>机器学习资料链接</title>
@@ -432,29 +465,22 @@ s.t. ||w||_1\lt C
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>机器学习</tag>
         <tag>链接</tag>
       </tags>
   </entry>
   <entry>
     <title>侯捷C++面向对象(上)</title>
-    <url>/2022/10/21/%E7%BC%96%E7%A8%8B/1.%E4%BE%AF%E6%8D%B7C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <url>/2022/05/21/%E7%BC%96%E7%A8%8B/1.%E4%BE%AF%E6%8D%B7C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
     <content><![CDATA[<h2 id="侯捷c面向对象"><strong>侯捷C++面向对象</strong></h2>
 <p>很喜欢这种娓娓道来的讲课，而不是填鸭式的灌输知识点，对零碎的知识点特此记录。</p>
 <blockquote>
-<p>[!NOTE|style:callout|label:目标]</p>
-<p><strong>培养正规的、大气的编程习惯</strong></p>
+<p><strong><font color='red'>培养正规的、大气的编程习惯</font></strong></p>
 </blockquote>
 <p><code>class</code>是C++中最重要的，侯捷老师：“<strong>一个人写了一个<code>class</code>，看他是否受过良好的、正规的训练，看以下几点</strong>：”</p>
-<blockquote>
-<p>[!TIP]</p>
-<ul>
-<li>数据成员用<code>private</code>，成员函数大部分<code>public</code></li>
-<li>构造函数使用初始化列表的方式初始化。<code>initialization list</code>，并且要写默认值。</li>
-<li>参数传递是<code>by value</code>还是<code>by reference</code>，同时考虑是否加<code>const</code>。尽可能的用<code>by reference</code></li>
-<li>函数返回值是<code>return by value</code>还是<code>return by reference</code>，同时考虑是否加<code>const</code>。尽可能的用<code>return by reference</code></li>
-</ul>
-</blockquote>
+<!-- - 数据成员用`private`，成员函数大部分`public`
+- 构造函数使用初始化列表的方式初始化。`initialization list`，并且要写默认值。
+- 参数传递是`by value`还是`by reference`，同时考虑是否加`const`。尽可能的用`by reference`
+- 函数返回值是`return by value`还是`return by reference`，同时考虑是否加`const`。尽可能的用`return by reference` -->
 <ul>
 <li>数据成员用<code>private</code>，成员函数大部分<code>public</code></li>
 <li>构造函数使用初始化列表的方式初始化。<code>initialization list</code>，并且要写默认值。</li>
@@ -464,20 +490,17 @@ s.t. ||w||_1\lt C
 </ul>
 <hr />
 <p>知识点总结：</p>
-<blockquote>
-<p>[!TIP]</p>
+<!-- > 1. `inline`函数，若函数在`class body`内定义，便自动能为`inline`函数**候选人**，函数外要加`inline`关键字，但究竟能不能成为`inline`函数，由编译器决定。`inline`函数像宏一样，有它的特性，但是没有它的缺点，`inline`函数执行速度很快。
+> 2. 构造函数初始化要使用**初始化列表**的方式，不要用`assign`赋值的方式。数值的设定有两个阶段：先是初始化，再是赋值。构造函数可以`overloading`，**函数重载**，但是在编译器看来是不重名的。
+> 3. `class`有带指针的，有不带指针的，不带指针的`class`多半不用写析构函数。
+> 4. `class`中的函数有两种：改变成员数据的和不改变成员数据的，不改变成员数据的函数要加`const`
+> 5. 参数传递尽可能的使用**引用**（`pass by reference`），**不要传值**（`pass by value`），因为`pass by value`是**整包**传过去，速度慢，而C语言中有指针，可以传首地址过去，加快了速度，C++中多了**引用**（`pass by reference`），拥有指针一样的特性（底层就是指针），但是更漂亮。指针和引用传到另一个函数里，改变值，本体也变了，但是如果传引用只是为了速度更快，不想改变值，加上`const`关键字。
+> 6. 同样，函数返回值类型同样用引用（return by reference）。**传递者无需知道接受者试试以什么样的形式接收。**返回`value`可以用`value`接收，也可以用`reference`接收。而指针一定要有指针类型去接收。
+> 7. `reference`作函数返回值类型，作参数传递，这些是很小的细节，但是影响效率。
+>
+>  -->
 <ol type="1">
-<li><code>inline</code>函数，若函数在<code>class body</code>内定义，便自动能为<code>inline</code>函数<strong>候选人</strong>，函数外要加<code>inline</code>关键字，但究竟能不能成为<code>inline</code>函数，由编译器决定。<code>inline</code>函数像宏一样，有它的特性，但是没有它的缺点，<code>inline</code>函数执行速度很快。</li>
-<li>构造函数初始化要使用<strong>初始化列表</strong>的方式，不要用<code>assign</code>赋值的方式。数值的设定有两个阶段：先是初始化，再是赋值。构造函数可以<code>overloading</code>，<strong>函数重载</strong>，但是在编译器看来是不重名的。</li>
-<li><code>class</code>有带指针的，有不带指针的，不带指针的<code>class</code>多半不用写析构函数。</li>
-<li><code>class</code>中的函数有两种：改变成员数据的和不改变成员数据的，不改变成员数据的函数要加<code>const</code></li>
-<li>参数传递尽可能的使用<strong>引用</strong>（<code>pass by reference</code>），<strong>不要传值</strong>（<code>pass by value</code>），因为<code>pass by value</code>是<strong>整包</strong>传过去，速度慢，而C语言中有指针，可以传首地址过去，加快了速度，C++中多了<strong>引用</strong>（<code>pass by reference</code>），拥有指针一样的特性（底层就是指针），但是更漂亮。指针和引用传到另一个函数里，改变值，本体也变了，但是如果传引用只是为了速度更快，不想改变值，加上<code>const</code>关键字。</li>
-<li>同样，函数返回值类型同样用引用（return by reference）。<strong>传递者无需知道接受者试试以什么样的形式接收。</strong>返回<code>value</code>可以用<code>value</code>接收，也可以用<code>reference</code>接收。而指针一定要有指针类型去接收。</li>
-<li><code>reference</code>作函数返回值类型，作参数传递，这些是很小的细节，但是影响效率。</li>
-</ol>
-</blockquote>
-<ol type="1">
-<li><code>inline</code>函数，若函数在<code>class body</code>内定义，便自动能为<code>inline</code>函数<strong>候选人</strong>，函数外要加<code>inline</code>关键字，但究竟能不能成为<code>inline</code>函数，由编译器决定。<code>inline</code>函数像宏一样，有它的特性，但是没有它的缺点，<code>inline</code>函数执行速度很快。</li>
+<li>inline函数，若函数在<code>class body</code>内定义，便自动能为<code>inline</code>函数<strong>候选人</strong>，函数外要加<code>inline</code>关键字，但究竟能不能成为<code>inline</code>函数，由编译器决定。<code>inline</code>函数像宏一样，有它的特性，但是没有它的缺点，<code>inline</code>函数执行速度很快。</li>
 <li>构造函数初始化要使用<strong>初始化列表</strong>的方式，不要用<code>assign</code>赋值的方式。数值的设定有两个阶段：先是初始化，再是赋值。构造函数可以<code>overloading</code>，<strong>函数重载</strong>，但是在编译器看来是不重名的。</li>
 <li><code>class</code>有带指针的，有不带指针的，不带指针的<code>class</code>多半不用写析构函数。</li>
 <li><code>class</code>中的函数有两种：改变成员数据的和不改变成员数据的，不改变成员数据的函数要加<code>const</code></li>
@@ -488,17 +511,15 @@ s.t. ||w||_1\lt C
 </ol>
 ]]></content>
       <categories>
-        <category>C++</category>
-        <category>jjhou</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
     <title>C++-毕设</title>
-    <url>/2022/10/21/%E7%BC%96%E7%A8%8B/C++/</url>
+    <url>/2022/04/21/%E7%BC%96%E7%A8%8B/C++/</url>
     <content><![CDATA[<h2 id="cc">C/C++</h2>
 <h3 id="c基础知识">C++基础知识</h3>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pdf/C++语法.pdf</span><br></pre></td></tr></table></figure>
@@ -559,15 +580,14 @@ s.t. ||w||_1\lt C
 <p>若要产生每次不同的随机数，则可以使用 <strong><code>srand( seed )</code></strong> 函数进行产生随机化种子，随着seed的不同，就能够产生 不同的随机数。</p>
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>C++</tag>
-        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>Markdown使用记录</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Markdown/</url>
     <content><![CDATA[<h1 id="markdown的使用"><font face="Monaco">Markdown</font>的使用</h1>
 <ul>
@@ -576,10 +596,13 @@ s.t. ||w||_1\lt C
 <li></li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
   </entry>
   <entry>
     <title>C-C3程序猿</title>
-    <url>/2022/10/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/</url>
+    <url>/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/</url>
     <content><![CDATA[<h2 id="看c3程序员c视频的一些笔记">看c3程序员C++视频的一些笔记</h2>
 <ul>
 <li><a href="https://www.cnblogs.com/edisonchou/p/4669098.html">你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com)</a></li>
@@ -935,11 +958,10 @@ s.t. ||w||_1\lt C
 </figure>
 ]]></content>
       <categories>
-        <category>C语言</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
-        <tag>C语言</tag>
+        <tag>C</tag>
       </tags>
   </entry>
   <entry>
@@ -964,9 +986,6 @@ blockquote {
 <p>学生的时间的确很宝贵，但是不能脑子里老是“拷问”自己，“这玩意该不该学啊，学了是不是浪费时间啊”，这么想太累了。</p>
 </blockquote>
 ]]></content>
-      <categories>
-        <category>Matlab</category>
-      </categories>
       <tags>
         <tag>Matlab</tag>
       </tags>
@@ -978,10 +997,9 @@ blockquote {
 <p>后续更新...</p>
 ]]></content>
       <categories>
-        <category>Python</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
       </tags>
   </entry>
@@ -998,7 +1016,7 @@ blockquote {
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 777 + 文件名</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>编程</category>
       </categories>
       <tags>
         <tag>Linux</tag>
@@ -1018,7 +1036,6 @@ blockquote {
       </categories>
       <tags>
         <tag>生词</tag>
-        <tag>英语</tag>
       </tags>
   </entry>
   <entry>
@@ -1037,13 +1054,12 @@ blockquote {
         <category>英语</category>
       </categories>
       <tags>
-        <tag>英语</tag>
         <tag>听力</tag>
       </tags>
   </entry>
   <entry>
     <title>URL和URI的区别</title>
-    <url>/2022/10/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <url>/2022/05/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h2 id="url和uri的区别">URL和URI的区别</h2>
 <h3 id="uri">URI</h3>
 <ul>
@@ -1078,13 +1094,10 @@ blockquote {
       <categories>
         <category>计算机网络</category>
       </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机网络视频</title>
-    <url>/2022/10/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E3%80%90%E4%B8%AD%E7%A7%91%E5%A4%A7%E9%83%91%E7%83%87%E3%80%91/</url>
+    <url>/2022/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E3%80%90%E4%B8%AD%E7%A7%91%E5%A4%A7%E9%83%91%E7%83%87%E3%80%91/</url>
     <content><![CDATA[<p>中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程</p>
 <p><a href="https://www.bilibili.com/video/BV1JV411t7ow?p=13&amp;spm_id_from=333.880.my_history.page.click">中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程_哔哩哔哩_bilibili</a></p>
 <p><a href="https://blog.csdn.net/qq_53111905/article/details/119002010?spm=1001.2014.3001.5501">中科大郑烇、杨坚《计算机网络》课程 第一章笔记_爱好学习的青年人的博客-CSDN博客_中科大计算机网络笔记</a></p>
@@ -1092,13 +1105,10 @@ blockquote {
       <categories>
         <category>计算机网络</category>
       </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机组成原理</title>
-    <url>/2022/10/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+    <url>/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
     <content><![CDATA[<h1 id="计算机组成原理">计算机组成原理</h1>
 <!-- [TOC] -->
 <h3 id="说明">说明</h3>
@@ -1148,13 +1158,10 @@ blockquote {
       <categories>
         <category>计算机组成原理</category>
       </categories>
-      <tags>
-        <tag>计算机组成原理</tag>
-      </tags>
   </entry>
   <entry>
     <title>数据结构视频</title>
-    <url>/2022/10/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <url>/2022/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h2 id="视频">视频</h2>
 <ul>
 <li><p><a href="https://www.bilibili.com/video/BV1MK411j7CR?spm_id_from=333.1007.top_right_bar_window_history.content.click">数据结构：懒猫老师-数据结构-(34)哈夫曼树(Huffman Tree,霍夫曼树,赫夫曼树)_哔哩哔哩_bilibili</a></p></li>
@@ -1165,9 +1172,6 @@ blockquote {
       <categories>
         <category>数据结构</category>
       </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
   </entry>
   <entry>
     <title>Office的使用</title>
@@ -1185,9 +1189,6 @@ blockquote {
 <li><a href="https://www.bilibili.com/video/BV1ix41137b7?spm_id_from=333.337.search-card.all.click">【公开课】Excel基础大全（1-66集）【超高清版】_哔哩哔哩_bilibili</a></li>
 </ul>
 ]]></content>
-      <categories>
-        <category>Office</category>
-      </categories>
       <tags>
         <tag>Office</tag>
       </tags>
@@ -1248,13 +1249,10 @@ blockquote {
       <categories>
         <category>LaTex</category>
       </categories>
-      <tags>
-        <tag>LaTex</tag>
-      </tags>
   </entry>
   <entry>
     <title>线性回归</title>
-    <url>/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
+    <url>/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
     <content><![CDATA[<h2 id="单变量线性回归">单变量线性回归</h2>
 <p>梯度下降做的事就是找到一个值 <span class="math inline">\(\theta\)</span> 使得代价函数 <span class="math inline">\(J(\theta)\)</span> 最小</p>
 <h2 id="多变量线性回归">多变量线性回归</h2>
@@ -1354,13 +1352,10 @@ blockquote {
       <categories>
         <category>机器学习</category>
       </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
   </entry>
   <entry>
     <title>CNN</title>
-    <url>/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/</url>
+    <url>/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/</url>
     <content><![CDATA[<h2 id="cnn">CNN</h2>
 <p>如果用全连接神经网络处理大尺寸图像具有三个明显的缺点：</p>
 <p>（1）首先将图像展开为向量会丢失空间信息； （2）其次参数过多效率低下，训练困难； （3）同时大量的参数也很快会导致网络过拟合。</p>
@@ -1422,12 +1417,11 @@ blockquote {
       </categories>
       <tags>
         <tag>CNN</tag>
-        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
     <title>RL介绍</title>
-    <url>/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/</url>
+    <url>/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h2 id="强化学习-reinforcement-learning"><strong>强化学习 Reinforcement Learning</strong></h2>
 <p>声明：以下课件来源于 <strong><em>北京邮电大学人工智能学院鲁鹏老师</em></strong></p>
 <p><a href="https://imgse.com/i/xQ3EJx"><img src="https://s1.ax1x.com/2022/10/03/xQ3EJx.png" alt="xQ3EJx.png" /></a></p>
@@ -1444,8 +1438,406 @@ blockquote {
       <categories>
         <category>强化学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>VS2019新建C自动添加作者版权等信息</title>
+    <url>/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="visualstudio2019新建c自动添加作者版权等信息">VisualStudio2019新建C自动添加作者版权等信息</h1>
+<h4 id="参考">参考</h4>
+<ul>
+<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p></li>
+<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网</a></p></li>
+<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p></li>
+<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p></li>
+</ul>
+<h3 id="注释规范">注释规范</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/**══════════════════════════════════╗</span><br><span class="line">*作    者：songbaobao                                                ║</span><br><span class="line">*职    业：我以我血荐轩辕                                              ║                                              </span><br><span class="line">*CSND地址：https://blog.csdn.net/weixin_43949535                       ║</span><br><span class="line">**GitHub ：https://github.com/TsinghuaLucky912/My_own_C-_study_and_blog║</span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*创建时间：                                                           </span><br><span class="line">*功能描述：                                                            </span><br><span class="line">*                                                                      </span><br><span class="line">*                                                                      </span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*结束时间:                                                           </span><br><span class="line">*═══════════════════════════════════╝</span><br><span class="line">//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.</span><br><span class="line">//            __.&#x27;              ~.   .~              `.__</span><br><span class="line">//          .&#x27;//              西南\./联大               \\`.</span><br><span class="line">//        .&#x27;//                     |                     \\`.</span><br><span class="line">//      .&#x27;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.</span><br><span class="line">//    .&#x27;//.-&quot;                 `-.  |  .-&#x27;                 &quot;-.\\`.</span><br><span class="line">//  .&#x27;//______.============-..   \ | /   ..-============.______\\`.</span><br><span class="line">//.&#x27;______________________________\|/______________________________`.</span><br><span class="line">*/</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+]]></content>
       <tags>
-        <tag>强化学习</tag>
+        <tag>安装软件</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装Ubuntu18.04</title>
+    <url>/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/</url>
+    <content><![CDATA[<h2 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h2>
+<h3 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h3>
+<ul>
+<li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
+<li>但仍然无法复制粘贴 参考<a href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
+<li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
+</ul>
+<h3 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h3>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
+<li><p><code>Ubuntu</code>更改源</p></li>
+</ul>
+<h3 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h3>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
+<li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;" /></p>
+<p><strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
+<ul>
+<li><strong><a href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
+</ul>
+<p>原因在于python依赖的安装包没有安装。</p>
+<p>### <strong>python Binding解决</strong></p>
+<pre><code>- 安装python3
+
+- ```bash
+  sudo apt-get install python3-pip
+  pip3 install pybindgen
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  - **[Python报错解决Command &#x27;pip&#x27; not found, but there are 18 similar ones.](https://www.lipsuper.com/index.php/2020/10/13/python-pit/)**</span><br><span class="line"></span><br><span class="line">  - **[ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.](https://blog.csdn.net/qq_31648921/article/details/112404288)**</span><br><span class="line"></span><br><span class="line">  - **[ubuntu18下 ndnSIM安装过程详解。](https://blog.csdn.net/weixin_43974413/article/details/104899594)**</span><br><span class="line"></span><br><span class="line">###  **PyViz visualizer解决**</span><br><span class="line"></span><br><span class="line">  - ```pyhton</span><br><span class="line">    sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+
+- **[在NS-3中安装可视化工具pyviz的一些问题的解决](https://blog.csdn.net/qq_31676673/article/details/88107454)**
+
+- **[ndnSIM仿真平台使用之安装](https://www.dazhuanlan.com/chenalonso/topics/1556322)**
+
+- 可以再把与python有关的再装一遍
+
+- ![可以看到ndnSIM是enabled的](https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70)
+
+- 出现以下图片后
+
+- ```shell
+  ./waf
+  ```
+
+- 进行编译，但会出现卡了，这时需要增大虚拟机内存
+
+- 重新编译，终于安装好了</code></pre>
+<h3 id="其他参考网站">其他参考网站</h3>
+<ul>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
+<li><p><a href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p></li>
+<li><p><a href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装Ubuntu18.04双系统</title>
+    <url>/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="安装ubuntu双系统">安装Ubuntu双系统</h2>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_43106321/article/details/105361644">Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu</a></li>
+<li><a href="https://blog.csdn.net/weixin_44623637/article/details/106723462">Ubuntu18.04安装教程——超详细的图文教程_Krasjet_Yu.的博客-CSDN博客_ubuntu18.04</a></li>
+<li><a href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
+<li><a href="https://blog.csdn.net/baidu_36602427/article/details/86548203">Ubuntu18.04安装教程_寥廓长空的博客-CSDN博客_ubuntu安装教程</a></li>
+</ol>
+<h2 id="注意"><mark>注意</mark></h2>
+<ol type="1">
+<li>进入Bios界面，一直按<code>F2</code></li>
+<li>如何启动进入选择系统界面还没解决，linux系统用的不多，总体来说还是虚拟机方便，但是虚拟机占用内存。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人世间句子摘抄</title>
+    <url>/2022/03/21/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E4%BA%BA%E4%B8%96%E9%97%B4/</url>
+    <content><![CDATA[<h2 id="人世间句子摘抄">人世间句子摘抄</h2>
+<!-- <style>
+blockquote {
+  border-left: 2px dashed #333 !important;
+  background:  #e4f2fe 0% !important;  
+}
+</style> -->
+<h4 id="第9集-曲书记"><u>第9集 曲书记 </u></h4>
+<blockquote>
+<p>[!TIP] 每个人的境遇、条件都不同，不能千篇一律地要求，但一定要把自己的工作，自己的日子过好。</p>
+</blockquote>
+<h4 id="第9集-曲书记-1"><u>第9集 曲书记 </u></h4>
+<blockquote>
+<p>[!TIP] 趁着年轻，一定要多读书，多学习。</p>
+</blockquote>
+<h4 id="第9集-金主任"><u>第9集 金主任 </u></h4>
+<blockquote>
+<p>[!TIP] 做事，讲话都要讲分寸，不论对谁(亲人，夫妻...)，不要信口开河，张嘴就说。</p>
+</blockquote>
+<h4 id="郝省长"><u> 郝省长 </u></h4>
+<blockquote>
+<p>[!TIP] 人有人性的弱点，所以要加强约束、引导和规范。作为一名共产党员，坚守自己的党性原则，并使之培养成自觉自愿的自己的行为准则，这是至关重要的。</p>
+</blockquote>
+<h4 id="光明">光明</h4>
+<blockquote>
+<p>[!TIP] 守不住一个 <strong>定</strong> 字，未定时最难，不知道劲儿该往哪使。最坏的结果强过没有结果。</p>
+</blockquote>
+<p>似乎挺有道理的，比如考试成绩没出来之前，是最煎熬的。出来之后，即使不好，也比没出成绩时要轻松。</p>
+<h4 id="冯化成">冯化成</h4>
+<blockquote>
+<p>[!TIP] 无论遇到多大、多急的事，放一放，冷一冷再行动。不要一遇到事就头脑发热、怎么痛快怎么来。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>人世间</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>搭建hexo博客</title>
+    <url>/2022/10/20/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E6%90%AD%E5%BB%BAhexo/</url>
+    <content><![CDATA[<h1 id="搭建hexo博客">搭建hexo博客</h1>
+<h2 id="hexo">hexo</h2>
+<ol type="1">
+<li><p>很简洁的主题，很喜欢<a href="https://gaoryrt.com/categories/随笔与个人文集/">pln主题</a>，</p>
+<ul>
+<li><a href="https://github.com/gaoryrt/hexo-theme-pln">gaoryrt/hexo-theme-pln: 📝 Plain theme for Hexo. (github.com)</a></li>
+</ul></li>
+<li><p><a href="https://hexo.io/themes/">Themes | Hexo</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV18z4y197J7/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Hexo博客教程之写文章_哔哩哔哩_bilibili</a></p></li>
+</ol>
+<h2 id="指令">指令</h2>
+<ol type="1">
+<li>hexo g 生成静态页面</li>
+<li>hexo d 发布本地内容到仓库</li>
+<li>hexo s 生成静态页面</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="错误">错误</h2>
+<ol type="1">
+<li>错误如下：解决<a href="https://blog.csdn.net/qq_45020818/article/details/126949337">解决Hexo部署时报错：Error: Spawn failed_薛定谔的壳的博客-CSDN博客</a></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">atal: unable to access <span class="string">&#x27;https://github.com/a956551943/a956551943.github.io/&#x27;</span>: Encountered end of file</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/usr/local/src/hexo/hanyubolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:376:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<h2 id="配置">配置</h2>
+<ol type="1">
+<li><a href="https://www.jianshu.com/p/e17711e44e00">Hexo使用攻略-添加分类及标签 - 简书 (jianshu.com)</a></li>
+<li><a href="https://blog.csdn.net/xinyflove/article/details/108791970">Hexo博客添加搜索功能_PeakXin的博客-CSDN博客_hexo搜索功能</a></li>
+<li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 设置首页分页之前默认就有，这里就不额外加了</span><br><span class="line"># index_generator:</span><br><span class="line">#   per_page: 5</span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  #值为0表示不分页，按需填写</span><br><span class="line">  yearly: true  #是否按年生成归档</span><br><span class="line">  monthly: false  #为了加快生成速度，按月归档就不要了</span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  #值为0表示不分页，按需填写</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看李健视频的感悟</title>
+    <url>/2022/02/21/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E6%9D%8E%E5%81%A5/</url>
+    <content><![CDATA[<h2 id="看李健视频的感悟">看李健视频的感悟</h2>
+<p>###　关于生活</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1kU4y1P7Hi?spm_id_from=333.999.0.0">【李健】初入大学，这些视频缓解了我很大一部分焦虑|<font face="Monaco">bilibili.</font></a></li>
+<li><a href="https://www.bilibili.com/video/BV1Sx411s71x?spm_id_from=333.999.0.0">【看见李健四大高校健谈会】第一站 清华大学「看见青春-大时代背景下的个人生活」_<font face="Monaco">2015.11.19 bilibili.</font>.</a></li>
+<li><a href="https://www.bilibili.com/video/BV1sb411x7bb?spm_id_from=333.999.0.0">【李健】最值得一看的访谈——如何应对走红_<font face="Monaco">bilibili.</font></a></li>
+<li><a href="https://www.bilibili.com/video/BV1Bz4y1S7F7?spm_id_from=333.999.0.0">【李健】专访回顾（三）生活的理想是为了理想的生活 音乐不是我生活的全部__<font face="Monaco">20130828 bilibili.</font></a></li>
+<li><a href="https://www.bilibili.com/video/BV1KE41117km?spm_id_from=333.999.0.0">【李健】专访：优秀音乐家不需要突破（超清）<font face="Monaco">bilibili.</font></a></li>
+<li></li>
+</ul>
+<p><a href="https://www.bilibili.com/video/BV1Sx411s71x?spm_id_from=333.999.0.0">【看见李健四大高校健谈会】第一站 清华大学「看见青春-大时代背景下的个人生活」_<font face="Monaco">2015.11.19 bilibili.</font></a></p>
+<blockquote>
+<p>[!TIP] 1. 人最重要的是<strong>拥有自己的生活，拥有自己的快乐</strong>。很多时候所谓事业要达到一个什么样的顶峰其实没有真正的意义。 2. 一个人一定要拥有自己的爱好，拥有自己的快乐。很少有人能够从事自己热爱的工作，枯燥的生活正是被自己的爱好，生活的小恩小惠所化解掉了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>研究生规划</title>
+    <url>/2022/05/19/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="研究生规划"><strong>研究生规划</strong></h2>
+<p><code>2022</code>年<code>5</code>月<code>12</code>日</p>
+<p><a href="https://www.bilibili.com/video/BV1AB4y1m7yV?spm_id_from=333.880.my_history.page.click">【研0必看】985导师分享研究生期间学习规划，让你实现边玩边学！_哔哩哔哩_bilibili</a></p>
+<p>做一个研究生规划，毕竟三年时间也是非常宝贵的，我既不想虚度时光，但也不想整天学的很累，按照自己的节奏来，所以早早地做一个规划吧，为研究生生涯画上一个完美的句号。</p>
+<p>我是不打算读博了，但是呢，在国内读研究生都是以培养学术研究为目标的，再说研究方向和工作也可能不相关，所以科研任务（决定毕业）和找工作基本上是两条路。</p>
+<ul>
+<li>找工作不想找纯软件的工作，例如开发一个客户端什么的，对这个也不感兴趣，但是研究的是软件，<strong>研究生目标就是把编程能力提上去</strong></li>
+<li>因为我学过电路，有硬件基础，因此还是很有优势的，未来可能会去硬件公司。</li>
+<li><strong>先把软件学好，先专精一门之后，再扩展技能，是不错的选择</strong>，不然就会什么都了解一点点，什么都不会</li>
+<li><strong>C++方面最好可以找一些相关的项目</strong>，赚点钱，才能有真正的提升，技能才不会丢</li>
+</ul>
+<p>目前呢，打算前两年还是好好做科研任务（<strong>前两年按照正规学术标准去规划</strong>），争取在前两年就可以写好毕业论文，毕竟毕业是头等大事，无论是否读博，都要把毕业论文好好完成，在保证能毕业的情况下，再谈其他的。</p>
+<p>每半年分成一个部分，越早起步越好，然后开学前还有半年，打好基础，基础很重要（ <strong><font color='red'> 勿在浮沙筑高台 </font></strong> ）。</p>
+<ul>
+<li><p><strong><font color='red'> 安排好自己的生活，在学习的同时又能兼顾自己的兴趣爱好 </font></strong></p>
+<ul>
+<li>保证每日的任务量</li>
+<li>但是不熬夜，11点之前可以睡着（当然这需要室友的配合，希望未来的室友不打游戏，可以早点睡觉）</li>
+<li>有时间去玩，锻炼身体</li>
+</ul>
+<p>看似简单，其实也不容易。</p></li>
+<li><p><strong><font color='red'> 养成专注的习惯 </font></strong></p>
+<p>学习就是学习，学习的时候就不要看手机，每天专心学习<code>7-8</code>个小时，完全可以完成要求，也完全有时间去玩。</p></li>
+<li><p><strong><font color='red'> 成熟稳重</font></strong></p>
+<ul>
+<li>一个人出去旅游，出去玩</li>
+<li>一个人在陌生的城市里立足</li>
+</ul></li>
+</ul>
+<p><strong>尽快的独立起来，做事不要依靠任何人，可以独当一面，成熟稳重起来</strong></p>
+<hr />
+<ol type="1">
+<li><p><code>2022.5.12-2022.9</code> <strong><font color='red'> 研究生开学前 </font></strong></p>
+<ul>
+<li><strong>打好编程基础。学习C++课程</strong></li>
+<li>目前基础语法学完了，总结一下，上传。</li>
+<li>正在学<code>STL</code>，有<code>46</code>节课，一天<code>2-3</code>节</li>
+<li><strong>一定要动手去写代码</strong></li>
+<li><strong>计算机网络</strong></li>
+<li><strong>计算机组成原理</strong> <a href="https://www.bilibili.com/video/BV1BE411D7ii?p=4">王道计算机考研 计算机组成原理_哔哩哔哩_bilibili</a></li>
+<li>一共<code>97</code>节，<code>45</code>天，一天<code>2</code>节课就可以，</li>
+<li><strong>复习很重要</strong>，第一天学过之后，第二天复习，那么后面会复习的越来越多，前面的以前可能有的学过，所以前面尽可能多看，后面重要的放慢进度。</li>
+<li><strong>操作系统</strong></li>
+<li><strong>英语学习。</strong>英语在面试，生活中用处还是非常大的，<strong>英语一定要坚持学</strong>。
+<ul>
+<li>做六级，六级考的也不太高</li>
+</ul></li>
+<li><strong>确定自己的研究方向，看论文，记笔记</strong> ---</li>
+</ul></li>
+<li><p><code>2022.9-2023.3</code><strong><font color='red'> 研一上半年 </font></strong></p>
+<ul>
+<li>应该会有很多专业课程</li>
+<li>看论文，对于研究背景什么的，平时就记录自己的想法，到时候写开题报告，论文的时候可以直接拿来用。不要让写论文、改论文这些事去耽误找工作的时间</li>
+</ul></li>
+<li><p>先写到这里吧，到时候再具体看情况，毕竟计划赶不上变化，但是一个大致的规划还是要有的~</p></li>
+</ol>
+<hr />
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>人生规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>职业规划</title>
+    <url>/2022/05/17/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%941-%E5%85%B3%E4%BA%8E%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="职业规划"><strong>职业规划</strong></h2>
+<p><code>2022.5.16</code>于家中</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1PY4y1e7VB?spm_id_from=333.999.0.0">给C++就业方向的应届毕业生的一些分析与建议，帮助大家少浪费时间，多花时间在有意义的事情上_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1C541127i7?spm_id_from=333.999.0.0">快问快答丨入行/转行IC选什么方向？学什么东西？要不要读研？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://mp.weixin.qq.com/s/v1wz3tN8PxTGnbMEPHnwFg">C++学习建议，重点看一下</a></li>
+</ul>
+<p>纯软件的职业不适合我，论编程开发，我比不过学软件的。但是，<strong>世上编程者大把，精通模电者寥寥。</strong>，会编程的人很多，可是又有几个人懂得硬件呢？</p>
+<p>没事就问问自己， <strong><font size=5><font color=red>自己的核心竞争力是什么？</font></font></strong> ，要学一些别人不会，你会的东西，这种东西没有你做不了，夹缝中求生存。</p>
+<p>目前来看，很有优势，毕竟本科是学电路的，有硬件的知识，会软件的肯定没有几个人懂硬件，世上也不缺会编程的人。但是要切记 <strong><font size=5><font color=red>先精通一门，再扩展技能</font></font></strong></p>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>人生规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>学习链接</title>
+    <url>/2022/10/19/tolearn/</url>
+    <content><![CDATA[<h1 id="一专业类"><strong>一、专业类</strong></h1>
+<h2 id="机器学习"><strong>机器学习</strong></h2>
+<h2 id="数学基础"><strong>1. 数学基础</strong></h2>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1pb411u7t1?spm_id_from=333.999.0.0">线性代数基础课程【小元老师】【超级0基础入门】</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ib411t7YR?spm_id_from=333.999.0.0">线性代数的本质</a></li>
+<li><a href="https://www.bilibili.com/video/BV14b411M7Jn?spm_id_from=333.999.0.0">概率论与数理统计知识详解【小元老师】【考研数学】</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ys411472E?spm_id_from=333.999.0.0">【官方双语/合集】线性代数的本质 - 系列合集</a></li>
+</ol>
+<h2 id="机器学习-1"><strong>2. 机器学习</strong></h2>
+<ol type="1">
+<li><strong>🔗<a href="机器学习/00Tra_ML/02.线性回归.md">线性回归</a></strong></li>
+</ol>
+<ul>
+<li><a href="https://blog.csdn.net/gongxifacai_believe/category_6834186.html">Machine Learning_魏晓蕾的博客-CSDN博客</a><mark>前辈们做的机器学习笔记</mark></li>
+<li><a href="https://www.bilibili.com/video/BV1jS4y1j74C?spm_id_from=333.999.0.0">机器学习之路【b站UP主】</a></li>
+</ul>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1Cx411i7op?spm_id_from=333.999.0.0">林轩田机器学习基石(国语)</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1aE411o7qd?spm_id_from=333.337.search-card.all.click">【白板推导系列】【合集 1～33】</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1eT4y1E73x?spm_id_from=333.999.0.0">【手推机器学习】矩阵求导7--最小二乘法举例</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ZM4y1w75P?spm_id_from=333.999.0.0">【神经网络】BP误差逆传播算法数学推导</a></li>
+<li><a href="https://www.bilibili.com/video/BV13J41157Wq?spm_id_from=333.999.0.0">5字诀搞定BP反向传播算法推导</a></li>
+<li><a href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">dragen1860/Deep-Learning-with-TensorFlow-book: 深度学习入门开源书，基于TensorFlow 2.0案例实战。</a></li>
+<li><a href="https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html">【英文】机器学习可解释性| Interpretable Machine Learning (christophm.github.io)</a></li>
+<li></li>
+</ol>
+<h2 id="深度学习"><strong>3. 深度学习</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong></li>
+<li><strong>🔗<a href="机器学习/05DL/CNN.md">CNN</a></strong></li>
+</ol>
+<h2 id="强化学习"><strong>4. 强化学习</strong></h2>
+<ol type="1">
+<li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
+<li><a href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总</a></li>
+<li><a href="https://www.bilibili.com/video/BV13W411Y75P?spm_id_from=333.999.0.0">【莫烦Python】强化学习 Reinforcement Learning</a></li>
+<li><a href="https://www.bilibili.com/video/BV16Y4y1M7DX?spm_id_from=333.999.0.0">强化学习基础 （本科生课程） 北京邮电大学 鲁鹏</a></li>
+<li><a href="https://www.bilibili.com/video/BV1XP4y1d7Bk?spm_id_from=333.999.0.0">李宏毅</a></li>
+<li><a href="https://www.bilibili.com/video/BV1rv41167yx/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深度强化学习（全）_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1CB4y1G777/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【RLChina 2022】前沿进展五：应用多智能体强化学习解决现实问题——机遇和挑战 方飞_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1vG4y1n7Rp/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">强化学习论文分享2022-10-13_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+<h2 id="计算机系统"><strong>计算机系统</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV1cD4y1D7uR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937&amp;t=42.5">【CSAPP-深入理解计算机系统】</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV17K4y1N7Q2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统合集（周更中）_哔哩哔哩_bilibili</a>
+<ul>
+<li><a href="https://github.com/yangminz/bcst_csapp">yangminz/bcst_csapp: A C language repo to implement CSAPP (github.com)</a></li>
+<li>Hello 观众朋友们大家好，这个Repo是我在做《深入理解计算机系统》（CSAPP）视频时所用到的代码，还包括一本设计手册，设计手册还在慢慢更新。代码、手册以及视频都是为了给大家介绍CSAPP这本书，帮助大家阅读和理解最基础的计算机系统知识。特别是本科低年级的同学（大一大二），准备转专业的同学，以及跨专业考研的同学，<strong>通常会掌握一些基本的编程语言，但是可能对计算机系统本身并不足够了解。</strong>我的视频、代码以及手册就是希望帮助大家学习，尽量通过代码实现CSAPP上的知识点，然后再通过视频讲解，<strong>将基础的计算机系统知识连贯起来。</strong></li>
+</ul></li>
+<li><a href="https://www.bilibili.com/video/BV1Vh411r7ef/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1gN411975F?p=16&amp;vd_source=83831fc0970a6c8704479f7cfc679937">第九章 虚拟内存_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili</a></strong></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili</a></strong></li>
+</ol>
+<h1 id="二软能力"><strong>二、软能力</strong></h1>
+<h2 id="羽毛球"><strong>羽毛球</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV12t4y1e7L4/?spm_id_from=333.788.recommend_more_video.11&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？_哔哩哔哩_bilibili</a></strong></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1n94y127z9/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置_哔哩哔哩_bilibili</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1yT411T78Y/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】我发了短球对方总推我底线就特别难受！怎么解决？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1pN4y1F72H/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球反手训练，让你获得更大的反手击球力量，轻松将球打到后场_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1PG41187Vq/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球初学者常见错误_哔哩哔哩_bilibili</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1vU4y1r7Vf/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球高级动作，提升你的羽毛球技能_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV19d4y1o75Z/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球步法，轻松应对网前及后场球_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1hT411w7fL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球挑球常出现的错误_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1LP4y1a7HH/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【高清低视角】林丹vs薛松 剪辑版 享受丹神的球速吧_哔哩哔哩_bilibili</a></strong>
+<ul>
+<li>看完这个视频，感觉林丹很轻松的原因。
+<ul>
+<li>一是，回球到位，所以让对手很难受，因为回球到位，对手难受，自己才很轻松。无论是接杀，还是什么，回球都让对方很难受</li>
+</ul></li>
+</ul></li>
+</ol>
+<p><strong><mark>控制自己的情绪，积极向上生活</mark></strong></p>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1U5411K7KP/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭 内卷到底是什么_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1j14y1Y7dB/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【陈铭】“我们有这个习惯，越是有负面情绪，越是伤害至亲的人”_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ug4y167Cq/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈】致 还不想恋爱的自己和屏幕前的你们_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV11o4y1Q7bJ/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭：为什么我不建议年轻人摸鱼？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ft411779h/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈5】陈铭传授当代青年人如何应对和抵抗焦虑_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1TA411A7M4/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">拒绝焦虑！拒绝内卷！非正式会谈这个片段真的好喜欢，宝藏综艺！_哔哩哔哩_bilibili</a></li>
+</ol>
+<p><strong><mark>宗教、中国人信仰的到底是什么</mark></strong></p>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1te4y1v79b/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">武汉大学陈铭：论恐惧与鬼_哔哩哔哩_bilibili</a></li>
+</ol>
+<h1 id="三英语"><strong>三、英语</strong></h1>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV13B4y1E78c/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">中英文逻辑_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV16T41137jP/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">雅思写作小作文进阶篇——用数学模型拿捏考官_哔哩哔哩_bilibili</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/83528343">雅思写作Task 1（小作文、图表作文）各题型攻略全解析 - 知乎 (zhihu.com)</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习链接</category>
+      </categories>
   </entry>
 </search>

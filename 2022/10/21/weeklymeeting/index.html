@@ -11,11 +11,12 @@
   <title>Weekly Meeting</title>
   <meta name="author" content="Peirsist">
   <meta name="description" content="Weekly Meeting
+
 2022-10-25
 1、comments
 2、近期工作
 
-20221019，早上英语课，到实验打印论文 An approach to enhance packet classification performance of software-defined ">
+20221019，早上英语课，到实验打印论文 An approach to enhance packet classification performance of software-define">
   
   
   <meta property="og:title" content="Weekly Meeting"/>
@@ -55,7 +56,7 @@
 
     </div>
     <div class="meta center">
-      <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
+      <time datetime="2022-10-21T05:54:41.000Z" itemprop="datePublished">
   <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
     <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
   </svg>
@@ -83,7 +84,7 @@
       <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
     </svg>
     &nbsp;
-    <a href="/tags/汇报/">汇报</a>·<a href="/tags/科研/">科研</a>
+    <a href="/tags/汇报/">汇报</a>
 
 
     </div>
@@ -95,20 +96,22 @@
       
     </div>
     <h1 id="weekly-meeting">Weekly Meeting</h1>
+<hr />
 <h1 id="section">2022-10-25</h1>
 <h2 id="comments">1、comments</h2>
 <h2 id="近期工作">2、近期工作</h2>
 <ol type="1">
-<li><p>20221019，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</p>
+<li>20221019，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
+</ol>
 <ul>
 <li><p><strong><mark>如何输出变量到CSV文件</mark></strong></p>
 <ol type="1">
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang的博客-CSDN博客_c++ 追加写文件</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv文本文件（也可用excel打开）_浦柳人的博客-CSDN博客_c++输出csv文件</a></li>
 </ol></li>
-</ul></li>
-</ol>
+</ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
 <h1 id="section-1">2022-10-18</h1>
 <h2 id="comments-1">1、comments</h2>
 <h2 id="近期工作-1">2、近期工作</h2>
