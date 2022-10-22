@@ -1,704 +1,164 @@
-
-
-<!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
-
-
-
+<!DOCTYPE HTML>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="" />
+  <meta name="referrer" content="unsafe-url">
   
-  <meta name="theme-color" content="#2f4154">
+  <title>RL介绍</title>
   <meta name="author" content="Peirsist">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="强化学习 Reinforcement Learning 声明：以下课件来源于 北京邮电大学人工智能学院鲁鹏老师  机器学习分支   强化学习特点  2. Reward">
-<meta property="og:type" content="article">
-<meta property="og:title" content="RL介绍">
-<meta property="og:url" content="http://example.com/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/index.html">
-<meta property="og:site_name" content="EEWIKI">
-<meta property="og:description" content="强化学习 Reinforcement Learning 声明：以下课件来源于 北京邮电大学人工智能学院鲁鹏老师  机器学习分支   强化学习特点  2. Reward">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3EJx.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3MeH.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3AF1.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3PeJ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3FoR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3iw9.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3VW6.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3eSK.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3mQO.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3nyD.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3uOe.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3Qwd.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3lTA.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ38Yt.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3YSf.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ33FI.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3GfP.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3N6S.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3tl8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3UOg.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3sf0.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ30Ts.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3rYq.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3Dkn.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3clT.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ32XF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3g6U.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3Wm4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ3h79.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/03/xQ35kR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsQZn.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlslaq.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xls1I0.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsGGT.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xls8iV.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsJRU.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsYzF.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsUsJ.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsNM4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsaL9.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlswZR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xls0d1.png">
-<meta property="og:image" content="https://s1.ax1x.com/2022/10/05/xlsBIx.png">
-<meta property="article:published_time" content="2022-10-15T01:54:41.000Z">
-<meta property="article:modified_time" content="2022-10-21T06:03:10.697Z">
-<meta property="article:author" content="Peirsist">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s1.ax1x.com/2022/10/03/xQ3EJx.png">
+  <meta name="description" content="强化学习 Reinforcement Learning
+声明：以下课件来源于 北京邮电大学人工智能学院鲁鹏老师
+
+机器学习分支
+ 
+强化学习特点
+
+2. Reward">
   
   
-  
-  <title>RL介绍 - EEWIKI</title>
+  <meta property="og:title" content="RL介绍"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="EEWIKI"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="EEWIKI" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
-
 <body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="main-ctnr">
+      <div class="behind">
+  <a href="/" class="back black-color">
+    <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+        <path d="M2 30 L30 2 M30 30 L2 2"></path>
+    </svg>
+  </a>
   
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>EEWIKI</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archives
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                Categories
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Tags
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/1612177325173.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="RL介绍"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-15 09:54" pubdate>
-          October 15, 2022 am
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          71 words
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          1 mins
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
 </div>
 
-</div>
 
-  </header>
-
-  <main>
-    
+  <article class="standard post">
+    <div class="title">
       
+  
+    <h1 class="page-title center">
+        RL介绍
+    </h1>
+  
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
 
     </div>
+    <div class="meta center">
+      <time datetime="2022-10-15T01:54:41.000Z" itemprop="datePublished">
+  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2022-10-15
+</time>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">RL介绍</h1>
-            
-              <p class="note note-info">
-                
-                  
-                    Last updated on October 21, 2022 pm
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="强化学习-reinforcement-learning"><strong>强化学习 Reinforcement Learning</strong></h2>
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/categories/强化学习/">强化学习</a>
+
+
+
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0-reinforcement-learning"><span class="toc-text">强化学习 Reinforcement Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%88%86%E6%94%AF"><span class="toc-text">机器学习分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%89%B9%E7%82%B9"><span class="toc-text">强化学习特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reward"><span class="toc-text">2. Reward</span></a></li></ol></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <h2 id="强化学习-reinforcement-learning"><strong>强化学习 Reinforcement Learning</strong></h2>
 <p>声明：以下课件来源于 <strong><em>北京邮电大学人工智能学院鲁鹏老师</em></strong></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3EJx"><img src="https://s1.ax1x.com/2022/10/03/xQ3EJx.png" srcset="/img/loading.gif" lazyload alt="xQ3EJx.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3EJx"><img src="https://s1.ax1x.com/2022/10/03/xQ3EJx.png" alt="xQ3EJx.png" /></a></p>
 <h3 id="机器学习分支">机器学习分支</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3MeH"><img src="https://s1.ax1x.com/2022/10/03/xQ3MeH.png" srcset="/img/loading.gif" lazyload alt="xQ3MeH.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3AF1"><img src="https://s1.ax1x.com/2022/10/03/xQ3AF1.png" srcset="/img/loading.gif" lazyload alt="xQ3AF1.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3MeH"><img src="https://s1.ax1x.com/2022/10/03/xQ3MeH.png" alt="xQ3MeH.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3AF1"><img src="https://s1.ax1x.com/2022/10/03/xQ3AF1.png" alt="xQ3AF1.png" /></a></p>
 <h3 id="强化学习特点">强化学习特点</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3PeJ"><img src="https://s1.ax1x.com/2022/10/03/xQ3PeJ.png" srcset="/img/loading.gif" lazyload alt="xQ3PeJ.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3PeJ"><img src="https://s1.ax1x.com/2022/10/03/xQ3PeJ.png" alt="xQ3PeJ.png" /></a></p>
 <h3 id="reward"><strong>2. Reward</strong></h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3FoR"><img src="https://s1.ax1x.com/2022/10/03/xQ3FoR.png" srcset="/img/loading.gif" lazyload alt="xQ3FoR.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3iw9"><img src="https://s1.ax1x.com/2022/10/03/xQ3iw9.png" srcset="/img/loading.gif" lazyload alt="xQ3iw9.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3VW6"><img src="https://s1.ax1x.com/2022/10/03/xQ3VW6.png" srcset="/img/loading.gif" lazyload alt="xQ3VW6.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3eSK"><img src="https://s1.ax1x.com/2022/10/03/xQ3eSK.png" srcset="/img/loading.gif" lazyload alt="xQ3eSK.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3mQO"><img src="https://s1.ax1x.com/2022/10/03/xQ3mQO.png" srcset="/img/loading.gif" lazyload alt="xQ3mQO.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3nyD"><img src="https://s1.ax1x.com/2022/10/03/xQ3nyD.png" srcset="/img/loading.gif" lazyload alt="xQ3nyD.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3uOe"><img src="https://s1.ax1x.com/2022/10/03/xQ3uOe.png" srcset="/img/loading.gif" lazyload alt="xQ3uOe.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Qwd"><img src="https://s1.ax1x.com/2022/10/03/xQ3Qwd.png" srcset="/img/loading.gif" lazyload alt="xQ3Qwd.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3lTA"><img src="https://s1.ax1x.com/2022/10/03/xQ3lTA.png" srcset="/img/loading.gif" lazyload alt="xQ3lTA.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ38Yt"><img src="https://s1.ax1x.com/2022/10/03/xQ38Yt.png" srcset="/img/loading.gif" lazyload alt="xQ38Yt.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3YSf"><img src="https://s1.ax1x.com/2022/10/03/xQ3YSf.png" srcset="/img/loading.gif" lazyload alt="xQ3YSf.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ33FI"><img src="https://s1.ax1x.com/2022/10/03/xQ33FI.png" srcset="/img/loading.gif" lazyload alt="xQ33FI.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3GfP"><img src="https://s1.ax1x.com/2022/10/03/xQ3GfP.png" srcset="/img/loading.gif" lazyload alt="xQ3GfP.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3N6S"><img src="https://s1.ax1x.com/2022/10/03/xQ3N6S.png" srcset="/img/loading.gif" lazyload alt="xQ3N6S.png" /></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3tl8"><img src="https://s1.ax1x.com/2022/10/03/xQ3tl8.png" srcset="/img/loading.gif" lazyload alt="xQ3tl8.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3UOg"><img src="https://s1.ax1x.com/2022/10/03/xQ3UOg.png" srcset="/img/loading.gif" lazyload alt="xQ3UOg.png" /></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3sf0"><img src="https://s1.ax1x.com/2022/10/03/xQ3sf0.png" srcset="/img/loading.gif" lazyload alt="xQ3sf0.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ30Ts"><img src="https://s1.ax1x.com/2022/10/03/xQ30Ts.png" srcset="/img/loading.gif" lazyload alt="xQ30Ts.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3rYq"><img src="https://s1.ax1x.com/2022/10/03/xQ3rYq.png" srcset="/img/loading.gif" lazyload alt="xQ3rYq.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Dkn"><img src="https://s1.ax1x.com/2022/10/03/xQ3Dkn.png" srcset="/img/loading.gif" lazyload alt="xQ3Dkn.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3clT"><img src="https://s1.ax1x.com/2022/10/03/xQ3clT.png" srcset="/img/loading.gif" lazyload alt="xQ3clT.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ32XF"><img src="https://s1.ax1x.com/2022/10/03/xQ32XF.png" srcset="/img/loading.gif" lazyload alt="xQ32XF.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3g6U"><img src="https://s1.ax1x.com/2022/10/03/xQ3g6U.png" srcset="/img/loading.gif" lazyload alt="xQ3g6U.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Wm4"><img src="https://s1.ax1x.com/2022/10/03/xQ3Wm4.png" srcset="/img/loading.gif" lazyload alt="xQ3Wm4.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3h79"><img src="https://s1.ax1x.com/2022/10/03/xQ3h79.png" srcset="/img/loading.gif" lazyload alt="xQ3h79.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ35kR"><img src="https://s1.ax1x.com/2022/10/03/xQ35kR.png" srcset="/img/loading.gif" lazyload alt="xQ35kR.png" /></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xlsQZn"><img src="https://s1.ax1x.com/2022/10/05/xlsQZn.png" srcset="/img/loading.gif" lazyload alt="xlsQZn.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlslaq"><img src="https://s1.ax1x.com/2022/10/05/xlslaq.png" srcset="/img/loading.gif" lazyload alt="xlslaq.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls1I0"><img src="https://s1.ax1x.com/2022/10/05/xls1I0.png" srcset="/img/loading.gif" lazyload alt="xls1I0.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsGGT"><img src="https://s1.ax1x.com/2022/10/05/xlsGGT.png" srcset="/img/loading.gif" lazyload alt="xlsGGT.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls8iV"><img src="https://s1.ax1x.com/2022/10/05/xls8iV.png" srcset="/img/loading.gif" lazyload alt="xls8iV.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsJRU"><img src="https://s1.ax1x.com/2022/10/05/xlsJRU.png" srcset="/img/loading.gif" lazyload alt="xlsJRU.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsYzF"><img src="https://s1.ax1x.com/2022/10/05/xlsYzF.png" srcset="/img/loading.gif" lazyload alt="xlsYzF.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsUsJ"><img src="https://s1.ax1x.com/2022/10/05/xlsUsJ.png" srcset="/img/loading.gif" lazyload alt="xlsUsJ.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsNM4"><img src="https://s1.ax1x.com/2022/10/05/xlsNM4.png" srcset="/img/loading.gif" lazyload alt="xlsNM4.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsaL9"><img src="https://s1.ax1x.com/2022/10/05/xlsaL9.png" srcset="/img/loading.gif" lazyload alt="xlsaL9.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlswZR"><img src="https://s1.ax1x.com/2022/10/05/xlswZR.png" srcset="/img/loading.gif" lazyload alt="xlswZR.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls0d1"><img src="https://s1.ax1x.com/2022/10/05/xls0d1.png" srcset="/img/loading.gif" lazyload alt="xls0d1.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsBIx"><img src="https://s1.ax1x.com/2022/10/05/xlsBIx.png" srcset="/img/loading.gif" lazyload alt="xlsBIx.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3FoR"><img src="https://s1.ax1x.com/2022/10/03/xQ3FoR.png" alt="xQ3FoR.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3iw9"><img src="https://s1.ax1x.com/2022/10/03/xQ3iw9.png" alt="xQ3iw9.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3VW6"><img src="https://s1.ax1x.com/2022/10/03/xQ3VW6.png" alt="xQ3VW6.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3eSK"><img src="https://s1.ax1x.com/2022/10/03/xQ3eSK.png" alt="xQ3eSK.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3mQO"><img src="https://s1.ax1x.com/2022/10/03/xQ3mQO.png" alt="xQ3mQO.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3nyD"><img src="https://s1.ax1x.com/2022/10/03/xQ3nyD.png" alt="xQ3nyD.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3uOe"><img src="https://s1.ax1x.com/2022/10/03/xQ3uOe.png" alt="xQ3uOe.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Qwd"><img src="https://s1.ax1x.com/2022/10/03/xQ3Qwd.png" alt="xQ3Qwd.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3lTA"><img src="https://s1.ax1x.com/2022/10/03/xQ3lTA.png" alt="xQ3lTA.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ38Yt"><img src="https://s1.ax1x.com/2022/10/03/xQ38Yt.png" alt="xQ38Yt.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3YSf"><img src="https://s1.ax1x.com/2022/10/03/xQ3YSf.png" alt="xQ3YSf.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ33FI"><img src="https://s1.ax1x.com/2022/10/03/xQ33FI.png" alt="xQ33FI.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3GfP"><img src="https://s1.ax1x.com/2022/10/03/xQ3GfP.png" alt="xQ3GfP.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3N6S"><img src="https://s1.ax1x.com/2022/10/03/xQ3N6S.png" alt="xQ3N6S.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3tl8"><img src="https://s1.ax1x.com/2022/10/03/xQ3tl8.png" alt="xQ3tl8.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3UOg"><img src="https://s1.ax1x.com/2022/10/03/xQ3UOg.png" alt="xQ3UOg.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3sf0"><img src="https://s1.ax1x.com/2022/10/03/xQ3sf0.png" alt="xQ3sf0.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ30Ts"><img src="https://s1.ax1x.com/2022/10/03/xQ30Ts.png" alt="xQ30Ts.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3rYq"><img src="https://s1.ax1x.com/2022/10/03/xQ3rYq.png" alt="xQ3rYq.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Dkn"><img src="https://s1.ax1x.com/2022/10/03/xQ3Dkn.png" alt="xQ3Dkn.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3clT"><img src="https://s1.ax1x.com/2022/10/03/xQ3clT.png" alt="xQ3clT.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ32XF"><img src="https://s1.ax1x.com/2022/10/03/xQ32XF.png" alt="xQ32XF.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3g6U"><img src="https://s1.ax1x.com/2022/10/03/xQ3g6U.png" alt="xQ3g6U.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3Wm4"><img src="https://s1.ax1x.com/2022/10/03/xQ3Wm4.png" alt="xQ3Wm4.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ3h79"><img src="https://s1.ax1x.com/2022/10/03/xQ3h79.png" alt="xQ3h79.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xQ35kR"><img src="https://s1.ax1x.com/2022/10/03/xQ35kR.png" alt="xQ35kR.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xlsQZn"><img src="https://s1.ax1x.com/2022/10/05/xlsQZn.png" alt="xlsQZn.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlslaq"><img src="https://s1.ax1x.com/2022/10/05/xlslaq.png" alt="xlslaq.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls1I0"><img src="https://s1.ax1x.com/2022/10/05/xls1I0.png" alt="xls1I0.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsGGT"><img src="https://s1.ax1x.com/2022/10/05/xlsGGT.png" alt="xlsGGT.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls8iV"><img src="https://s1.ax1x.com/2022/10/05/xls8iV.png" alt="xls8iV.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsJRU"><img src="https://s1.ax1x.com/2022/10/05/xlsJRU.png" alt="xlsJRU.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsYzF"><img src="https://s1.ax1x.com/2022/10/05/xlsYzF.png" alt="xlsYzF.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsUsJ"><img src="https://s1.ax1x.com/2022/10/05/xlsUsJ.png" alt="xlsUsJ.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsNM4"><img src="https://s1.ax1x.com/2022/10/05/xlsNM4.png" alt="xlsNM4.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsaL9"><img src="https://s1.ax1x.com/2022/10/05/xlsaL9.png" alt="xlsaL9.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlswZR"><img src="https://s1.ax1x.com/2022/10/05/xlswZR.png" alt="xlswZR.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xls0d1"><img src="https://s1.ax1x.com/2022/10/05/xls0d1.png" alt="xls0d1.png" /></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xlsBIx"><img src="https://s1.ax1x.com/2022/10/05/xlsBIx.png" alt="xlsBIx.png" /></a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
 
-<span class="category-chains">
-  
-  
+  </article>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div class="busuanzi center">
+    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
     
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="category-chain-item">强化学习</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-</div>
-
-
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/" title="CNN">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CNN</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">
-                        <span class="hidden-mobile">线性回归</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
 
 
 
-  </aside>
 
 
     </div>
   </div>
+  <footer class="page-footer"><div class="clearfix">
 </div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © peirsist 2022
     </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <div class="secondrow">
+        <a target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
     </div>
-  
-  
-  
-  
 </div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
 
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+// disqus scripts
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
 
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
 </script>
 
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
 </body>
 </html>

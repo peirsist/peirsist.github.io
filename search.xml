@@ -1631,6 +1631,16 @@ blockquote {
 <li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置首页分页之前默认就有，这里就不额外加了</span></span><br><span class="line"><span class="comment"># index_generator:</span></span><br><span class="line"><span class="comment">#   per_page: 5</span></span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br><span class="line">  yearly: <span class="literal">true</span>  <span class="comment">#是否按年生成归档</span></span><br><span class="line">  monthly: <span class="literal">false</span>  <span class="comment">#为了加快生成速度，按月归档就不要了</span></span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br></pre></td></tr></table></figure>
+<h2 id="主题">主题</h2>
+<ol type="1">
+<li>Fulid
+<ul>
+<li><a href="https://github.com/fluid-dev/hexo-theme-fluid">fluid-dev/hexo-theme-fluid: 一款 Material Design 风格的 Hexo 主题 / An elegant Material-Design theme for Hexo (github.com)</a></li>
+<li><a href="https://hexo.fluid-dev.com/docs/start/#主题简介">开始使用 | Hexo Fluid 用户手册 (fluid-dev.com)</a></li>
+<li><a href="https://hexo.fluid-dev.com/docs/guide/#slogan-打字机">配置指南 | Hexo Fluid 用户手册 (fluid-dev.com)</a></li>
+<li></li>
+</ul></li>
+</ol>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
