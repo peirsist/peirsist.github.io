@@ -138,25 +138,6 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
       </categories>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/10/20/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>线性回归.md</title>
     <url>/2022/10/20/2.LinearRegression/</url>
     <content><![CDATA[<h1 id="线性回归">线性回归</h1>
@@ -255,6 +236,69 @@ s.t. ||w||_1\lt C
       </categories>
   </entry>
   <entry>
+    <title>Back Propagation</title>
+    <url>/2022/10/21/BP/</url>
+    <content><![CDATA[
+
+	<div class="row">
+    <embed src="BP.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<!-- 
+
+	<div class="row">
+    <embed src="https://cloud.tsinghua.edu.cn/f/952edbd1e02d409cbd01/" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>--&gt;</p>
+<!-- <iframe src="BP.pdf" width="800px" height="800px" frameborder="0" scrolling="no"></iframe> -->
+<h2 id="梯度下降">梯度下降</h2>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
+</ol>
+<p><a href="https://so.csdn.net/so/search?q=梯度下降&amp;spm=1001.2101.3001.7020">梯度下降</a>（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主要目的是通过迭代找到目标函数的最小值，或者收敛到最小值。</p>
+<h3 id="思想">思想</h3>
+<p><strong>梯度下降法的基本思想可以类比为一个下山的过程。</strong> 假设这样一个场景：一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)。但此时山上的浓雾很大，导致可视度很低；因此，下山的路径就无法确定，必须利用自己周围的信息一步一步地找到下山的路。这个时候，便可利用梯度下降算法来帮助自己下山。怎么做呢，<strong>首先以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着下降方向走一步，然后又继续以当前位置为基准，再找最陡峭的地方，再走直到最后到达最低处；同理上山也是如此，只是这时候就变成梯度上升算法了。</strong></p>
+<p>梯度下降的基本过程就和下山的场景很类似。</p>
+<p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
+<h3 id="数学表示">数学表示</h3>
+<p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;"></p>
+<p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
+<p><strong><mark>α</mark></strong></p>
+<p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
+<p><strong><mark>梯度要乘以一个负号</mark></strong></p>
+<p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2022/10/20/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>test.md</title>
     <url>/2022/10/20/test-md/</url>
     <content><![CDATA[<h2 id="测试latex">测试latex</h2>
@@ -264,38 +308,114 @@ s.t. ||w||_1\lt C
       </tags>
   </entry>
   <entry>
-    <title>如何阅读文献</title>
-    <url>/2022/10/20/00/%E8%AF%BB%E6%96%87%E7%8C%AE/</url>
-    <content><![CDATA[<h2 id="如何阅读文献">如何阅读文献</h2>
-<blockquote>
-<p>清华大学唐潇风</p>
-</blockquote>
+    <title>学习链接</title>
+    <url>/2022/10/19/tolearn/</url>
+    <content><![CDATA[<h1 id="一专业类"><strong>一、专业类</strong></h1>
+<h2 id="机器学习"><strong>机器学习</strong></h2>
+<h2 id="数学基础"><strong>1. 数学基础</strong></h2>
 <ol type="1">
-<li><p>看标题，摘要，最值得抓取的、不明白的是什么。不适合刚开始读文献的学生。把每篇文献整理成三句话：</p>
+<li><a href="https://www.bilibili.com/video/BV1pb411u7t1?spm_id_from=333.999.0.0">线性代数基础课程【小元老师】【超级0基础入门】</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ib411t7YR?spm_id_from=333.999.0.0">线性代数的本质</a></li>
+<li><a href="https://www.bilibili.com/video/BV14b411M7Jn?spm_id_from=333.999.0.0">概率论与数理统计知识详解【小元老师】【考研数学】</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ys411472E?spm_id_from=333.999.0.0">【官方双语/合集】线性代数的本质 - 系列合集</a></li>
+</ol>
+<h2 id="机器学习-1"><strong>2. 机器学习</strong></h2>
+<ol type="1">
+<li><strong>🔗<a href="机器学习/00Tra_ML/02.线性回归.md">线性回归</a></strong></li>
+</ol>
 <ul>
-<li>为什么做</li>
-<li>怎么做的</li>
-<li>得到什么</li>
+<li><a href="https://blog.csdn.net/gongxifacai_believe/category_6834186.html">Machine Learning_魏晓蕾的博客-CSDN博客</a><mark>前辈们做的机器学习笔记</mark></li>
+<li><a href="https://www.bilibili.com/video/BV1jS4y1j74C?spm_id_from=333.999.0.0">机器学习之路【b站UP主】</a></li>
 </ul>
-<p>之所以能做到提炼成三句话，往往是对这个领域特别熟悉的，知道别人做过什么</p></li>
-<li><p>精读<code>20</code> 篇，每一句话。</p></li>
-<li><p>信息抓取的角度，翻译是可以的，<strong>但写文章的时候，就要从头开始想怎么写</strong></p></li>
-<li><p>为了写作，写作的角度，读原文，才能看到别人的语言是如何使用的。</p></li>
-<li><p><strong>做到让自己经常写这件事不是那么容易</strong>，总是拖到最后，写个两三天，一两个礼拜。尽量把 <strong>负荷均摊化，每天写半小时，持续性的写。</strong></p></li>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1Cx411i7op?spm_id_from=333.999.0.0">林轩田机器学习基石(国语)</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1aE411o7qd?spm_id_from=333.337.search-card.all.click">【白板推导系列】【合集 1～33】</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1eT4y1E73x?spm_id_from=333.999.0.0">【手推机器学习】矩阵求导7--最小二乘法举例</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ZM4y1w75P?spm_id_from=333.999.0.0">【神经网络】BP误差逆传播算法数学推导</a></li>
+<li><a href="https://www.bilibili.com/video/BV13J41157Wq?spm_id_from=333.999.0.0">5字诀搞定BP反向传播算法推导</a></li>
+<li><a href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">dragen1860/Deep-Learning-with-TensorFlow-book: 深度学习入门开源书，基于TensorFlow 2.0案例实战。</a></li>
+<li><a href="https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html">【英文】机器学习可解释性| Interpretable Machine Learning (christophm.github.io)</a></li>
+<li></li>
+</ol>
+<h2 id="深度学习"><strong>3. 深度学习</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong></li>
+<li><strong>🔗<a href="机器学习/05DL/CNN.md">CNN</a></strong></li>
+</ol>
+<h2 id="强化学习"><strong>4. 强化学习</strong></h2>
+<ol type="1">
+<li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
+<li><a href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总</a></li>
+<li><a href="https://www.bilibili.com/video/BV13W411Y75P?spm_id_from=333.999.0.0">【莫烦Python】强化学习 Reinforcement Learning</a></li>
+<li><a href="https://www.bilibili.com/video/BV16Y4y1M7DX?spm_id_from=333.999.0.0">强化学习基础 （本科生课程） 北京邮电大学 鲁鹏</a></li>
+<li><a href="https://www.bilibili.com/video/BV1XP4y1d7Bk?spm_id_from=333.999.0.0">李宏毅</a></li>
+<li><a href="https://www.bilibili.com/video/BV1rv41167yx/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深度强化学习（全）_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1CB4y1G777/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【RLChina 2022】前沿进展五：应用多智能体强化学习解决现实问题——机遇和挑战 方飞_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1vG4y1n7Rp/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">强化学习论文分享2022-10-13_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+<h2 id="计算机系统"><strong>计算机系统</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV1cD4y1D7uR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937&amp;t=42.5">【CSAPP-深入理解计算机系统】</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV17K4y1N7Q2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统合集（周更中）_哔哩哔哩_bilibili</a>
+<ul>
+<li><a href="https://github.com/yangminz/bcst_csapp">yangminz/bcst_csapp: A C language repo to implement CSAPP (github.com)</a></li>
+<li>Hello 观众朋友们大家好，这个Repo是我在做《深入理解计算机系统》（CSAPP）视频时所用到的代码，还包括一本设计手册，设计手册还在慢慢更新。代码、手册以及视频都是为了给大家介绍CSAPP这本书，帮助大家阅读和理解最基础的计算机系统知识。特别是本科低年级的同学（大一大二），准备转专业的同学，以及跨专业考研的同学，<strong>通常会掌握一些基本的编程语言，但是可能对计算机系统本身并不足够了解。</strong>我的视频、代码以及手册就是希望帮助大家学习，尽量通过代码实现CSAPP上的知识点，然后再通过视频讲解，<strong>将基础的计算机系统知识连贯起来。</strong></li>
+</ul></li>
+<li><a href="https://www.bilibili.com/video/BV1Vh411r7ef/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1gN411975F?p=16&amp;vd_source=83831fc0970a6c8704479f7cfc679937">第九章 虚拟内存_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili</a></strong></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili</a></strong></li>
+</ol>
+<h1 id="二软能力"><strong>二、软能力</strong></h1>
+<h2 id="羽毛球"><strong>羽毛球</strong></h2>
+<ol type="1">
+<li><strong><a href="https://www.bilibili.com/video/BV12t4y1e7L4/?spm_id_from=333.788.recommend_more_video.11&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？_哔哩哔哩_bilibili</a></strong></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1n94y127z9/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置_哔哩哔哩_bilibili</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1yT411T78Y/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】我发了短球对方总推我底线就特别难受！怎么解决？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1pN4y1F72H/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球反手训练，让你获得更大的反手击球力量，轻松将球打到后场_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1PG41187Vq/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球初学者常见错误_哔哩哔哩_bilibili</a></strong></li>
+<li><a href="https://www.bilibili.com/video/BV1vU4y1r7Vf/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球高级动作，提升你的羽毛球技能_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV19d4y1o75Z/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球步法，轻松应对网前及后场球_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1hT411w7fL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球挑球常出现的错误_哔哩哔哩_bilibili</a></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1LP4y1a7HH/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【高清低视角】林丹vs薛松 剪辑版 享受丹神的球速吧_哔哩哔哩_bilibili</a></strong>
+<ul>
+<li>看完这个视频，感觉林丹很轻松的原因。
+<ul>
+<li>一是，回球到位，所以让对手很难受，因为回球到位，对手难受，自己才很轻松。无论是接杀，还是什么，回球都让对方很难受</li>
+</ul></li>
+</ul></li>
+</ol>
+<p><strong><mark>控制自己的情绪，积极向上生活</mark></strong></p>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1U5411K7KP/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭 内卷到底是什么_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1j14y1Y7dB/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【陈铭】“我们有这个习惯，越是有负面情绪，越是伤害至亲的人”_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ug4y167Cq/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈】致 还不想恋爱的自己和屏幕前的你们_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV11o4y1Q7bJ/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭：为什么我不建议年轻人摸鱼？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ft411779h/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈5】陈铭传授当代青年人如何应对和抵抗焦虑_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1TA411A7M4/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">拒绝焦虑！拒绝内卷！非正式会谈这个片段真的好喜欢，宝藏综艺！_哔哩哔哩_bilibili</a></li>
+</ol>
+<p><strong><mark>宗教、中国人信仰的到底是什么</mark></strong></p>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1te4y1v79b/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">武汉大学陈铭：论恐惧与鬼_哔哩哔哩_bilibili</a></li>
+</ol>
+<h1 id="三英语"><strong>三、英语</strong></h1>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV13B4y1E78c/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">中英文逻辑_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV16T41137jP/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">雅思写作小作文进阶篇——用数学模型拿捏考官_哔哩哔哩_bilibili</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/83528343">雅思写作Task 1（小作文、图表作文）各题型攻略全解析 - 知乎 (zhihu.com)</a></li>
+<li></li>
 </ol>
 ]]></content>
       <categories>
-        <category>科研</category>
+        <category>学习链接</category>
       </categories>
-      <tags>
-        <tag>文献</tag>
-      </tags>
   </entry>
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/21/weeklymeeting/</url>
     <content><![CDATA[<h1 id="weekly-meeting">Weekly Meeting</h1>
-<hr />
+<hr>
 <h1 id="section">2022-10-25</h1>
 <h2 id="comments">1、comments</h2>
 <h2 id="近期工作">2、近期工作</h2>
@@ -310,7 +430,7 @@ s.t. ||w||_1\lt C
 </ol></li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr />
+<hr>
 <h1 id="section-1">2022-10-18</h1>
 <h2 id="comments-1">1、comments</h2>
 <h2 id="近期工作-1">2、近期工作</h2>
@@ -361,6 +481,139 @@ s.t. ||w||_1\lt C
       </categories>
       <tags>
         <tag>汇报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何阅读文献</title>
+    <url>/2022/10/20/00/%E8%AF%BB%E6%96%87%E7%8C%AE/</url>
+    <content><![CDATA[<h2 id="如何阅读文献">如何阅读文献</h2>
+<blockquote>
+<p>清华大学唐潇风</p>
+</blockquote>
+<ol type="1">
+<li><p>看标题，摘要，最值得抓取的、不明白的是什么。不适合刚开始读文献的学生。把每篇文献整理成三句话：</p>
+<ul>
+<li>为什么做</li>
+<li>怎么做的</li>
+<li>得到什么</li>
+</ul>
+<p>之所以能做到提炼成三句话，往往是对这个领域特别熟悉的，知道别人做过什么</p></li>
+<li><p>精读<code>20</code> 篇，每一句话。</p></li>
+<li><p>信息抓取的角度，翻译是可以的，<strong>但写文章的时候，就要从头开始想怎么写</strong></p></li>
+<li><p>为了写作，写作的角度，读原文，才能看到别人的语言是如何使用的。</p></li>
+<li><p><strong>做到让自己经常写这件事不是那么容易</strong>，总是拖到最后，写个两三天，一两个礼拜。尽量把 <strong>负荷均摊化，每天写半小时，持续性的写。</strong></p></li>
+</ol>
+]]></content>
+      <categories>
+        <category>科研</category>
+      </categories>
+      <tags>
+        <tag>文献</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>虚拟机安装Ubuntu18.04</title>
+    <url>/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/</url>
+    <content><![CDATA[<h1 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h1>
+<h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
+<ul>
+<li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
+<li>但仍然无法复制粘贴 参考<a href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
+<li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
+</ul>
+<h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
+<li><p><code>Ubuntu</code>更改源</p></li>
+</ul>
+<h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
+<li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;"></p>
+<p><strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
+<ul>
+<li><strong><a href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
+</ul>
+<p>原因在于python依赖的安装包没有安装。</p>
+<h3 id="python-binding解决">python Binding解决</h3>
+<ol type="1">
+<li>安装python3</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
+<li><a href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
+<li><a href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
+</ul>
+<h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong><a href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
+<li><p><strong><a href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
+<li><p>可以再把与python有关的再装一遍</p></li>
+<li><figure>
+<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的"><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
+</figure></li>
+<li><p>出现以下图片后</p></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进行编译，但会出现卡了，这时需要增大虚拟机内存</li>
+<li>重新编译，终于安装好了</li>
+</ul>
+<h2 id="其他参考网站">其他参考网站</h2>
+<ul>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
+<li><p><a href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p></li>
+<li><p><a href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS2019新建C自动添加作者版权等信息</title>
+    <url>/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="visualstudio2019新建c自动添加作者版权等信息">VisualStudio2019新建C自动添加作者版权等信息</h1>
+<h4 id="参考">参考</h4>
+<ul>
+<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p></li>
+<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网</a></p></li>
+<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p></li>
+<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p></li>
+</ul>
+<h3 id="注释规范">注释规范</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/**══════════════════════════════════╗</span><br><span class="line">*作    者：songbaobao                                                ║</span><br><span class="line">*职    业：我以我血荐轩辕                                              ║                                              </span><br><span class="line">*CSND地址：https://blog.csdn.net/weixin_43949535                       ║</span><br><span class="line">**GitHub ：https://github.com/TsinghuaLucky912/My_own_C-_study_and_blog║</span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*创建时间：                                                           </span><br><span class="line">*功能描述：                                                            </span><br><span class="line">*                                                                      </span><br><span class="line">*                                                                      </span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*结束时间:                                                           </span><br><span class="line">*═══════════════════════════════════╝</span><br><span class="line">//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.</span><br><span class="line">//            __.&#x27;              ~.   .~              `.__</span><br><span class="line">//          .&#x27;//              西南\./联大               \\`.</span><br><span class="line">//        .&#x27;//                     |                     \\`.</span><br><span class="line">//      .&#x27;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.</span><br><span class="line">//    .&#x27;//.-&quot;                 `-.  |  .-&#x27;                 &quot;-.\\`.</span><br><span class="line">//  .&#x27;//______.============-..   \ | /   ..-============.______\\`.</span><br><span class="line">//.&#x27;______________________________\|/______________________________`.</span><br><span class="line">*/</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装Ubuntu18.04双系统</title>
+    <url>/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="安装ubuntu双系统">安装Ubuntu双系统</h2>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_43106321/article/details/105361644">Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu</a></li>
+<li><a href="https://blog.csdn.net/weixin_44623637/article/details/106723462">Ubuntu18.04安装教程——超详细的图文教程_Krasjet_Yu.的博客-CSDN博客_ubuntu18.04</a></li>
+<li><a href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
+<li><a href="https://blog.csdn.net/baidu_36602427/article/details/86548203">Ubuntu18.04安装教程_寥廓长空的博客-CSDN博客_ubuntu安装教程</a></li>
+</ol>
+<h2 id="注意"><mark>注意</mark></h2>
+<ol type="1">
+<li>进入Bios界面，一直按<code>F2</code></li>
+<li>如何启动进入选择系统界面还没解决，linux系统用的不多，总体来说还是虚拟机方便，但是虚拟机占用内存。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
       </tags>
   </entry>
   <entry>
@@ -474,7 +727,7 @@ s.t. ||w||_1\lt C
     <content><![CDATA[<h2 id="侯捷c面向对象"><strong>侯捷C++面向对象</strong></h2>
 <p>很喜欢这种娓娓道来的讲课，而不是填鸭式的灌输知识点，对零碎的知识点特此记录。</p>
 <blockquote>
-<p><strong><font color='red'>培养正规的、大气的编程习惯</font></strong></p>
+<p><strong><font color="red">培养正规的、大气的编程习惯</font></strong></p>
 </blockquote>
 <p><code>class</code>是C++中最重要的，侯捷老师：“<strong>一个人写了一个<code>class</code>，看他是否受过良好的、正规的训练，看以下几点</strong>：”</p>
 <!-- - 数据成员用`private`，成员函数大部分`public`
@@ -488,7 +741,7 @@ s.t. ||w||_1\lt C
 <li>函数返回值是<code>return by value</code>还是<code>return by reference</code>，同时考虑是否加<code>const</code>。尽可能的用<code>return by reference</code></li>
 <li>对于一个函数本身，考虑是否加<code>const</code></li>
 </ul>
-<hr />
+<hr>
 <p>知识点总结：</p>
 <!-- > 1. `inline`函数，若函数在`class body`内定义，便自动能为`inline`函数**候选人**，函数外要加`inline`关键字，但究竟能不能成为`inline`函数，由编译器决定。`inline`函数像宏一样，有它的特性，但是没有它的缺点，`inline`函数执行速度很快。
 > 2. 构造函数初始化要使用**初始化列表**的方式，不要用`assign`赋值的方式。数值的设定有两个阶段：先是初始化，再是赋值。构造函数可以`overloading`，**函数重载**，但是在编译器看来是不重名的。
@@ -537,7 +790,7 @@ s.t. ||w||_1\lt C
 <li><a href="https://blog.csdn.net/xiangguang_fight/article/details/114839642?spm=1001.2101.3001.6650.8&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-8.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-8.pc_relevant_default&amp;utm_relevant_index=10">开学回归力扣：第十二题—— 229. 求众数 II（摩尔投票法）_xiangguang_fight的博客-CSDN博客</a></li>
 <li></li>
 </ol>
-<hr />
+<hr>
 <h3 id="毕设遇到的编程问题">毕设遇到的编程问题：</h3>
 <p>2021年3月24日</p>
 <ul>
@@ -563,7 +816,7 @@ s.t. ||w||_1\lt C
 <li><p><a href="https://blog.csdn.net/ac1085589289/article/details/85077580">错误信息was not declared in this scope</a></p></li>
 </ul>
 <p>-<a href="https://blog.csdn.net/sergery/article/details/8144731">C++, 想要使用string ,必须要用命名空间 std</a></p>
-<hr />
+<hr>
 <h3 id="c生成随机数">C++生成随机数？</h3>
 <ul>
 <li><a href="https://blog.csdn.net/on_june_7th/article/details/120392619">C++产生随机数_on_june_7th的博客-CSDN博客_c++随机数</a></li>
@@ -584,20 +837,6 @@ s.t. ||w||_1\lt C
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown使用记录</title>
-    <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Markdown/</url>
-    <content><![CDATA[<h1 id="markdown的使用"><font face="Monaco">Markdown</font>的使用</h1>
-<ul>
-<li><a href="https://www.imooc.com/wiki/markdownlesson/markdowncolor.html"><font face="Monaco">Markdown</font> 前景色、背景色丨慕课网教程 (imooc.com)</a></li>
-<li><a href="https://blog.csdn.net/weixin_41765578/article/details/120443879"><font face="Monaco">Markdown</font>笔记|自定义不同颜色的字体高亮|理Risen的博客-CSDN博客_</a></li>
-<li></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -627,7 +866,7 @@ s.t. ||w||_1\lt C
 <h3 id="命名空间">命名空间</h3>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; <span class="comment">//使用命名空间</span></span><br><span class="line"><span class="comment">//命名空间，解决C语言中重定义</span></span><br><span class="line"><span class="keyword">namespace</span> stu <span class="comment">//声明命名空间</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">23</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> stu1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">56</span> &lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> stu;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> stu1;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stu::<span class="built_in">sort</span>();<span class="comment">//::作用域运算符</span></span><br><span class="line">    stu1::<span class="built_in">sort</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png" alt="image-20211001101337224" /><figcaption aria-hidden="true">image-20211001101337224</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png" alt="image-20211001101337224"><figcaption aria-hidden="true">image-20211001101337224</figcaption>
 </figure>
 <h3 id="结构体">结构体</h3>
 <p>C语言中结构体看<a href="https://www.bilibili.com/video/BV1rW411R7g4?p=10">【C++教程】_哔哩哔哩_bilibili</a></p>
@@ -647,7 +886,7 @@ s.t. ||w||_1\lt C
 <p>引用给变量起别名，typedef给类型起别名</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> a = <span class="number">12</span>;</span><br><span class="line">   <span class="type">int</span> &amp;c = a; <span class="comment">//&amp;不是取地址，是引用。声明变量a的一个引用c，c是变量a的别名</span></span><br><span class="line"></span><br><span class="line">   c = <span class="number">14</span>;</span><br><span class="line">   cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211002165551868.png" alt="image-20211002165551868" /><figcaption aria-hidden="true">image-20211002165551868</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211002165551868.png" alt="image-20211002165551868"><figcaption aria-hidden="true">image-20211002165551868</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">//常量类型的引用</span></span><br><span class="line">   <span class="type">const</span> <span class="type">int</span> &amp;a = <span class="number">12</span>;</span><br><span class="line">   <span class="type">const</span> <span class="type">char</span> &amp;b = <span class="string">&#x27;v&#x27;</span>;</span><br><span class="line">   cout &lt;&lt; a &lt;&lt; endl &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"><span class="comment">//数组的引用</span></span><br><span class="line">   <span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line">   <span class="built_in">int</span> (&amp;p)[<span class="number">10</span>] = arr; <span class="comment">//p的用法和arr一样</span></span><br><span class="line">   p[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line">   cout &lt;&lt; arr[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> arr2[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">   <span class="built_in">int</span> (&amp;p2)[<span class="number">2</span>][<span class="number">3</span>] = arr2;</span><br><span class="line">   p2[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">67</span>;</span><br><span class="line">   cout &lt;&lt; arr2[<span class="number">2</span>][<span class="number">3</span>]&lt;&lt;endl;</span><br><span class="line">   <span class="comment">//指针的引用</span></span><br><span class="line"><span class="comment">// 类型 + 引用</span></span><br><span class="line">   <span class="type">int</span> c = <span class="number">78</span>;</span><br><span class="line">   <span class="type">int</span> *point = &amp;c;</span><br><span class="line">   cout &lt;&lt; *point&lt;&lt;endl;</span><br><span class="line">   <span class="type">int</span>* (&amp;p3) = point;</span><br><span class="line">   *p3 = <span class="number">97</span>;</span><br><span class="line">   cout &lt;&lt; c;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="引用做参数">引用做参数</h3>
@@ -671,7 +910,7 @@ s.t. ||w||_1\lt C
 <li>友元类，不同类使用另一个类私有成员</li>
 </ul>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211004120911813.png" alt="image-20211004120911813" /><figcaption aria-hidden="true">image-20211004120911813</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211004120911813.png" alt="image-20211004120911813"><figcaption aria-hidden="true">image-20211004120911813</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cpeople</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		a = <span class="number">54</span>;</span><br><span class="line">		cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun_pro</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		a = <span class="number">54</span>;</span><br><span class="line">		cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">fun2</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">CP</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cchild</span> : <span class="keyword">public</span> Cpeople</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun6</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">fun_pro</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cpeople op2;</span><br><span class="line">	op2.<span class="built_in">fun</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CP</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Cpeople op3;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun3</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		op3.<span class="built_in">fun</span>();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cpeople op;</span><br><span class="line">	op.<span class="built_in">fun</span>();</span><br><span class="line"></span><br><span class="line">	CP op4;</span><br><span class="line">	op4.<span class="built_in">fun3</span>();</span><br><span class="line"></span><br><span class="line">	Cchild op_child;</span><br><span class="line">	op_child.<span class="built_in">fun6</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>类和int一样，都是一种数据类型。只有用类声明对象时，才会开辟出一块空间</p>
@@ -707,7 +946,7 @@ s.t. ||w||_1\lt C
 <p>==构造函数的顺序是：先构造内层的，在构造外层的，析构函数的执行顺序服从“先进后出”的规则，与构造函数顺序相反。==</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//手机类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cphone</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="built_in">Cphone</span>(string name)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;phone&quot;</span> &lt;&lt; endl;</span><br><span class="line">		C_PhoneNmae = name;</span><br><span class="line">	&#125;</span><br><span class="line">	~<span class="built_in">Cphone</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;phone destructor&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//手机品牌</span></span><br><span class="line">	string C_PhoneNmae;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//人类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//属性</span></span><br><span class="line">	string c_name;</span><br><span class="line">	Cphone c_phone;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Cperson</span>(string name,string phone):<span class="built_in">c_name</span>(name),<span class="built_in">c_phone</span>(phone)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;person &quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	~<span class="built_in">Cperson</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;person destructor&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Cperson <span class="title">per1</span><span class="params">(<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;xiaomi&quot;</span>)</span></span>;</span><br><span class="line">	cout &lt;&lt; per1.c_name &lt;&lt; <span class="string">&quot; have &quot;</span> &lt;&lt; per1.c_phone.C_PhoneNmae &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211018233256498.png" alt="image-20211018233256498" /><figcaption aria-hidden="true">image-20211018233256498</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211018233256498.png" alt="image-20211018233256498"><figcaption aria-hidden="true">image-20211018233256498</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_age; <span class="comment">//非静态成员变量，属于类的对象</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> c_name; <span class="comment">//静态成员函数变量，不属于类的对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span> <span class="comment">//非静态成员函数，不属于类的对象</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">fun1</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//静态成员函数，属于类的对象</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson per1;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;size of per1 is &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(per1) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="空指针访问成员函数">空指针访问成员函数</h3>
@@ -715,20 +954,20 @@ s.t. ||w||_1\lt C
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_age;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">showName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;this is the class name&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//由于没有创建对象，使用this指针产生异常</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">showAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span> == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; <span class="keyword">this</span>-&gt;c_age &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson *p = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="comment">//p-&gt;showAge();</span></span><br><span class="line">	p-&gt;<span class="built_in">showName</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//class CBuilding; //goodgay中使用了building类，因此要先声明一下，让编译器认识，类似于函数声明</span></span><br><span class="line"><span class="comment">/*-----------------Building class------------------------*/</span></span><br><span class="line"><span class="comment">//建筑类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CBuilding</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">CBuilding</span>();</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	string c_livingroom;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	string c_bedroom;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">CGoodgay</span>;<span class="comment">//友元类</span></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">goodgay::visit</span><span class="params">()</span></span>;<span class="comment">//友元成员函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数，类内声明，类外定义，要声明是哪个类的构造函数</span></span><br><span class="line">CBuilding::<span class="built_in">CBuilding</span>()</span><br><span class="line">&#123;</span><br><span class="line">	c_livingroom = <span class="string">&quot;living room&quot;</span>;</span><br><span class="line">	c_bedroom = <span class="string">&quot;bed room&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------------Googgay class-----------------------------*/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CGoodgay</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CBuilding * building1;</span><br><span class="line">	<span class="built_in">CGoodgay</span>();</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">visit</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//构造函数，初始化成员变量</span></span><br><span class="line">CGoodgay::<span class="built_in">CGoodgay</span>()</span><br><span class="line">&#123;</span><br><span class="line">	building1 = <span class="keyword">new</span> CBuilding;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CGoodgay::visit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Good gay is looking at &quot;</span> &lt;&lt; building1-&gt;c_livingroom &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Good gay is looking at &quot;</span> &lt;&lt; building1-&gt;c_bedroom &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-------------------test-------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CGoodgay gay1;</span><br><span class="line">	gay1.<span class="built_in">visit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*-----------------main function-----------------------*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172544775.png" alt="image-20211019172544775" /><figcaption aria-hidden="true">image-20211019172544775</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172544775.png" alt="image-20211019172544775"><figcaption aria-hidden="true">image-20211019172544775</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172649352.png" alt="image-20211019172649352" /><figcaption aria-hidden="true">image-20211019172649352</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172649352.png" alt="image-20211019172649352"><figcaption aria-hidden="true">image-20211019172649352</figcaption>
 </figure>
 <h3 id="运算符重载">运算符重载</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019233541178.png" alt="image-20211019233541178" /><figcaption aria-hidden="true">image-20211019233541178</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019233541178.png" alt="image-20211019233541178"><figcaption aria-hidden="true">image-20211019233541178</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPerson</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:<span class="comment">//成员函数重载+</span></span><br><span class="line">		CPerson <span class="keyword">operator</span>+(CPerson &amp;p)</span><br><span class="line">		&#123;</span><br><span class="line">			CPerson temp;</span><br><span class="line">			temp.c_a = <span class="keyword">this</span>-&gt;c_a + p.c_a;</span><br><span class="line">			temp.c_b = <span class="keyword">this</span>-&gt;c_b + p.c_b;</span><br><span class="line">			<span class="keyword">return</span> temp;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">	<span class="type">int</span> c_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CPerson per1;</span><br><span class="line">	per1.c_a = <span class="number">34</span>;</span><br><span class="line">	per1.c_b = <span class="number">54</span>;</span><br><span class="line">	CPerson per2;</span><br><span class="line">	per2.c_a = <span class="number">54</span>;</span><br><span class="line">	per2.c_b = <span class="number">74</span>;</span><br><span class="line">	CPerson per3;</span><br><span class="line"></span><br><span class="line">	per3 = per1 + per2;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;per3.c_a =&quot;</span> &lt;&lt; per3.c_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;per3.c_b =&quot;</span> &lt;&lt; per3.c_b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">////全局函数重载+</span></span><br><span class="line"><span class="comment">//CPerson operator+ (CPerson &amp;p1, CPerson &amp;p2)</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//	CPerson temp;</span></span><br><span class="line"><span class="comment">//	temp.c_a = p1.c_a + p2.c_a;</span></span><br><span class="line"><span class="comment">//	temp.c_b = p1.c_b + p2.c_b;</span></span><br><span class="line"><span class="comment">//	return temp;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line">   <span class="comment">//成员函数重载本质调用</span></span><br><span class="line">	Cperson p3 = p1.<span class="keyword">operator</span>+(p2)</span><br><span class="line">	简写：p3 = p1+p2;</span><br><span class="line">	全局函数重载本质调用</span><br><span class="line">	Cperson p3 = <span class="keyword">operator</span>+(p1,p2)</span><br><span class="line">	简写: p3 = p1+p2</span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">	<span class="type">int</span> c_b;</span><br><span class="line">	<span class="built_in">Cperson</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">89</span>;</span><br><span class="line">		c_b = <span class="number">93</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ostream &amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;cout ,Cperson &amp;p)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c_a: &quot;</span> &lt;&lt; p.c_a  &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c_b: &quot;</span> &lt;&lt; p.c_b &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> cout;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson per1;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; per1 &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//cout &lt;&lt; per1 &lt;&lt;endl;无限追加输入，是因为链式编程思想</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="递增运算符重载">递增运算符重载</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020135253168.png" alt="image-20211020135253168" /><figcaption aria-hidden="true">image-20211020135253168</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020135253168.png" alt="image-20211020135253168"><figcaption aria-hidden="true">image-20211020135253168</figcaption>
 </figure>
 <h3 id="继承">继承</h3>
 <p>好处：减少重复的代码</p>
@@ -740,221 +979,221 @@ s.t. ||w||_1\lt C
 </ul>
 <p>父类又叫基类</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020164955371.png" alt="image-20211020164955371" /><figcaption aria-hidden="true">image-20211020164955371</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020164955371.png" alt="image-20211020164955371"><figcaption aria-hidden="true">image-20211020164955371</figcaption>
 </figure>
 <p>父类中的非静态成员变量都会被继承下去，无论是否私有还是公有</p>
 <p>子类与父类中的同名函数，同名变量。默认会调用子类中的，子类中的会隐藏掉父类中所有的同名函数</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020174208051.png" alt="image-20211020174208051" /><figcaption aria-hidden="true">image-20211020174208051</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020174208051.png" alt="image-20211020174208051"><figcaption aria-hidden="true">image-20211020174208051</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CFather</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">CFather</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">34</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CSon</span> :<span class="keyword">public</span> CFather</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">CSon</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">56</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CSon son1;</span><br><span class="line">	cout &lt;&lt; son1.c_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; son1.CFather::c_a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020214242953.png" alt="image-20211020214242953" /><figcaption aria-hidden="true">image-20211020214242953</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020214242953.png" alt="image-20211020214242953"><figcaption aria-hidden="true">image-20211020214242953</figcaption>
 </figure>
 <h3 id="多态">多态</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020220806664.png" alt="image-20211020220806664" /><figcaption aria-hidden="true">image-20211020220806664</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020220806664.png" alt="image-20211020220806664"><figcaption aria-hidden="true">image-20211020220806664</figcaption>
 </figure>
 <p>重载：函数名相同，参数不同</p>
 <p>重写：函数返回值，函数名，形参列表都相同</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221534209.png" alt="image-20211020221534209" /><figcaption aria-hidden="true">image-20211020221534209</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221534209.png" alt="image-20211020221534209"><figcaption aria-hidden="true">image-20211020221534209</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221707835.png" alt="image-20211020221707835" /><figcaption aria-hidden="true">image-20211020221707835</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221707835.png" alt="image-20211020221707835"><figcaption aria-hidden="true">image-20211020221707835</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221741333.png" alt="image-20211020221741333" /><figcaption aria-hidden="true">image-20211020221741333</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221741333.png" alt="image-20211020221741333"><figcaption aria-hidden="true">image-20211020221741333</figcaption>
 </figure>
 <p>==成员函数不属于对象==</p>
 <p>==不管是什么类型的指针，都占4个字节==</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202239635.png" alt="image-20211021202239635" /><figcaption aria-hidden="true">image-20211021202239635</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202239635.png" alt="image-20211021202239635"><figcaption aria-hidden="true">image-20211021202239635</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202658926.png" alt="image-20211021202658926" /><figcaption aria-hidden="true">image-20211021202658926</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202658926.png" alt="image-20211021202658926"><figcaption aria-hidden="true">image-20211021202658926</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203623112.png" alt="image-20211021203623112" /><figcaption aria-hidden="true">image-20211021203623112</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203623112.png" alt="image-20211021203623112"><figcaption aria-hidden="true">image-20211021203623112</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203952490.png" alt="image-20211021203952490" /><figcaption aria-hidden="true">image-20211021203952490</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203952490.png" alt="image-20211021203952490"><figcaption aria-hidden="true">image-20211021203952490</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021204111880.png" alt="image-20211021204111880" /><figcaption aria-hidden="true">image-20211021204111880</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021204111880.png" alt="image-20211021204111880"><figcaption aria-hidden="true">image-20211021204111880</figcaption>
 </figure>
 <p><strong>==通过父类的指针，可以调用不同的子类对象的函数或成员==</strong></p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021220439165.png" alt="image-20211021220439165" /><figcaption aria-hidden="true">image-20211021220439165</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021220439165.png" alt="image-20211021220439165"><figcaption aria-hidden="true">image-20211021220439165</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021221722313.png" alt="image-20211021221722313" /><figcaption aria-hidden="true">image-20211021221722313</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021221722313.png" alt="image-20211021221722313"><figcaption aria-hidden="true">image-20211021221722313</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225354564.png" alt="image-20211021225354564" /><figcaption aria-hidden="true">image-20211021225354564</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225354564.png" alt="image-20211021225354564"><figcaption aria-hidden="true">image-20211021225354564</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225639639.png" alt="image-20211021225639639" /><figcaption aria-hidden="true">image-20211021225639639</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225639639.png" alt="image-20211021225639639"><figcaption aria-hidden="true">image-20211021225639639</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230353091.png" alt="image-20211021230353091" /><figcaption aria-hidden="true">image-20211021230353091</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230353091.png" alt="image-20211021230353091"><figcaption aria-hidden="true">image-20211021230353091</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230635796.png" alt="image-20211021230635796" /><figcaption aria-hidden="true">image-20211021230635796</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230635796.png" alt="image-20211021230635796"><figcaption aria-hidden="true">image-20211021230635796</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021231644579.png" alt="image-20211021231644579" /><figcaption aria-hidden="true">image-20211021231644579</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021231644579.png" alt="image-20211021231644579"><figcaption aria-hidden="true">image-20211021231644579</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022105401533.png" alt="image-20211022105401533" /><figcaption aria-hidden="true">image-20211022105401533</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022105401533.png" alt="image-20211022105401533"><figcaption aria-hidden="true">image-20211022105401533</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022110526056.png" alt="image-20211022110526056" /><figcaption aria-hidden="true">image-20211022110526056</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022110526056.png" alt="image-20211022110526056"><figcaption aria-hidden="true">image-20211022110526056</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111543036.png" alt="image-20211022111543036" /><figcaption aria-hidden="true">image-20211022111543036</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111543036.png" alt="image-20211022111543036"><figcaption aria-hidden="true">image-20211022111543036</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111709836.png" alt="image-20211022111709836" /><figcaption aria-hidden="true">image-20211022111709836</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111709836.png" alt="image-20211022111709836"><figcaption aria-hidden="true">image-20211022111709836</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022121233984.png" alt="image-20211022121233984" /><figcaption aria-hidden="true">image-20211022121233984</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022121233984.png" alt="image-20211022121233984"><figcaption aria-hidden="true">image-20211022121233984</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224340411.png" alt="image-20211024224340411" /><figcaption aria-hidden="true">image-20211024224340411</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224340411.png" alt="image-20211024224340411"><figcaption aria-hidden="true">image-20211024224340411</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224522966.png" alt="image-20211024224522966" /><figcaption aria-hidden="true">image-20211024224522966</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224522966.png" alt="image-20211024224522966"><figcaption aria-hidden="true">image-20211024224522966</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224613026.png" alt="image-20211024224613026" /><figcaption aria-hidden="true">image-20211024224613026</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224613026.png" alt="image-20211024224613026"><figcaption aria-hidden="true">image-20211024224613026</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224747037.png" alt="image-20211024224747037" /><figcaption aria-hidden="true">image-20211024224747037</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224747037.png" alt="image-20211024224747037"><figcaption aria-hidden="true">image-20211024224747037</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224808615.png" alt="image-20211024224808615" /><figcaption aria-hidden="true">image-20211024224808615</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224808615.png" alt="image-20211024224808615"><figcaption aria-hidden="true">image-20211024224808615</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224924888.png" alt="image-20211024224924888" /><figcaption aria-hidden="true">image-20211024224924888</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224924888.png" alt="image-20211024224924888"><figcaption aria-hidden="true">image-20211024224924888</figcaption>
 </figure>
 <p>==<strong>接口都是一样的，由于对象不同，就显示出多态的意义了</strong>==</p>
 <p>一个接口，有多种形态</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026102816318.png" alt="image-20211026102816318" /><figcaption aria-hidden="true">image-20211026102816318</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026102816318.png" alt="image-20211026102816318"><figcaption aria-hidden="true">image-20211026102816318</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103235801.png" alt="image-20211026103235801" /><figcaption aria-hidden="true">image-20211026103235801</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103235801.png" alt="image-20211026103235801"><figcaption aria-hidden="true">image-20211026103235801</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103307827.png" alt="image-20211026103307827" /><figcaption aria-hidden="true">image-20211026103307827</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103307827.png" alt="image-20211026103307827"><figcaption aria-hidden="true">image-20211026103307827</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170316284.png" alt="image-20211026170316284" /><figcaption aria-hidden="true">image-20211026170316284</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170316284.png" alt="image-20211026170316284"><figcaption aria-hidden="true">image-20211026170316284</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170448680.png" alt="image-20211026170448680" /><figcaption aria-hidden="true">image-20211026170448680</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170448680.png" alt="image-20211026170448680"><figcaption aria-hidden="true">image-20211026170448680</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170501131.png" alt="image-20211026170501131" /><figcaption aria-hidden="true">image-20211026170501131</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170501131.png" alt="image-20211026170501131"><figcaption aria-hidden="true">image-20211026170501131</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026172757953.png" alt="image-20211026172757953" /><figcaption aria-hidden="true">image-20211026172757953</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026172757953.png" alt="image-20211026172757953"><figcaption aria-hidden="true">image-20211026172757953</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026173241390.png" alt="image-20211026173241390" /><figcaption aria-hidden="true">image-20211026173241390</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026173241390.png" alt="image-20211026173241390"><figcaption aria-hidden="true">image-20211026173241390</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174105364.png" alt="image-20211026174105364" /><figcaption aria-hidden="true">image-20211026174105364</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174105364.png" alt="image-20211026174105364"><figcaption aria-hidden="true">image-20211026174105364</figcaption>
 </figure>
 <h3 id="如何判断数据是否为空">如何判断数据是否为空</h3>
 <p><strong>EOF文件的结尾</strong></p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174241876.png" alt="image-20211026174241876" /><figcaption aria-hidden="true">image-20211026174241876</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174241876.png" alt="image-20211026174241876"><figcaption aria-hidden="true">image-20211026174241876</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174807707.png" alt="image-20211026174807707" /><figcaption aria-hidden="true">image-20211026174807707</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174807707.png" alt="image-20211026174807707"><figcaption aria-hidden="true">image-20211026174807707</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224231250.png" alt="image-20211026224231250" /><figcaption aria-hidden="true">image-20211026224231250</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224231250.png" alt="image-20211026224231250"><figcaption aria-hidden="true">image-20211026224231250</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224303886.png" alt="image-20211026224303886" /><figcaption aria-hidden="true">image-20211026224303886</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224303886.png" alt="image-20211026224303886"><figcaption aria-hidden="true">image-20211026224303886</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224329145.png" alt="image-20211026224329145" /><figcaption aria-hidden="true">image-20211026224329145</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224329145.png" alt="image-20211026224329145"><figcaption aria-hidden="true">image-20211026224329145</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230436353.png" alt="image-20211026230436353" /><figcaption aria-hidden="true">image-20211026230436353</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230436353.png" alt="image-20211026230436353"><figcaption aria-hidden="true">image-20211026230436353</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230456972.png" alt="image-20211026230456972" /><figcaption aria-hidden="true">image-20211026230456972</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230456972.png" alt="image-20211026230456972"><figcaption aria-hidden="true">image-20211026230456972</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092044192.png" alt="image-20211027092044192" /><figcaption aria-hidden="true">image-20211027092044192</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092044192.png" alt="image-20211027092044192"><figcaption aria-hidden="true">image-20211027092044192</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092222524.png" alt="image-20211027092222524" /><figcaption aria-hidden="true">image-20211027092222524</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092222524.png" alt="image-20211027092222524"><figcaption aria-hidden="true">image-20211027092222524</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092242701.png" alt="image-20211027092242701" /><figcaption aria-hidden="true">image-20211027092242701</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092242701.png" alt="image-20211027092242701"><figcaption aria-hidden="true">image-20211027092242701</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105929960.png" alt="image-20211027105929960" /><figcaption aria-hidden="true">image-20211027105929960</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105929960.png" alt="image-20211027105929960"><figcaption aria-hidden="true">image-20211027105929960</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105946262.png" alt="image-20211027105946262" /><figcaption aria-hidden="true">image-20211027105946262</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105946262.png" alt="image-20211027105946262"><figcaption aria-hidden="true">image-20211027105946262</figcaption>
 </figure>
 <h2 id="模板">模板</h2>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030172724604.png" alt="image-20211030172724604" /><figcaption aria-hidden="true">image-20211030172724604</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030172724604.png" alt="image-20211030172724604"><figcaption aria-hidden="true">image-20211030172724604</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173054674.png" alt="image-20211030173054674" /><figcaption aria-hidden="true">image-20211030173054674</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173054674.png" alt="image-20211030173054674"><figcaption aria-hidden="true">image-20211030173054674</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173746509.png" alt="image-20211030173746509" /><figcaption aria-hidden="true">image-20211030173746509</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173746509.png" alt="image-20211030173746509"><figcaption aria-hidden="true">image-20211030173746509</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101246245.png" alt="image-20211031101246245" /><figcaption aria-hidden="true">image-20211031101246245</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101246245.png" alt="image-20211031101246245"><figcaption aria-hidden="true">image-20211031101246245</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101741998.png" alt="image-20211031101741998" /><figcaption aria-hidden="true">image-20211031101741998</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101741998.png" alt="image-20211031101741998"><figcaption aria-hidden="true">image-20211031101741998</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104651606.png" alt="image-20211031104651606" /><figcaption aria-hidden="true">image-20211031104651606</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104651606.png" alt="image-20211031104651606"><figcaption aria-hidden="true">image-20211031104651606</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104853068.png" alt="image-20211031104853068" /><figcaption aria-hidden="true">image-20211031104853068</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104853068.png" alt="image-20211031104853068"><figcaption aria-hidden="true">image-20211031104853068</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110403838.png" alt="image-20211031110403838" /><figcaption aria-hidden="true">image-20211031110403838</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110403838.png" alt="image-20211031110403838"><figcaption aria-hidden="true">image-20211031110403838</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110431568.png" alt="image-20211031110431568" /><figcaption aria-hidden="true">image-20211031110431568</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110431568.png" alt="image-20211031110431568"><figcaption aria-hidden="true">image-20211031110431568</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110841773.png" alt="image-20211031110841773" /><figcaption aria-hidden="true">image-20211031110841773</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110841773.png" alt="image-20211031110841773"><figcaption aria-hidden="true">image-20211031110841773</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031111537579.png" alt="image-20211031111537579" /><figcaption aria-hidden="true">image-20211031111537579</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031111537579.png" alt="image-20211031111537579"><figcaption aria-hidden="true">image-20211031111537579</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112511357.png" alt="image-20211031112511357" /><figcaption aria-hidden="true">image-20211031112511357</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112511357.png" alt="image-20211031112511357"><figcaption aria-hidden="true">image-20211031112511357</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112810468.png" alt="image-20211031112810468" /><figcaption aria-hidden="true">image-20211031112810468</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112810468.png" alt="image-20211031112810468"><figcaption aria-hidden="true">image-20211031112810468</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112838946.png" alt="image-20211031112838946" /><figcaption aria-hidden="true">image-20211031112838946</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112838946.png" alt="image-20211031112838946"><figcaption aria-hidden="true">image-20211031112838946</figcaption>
 </figure>
 <h1 id="算法">算法</h1>
 <h3 id="冒泡排序">冒泡排序</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110222527770.png" alt="image-20211110222527770" /><figcaption aria-hidden="true">image-20211110222527770</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110222527770.png" alt="image-20211110222527770"><figcaption aria-hidden="true">image-20211110222527770</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png" alt="image-20211110224058824" /><figcaption aria-hidden="true">image-20211110224058824</figcaption>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png" alt="image-20211110224058824"><figcaption aria-hidden="true">image-20211110224058824</figcaption>
 </figure>
 ]]></content>
       <categories>
@@ -962,6 +1201,20 @@ s.t. ||w||_1\lt C
       </categories>
       <tags>
         <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown使用记录</title>
+    <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Markdown/</url>
+    <content><![CDATA[<h1 id="markdown的使用"><font face="Monaco">Markdown</font>的使用</h1>
+<ul>
+<li><a href="https://www.imooc.com/wiki/markdownlesson/markdowncolor.html"><font face="Monaco">Markdown</font> 前景色、背景色丨慕课网教程 (imooc.com)</a></li>
+<li><a href="https://blog.csdn.net/weixin_41765578/article/details/120443879"><font face="Monaco">Markdown</font>笔记|自定义不同颜色的字体高亮|理Risen的博客-CSDN博客_</a></li>
+<li></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -1004,6 +1257,25 @@ blockquote {
       </tags>
   </entry>
   <entry>
+    <title>英语学习方法</title>
+    <url>/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%90%AC%E5%8A%9B/</url>
+    <content><![CDATA[<ul>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/kcG36rL8G3CXVxT27ptrxQ">英语听、说、读、写完整学习思路—【学英语那点事】微信公众号</a></p></li>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/ZDpUzAD-Pq9dnMPK11C2tw">英语听力不好的朋友看过来—【学英语那点事】微信公众号</a></p></li>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/H1AzYxw22eYRuC5fzhCWeA">还是听力—【学英语那点事】微信公众号</a></p></li>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/edq2Td458ibvTLPgXsd7dw">口语—【学英语那点事】微信公众号</a></p></li>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/j1R5oIkiZlTQauIKT5T9Og">英语学习要回归到句子上—【学英语那点事】微信公众号</a></p></li>
+<li><p>👉<a href="https://mp.weixin.qq.com/s/-Kr15Zt-KZQkACQpFdIanA">一个戒掉手机的好办法：—【学英语那点事】微信公众号</a></p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>英语</category>
+      </categories>
+      <tags>
+        <tag>听力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux指令</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Ubuntu%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="linux常用命令">linux常用命令</h2>
@@ -1036,25 +1308,6 @@ blockquote {
       </categories>
       <tags>
         <tag>生词</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>英语学习方法</title>
-    <url>/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%90%AC%E5%8A%9B/</url>
-    <content><![CDATA[<ul>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/kcG36rL8G3CXVxT27ptrxQ">英语听、说、读、写完整学习思路—【学英语那点事】微信公众号</a></p></li>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/ZDpUzAD-Pq9dnMPK11C2tw">英语听力不好的朋友看过来—【学英语那点事】微信公众号</a></p></li>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/H1AzYxw22eYRuC5fzhCWeA">还是听力—【学英语那点事】微信公众号</a></p></li>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/edq2Td458ibvTLPgXsd7dw">口语—【学英语那点事】微信公众号</a></p></li>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/j1R5oIkiZlTQauIKT5T9Og">英语学习要回归到句子上—【学英语那点事】微信公众号</a></p></li>
-<li><p>👉<a href="https://mp.weixin.qq.com/s/-Kr15Zt-KZQkACQpFdIanA">一个戒掉手机的好办法：—【学英语那点事】微信公众号</a></p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>英语</category>
-      </categories>
-      <tags>
-        <tag>听力</tag>
       </tags>
   </entry>
   <entry>
@@ -1096,70 +1349,6 @@ blockquote {
       </categories>
   </entry>
   <entry>
-    <title>计算机网络视频</title>
-    <url>/2022/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E3%80%90%E4%B8%AD%E7%A7%91%E5%A4%A7%E9%83%91%E7%83%87%E3%80%91/</url>
-    <content><![CDATA[<p>中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程</p>
-<p><a href="https://www.bilibili.com/video/BV1JV411t7ow?p=13&amp;spm_id_from=333.880.my_history.page.click">中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程_哔哩哔哩_bilibili</a></p>
-<p><a href="https://blog.csdn.net/qq_53111905/article/details/119002010?spm=1001.2014.3001.5501">中科大郑烇、杨坚《计算机网络》课程 第一章笔记_爱好学习的青年人的博客-CSDN博客_中科大计算机网络笔记</a></p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计算机组成原理</title>
-    <url>/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="计算机组成原理">计算机组成原理</h1>
-<!-- [TOC] -->
-<h3 id="说明">说明</h3>
-<p>此课程参考<a href="https://www.bilibili.com/video/BV1BE411D7ii?p=2">王道计算机考研 计算机组成原理_哔哩哔哩_bilibili</a>， 其中所出现的图片均是学习过程中的截图，放到网页上，以便随时随地地复习。</p>
-<h3 id="正文">正文</h3>
-<p><a href="https://imgtu.com/i/ORpONd"><img src="https://s1.ax1x.com/2022/05/15/ORpONd.png" alt="ORpONd.png" /></a></p>
-<p>硬件上的一个个的金属针脚就是用来传递电信号，传递一个个的高低电平，来代表<code>0、1</code>信号，<code>0、1</code>信号传到电路内部，就会使得相应的晶体管导通、截止，就会形成相应的电路，用来处理数据。</p>
-<p>计算机在运算的时候，实际上就是在处理电信号，处理电信号的是晶体管（以前是电子管），使用用晶体管组成的电路来进行运算。</p>
-<ul>
-<li>电子管时代。体积大、耗电大，运算速度慢</li>
-</ul>
-<p><a href="https://imgtu.com/i/ORpX4A"><img src="https://s1.ax1x.com/2022/05/15/ORpX4A.png" alt="ORpX4A.png" /></a> <a href="https://imgtu.com/i/ORpx3t"><img src="https://s1.ax1x.com/2022/05/15/ORpx3t.png" alt="ORpx3t.png" /></a> <a href="https://imgtu.com/i/ORpv9I"><img src="https://s1.ax1x.com/2022/05/15/ORpv9I.png" alt="ORpv9I.png" /></a> ### 硬件的发展 <a href="https://imgtu.com/i/ORpLAH"><img src="https://s1.ax1x.com/2022/05/15/ORpLAH.png" alt="ORpLAH.png" /></a> <a href="https://imgtu.com/i/ORpzgP"><img src="https://s1.ax1x.com/2022/05/15/ORpzgP.png" alt="ORpzgP.png" /></a> <a href="https://imgtu.com/i/OR99u8"><img src="https://s1.ax1x.com/2022/05/15/OR99u8.png" alt="OR99u8.png" /></a> <a href="https://imgtu.com/i/OR9Sjf"><img src="https://s1.ax1x.com/2022/05/15/OR9Sjf.png" alt="OR9Sjf.png" /></a> <a href="https://imgtu.com/i/OR9CDS"><img src="https://s1.ax1x.com/2022/05/15/OR9CDS.png" alt="OR9CDS.png" /></a> <a href="https://imgtu.com/i/OR9PHg"><img src="https://s1.ax1x.com/2022/05/15/OR9PHg.png" alt="OR9PHg.png" /></a> <a href="https://imgtu.com/i/OR9FEQ"><img src="https://s1.ax1x.com/2022/05/15/OR9FEQ.png" alt="OR9FEQ.png" /></a> <a href="https://imgtu.com/i/OR9kNj"><img src="https://s1.ax1x.com/2022/05/15/OR9kNj.png" alt="OR9kNj.png" /></a> <a href="https://imgtu.com/i/OR9A4s"><img src="https://s1.ax1x.com/2022/05/15/OR9A4s.png" alt="OR9A4s.png" /></a> ### 软件的发展 <a href="https://imgtu.com/i/OR9VCn"><img src="https://s1.ax1x.com/2022/05/15/OR9VCn.png" alt="OR9VCn.png" /></a> <a href="https://imgtu.com/i/OR9Z3q"><img src="https://s1.ax1x.com/2022/05/15/OR9Z3q.png" alt="OR9Z3q.png" /></a> <a href="https://imgtu.com/i/OR9eg0"><img src="https://s1.ax1x.com/2022/05/15/OR9eg0.png" alt="OR9eg0.png" /></a> <a href="https://imgtu.com/i/OR9mvV"><img src="https://s1.ax1x.com/2022/05/15/OR9mvV.png" alt="OR9mvV.png" /></a> ### 计算机基本组成</p>
-<p><a href="https://imgtu.com/i/OR9uuT"><img src="https://s1.ax1x.com/2022/05/15/OR9uuT.png" alt="OR9uuT.png" /></a> <a href="https://imgtu.com/i/OR9MbF"><img src="https://s1.ax1x.com/2022/05/15/OR9MbF.png" alt="OR9MbF.png" /></a> <a href="https://imgtu.com/i/OR9KDU"><img src="https://s1.ax1x.com/2022/05/15/OR9KDU.png" alt="OR9KDU.png" /></a> <a href="https://imgtu.com/i/OR9lE4"><img src="https://s1.ax1x.com/2022/05/15/OR9lE4.png" alt="OR9lE4.png" /></a> <a href="https://imgtu.com/i/OR91UJ"><img src="https://s1.ax1x.com/2022/05/15/OR91UJ.png" alt="OR91UJ.png" /></a> <a href="https://imgtu.com/i/OR9359"><img src="https://s1.ax1x.com/2022/05/15/OR9359.png" alt="OR9359.png" /></a> <a href="https://imgtu.com/i/OR9GCR"><img src="https://s1.ax1x.com/2022/05/15/OR9GCR.png" alt="OR9GCR.png" /></a> <a href="https://imgtu.com/i/OR9J81"><img src="https://s1.ax1x.com/2022/05/15/OR9J81.png" alt="OR9J81.png" /></a> <a href="https://imgtu.com/i/OR9Ygx"><img src="https://s1.ax1x.com/2022/05/15/OR9Ygx.png" alt="OR9Ygx.png" /></a> <a href="https://imgtu.com/i/OR9UKK"><img src="https://s1.ax1x.com/2022/05/15/OR9UKK.png" alt="OR9UKK.png" /></a> <a href="https://imgtu.com/i/OR9tv6"><img src="https://s1.ax1x.com/2022/05/15/OR9tv6.png" alt="OR9tv6.png" /></a> ### 主存储器的组成 <a href="https://imgtu.com/i/OR9aDO"><img src="https://s1.ax1x.com/2022/05/15/OR9aDO.png" alt="OR9aDO.png" /></a></p>
-<table>
-<tbody>
-<tr class="odd">
-<td>- 对于菜鸟驿站来说，我们只能从货架上取走包裹</td>
-</tr>
-<tr class="even">
-<td>- <strong>对于CPU不仅可以从存储体取走数据（读），还可以写入数据</strong></td>
-</tr>
-<tr class="odd">
-<td>- 1个word的大小是不确定的，可能是8bit、16bit、32bit...具体要看计算机硬件是怎么设计的</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://imgtu.com/i/OWVEMd"><img src="https://s1.ax1x.com/2022/05/16/OWVEMd.png" alt="OWVEMd.png" /></a> <a href="https://imgtu.com/i/OWVFRe"><img src="https://s1.ax1x.com/2022/05/16/OWVFRe.png" alt="OWVFRe.png" /></a> <a href="https://imgtu.com/i/OWVkxH"><img src="https://s1.ax1x.com/2022/05/16/OWVkxH.png" alt="OWVkxH.png" /></a> <a href="https://imgtu.com/i/OWVPPO"><img src="https://s1.ax1x.com/2022/05/16/OWVPPO.png" alt="OWVPPO.png" /></a> <a href="https://imgtu.com/i/OWViGD"><img src="https://s1.ax1x.com/2022/05/16/OWViGD.png" alt="OWViGD.png" /></a> <a href="https://imgtu.com/i/OWVZqI"><img src="https://s1.ax1x.com/2022/05/16/OWVZqI.png" alt="OWVZqI.png" /></a> <a href="https://imgtu.com/i/OWVmZt"><img src="https://s1.ax1x.com/2022/05/16/OWVmZt.png" alt="OWVmZt.png" /></a> <a href="https://imgtu.com/i/OWVuIf"><img src="https://s1.ax1x.com/2022/05/16/OWVuIf.png" alt="OWVuIf.png" /></a></p>
-<h3 id="运算器">运算器</h3>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>运算器：用于实现算术运算（如：加减乘除）、逻辑运算（如：与或非）</td>
-</tr>
-<tr class="even">
-<td>- ACC（Accumulator）：寄存器、累加器，用于存放操作数，或运算结果。 - MQ（Multiple-Quotient Register）：乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。 - X：通用的操作数寄存器，用于存放操作数 - ALU（）核心单元：算术逻辑单元，通过内部复杂的电路实现算数运算、逻辑运算</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://imgtu.com/i/OWVMi8"><img src="https://s1.ax1x.com/2022/05/16/OWVMi8.png" alt="OWVMi8.png" /></a></p>
-<h3 id="控制器">控制器</h3>
-<p><a href="https://imgtu.com/i/OWVndP"><img src="https://s1.ax1x.com/2022/05/16/OWVndP.png" alt="OWVndP.png" /></a> <a href="https://imgtu.com/i/OWVQJS"><img src="https://s1.ax1x.com/2022/05/16/OWVQJS.png" alt="OWVQJS.png" /></a> <a href="https://imgtu.com/i/OWVlRg"><img src="https://s1.ax1x.com/2022/05/16/OWVlRg.png" alt="OWVlRg.png" /></a> <a href="https://imgtu.com/i/OWV1zQ"><img src="https://s1.ax1x.com/2022/05/16/OWV1zQ.png" alt="OWV1zQ.png" /></a></p>
-<p><a href="https://imgtu.com/i/OW1Ats"><img src="https://s1.ax1x.com/2022/05/16/OW1Ats.png" alt="OW1Ats.png" /></a> <a href="https://imgtu.com/i/OW1mcV"><img src="https://s1.ax1x.com/2022/05/16/OW1mcV.jpg" alt="OW1mcV.jpg" /></a> <a href="https://imgtu.com/i/OW1e10"><img src="https://s1.ax1x.com/2022/05/16/OW1e10.png" alt="OW1e10.png" /></a> <a href="https://imgtu.com/i/OW1Ehn"><img src="https://s1.ax1x.com/2022/05/16/OW1Ehn.png" alt="OW1Ehn.png" /></a> <a href="https://imgtu.com/i/OW1Zpq"><img src="https://s1.ax1x.com/2022/05/16/OW1Zpq.png" alt="OW1Zpq.png" /></a> <a href="https://imgtu.com/i/OW1nXT"><img src="https://s1.ax1x.com/2022/05/16/OW1nXT.png" alt="OW1nXT.png" /></a> <a href="https://imgtu.com/i/OW1Q74"><img src="https://s1.ax1x.com/2022/05/16/OW1Q74.png" alt="OW1Q74.png" /></a> <a href="https://imgtu.com/i/OW1MBF"><img src="https://s1.ax1x.com/2022/05/16/OW1MBF.png" alt="OW1MBF.png" /></a> <a href="https://imgtu.com/i/OW11AJ"><img src="https://s1.ax1x.com/2022/05/16/OW11AJ.png" alt="OW11AJ.png" /></a> <a href="https://imgtu.com/i/OW1KnU"><img src="https://s1.ax1x.com/2022/05/16/OW1KnU.png" alt="OW1KnU.png" /></a> <a href="https://imgtu.com/i/OW1J91"><img src="https://s1.ax1x.com/2022/05/16/OW1J91.png" alt="OW1J91.png" /></a> <a href="https://imgtu.com/i/OW18hR"><img src="https://s1.ax1x.com/2022/05/16/OW18hR.png" alt="OW18hR.png" /></a> <a href="https://imgtu.com/i/OW1Y1x"><img src="https://s1.ax1x.com/2022/05/16/OW1Y1x.png" alt="OW1Y1x.png" /></a></p>
-]]></content>
-      <categories>
-        <category>计算机组成原理</category>
-      </categories>
-  </entry>
-  <entry>
     <title>数据结构视频</title>
     <url>/2022/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h2 id="视频">视频</h2>
@@ -1174,24 +1363,68 @@ blockquote {
       </categories>
   </entry>
   <entry>
-    <title>Office的使用</title>
-    <url>/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Office/</url>
-    <content><![CDATA[<h2 id="一word"><strong>一、Word</strong></h2>
-<p><code>2022</code>年<code>5</code>月<code>13</code>日于家中</p>
-<p>写专业的论文用latex比较方便，但是latex很不直观，平时就用latex写，效率其实很低，建议平时积累用word，排版用Latex</p>
+    <title>计算机组成原理</title>
+    <url>/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="计算机组成原理">计算机组成原理</h1>
+<!-- [TOC] -->
+<h3 id="说明">说明</h3>
+<p>此课程参考<a href="https://www.bilibili.com/video/BV1BE411D7ii?p=2">王道计算机考研 计算机组成原理_哔哩哔哩_bilibili</a>， 其中所出现的图片均是学习过程中的截图，放到网页上，以便随时随地地复习。</p>
+<h3 id="正文">正文</h3>
+<p><a href="https://imgtu.com/i/ORpONd"><img src="https://s1.ax1x.com/2022/05/15/ORpONd.png" alt="ORpONd.png"></a></p>
+<p>硬件上的一个个的金属针脚就是用来传递电信号，传递一个个的高低电平，来代表<code>0、1</code>信号，<code>0、1</code>信号传到电路内部，就会使得相应的晶体管导通、截止，就会形成相应的电路，用来处理数据。</p>
+<p>计算机在运算的时候，实际上就是在处理电信号，处理电信号的是晶体管（以前是电子管），使用用晶体管组成的电路来进行运算。</p>
 <ul>
-<li><a href="https://www.bilibili.com/video/BV1SZ4y1p7hB?p=1">【Word丨毕业论文格式教程】简直是写论文必备~_哔哩哔哩_bilibili</a></li>
-<li></li>
+<li>电子管时代。体积大、耗电大，运算速度慢</li>
 </ul>
-<h2 id="二excel"><strong>二、Excel</strong></h2>
-<p>之前看过以下这个教程，还需要复习以下</p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV1ix41137b7?spm_id_from=333.337.search-card.all.click">【公开课】Excel基础大全（1-66集）【超高清版】_哔哩哔哩_bilibili</a></li>
-</ul>
+<p><a href="https://imgtu.com/i/ORpX4A"><img src="https://s1.ax1x.com/2022/05/15/ORpX4A.png" alt="ORpX4A.png"></a> <a href="https://imgtu.com/i/ORpx3t"><img src="https://s1.ax1x.com/2022/05/15/ORpx3t.png" alt="ORpx3t.png"></a> <a href="https://imgtu.com/i/ORpv9I"><img src="https://s1.ax1x.com/2022/05/15/ORpv9I.png" alt="ORpv9I.png"></a> ### 硬件的发展 <a href="https://imgtu.com/i/ORpLAH"><img src="https://s1.ax1x.com/2022/05/15/ORpLAH.png" alt="ORpLAH.png"></a> <a href="https://imgtu.com/i/ORpzgP"><img src="https://s1.ax1x.com/2022/05/15/ORpzgP.png" alt="ORpzgP.png"></a> <a href="https://imgtu.com/i/OR99u8"><img src="https://s1.ax1x.com/2022/05/15/OR99u8.png" alt="OR99u8.png"></a> <a href="https://imgtu.com/i/OR9Sjf"><img src="https://s1.ax1x.com/2022/05/15/OR9Sjf.png" alt="OR9Sjf.png"></a> <a href="https://imgtu.com/i/OR9CDS"><img src="https://s1.ax1x.com/2022/05/15/OR9CDS.png" alt="OR9CDS.png"></a> <a href="https://imgtu.com/i/OR9PHg"><img src="https://s1.ax1x.com/2022/05/15/OR9PHg.png" alt="OR9PHg.png"></a> <a href="https://imgtu.com/i/OR9FEQ"><img src="https://s1.ax1x.com/2022/05/15/OR9FEQ.png" alt="OR9FEQ.png"></a> <a href="https://imgtu.com/i/OR9kNj"><img src="https://s1.ax1x.com/2022/05/15/OR9kNj.png" alt="OR9kNj.png"></a> <a href="https://imgtu.com/i/OR9A4s"><img src="https://s1.ax1x.com/2022/05/15/OR9A4s.png" alt="OR9A4s.png"></a> ### 软件的发展 <a href="https://imgtu.com/i/OR9VCn"><img src="https://s1.ax1x.com/2022/05/15/OR9VCn.png" alt="OR9VCn.png"></a> <a href="https://imgtu.com/i/OR9Z3q"><img src="https://s1.ax1x.com/2022/05/15/OR9Z3q.png" alt="OR9Z3q.png"></a> <a href="https://imgtu.com/i/OR9eg0"><img src="https://s1.ax1x.com/2022/05/15/OR9eg0.png" alt="OR9eg0.png"></a> <a href="https://imgtu.com/i/OR9mvV"><img src="https://s1.ax1x.com/2022/05/15/OR9mvV.png" alt="OR9mvV.png"></a> ### 计算机基本组成</p>
+<p><a href="https://imgtu.com/i/OR9uuT"><img src="https://s1.ax1x.com/2022/05/15/OR9uuT.png" alt="OR9uuT.png"></a> <a href="https://imgtu.com/i/OR9MbF"><img src="https://s1.ax1x.com/2022/05/15/OR9MbF.png" alt="OR9MbF.png"></a> <a href="https://imgtu.com/i/OR9KDU"><img src="https://s1.ax1x.com/2022/05/15/OR9KDU.png" alt="OR9KDU.png"></a> <a href="https://imgtu.com/i/OR9lE4"><img src="https://s1.ax1x.com/2022/05/15/OR9lE4.png" alt="OR9lE4.png"></a> <a href="https://imgtu.com/i/OR91UJ"><img src="https://s1.ax1x.com/2022/05/15/OR91UJ.png" alt="OR91UJ.png"></a> <a href="https://imgtu.com/i/OR9359"><img src="https://s1.ax1x.com/2022/05/15/OR9359.png" alt="OR9359.png"></a> <a href="https://imgtu.com/i/OR9GCR"><img src="https://s1.ax1x.com/2022/05/15/OR9GCR.png" alt="OR9GCR.png"></a> <a href="https://imgtu.com/i/OR9J81"><img src="https://s1.ax1x.com/2022/05/15/OR9J81.png" alt="OR9J81.png"></a> <a href="https://imgtu.com/i/OR9Ygx"><img src="https://s1.ax1x.com/2022/05/15/OR9Ygx.png" alt="OR9Ygx.png"></a> <a href="https://imgtu.com/i/OR9UKK"><img src="https://s1.ax1x.com/2022/05/15/OR9UKK.png" alt="OR9UKK.png"></a> <a href="https://imgtu.com/i/OR9tv6"><img src="https://s1.ax1x.com/2022/05/15/OR9tv6.png" alt="OR9tv6.png"></a> ### 主存储器的组成 <a href="https://imgtu.com/i/OR9aDO"><img src="https://s1.ax1x.com/2022/05/15/OR9aDO.png" alt="OR9aDO.png"></a></p>
+<table>
+<tbody>
+<tr class="odd">
+<td>- 对于菜鸟驿站来说，我们只能从货架上取走包裹</td>
+</tr>
+<tr class="even">
+<td>- <strong>对于CPU不仅可以从存储体取走数据（读），还可以写入数据</strong></td>
+</tr>
+<tr class="odd">
+<td>- 1个word的大小是不确定的，可能是8bit、16bit、32bit...具体要看计算机硬件是怎么设计的</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://imgtu.com/i/OWVEMd"><img src="https://s1.ax1x.com/2022/05/16/OWVEMd.png" alt="OWVEMd.png"></a> <a href="https://imgtu.com/i/OWVFRe"><img src="https://s1.ax1x.com/2022/05/16/OWVFRe.png" alt="OWVFRe.png"></a> <a href="https://imgtu.com/i/OWVkxH"><img src="https://s1.ax1x.com/2022/05/16/OWVkxH.png" alt="OWVkxH.png"></a> <a href="https://imgtu.com/i/OWVPPO"><img src="https://s1.ax1x.com/2022/05/16/OWVPPO.png" alt="OWVPPO.png"></a> <a href="https://imgtu.com/i/OWViGD"><img src="https://s1.ax1x.com/2022/05/16/OWViGD.png" alt="OWViGD.png"></a> <a href="https://imgtu.com/i/OWVZqI"><img src="https://s1.ax1x.com/2022/05/16/OWVZqI.png" alt="OWVZqI.png"></a> <a href="https://imgtu.com/i/OWVmZt"><img src="https://s1.ax1x.com/2022/05/16/OWVmZt.png" alt="OWVmZt.png"></a> <a href="https://imgtu.com/i/OWVuIf"><img src="https://s1.ax1x.com/2022/05/16/OWVuIf.png" alt="OWVuIf.png"></a></p>
+<h3 id="运算器">运算器</h3>
+<table style="width:6%;">
+<colgroup>
+<col style="width: 5%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>运算器：用于实现算术运算（如：加减乘除）、逻辑运算（如：与或非）</td>
+</tr>
+<tr class="even">
+<td>- ACC（Accumulator）：寄存器、累加器，用于存放操作数，或运算结果。 - MQ（Multiple-Quotient Register）：乘商寄存器，在乘、除运算时，用于存放操作数或运算结果。 - X：通用的操作数寄存器，用于存放操作数 - ALU（）核心单元：算术逻辑单元，通过内部复杂的电路实现算数运算、逻辑运算</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://imgtu.com/i/OWVMi8"><img src="https://s1.ax1x.com/2022/05/16/OWVMi8.png" alt="OWVMi8.png"></a></p>
+<h3 id="控制器">控制器</h3>
+<p><a href="https://imgtu.com/i/OWVndP"><img src="https://s1.ax1x.com/2022/05/16/OWVndP.png" alt="OWVndP.png"></a> <a href="https://imgtu.com/i/OWVQJS"><img src="https://s1.ax1x.com/2022/05/16/OWVQJS.png" alt="OWVQJS.png"></a> <a href="https://imgtu.com/i/OWVlRg"><img src="https://s1.ax1x.com/2022/05/16/OWVlRg.png" alt="OWVlRg.png"></a> <a href="https://imgtu.com/i/OWV1zQ"><img src="https://s1.ax1x.com/2022/05/16/OWV1zQ.png" alt="OWV1zQ.png"></a></p>
+<p><a href="https://imgtu.com/i/OW1Ats"><img src="https://s1.ax1x.com/2022/05/16/OW1Ats.png" alt="OW1Ats.png"></a> <a href="https://imgtu.com/i/OW1mcV"><img src="https://s1.ax1x.com/2022/05/16/OW1mcV.jpg" alt="OW1mcV.jpg"></a> <a href="https://imgtu.com/i/OW1e10"><img src="https://s1.ax1x.com/2022/05/16/OW1e10.png" alt="OW1e10.png"></a> <a href="https://imgtu.com/i/OW1Ehn"><img src="https://s1.ax1x.com/2022/05/16/OW1Ehn.png" alt="OW1Ehn.png"></a> <a href="https://imgtu.com/i/OW1Zpq"><img src="https://s1.ax1x.com/2022/05/16/OW1Zpq.png" alt="OW1Zpq.png"></a> <a href="https://imgtu.com/i/OW1nXT"><img src="https://s1.ax1x.com/2022/05/16/OW1nXT.png" alt="OW1nXT.png"></a> <a href="https://imgtu.com/i/OW1Q74"><img src="https://s1.ax1x.com/2022/05/16/OW1Q74.png" alt="OW1Q74.png"></a> <a href="https://imgtu.com/i/OW1MBF"><img src="https://s1.ax1x.com/2022/05/16/OW1MBF.png" alt="OW1MBF.png"></a> <a href="https://imgtu.com/i/OW11AJ"><img src="https://s1.ax1x.com/2022/05/16/OW11AJ.png" alt="OW11AJ.png"></a> <a href="https://imgtu.com/i/OW1KnU"><img src="https://s1.ax1x.com/2022/05/16/OW1KnU.png" alt="OW1KnU.png"></a> <a href="https://imgtu.com/i/OW1J91"><img src="https://s1.ax1x.com/2022/05/16/OW1J91.png" alt="OW1J91.png"></a> <a href="https://imgtu.com/i/OW18hR"><img src="https://s1.ax1x.com/2022/05/16/OW18hR.png" alt="OW18hR.png"></a> <a href="https://imgtu.com/i/OW1Y1x"><img src="https://s1.ax1x.com/2022/05/16/OW1Y1x.png" alt="OW1Y1x.png"></a></p>
 ]]></content>
-      <tags>
-        <tag>Office</tag>
-      </tags>
+      <categories>
+        <category>计算机组成原理</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计算机网络视频</title>
+    <url>/2022/05/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0-%E3%80%90%E4%B8%AD%E7%A7%91%E5%A4%A7%E9%83%91%E7%83%87%E3%80%91/</url>
+    <content><![CDATA[<p>中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程</p>
+<p><a href="https://www.bilibili.com/video/BV1JV411t7ow?p=13&amp;spm_id_from=333.880.my_history.page.click">中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程_哔哩哔哩_bilibili</a></p>
+<p><a href="https://blog.csdn.net/qq_53111905/article/details/119002010?spm=1001.2014.3001.5501">中科大郑烇、杨坚《计算机网络》课程 第一章笔记_爱好学习的青年人的博客-CSDN博客_中科大计算机网络笔记</a></p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
   </entry>
   <entry>
     <title>LaTex</title>
@@ -1251,297 +1484,23 @@ blockquote {
       </categories>
   </entry>
   <entry>
-    <title>线性回归</title>
-    <url>/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
-    <content><![CDATA[<h2 id="单变量线性回归">单变量线性回归</h2>
-<p>梯度下降做的事就是找到一个值 <span class="math inline">\(\theta\)</span> 使得代价函数 <span class="math inline">\(J(\theta)\)</span> 最小</p>
-<h2 id="多变量线性回归">多变量线性回归</h2>
+    <title>Office的使用</title>
+    <url>/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Office/</url>
+    <content><![CDATA[<h2 id="一word"><strong>一、Word</strong></h2>
+<p><code>2022</code>年<code>5</code>月<code>13</code>日于家中</p>
+<p>写专业的论文用latex比较方便，但是latex很不直观，平时就用latex写，效率其实很低，建议平时积累用word，排版用Latex</p>
 <ul>
-<li>通常用 <strong>大写、黑体</strong> 字母表示矩阵，用小写字母表示标量或向量。</li>
-<li><strong>正斜体</strong> 总的原则是变量（矢量，张量）等用斜体；数字、确定符号、词汇缩缩、单位等用正体。参考 <a href="https://blog.csdn.net/wanjiac/article/details/106085105">科技论文书写规范之正斜体问题</a></li>
+<li><a href="https://www.bilibili.com/video/BV1SZ4y1p7hB?p=1">【Word丨毕业论文格式教程】简直是写论文必备~_哔哩哔哩_bilibili</a></li>
+<li></li>
 </ul>
-<h3 id="符号说明">符号说明</h3>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">符号/变量</th>
-<th style="text-align: center;">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(n\)</span></td>
-<td style="text-align: center;">特征量的数目</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(m\)</span></td>
-<td style="text-align: center;">训练样本的数量</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(h\)</span></td>
-<td style="text-align: center;">学习方法的解决方案或函数也称为假设</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span class="math inline">\(\boldsymbol{x}^{\left(i \right)}\)</span></td>
-<td style="text-align: center;">第<span class="math inline">\(i\)</span>个训练样本的输入特征值</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(\boldsymbol{x}^{\left(i \right)}_{j}\)</span></td>
-<td style="text-align: center;">第<span class="math inline">\(i\)</span>个训练样本中第<span class="math inline">\(j\)</span>个特征量的值</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://imgtu.com/i/XgAtXD#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAtXD.png" alt="XgAtXD.png" /></a></p>
-<table style="width:6%;">
-<colgroup>
-<col style="width: 5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><a href="https://imgtu.com/i/XgAa0H#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAa0H.png" alt="XgAa0H.png" /></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="https://imgtu.com/i/XgAUne"><img src="https://s1.ax1x.com/2022/06/11/XgAUne.png" alt="XgAUne.png" /></a></td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://imgtu.com/i/XgAd7d"><img src="https://s1.ax1x.com/2022/06/11/XgAd7d.png" alt="XgAd7d.png" /></a></p>
-<p><code>python</code>计算代价函数的代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">conputeCost</span> (x, y, theta):</span><br><span class="line">    inner = np.power(((x * theta.T) – y), <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(inner) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br></pre></td></tr></table></figure> 通过图像，<span class="math inline">\(y\)</span> 轴是代价函数的最小值 <span class="math inline">\(\mathrm{min}J(\theta)\)</span> ，<span class="math inline">\(x\)</span>轴是迭代次数。如果随着迭代次数的增加，代价函数越来越小，就说明 <strong><code>梯度下降</code></strong> 在正常工作。</p>
-<h3 id="梯度下降-vs.-正规方程">梯度下降 vs. 正规方程</h3>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">梯度下降</th>
-<th style="text-align: center;">正规方程</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">需要选择学习率</td>
-<td style="text-align: center;">不需要</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">需要多次迭代</td>
-<td style="text-align: center;">一次运算就得出结果</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">当特征数量大的时候比较适用</td>
-<td style="text-align: center;">计算 <span class="math inline">\((\boldsymbol{X^TX})^{-1}\)</span> 如果特征数量很大，则运算的速度就会很慢，矩阵逆运算的时间复杂度是 <span class="math inline">\(\mathrm{O}(n^3)\)</span>,通常来说 <code>n&lt;10000</code> 还是可以接受的。</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">适用于各种模型</td>
-<td style="text-align: center;">只适用与线性模型</td>
-</tr>
-</tbody>
-</table>
-<h2 id="向量化">向量化</h2>
-<p>使用程序计算这样一个线性回归假设函数：<span class="math inline">\(h_{\theta}(x)=\sum^n_{j=0} \theta_j x_j\)</span>，可以写成向量的形式： <span class="math display">\[h_{\theta}(x)=\sum^n_{j=0} \theta_j x_j = \boldsymbol{ \theta^T x}\]</span> 非向量化实现 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> prediction = <span class="number">0.0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j&lt;=n; j++)</span><br><span class="line">    prediction += theta[j] * x[j];</span><br></pre></td></tr></table></figure></p>
-<p>向量化实现，使用 <code>C++</code> 数值线性代数库，更简单、更高效的代码 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> prediction = theta.transpose( ) * x;</span><br></pre></td></tr></table></figure></p>
-<ol type="1">
-<li><a href="https://blog.csdn.net/u010976453/article/details/54381248">机器学习中的线性代数之矩阵求导</a></li>
-<li><a href="https://blog.csdn.net/u014628146/article/details/90105826">矩阵转置基本性质</a></li>
-<li><a href="https://blog.csdn.net/CxC2333/article/details/108740970">常见的二范数是什么意思？有什么用?</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>CNN</title>
-    <url>/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/</url>
-    <content><![CDATA[<h2 id="cnn">CNN</h2>
-<p>如果用全连接神经网络处理大尺寸图像具有三个明显的缺点：</p>
-<p>（1）首先将图像展开为向量会丢失空间信息； （2）其次参数过多效率低下，训练困难； （3）同时大量的参数也很快会导致网络过拟合。</p>
-<p>而使用卷积神经网络可以很好地解决上面的三个问题。</p>
-<p>与常规神经网络不同，卷积神经网络的各层中的神经元是 <code>3</code> 维排列的：宽度、高度和深度。其中的宽度和高度是很好理解的，因为本身卷积就是一个二维模板，但是在卷积神经网络中的深度指的是 <strong>激活数据体</strong> 的第三个维度，而不是整个网络的深度，<strong>整个网络的深度指的是网络的层数。</strong></p>
-<p>举个例子来理解什么是宽度，高度和深度，假如使用CIFAR-10中的图像是作为卷积神经网络的输入，该 <strong>输入数据体</strong> 的维度是32x32x3（宽度，高度和深度）。<strong>我们将看到，层中的神经元将只与前一层中的一小块区域连接，而不是采取全连接方式。</strong> 对于用来分类CIFAR-10中的图像的卷积网络，其最后的输出层的维度是1x1x10，因为在卷积神经网络结构的最后部分将会把全尺寸的图像压缩为包含分类评分的一个向量，<strong>向量是在深度方向排列的</strong>。</p>
-<p>卷积神经网络利用输入是图片的特点，把神经元设计成三个维度 ： <code>width, height, depth (height * width * channel</code> ) (注意这个 <code>depth</code> 不是神经网络的深度，而是用来描述神经元的) 。比如输入的图片大小是 <code>32 × 32 × 3 (rgb)</code>，那么输入神经元就也具有 <code>32×32×3</code> 的维度。下面是图解</p>
-<p><img src="https://img-blog.csdn.net/20160404000318630" /></p>
-<p><a href="https://imgse.com/i/xG2vMq"><img src="https://s1.ax1x.com/2022/10/08/xG2vMq.png" alt="xG2vMq.png" /></a></p>
-<p>我的理解是卷积核就相当于神经元，但这个神经元是局部连接的，就是说一个神经元/卷积核只接受卷积核尺寸大小的数据输入，对输入的数据通过卷积核内的权重和偏置进行一次卷积运算，得到一个输出值，通过多次移动便得到了一层激活层的输出。权值共享的意思也就是这个神经元/卷积核在移动中用的是同一组权重和偏置</p>
-<h3 id="卷积神经网络能干什么">卷积神经网络能干什么</h3>
-<p><a href="https://imgse.com/i/xGRpZT"><img src="https://s1.ax1x.com/2022/10/08/xGRpZT.png" alt="xGRpZT.png" /></a> <a href="https://imgse.com/i/xGRii4"><img src="https://s1.ax1x.com/2022/10/08/xGRii4.png" alt="xGRii4.png" /></a> <a href="https://imgse.com/i/xG2zLV"><img src="https://s1.ax1x.com/2022/10/08/xG2zLV.png" alt="xG2zLV.png" /></a> <a href="https://imgse.com/i/xG2xs0"><img src="https://s1.ax1x.com/2022/10/08/xG2xs0.png" alt="xG2xs0.png" /></a> <a href="https://imgse.com/i/xGRkW9"><img src="https://s1.ax1x.com/2022/10/08/xGRkW9.png" alt="xGRkW9.png" /></a></p>
-<h2 id="卷积神经网络架构">卷积神经网络架构</h2>
-<p><a href="https://imgse.com/i/xGR9dU"><img src="https://s1.ax1x.com/2022/10/08/xGR9dU.png" alt="xGR9dU.png" /></a> <a href="https://imgse.com/i/xGRCoF"><img src="https://s1.ax1x.com/2022/10/08/xGRCoF.png" alt="xGRCoF.png" /></a> <a href="https://imgse.com/i/xGRFJJ"><img src="https://s1.ax1x.com/2022/10/08/xGRFJJ.png" alt="xGRFJJ.png" /></a> <a href="https://imgse.com/i/xGRAzR"><img src="https://s1.ax1x.com/2022/10/08/xGRAzR.png" alt="xGRAzR.png" /></a> <a href="https://imgse.com/i/xGRVQ1"><img src="https://s1.ax1x.com/2022/10/08/xGRVQ1.png" alt="xGRVQ1.png" /></a></p>
+<h2 id="二excel"><strong>二、Excel</strong></h2>
+<p>之前看过以下这个教程，还需要复习以下</p>
 <ul>
-<li>红→蓝，<code>6</code> 是代表 <code>6</code> 个卷积核，每个卷积核是 <code>5×5×3</code>，得到的 <code>28×28×6</code></li>
-<li>蓝→绿， <code>10</code> 是代表 <code>10</code> 个卷积核，每个卷积核是 <code>5×5×6</code></li>
-</ul>
-<p><a href="https://imgse.com/i/xGRQFe"><img src="https://s1.ax1x.com/2022/10/08/xGRQFe.png" alt="xGRQFe.png" /></a></p>
-<h3 id="卷积">卷积</h3>
-<ul>
-<li>卷积核可以拥有多个</li>
-<li>每个子区域使用相同的卷积核 <strong>（卷积参数共享）</strong></li>
-</ul>
-<p><a href="https://imgse.com/i/xGRNef"><img src="https://s1.ax1x.com/2022/10/08/xGRNef.png" alt="xGRNef.png" /></a> <a href="https://imgse.com/i/xGRZsx"><img src="https://s1.ax1x.com/2022/10/08/xGRZsx.png" alt="xGRZsx.png" /></a></p>
-<p><a href="https://imgse.com/i/xGRneK"><img src="https://s1.ax1x.com/2022/10/08/xGRneK.png" alt="xGRneK.png" /></a></p>
-<p><a href="https://imgse.com/i/xGRudO"><img src="https://s1.ax1x.com/2022/10/08/xGRudO.png" alt="xGRudO.png" /></a></p>
-<p><a href="https://imgse.com/i/xGR1Wd"><img src="https://s1.ax1x.com/2022/10/08/xGR1Wd.png" alt="xGR1Wd.png" /></a></p>
-<h3 id="卷积层参数">卷积层参数</h3>
-<p><a href="https://imgse.com/i/xGRKoD"><img src="https://s1.ax1x.com/2022/10/08/xGRKoD.png" alt="xGRKoD.png" /></a></p>
-<p><strong>1. 滑动窗口步长</strong> <a href="https://imgse.com/i/xGReL6"><img src="https://s1.ax1x.com/2022/10/08/xGReL6.png" alt="xGReL6.png" /></a></p>
-<p><strong>2. 卷积核尺寸</strong> - 一般<code>3*3</code>，尺寸越大，特征提取越粗糙，尺寸越小，特征提取越细腻。</p>
-<p><strong>3. 边缘填充 padding</strong></p>
-<ul>
-<li>越往边界的点，能被利用的次数越少；越往中间的点，能被利用的次数越多。<code>padding</code> 一定程度上弥补了边界信息缺失的问题，加上一圈 <code>0</code> ，能够使得边缘特征充分的被利用。</li>
-</ul>
-<p><a href="https://imgse.com/i/xGRQFe"><img src="https://s1.ax1x.com/2022/10/08/xGRQFe.png" alt="xGRQFe.png" /></a> <a href="https://imgse.com/i/xGRlJH"><img src="https://s1.ax1x.com/2022/10/08/xGRlJH.png" alt="xGRlJH.png" /></a></p>
-<h3 id="pooling">pooling</h3>
-<p><a href="https://imgse.com/i/xGR8SA"><img src="https://s1.ax1x.com/2022/10/08/xGR8SA.png" alt="xGR8SA.png" /></a></p>
-<ul>
-<li>特征图个数不会变，只是去变长和宽。<code>pooling</code> 不涉及任何矩阵的计算</li>
-<li>最大 <code>pooling</code>，在神经网络中，一般认为值越大，特征越明显</li>
-</ul>
-<p><a href="https://imgse.com/i/xGRGQI"><img src="https://s1.ax1x.com/2022/10/08/xGRGQI.png" alt="xGRGQI.png" /></a></p>
-<p><a href="https://imgse.com/i/xGRJyt"><img src="https://s1.ax1x.com/2022/10/08/xGRJyt.png" alt="xGRJyt.png" /></a></p>
-<h3 id="经典卷积神经网络">经典卷积神经网络</h3>
-<ul>
-<li><strong>带参数计算</strong> 的才能被叫做 <strong>层</strong></li>
-<li>深度学习，用更深的网络结构去提取原始图像中的特征</li>
-<li>分类还是回归，取决于损失函数和层如何连接</li>
-</ul>
-<p><a href="https://imgse.com/i/xGRaTS"><img src="https://s1.ax1x.com/2022/10/08/xGRaTS.png" alt="xGRaTS.png" /></a></p>
-<p><a href="https://imgse.com/i/xGRUw8"><img src="https://s1.ax1x.com/2022/10/08/xGRUw8.png" alt="xGRUw8.png" /></a> <a href="https://imgse.com/i/xGRYOP"><img src="https://s1.ax1x.com/2022/10/08/xGRYOP.png" alt="xGRYOP.png" /></a> <a href="https://imgse.com/i/xGRwFg"><img src="https://s1.ax1x.com/2022/10/08/xGRwFg.png" alt="xGRwFg.png" /></a></p>
-<h3 id="感受野">感受野</h3>
-<p><a href="https://imgse.com/i/xGR0YQ"><img src="https://s1.ax1x.com/2022/10/08/xGR0YQ.png" alt="xGR0YQ.png" /></a> <a href="https://imgse.com/i/xGRBWj"><img src="https://s1.ax1x.com/2022/10/08/xGRBWj.png" alt="xGRBWj.png" /></a></p>
-]]></content>
-      <categories>
-        <category>深度学习</category>
-      </categories>
-      <tags>
-        <tag>CNN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RL介绍</title>
-    <url>/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<h2 id="强化学习-reinforcement-learning"><strong>强化学习 Reinforcement Learning</strong></h2>
-<p>声明：以下课件来源于 <strong><em>北京邮电大学人工智能学院鲁鹏老师</em></strong></p>
-<p><a href="https://imgse.com/i/xQ3EJx"><img src="https://s1.ax1x.com/2022/10/03/xQ3EJx.png" alt="xQ3EJx.png" /></a></p>
-<h3 id="机器学习分支">机器学习分支</h3>
-<p><a href="https://imgse.com/i/xQ3MeH"><img src="https://s1.ax1x.com/2022/10/03/xQ3MeH.png" alt="xQ3MeH.png" /></a> <a href="https://imgse.com/i/xQ3AF1"><img src="https://s1.ax1x.com/2022/10/03/xQ3AF1.png" alt="xQ3AF1.png" /></a></p>
-<h3 id="强化学习特点">强化学习特点</h3>
-<p><a href="https://imgse.com/i/xQ3PeJ"><img src="https://s1.ax1x.com/2022/10/03/xQ3PeJ.png" alt="xQ3PeJ.png" /></a></p>
-<h3 id="reward"><strong>2. Reward</strong></h3>
-<p><a href="https://imgse.com/i/xQ3FoR"><img src="https://s1.ax1x.com/2022/10/03/xQ3FoR.png" alt="xQ3FoR.png" /></a> <a href="https://imgse.com/i/xQ3iw9"><img src="https://s1.ax1x.com/2022/10/03/xQ3iw9.png" alt="xQ3iw9.png" /></a> <a href="https://imgse.com/i/xQ3VW6"><img src="https://s1.ax1x.com/2022/10/03/xQ3VW6.png" alt="xQ3VW6.png" /></a> <a href="https://imgse.com/i/xQ3eSK"><img src="https://s1.ax1x.com/2022/10/03/xQ3eSK.png" alt="xQ3eSK.png" /></a> <a href="https://imgse.com/i/xQ3mQO"><img src="https://s1.ax1x.com/2022/10/03/xQ3mQO.png" alt="xQ3mQO.png" /></a> <a href="https://imgse.com/i/xQ3nyD"><img src="https://s1.ax1x.com/2022/10/03/xQ3nyD.png" alt="xQ3nyD.png" /></a> <a href="https://imgse.com/i/xQ3uOe"><img src="https://s1.ax1x.com/2022/10/03/xQ3uOe.png" alt="xQ3uOe.png" /></a> <a href="https://imgse.com/i/xQ3Qwd"><img src="https://s1.ax1x.com/2022/10/03/xQ3Qwd.png" alt="xQ3Qwd.png" /></a> <a href="https://imgse.com/i/xQ3lTA"><img src="https://s1.ax1x.com/2022/10/03/xQ3lTA.png" alt="xQ3lTA.png" /></a> <a href="https://imgse.com/i/xQ38Yt"><img src="https://s1.ax1x.com/2022/10/03/xQ38Yt.png" alt="xQ38Yt.png" /></a> <a href="https://imgse.com/i/xQ3YSf"><img src="https://s1.ax1x.com/2022/10/03/xQ3YSf.png" alt="xQ3YSf.png" /></a> <a href="https://imgse.com/i/xQ33FI"><img src="https://s1.ax1x.com/2022/10/03/xQ33FI.png" alt="xQ33FI.png" /></a> <a href="https://imgse.com/i/xQ3GfP"><img src="https://s1.ax1x.com/2022/10/03/xQ3GfP.png" alt="xQ3GfP.png" /></a> <a href="https://imgse.com/i/xQ3N6S"><img src="https://s1.ax1x.com/2022/10/03/xQ3N6S.png" alt="xQ3N6S.png" /></a></p>
-<p><a href="https://imgse.com/i/xQ3tl8"><img src="https://s1.ax1x.com/2022/10/03/xQ3tl8.png" alt="xQ3tl8.png" /></a> <a href="https://imgse.com/i/xQ3UOg"><img src="https://s1.ax1x.com/2022/10/03/xQ3UOg.png" alt="xQ3UOg.png" /></a></p>
-<p><a href="https://imgse.com/i/xQ3sf0"><img src="https://s1.ax1x.com/2022/10/03/xQ3sf0.png" alt="xQ3sf0.png" /></a> <a href="https://imgse.com/i/xQ30Ts"><img src="https://s1.ax1x.com/2022/10/03/xQ30Ts.png" alt="xQ30Ts.png" /></a> <a href="https://imgse.com/i/xQ3rYq"><img src="https://s1.ax1x.com/2022/10/03/xQ3rYq.png" alt="xQ3rYq.png" /></a> <a href="https://imgse.com/i/xQ3Dkn"><img src="https://s1.ax1x.com/2022/10/03/xQ3Dkn.png" alt="xQ3Dkn.png" /></a> <a href="https://imgse.com/i/xQ3clT"><img src="https://s1.ax1x.com/2022/10/03/xQ3clT.png" alt="xQ3clT.png" /></a> <a href="https://imgse.com/i/xQ32XF"><img src="https://s1.ax1x.com/2022/10/03/xQ32XF.png" alt="xQ32XF.png" /></a> <a href="https://imgse.com/i/xQ3g6U"><img src="https://s1.ax1x.com/2022/10/03/xQ3g6U.png" alt="xQ3g6U.png" /></a> <a href="https://imgse.com/i/xQ3Wm4"><img src="https://s1.ax1x.com/2022/10/03/xQ3Wm4.png" alt="xQ3Wm4.png" /></a> <a href="https://imgse.com/i/xQ3h79"><img src="https://s1.ax1x.com/2022/10/03/xQ3h79.png" alt="xQ3h79.png" /></a> <a href="https://imgse.com/i/xQ35kR"><img src="https://s1.ax1x.com/2022/10/03/xQ35kR.png" alt="xQ35kR.png" /></a></p>
-<p><a href="https://imgse.com/i/xlsQZn"><img src="https://s1.ax1x.com/2022/10/05/xlsQZn.png" alt="xlsQZn.png" /></a> <a href="https://imgse.com/i/xlslaq"><img src="https://s1.ax1x.com/2022/10/05/xlslaq.png" alt="xlslaq.png" /></a> <a href="https://imgse.com/i/xls1I0"><img src="https://s1.ax1x.com/2022/10/05/xls1I0.png" alt="xls1I0.png" /></a> <a href="https://imgse.com/i/xlsGGT"><img src="https://s1.ax1x.com/2022/10/05/xlsGGT.png" alt="xlsGGT.png" /></a> <a href="https://imgse.com/i/xls8iV"><img src="https://s1.ax1x.com/2022/10/05/xls8iV.png" alt="xls8iV.png" /></a> <a href="https://imgse.com/i/xlsJRU"><img src="https://s1.ax1x.com/2022/10/05/xlsJRU.png" alt="xlsJRU.png" /></a> <a href="https://imgse.com/i/xlsYzF"><img src="https://s1.ax1x.com/2022/10/05/xlsYzF.png" alt="xlsYzF.png" /></a> <a href="https://imgse.com/i/xlsUsJ"><img src="https://s1.ax1x.com/2022/10/05/xlsUsJ.png" alt="xlsUsJ.png" /></a> <a href="https://imgse.com/i/xlsNM4"><img src="https://s1.ax1x.com/2022/10/05/xlsNM4.png" alt="xlsNM4.png" /></a> <a href="https://imgse.com/i/xlsaL9"><img src="https://s1.ax1x.com/2022/10/05/xlsaL9.png" alt="xlsaL9.png" /></a> <a href="https://imgse.com/i/xlswZR"><img src="https://s1.ax1x.com/2022/10/05/xlswZR.png" alt="xlswZR.png" /></a> <a href="https://imgse.com/i/xls0d1"><img src="https://s1.ax1x.com/2022/10/05/xls0d1.png" alt="xls0d1.png" /></a> <a href="https://imgse.com/i/xlsBIx"><img src="https://s1.ax1x.com/2022/10/05/xlsBIx.png" alt="xlsBIx.png" /></a></p>
-]]></content>
-      <categories>
-        <category>强化学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>VS2019新建C自动添加作者版权等信息</title>
-    <url>/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="visualstudio2019新建c自动添加作者版权等信息">VisualStudio2019新建C自动添加作者版权等信息</h1>
-<h4 id="参考">参考</h4>
-<ul>
-<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p></li>
-<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网</a></p></li>
-<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p></li>
-<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p></li>
-</ul>
-<h3 id="注释规范">注释规范</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/**══════════════════════════════════╗</span><br><span class="line">*作    者：songbaobao                                                ║</span><br><span class="line">*职    业：我以我血荐轩辕                                              ║                                              </span><br><span class="line">*CSND地址：https://blog.csdn.net/weixin_43949535                       ║</span><br><span class="line">**GitHub ：https://github.com/TsinghuaLucky912/My_own_C-_study_and_blog║</span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*创建时间：                                                           </span><br><span class="line">*功能描述：                                                            </span><br><span class="line">*                                                                      </span><br><span class="line">*                                                                      </span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*结束时间:                                                           </span><br><span class="line">*═══════════════════════════════════╝</span><br><span class="line">//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.</span><br><span class="line">//            __.&#x27;              ~.   .~              `.__</span><br><span class="line">//          .&#x27;//              西南\./联大               \\`.</span><br><span class="line">//        .&#x27;//                     |                     \\`.</span><br><span class="line">//      .&#x27;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.</span><br><span class="line">//    .&#x27;//.-&quot;                 `-.  |  .-&#x27;                 &quot;-.\\`.</span><br><span class="line">//  .&#x27;//______.============-..   \ | /   ..-============.______\\`.</span><br><span class="line">//.&#x27;______________________________\|/______________________________`.</span><br><span class="line">*/</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>安装软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>虚拟机安装Ubuntu18.04</title>
-    <url>/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/</url>
-    <content><![CDATA[<h1 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h1>
-<h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
-<ul>
-<li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
-<li>但仍然无法复制粘贴 参考<a href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
-<li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
-</ul>
-<h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
-<ul>
-<li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
-<li><p><code>Ubuntu</code>更改源</p></li>
-</ul>
-<h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
-<ul>
-<li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
-<li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;" /></p>
-<p><strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
-<ul>
-<li><strong><a href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
-</ul>
-<p>原因在于python依赖的安装包没有安装。</p>
-<h3 id="python-binding解决">python Binding解决</h3>
-<ol type="1">
-<li>安装python3</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
-<ul>
-<li><a href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
-<li><a href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
-<li><a href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
-</ul>
-<h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p><strong><a href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
-<li><p><strong><a href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
-<li><p>可以再把与python有关的再装一遍</p></li>
-<li><figure>
-<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" /><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
-</figure></li>
-<li><p>出现以下图片后</p></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>进行编译，但会出现卡了，这时需要增大虚拟机内存</li>
-<li>重新编译，终于安装好了</li>
-</ul>
-<h2 id="其他参考网站">其他参考网站</h2>
-<ul>
-<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
-<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
-<li><p><a href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p></li>
-<li><p><a href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p></li>
+<li><a href="https://www.bilibili.com/video/BV1ix41137b7?spm_id_from=333.337.search-card.all.click">【公开课】Excel基础大全（1-66集）【超高清版】_哔哩哔哩_bilibili</a></li>
 </ul>
 ]]></content>
       <tags>
-        <tag>安装软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安装Ubuntu18.04双系统</title>
-    <url>/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="安装ubuntu双系统">安装Ubuntu双系统</h2>
-<ol type="1">
-<li><a href="https://blog.csdn.net/qq_43106321/article/details/105361644">Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu</a></li>
-<li><a href="https://blog.csdn.net/weixin_44623637/article/details/106723462">Ubuntu18.04安装教程——超详细的图文教程_Krasjet_Yu.的博客-CSDN博客_ubuntu18.04</a></li>
-<li><a href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
-<li><a href="https://blog.csdn.net/baidu_36602427/article/details/86548203">Ubuntu18.04安装教程_寥廓长空的博客-CSDN博客_ubuntu安装教程</a></li>
-</ol>
-<h2 id="注意"><mark>注意</mark></h2>
-<ol type="1">
-<li>进入Bios界面，一直按<code>F2</code></li>
-<li>如何启动进入选择系统界面还没解决，linux系统用的不多，总体来说还是虚拟机方便，但是虚拟机占用内存。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>安装软件</tag>
+        <tag>Office</tag>
       </tags>
   </entry>
   <entry>
@@ -1686,27 +1645,27 @@ blockquote {
 <li><strong>C++方面最好可以找一些相关的项目</strong>，赚点钱，才能有真正的提升，技能才不会丢</li>
 </ul>
 <p>目前呢，打算前两年还是好好做科研任务（<strong>前两年按照正规学术标准去规划</strong>），争取在前两年就可以写好毕业论文，毕竟毕业是头等大事，无论是否读博，都要把毕业论文好好完成，在保证能毕业的情况下，再谈其他的。</p>
-<p>每半年分成一个部分，越早起步越好，然后开学前还有半年，打好基础，基础很重要（ <strong><font color='red'> 勿在浮沙筑高台 </font></strong> ）。</p>
+<p>每半年分成一个部分，越早起步越好，然后开学前还有半年，打好基础，基础很重要（ <strong><font color="red"> 勿在浮沙筑高台 </font></strong> ）。</p>
 <ul>
-<li><p><strong><font color='red'> 安排好自己的生活，在学习的同时又能兼顾自己的兴趣爱好 </font></strong></p>
+<li><p><strong><font color="red"> 安排好自己的生活，在学习的同时又能兼顾自己的兴趣爱好 </font></strong></p>
 <ul>
 <li>保证每日的任务量</li>
 <li>但是不熬夜，11点之前可以睡着（当然这需要室友的配合，希望未来的室友不打游戏，可以早点睡觉）</li>
 <li>有时间去玩，锻炼身体</li>
 </ul>
 <p>看似简单，其实也不容易。</p></li>
-<li><p><strong><font color='red'> 养成专注的习惯 </font></strong></p>
+<li><p><strong><font color="red"> 养成专注的习惯 </font></strong></p>
 <p>学习就是学习，学习的时候就不要看手机，每天专心学习<code>7-8</code>个小时，完全可以完成要求，也完全有时间去玩。</p></li>
-<li><p><strong><font color='red'> 成熟稳重</font></strong></p>
+<li><p><strong><font color="red"> 成熟稳重</font></strong></p>
 <ul>
 <li>一个人出去旅游，出去玩</li>
 <li>一个人在陌生的城市里立足</li>
 </ul></li>
 </ul>
 <p><strong>尽快的独立起来，做事不要依靠任何人，可以独当一面，成熟稳重起来</strong></p>
-<hr />
+<hr>
 <ol type="1">
-<li><p><code>2022.5.12-2022.9</code> <strong><font color='red'> 研究生开学前 </font></strong></p>
+<li><p><code>2022.5.12-2022.9</code> <strong><font color="red"> 研究生开学前 </font></strong></p>
 <ul>
 <li><strong>打好编程基础。学习C++课程</strong></li>
 <li>目前基础语法学完了，总结一下，上传。</li>
@@ -1723,14 +1682,14 @@ blockquote {
 </ul></li>
 <li><strong>确定自己的研究方向，看论文，记笔记</strong> ---</li>
 </ul></li>
-<li><p><code>2022.9-2023.3</code><strong><font color='red'> 研一上半年 </font></strong></p>
+<li><p><code>2022.9-2023.3</code><strong><font color="red"> 研一上半年 </font></strong></p>
 <ul>
 <li>应该会有很多专业课程</li>
 <li>看论文，对于研究背景什么的，平时就记录自己的想法，到时候写开题报告，论文的时候可以直接拿来用。不要让写论文、改论文这些事去耽误找工作的时间</li>
 </ul></li>
 <li><p>先写到这里吧，到时候再具体看情况，毕竟计划赶不上变化，但是一个大致的规划还是要有的~</p></li>
 </ol>
-<hr />
+<hr>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
@@ -1750,8 +1709,8 @@ blockquote {
 <li><a href="https://mp.weixin.qq.com/s/v1wz3tN8PxTGnbMEPHnwFg">C++学习建议，重点看一下</a></li>
 </ul>
 <p>纯软件的职业不适合我，论编程开发，我比不过学软件的。但是，<strong>世上编程者大把，精通模电者寥寥。</strong>，会编程的人很多，可是又有几个人懂得硬件呢？</p>
-<p>没事就问问自己， <strong><font size=5><font color=red>自己的核心竞争力是什么？</font></font></strong> ，要学一些别人不会，你会的东西，这种东西没有你做不了，夹缝中求生存。</p>
-<p>目前来看，很有优势，毕竟本科是学电路的，有硬件的知识，会软件的肯定没有几个人懂硬件，世上也不缺会编程的人。但是要切记 <strong><font size=5><font color=red>先精通一门，再扩展技能</font></font></strong></p>
+<p>没事就问问自己， <strong><font size="5"><font color="red">自己的核心竞争力是什么？</font></font></strong> ，要学一些别人不会，你会的东西，这种东西没有你做不了，夹缝中求生存。</p>
+<p>目前来看，很有优势，毕竟本科是学电路的，有硬件的知识，会软件的肯定没有几个人懂硬件，世上也不缺会编程的人。但是要切记 <strong><font size="5"><font color="red">先精通一门，再扩展技能</font></font></strong></p>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
@@ -1761,151 +1720,192 @@ blockquote {
       </tags>
   </entry>
   <entry>
-    <title>学习链接</title>
-    <url>/2022/10/19/tolearn/</url>
-    <content><![CDATA[<h1 id="一专业类"><strong>一、专业类</strong></h1>
-<h2 id="机器学习"><strong>机器学习</strong></h2>
-<h2 id="数学基础"><strong>1. 数学基础</strong></h2>
-<ol type="1">
-<li><a href="https://www.bilibili.com/video/BV1pb411u7t1?spm_id_from=333.999.0.0">线性代数基础课程【小元老师】【超级0基础入门】</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ib411t7YR?spm_id_from=333.999.0.0">线性代数的本质</a></li>
-<li><a href="https://www.bilibili.com/video/BV14b411M7Jn?spm_id_from=333.999.0.0">概率论与数理统计知识详解【小元老师】【考研数学】</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ys411472E?spm_id_from=333.999.0.0">【官方双语/合集】线性代数的本质 - 系列合集</a></li>
-</ol>
-<h2 id="机器学习-1"><strong>2. 机器学习</strong></h2>
-<ol type="1">
-<li><strong>🔗<a href="机器学习/00Tra_ML/02.线性回归.md">线性回归</a></strong></li>
-</ol>
-<ul>
-<li><a href="https://blog.csdn.net/gongxifacai_believe/category_6834186.html">Machine Learning_魏晓蕾的博客-CSDN博客</a><mark>前辈们做的机器学习笔记</mark></li>
-<li><a href="https://www.bilibili.com/video/BV1jS4y1j74C?spm_id_from=333.999.0.0">机器学习之路【b站UP主】</a></li>
-</ul>
-<ol type="1">
-<li><a href="https://www.bilibili.com/video/BV1Cx411i7op?spm_id_from=333.999.0.0">林轩田机器学习基石(国语)</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1aE411o7qd?spm_id_from=333.337.search-card.all.click">【白板推导系列】【合集 1～33】</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV1eT4y1E73x?spm_id_from=333.999.0.0">【手推机器学习】矩阵求导7--最小二乘法举例</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ZM4y1w75P?spm_id_from=333.999.0.0">【神经网络】BP误差逆传播算法数学推导</a></li>
-<li><a href="https://www.bilibili.com/video/BV13J41157Wq?spm_id_from=333.999.0.0">5字诀搞定BP反向传播算法推导</a></li>
-<li><a href="https://github.com/dragen1860/Deep-Learning-with-TensorFlow-book">dragen1860/Deep-Learning-with-TensorFlow-book: 深度学习入门开源书，基于TensorFlow 2.0案例实战。</a></li>
-<li><a href="https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html">【英文】机器学习可解释性| Interpretable Machine Learning (christophm.github.io)</a></li>
-<li></li>
-</ol>
-<h2 id="深度学习"><strong>3. 深度学习</strong></h2>
-<ol type="1">
-<li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong></li>
-<li><strong>🔗<a href="机器学习/05DL/CNN.md">CNN</a></strong></li>
-</ol>
-<h2 id="强化学习"><strong>4. 强化学习</strong></h2>
-<ol type="1">
-<li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
-<li><a href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总</a></li>
-<li><a href="https://www.bilibili.com/video/BV13W411Y75P?spm_id_from=333.999.0.0">【莫烦Python】强化学习 Reinforcement Learning</a></li>
-<li><a href="https://www.bilibili.com/video/BV16Y4y1M7DX?spm_id_from=333.999.0.0">强化学习基础 （本科生课程） 北京邮电大学 鲁鹏</a></li>
-<li><a href="https://www.bilibili.com/video/BV1XP4y1d7Bk?spm_id_from=333.999.0.0">李宏毅</a></li>
-<li><a href="https://www.bilibili.com/video/BV1rv41167yx/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深度强化学习（全）_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1CB4y1G777/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【RLChina 2022】前沿进展五：应用多智能体强化学习解决现实问题——机遇和挑战 方飞_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1vG4y1n7Rp/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">强化学习论文分享2022-10-13_哔哩哔哩_bilibili</a></li>
-<li></li>
-</ol>
-<h2 id="计算机系统"><strong>计算机系统</strong></h2>
-<ol type="1">
-<li><strong><a href="https://www.bilibili.com/video/BV1cD4y1D7uR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937&amp;t=42.5">【CSAPP-深入理解计算机系统】</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV17K4y1N7Q2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统合集（周更中）_哔哩哔哩_bilibili</a>
-<ul>
-<li><a href="https://github.com/yangminz/bcst_csapp">yangminz/bcst_csapp: A C language repo to implement CSAPP (github.com)</a></li>
-<li>Hello 观众朋友们大家好，这个Repo是我在做《深入理解计算机系统》（CSAPP）视频时所用到的代码，还包括一本设计手册，设计手册还在慢慢更新。代码、手册以及视频都是为了给大家介绍CSAPP这本书，帮助大家阅读和理解最基础的计算机系统知识。特别是本科低年级的同学（大一大二），准备转专业的同学，以及跨专业考研的同学，<strong>通常会掌握一些基本的编程语言，但是可能对计算机系统本身并不足够了解。</strong>我的视频、代码以及手册就是希望帮助大家学习，尽量通过代码实现CSAPP上的知识点，然后再通过视频讲解，<strong>将基础的计算机系统知识连贯起来。</strong></li>
-</ul></li>
-<li><a href="https://www.bilibili.com/video/BV1Vh411r7ef/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1gN411975F?p=16&amp;vd_source=83831fc0970a6c8704479f7cfc679937">第九章 虚拟内存_哔哩哔哩_bilibili</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili</a></strong></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili</a></strong></li>
-</ol>
-<h1 id="二软能力"><strong>二、软能力</strong></h1>
-<h2 id="羽毛球"><strong>羽毛球</strong></h2>
-<ol type="1">
-<li><strong><a href="https://www.bilibili.com/video/BV12t4y1e7L4/?spm_id_from=333.788.recommend_more_video.11&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？_哔哩哔哩_bilibili</a></strong></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1n94y127z9/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置_哔哩哔哩_bilibili</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV1yT411T78Y/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】我发了短球对方总推我底线就特别难受！怎么解决？_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1pN4y1F72H/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球反手训练，让你获得更大的反手击球力量，轻松将球打到后场_哔哩哔哩_bilibili</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1PG41187Vq/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球初学者常见错误_哔哩哔哩_bilibili</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV1vU4y1r7Vf/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球高级动作，提升你的羽毛球技能_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV19d4y1o75Z/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球步法，轻松应对网前及后场球_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1hT411w7fL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球挑球常出现的错误_哔哩哔哩_bilibili</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1LP4y1a7HH/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【高清低视角】林丹vs薛松 剪辑版 享受丹神的球速吧_哔哩哔哩_bilibili</a></strong>
-<ul>
-<li>看完这个视频，感觉林丹很轻松的原因。
-<ul>
-<li>一是，回球到位，所以让对手很难受，因为回球到位，对手难受，自己才很轻松。无论是接杀，还是什么，回球都让对方很难受</li>
-</ul></li>
-</ul></li>
-</ol>
-<p><strong><mark>控制自己的情绪，积极向上生活</mark></strong></p>
-<ol type="1">
-<li><a href="https://www.bilibili.com/video/BV1U5411K7KP/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭 内卷到底是什么_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1j14y1Y7dB/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【陈铭】“我们有这个习惯，越是有负面情绪，越是伤害至亲的人”_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ug4y167Cq/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈】致 还不想恋爱的自己和屏幕前的你们_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV11o4y1Q7bJ/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">陈铭：为什么我不建议年轻人摸鱼？_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ft411779h/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【非正式会谈5】陈铭传授当代青年人如何应对和抵抗焦虑_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1TA411A7M4/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">拒绝焦虑！拒绝内卷！非正式会谈这个片段真的好喜欢，宝藏综艺！_哔哩哔哩_bilibili</a></li>
-</ol>
-<p><strong><mark>宗教、中国人信仰的到底是什么</mark></strong></p>
-<ol type="1">
-<li><a href="https://www.bilibili.com/video/BV1te4y1v79b/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">武汉大学陈铭：论恐惧与鬼_哔哩哔哩_bilibili</a></li>
-</ol>
-<h1 id="三英语"><strong>三、英语</strong></h1>
-<ol type="1">
-<li><a href="https://www.bilibili.com/video/BV13B4y1E78c/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">中英文逻辑_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV16T41137jP/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">雅思写作小作文进阶篇——用数学模型拿捏考官_哔哩哔哩_bilibili</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/83528343">雅思写作Task 1（小作文、图表作文）各题型攻略全解析 - 知乎 (zhihu.com)</a></li>
-<li></li>
-</ol>
+    <title>RL介绍</title>
+    <url>/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h2 id="强化学习-reinforcement-learning"><strong>强化学习 Reinforcement Learning</strong></h2>
+<p>声明：以下课件来源于 <strong><em>北京邮电大学人工智能学院鲁鹏老师</em></strong></p>
+<p><a href="https://imgse.com/i/xQ3EJx"><img src="https://s1.ax1x.com/2022/10/03/xQ3EJx.png" alt="xQ3EJx.png"></a></p>
+<h3 id="机器学习分支">机器学习分支</h3>
+<p><a href="https://imgse.com/i/xQ3MeH"><img src="https://s1.ax1x.com/2022/10/03/xQ3MeH.png" alt="xQ3MeH.png"></a> <a href="https://imgse.com/i/xQ3AF1"><img src="https://s1.ax1x.com/2022/10/03/xQ3AF1.png" alt="xQ3AF1.png"></a></p>
+<h3 id="强化学习特点">强化学习特点</h3>
+<p><a href="https://imgse.com/i/xQ3PeJ"><img src="https://s1.ax1x.com/2022/10/03/xQ3PeJ.png" alt="xQ3PeJ.png"></a></p>
+<h3 id="reward"><strong>2. Reward</strong></h3>
+<p><a href="https://imgse.com/i/xQ3FoR"><img src="https://s1.ax1x.com/2022/10/03/xQ3FoR.png" alt="xQ3FoR.png"></a> <a href="https://imgse.com/i/xQ3iw9"><img src="https://s1.ax1x.com/2022/10/03/xQ3iw9.png" alt="xQ3iw9.png"></a> <a href="https://imgse.com/i/xQ3VW6"><img src="https://s1.ax1x.com/2022/10/03/xQ3VW6.png" alt="xQ3VW6.png"></a> <a href="https://imgse.com/i/xQ3eSK"><img src="https://s1.ax1x.com/2022/10/03/xQ3eSK.png" alt="xQ3eSK.png"></a> <a href="https://imgse.com/i/xQ3mQO"><img src="https://s1.ax1x.com/2022/10/03/xQ3mQO.png" alt="xQ3mQO.png"></a> <a href="https://imgse.com/i/xQ3nyD"><img src="https://s1.ax1x.com/2022/10/03/xQ3nyD.png" alt="xQ3nyD.png"></a> <a href="https://imgse.com/i/xQ3uOe"><img src="https://s1.ax1x.com/2022/10/03/xQ3uOe.png" alt="xQ3uOe.png"></a> <a href="https://imgse.com/i/xQ3Qwd"><img src="https://s1.ax1x.com/2022/10/03/xQ3Qwd.png" alt="xQ3Qwd.png"></a> <a href="https://imgse.com/i/xQ3lTA"><img src="https://s1.ax1x.com/2022/10/03/xQ3lTA.png" alt="xQ3lTA.png"></a> <a href="https://imgse.com/i/xQ38Yt"><img src="https://s1.ax1x.com/2022/10/03/xQ38Yt.png" alt="xQ38Yt.png"></a> <a href="https://imgse.com/i/xQ3YSf"><img src="https://s1.ax1x.com/2022/10/03/xQ3YSf.png" alt="xQ3YSf.png"></a> <a href="https://imgse.com/i/xQ33FI"><img src="https://s1.ax1x.com/2022/10/03/xQ33FI.png" alt="xQ33FI.png"></a> <a href="https://imgse.com/i/xQ3GfP"><img src="https://s1.ax1x.com/2022/10/03/xQ3GfP.png" alt="xQ3GfP.png"></a> <a href="https://imgse.com/i/xQ3N6S"><img src="https://s1.ax1x.com/2022/10/03/xQ3N6S.png" alt="xQ3N6S.png"></a></p>
+<p><a href="https://imgse.com/i/xQ3tl8"><img src="https://s1.ax1x.com/2022/10/03/xQ3tl8.png" alt="xQ3tl8.png"></a> <a href="https://imgse.com/i/xQ3UOg"><img src="https://s1.ax1x.com/2022/10/03/xQ3UOg.png" alt="xQ3UOg.png"></a></p>
+<p><a href="https://imgse.com/i/xQ3sf0"><img src="https://s1.ax1x.com/2022/10/03/xQ3sf0.png" alt="xQ3sf0.png"></a> <a href="https://imgse.com/i/xQ30Ts"><img src="https://s1.ax1x.com/2022/10/03/xQ30Ts.png" alt="xQ30Ts.png"></a> <a href="https://imgse.com/i/xQ3rYq"><img src="https://s1.ax1x.com/2022/10/03/xQ3rYq.png" alt="xQ3rYq.png"></a> <a href="https://imgse.com/i/xQ3Dkn"><img src="https://s1.ax1x.com/2022/10/03/xQ3Dkn.png" alt="xQ3Dkn.png"></a> <a href="https://imgse.com/i/xQ3clT"><img src="https://s1.ax1x.com/2022/10/03/xQ3clT.png" alt="xQ3clT.png"></a> <a href="https://imgse.com/i/xQ32XF"><img src="https://s1.ax1x.com/2022/10/03/xQ32XF.png" alt="xQ32XF.png"></a> <a href="https://imgse.com/i/xQ3g6U"><img src="https://s1.ax1x.com/2022/10/03/xQ3g6U.png" alt="xQ3g6U.png"></a> <a href="https://imgse.com/i/xQ3Wm4"><img src="https://s1.ax1x.com/2022/10/03/xQ3Wm4.png" alt="xQ3Wm4.png"></a> <a href="https://imgse.com/i/xQ3h79"><img src="https://s1.ax1x.com/2022/10/03/xQ3h79.png" alt="xQ3h79.png"></a> <a href="https://imgse.com/i/xQ35kR"><img src="https://s1.ax1x.com/2022/10/03/xQ35kR.png" alt="xQ35kR.png"></a></p>
+<p><a href="https://imgse.com/i/xlsQZn"><img src="https://s1.ax1x.com/2022/10/05/xlsQZn.png" alt="xlsQZn.png"></a> <a href="https://imgse.com/i/xlslaq"><img src="https://s1.ax1x.com/2022/10/05/xlslaq.png" alt="xlslaq.png"></a> <a href="https://imgse.com/i/xls1I0"><img src="https://s1.ax1x.com/2022/10/05/xls1I0.png" alt="xls1I0.png"></a> <a href="https://imgse.com/i/xlsGGT"><img src="https://s1.ax1x.com/2022/10/05/xlsGGT.png" alt="xlsGGT.png"></a> <a href="https://imgse.com/i/xls8iV"><img src="https://s1.ax1x.com/2022/10/05/xls8iV.png" alt="xls8iV.png"></a> <a href="https://imgse.com/i/xlsJRU"><img src="https://s1.ax1x.com/2022/10/05/xlsJRU.png" alt="xlsJRU.png"></a> <a href="https://imgse.com/i/xlsYzF"><img src="https://s1.ax1x.com/2022/10/05/xlsYzF.png" alt="xlsYzF.png"></a> <a href="https://imgse.com/i/xlsUsJ"><img src="https://s1.ax1x.com/2022/10/05/xlsUsJ.png" alt="xlsUsJ.png"></a> <a href="https://imgse.com/i/xlsNM4"><img src="https://s1.ax1x.com/2022/10/05/xlsNM4.png" alt="xlsNM4.png"></a> <a href="https://imgse.com/i/xlsaL9"><img src="https://s1.ax1x.com/2022/10/05/xlsaL9.png" alt="xlsaL9.png"></a> <a href="https://imgse.com/i/xlswZR"><img src="https://s1.ax1x.com/2022/10/05/xlswZR.png" alt="xlswZR.png"></a> <a href="https://imgse.com/i/xls0d1"><img src="https://s1.ax1x.com/2022/10/05/xls0d1.png" alt="xls0d1.png"></a> <a href="https://imgse.com/i/xlsBIx"><img src="https://s1.ax1x.com/2022/10/05/xlsBIx.png" alt="xlsBIx.png"></a></p>
 ]]></content>
       <categories>
-        <category>学习链接</category>
+        <category>强化学习</category>
       </categories>
   </entry>
   <entry>
-    <title>Back Propagation</title>
-    <url>/2022/10/21/BP/</url>
-    <content><![CDATA[
-
-	<div class="row">
-    <embed src="BP.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<!-- 
-
-	<div class="row">
-    <embed src="https://cloud.tsinghua.edu.cn/f/952edbd1e02d409cbd01/" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<p>--&gt;</p>
-<!-- <iframe src="BP.pdf" width="800px" height="800px" frameborder="0" scrolling="no"></iframe> -->
-<h2 id="梯度下降">梯度下降</h2>
+    <title>线性回归</title>
+    <url>/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</url>
+    <content><![CDATA[<h2 id="单变量线性回归">单变量线性回归</h2>
+<p>梯度下降做的事就是找到一个值 <span class="math inline">\(\theta\)</span> 使得代价函数 <span class="math inline">\(J(\theta)\)</span> 最小</p>
+<h2 id="多变量线性回归">多变量线性回归</h2>
+<ul>
+<li>通常用 <strong>大写、黑体</strong> 字母表示矩阵，用小写字母表示标量或向量。</li>
+<li><strong>正斜体</strong> 总的原则是变量（矢量，张量）等用斜体；数字、确定符号、词汇缩缩、单位等用正体。参考 <a href="https://blog.csdn.net/wanjiac/article/details/106085105">科技论文书写规范之正斜体问题</a></li>
+</ul>
+<h3 id="符号说明">符号说明</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">符号/变量</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(n\)</span></td>
+<td style="text-align: center;">特征量的数目</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(m\)</span></td>
+<td style="text-align: center;">训练样本的数量</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(h\)</span></td>
+<td style="text-align: center;">学习方法的解决方案或函数也称为假设</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\boldsymbol{x}^{\left(i \right)}\)</span></td>
+<td style="text-align: center;">第<span class="math inline">\(i\)</span>个训练样本的输入特征值</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\boldsymbol{x}^{\left(i \right)}_{j}\)</span></td>
+<td style="text-align: center;">第<span class="math inline">\(i\)</span>个训练样本中第<span class="math inline">\(j\)</span>个特征量的值</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://imgtu.com/i/XgAtXD#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAtXD.png" alt="XgAtXD.png"></a></p>
+<table style="width:6%;">
+<colgroup>
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><a href="https://imgtu.com/i/XgAa0H#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAa0H.png" alt="XgAa0H.png"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://imgtu.com/i/XgAUne"><img src="https://s1.ax1x.com/2022/06/11/XgAUne.png" alt="XgAUne.png"></a></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://imgtu.com/i/XgAd7d"><img src="https://s1.ax1x.com/2022/06/11/XgAd7d.png" alt="XgAd7d.png"></a></p>
+<p><code>python</code>计算代价函数的代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">conputeCost</span> (x, y, theta):</span><br><span class="line">    inner = np.power(((x * theta.T) – y), <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(inner) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br></pre></td></tr></table></figure> 通过图像，<span class="math inline">\(y\)</span> 轴是代价函数的最小值 <span class="math inline">\(\mathrm{min}J(\theta)\)</span> ，<span class="math inline">\(x\)</span>轴是迭代次数。如果随着迭代次数的增加，代价函数越来越小，就说明 <strong><code>梯度下降</code></strong> 在正常工作。</p>
+<h3 id="梯度下降-vs.-正规方程">梯度下降 vs. 正规方程</h3>
+<table>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">梯度下降</th>
+<th style="text-align: center;">正规方程</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">需要选择学习率</td>
+<td style="text-align: center;">不需要</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">需要多次迭代</td>
+<td style="text-align: center;">一次运算就得出结果</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">当特征数量大的时候比较适用</td>
+<td style="text-align: center;">计算 <span class="math inline">\((\boldsymbol{X^TX})^{-1}\)</span> 如果特征数量很大，则运算的速度就会很慢，矩阵逆运算的时间复杂度是 <span class="math inline">\(\mathrm{O}(n^3)\)</span>,通常来说 <code>n&lt;10000</code> 还是可以接受的。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">适用于各种模型</td>
+<td style="text-align: center;">只适用与线性模型</td>
+</tr>
+</tbody>
+</table>
+<h2 id="向量化">向量化</h2>
+<p>使用程序计算这样一个线性回归假设函数：<span class="math inline">\(h_{\theta}(x)=\sum^n_{j=0} \theta_j x_j\)</span>，可以写成向量的形式： <span class="math display">\[h_{\theta}(x)=\sum^n_{j=0} \theta_j x_j = \boldsymbol{ \theta^T x}\]</span> 非向量化实现 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> prediction = <span class="number">0.0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j&lt;=n; j++)</span><br><span class="line">    prediction += theta[j] * x[j];</span><br></pre></td></tr></table></figure></p>
+<p>向量化实现，使用 <code>C++</code> 数值线性代数库，更简单、更高效的代码 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> prediction = theta.transpose( ) * x;</span><br></pre></td></tr></table></figure></p>
 <ol type="1">
-<li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
+<li><a href="https://blog.csdn.net/u010976453/article/details/54381248">机器学习中的线性代数之矩阵求导</a></li>
+<li><a href="https://blog.csdn.net/u014628146/article/details/90105826">矩阵转置基本性质</a></li>
+<li><a href="https://blog.csdn.net/CxC2333/article/details/108740970">常见的二范数是什么意思？有什么用?</a></li>
 </ol>
-<p><a href="https://so.csdn.net/so/search?q=梯度下降&amp;spm=1001.2101.3001.7020">梯度下降</a>（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主要目的是通过迭代找到目标函数的最小值，或者收敛到最小值。</p>
-<h3 id="思想">思想</h3>
-<p><strong>梯度下降法的基本思想可以类比为一个下山的过程。</strong> 假设这样一个场景：一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)。但此时山上的浓雾很大，导致可视度很低；因此，下山的路径就无法确定，必须利用自己周围的信息一步一步地找到下山的路。这个时候，便可利用梯度下降算法来帮助自己下山。怎么做呢，<strong>首先以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着下降方向走一步，然后又继续以当前位置为基准，再找最陡峭的地方，再走直到最后到达最低处；同理上山也是如此，只是这时候就变成梯度上升算法了。</strong></p>
-<p>梯度下降的基本过程就和下山的场景很类似。</p>
-<p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
-<h3 id="数学表示">数学表示</h3>
-<p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
-<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;"></p>
-<p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
-<p><strong><mark>α</mark></strong></p>
-<p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
-<p><strong><mark>梯度要乘以一个负号</mark></strong></p>
-<p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
-<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
 ]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>CNN</title>
+    <url>/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/</url>
+    <content><![CDATA[<h2 id="cnn">CNN</h2>
+<p>如果用全连接神经网络处理大尺寸图像具有三个明显的缺点：</p>
+<p>（1）首先将图像展开为向量会丢失空间信息； （2）其次参数过多效率低下，训练困难； （3）同时大量的参数也很快会导致网络过拟合。</p>
+<p>而使用卷积神经网络可以很好地解决上面的三个问题。</p>
+<p>与常规神经网络不同，卷积神经网络的各层中的神经元是 <code>3</code> 维排列的：宽度、高度和深度。其中的宽度和高度是很好理解的，因为本身卷积就是一个二维模板，但是在卷积神经网络中的深度指的是 <strong>激活数据体</strong> 的第三个维度，而不是整个网络的深度，<strong>整个网络的深度指的是网络的层数。</strong></p>
+<p>举个例子来理解什么是宽度，高度和深度，假如使用CIFAR-10中的图像是作为卷积神经网络的输入，该 <strong>输入数据体</strong> 的维度是32x32x3（宽度，高度和深度）。<strong>我们将看到，层中的神经元将只与前一层中的一小块区域连接，而不是采取全连接方式。</strong> 对于用来分类CIFAR-10中的图像的卷积网络，其最后的输出层的维度是1x1x10，因为在卷积神经网络结构的最后部分将会把全尺寸的图像压缩为包含分类评分的一个向量，<strong>向量是在深度方向排列的</strong>。</p>
+<p>卷积神经网络利用输入是图片的特点，把神经元设计成三个维度 ： <code>width, height, depth (height * width * channel</code> ) (注意这个 <code>depth</code> 不是神经网络的深度，而是用来描述神经元的) 。比如输入的图片大小是 <code>32 × 32 × 3 (rgb)</code>，那么输入神经元就也具有 <code>32×32×3</code> 的维度。下面是图解</p>
+<p><img src="https://img-blog.csdn.net/20160404000318630"></p>
+<p><a href="https://imgse.com/i/xG2vMq"><img src="https://s1.ax1x.com/2022/10/08/xG2vMq.png" alt="xG2vMq.png"></a></p>
+<p>我的理解是卷积核就相当于神经元，但这个神经元是局部连接的，就是说一个神经元/卷积核只接受卷积核尺寸大小的数据输入，对输入的数据通过卷积核内的权重和偏置进行一次卷积运算，得到一个输出值，通过多次移动便得到了一层激活层的输出。权值共享的意思也就是这个神经元/卷积核在移动中用的是同一组权重和偏置</p>
+<h3 id="卷积神经网络能干什么">卷积神经网络能干什么</h3>
+<p><a href="https://imgse.com/i/xGRpZT"><img src="https://s1.ax1x.com/2022/10/08/xGRpZT.png" alt="xGRpZT.png"></a> <a href="https://imgse.com/i/xGRii4"><img src="https://s1.ax1x.com/2022/10/08/xGRii4.png" alt="xGRii4.png"></a> <a href="https://imgse.com/i/xG2zLV"><img src="https://s1.ax1x.com/2022/10/08/xG2zLV.png" alt="xG2zLV.png"></a> <a href="https://imgse.com/i/xG2xs0"><img src="https://s1.ax1x.com/2022/10/08/xG2xs0.png" alt="xG2xs0.png"></a> <a href="https://imgse.com/i/xGRkW9"><img src="https://s1.ax1x.com/2022/10/08/xGRkW9.png" alt="xGRkW9.png"></a></p>
+<h2 id="卷积神经网络架构">卷积神经网络架构</h2>
+<p><a href="https://imgse.com/i/xGR9dU"><img src="https://s1.ax1x.com/2022/10/08/xGR9dU.png" alt="xGR9dU.png"></a> <a href="https://imgse.com/i/xGRCoF"><img src="https://s1.ax1x.com/2022/10/08/xGRCoF.png" alt="xGRCoF.png"></a> <a href="https://imgse.com/i/xGRFJJ"><img src="https://s1.ax1x.com/2022/10/08/xGRFJJ.png" alt="xGRFJJ.png"></a> <a href="https://imgse.com/i/xGRAzR"><img src="https://s1.ax1x.com/2022/10/08/xGRAzR.png" alt="xGRAzR.png"></a> <a href="https://imgse.com/i/xGRVQ1"><img src="https://s1.ax1x.com/2022/10/08/xGRVQ1.png" alt="xGRVQ1.png"></a></p>
+<ul>
+<li>红→蓝，<code>6</code> 是代表 <code>6</code> 个卷积核，每个卷积核是 <code>5×5×3</code>，得到的 <code>28×28×6</code></li>
+<li>蓝→绿， <code>10</code> 是代表 <code>10</code> 个卷积核，每个卷积核是 <code>5×5×6</code></li>
+</ul>
+<p><a href="https://imgse.com/i/xGRQFe"><img src="https://s1.ax1x.com/2022/10/08/xGRQFe.png" alt="xGRQFe.png"></a></p>
+<h3 id="卷积">卷积</h3>
+<ul>
+<li>卷积核可以拥有多个</li>
+<li>每个子区域使用相同的卷积核 <strong>（卷积参数共享）</strong></li>
+</ul>
+<p><a href="https://imgse.com/i/xGRNef"><img src="https://s1.ax1x.com/2022/10/08/xGRNef.png" alt="xGRNef.png"></a> <a href="https://imgse.com/i/xGRZsx"><img src="https://s1.ax1x.com/2022/10/08/xGRZsx.png" alt="xGRZsx.png"></a></p>
+<p><a href="https://imgse.com/i/xGRneK"><img src="https://s1.ax1x.com/2022/10/08/xGRneK.png" alt="xGRneK.png"></a></p>
+<p><a href="https://imgse.com/i/xGRudO"><img src="https://s1.ax1x.com/2022/10/08/xGRudO.png" alt="xGRudO.png"></a></p>
+<p><a href="https://imgse.com/i/xGR1Wd"><img src="https://s1.ax1x.com/2022/10/08/xGR1Wd.png" alt="xGR1Wd.png"></a></p>
+<h3 id="卷积层参数">卷积层参数</h3>
+<p><a href="https://imgse.com/i/xGRKoD"><img src="https://s1.ax1x.com/2022/10/08/xGRKoD.png" alt="xGRKoD.png"></a></p>
+<p><strong>1. 滑动窗口步长</strong> <a href="https://imgse.com/i/xGReL6"><img src="https://s1.ax1x.com/2022/10/08/xGReL6.png" alt="xGReL6.png"></a></p>
+<p><strong>2. 卷积核尺寸</strong> - 一般<code>3*3</code>，尺寸越大，特征提取越粗糙，尺寸越小，特征提取越细腻。</p>
+<p><strong>3. 边缘填充 padding</strong></p>
+<ul>
+<li>越往边界的点，能被利用的次数越少；越往中间的点，能被利用的次数越多。<code>padding</code> 一定程度上弥补了边界信息缺失的问题，加上一圈 <code>0</code> ，能够使得边缘特征充分的被利用。</li>
+</ul>
+<p><a href="https://imgse.com/i/xGRQFe"><img src="https://s1.ax1x.com/2022/10/08/xGRQFe.png" alt="xGRQFe.png"></a> <a href="https://imgse.com/i/xGRlJH"><img src="https://s1.ax1x.com/2022/10/08/xGRlJH.png" alt="xGRlJH.png"></a></p>
+<h3 id="pooling">pooling</h3>
+<p><a href="https://imgse.com/i/xGR8SA"><img src="https://s1.ax1x.com/2022/10/08/xGR8SA.png" alt="xGR8SA.png"></a></p>
+<ul>
+<li>特征图个数不会变，只是去变长和宽。<code>pooling</code> 不涉及任何矩阵的计算</li>
+<li>最大 <code>pooling</code>，在神经网络中，一般认为值越大，特征越明显</li>
+</ul>
+<p><a href="https://imgse.com/i/xGRGQI"><img src="https://s1.ax1x.com/2022/10/08/xGRGQI.png" alt="xGRGQI.png"></a></p>
+<p><a href="https://imgse.com/i/xGRJyt"><img src="https://s1.ax1x.com/2022/10/08/xGRJyt.png" alt="xGRJyt.png"></a></p>
+<h3 id="经典卷积神经网络">经典卷积神经网络</h3>
+<ul>
+<li><strong>带参数计算</strong> 的才能被叫做 <strong>层</strong></li>
+<li>深度学习，用更深的网络结构去提取原始图像中的特征</li>
+<li>分类还是回归，取决于损失函数和层如何连接</li>
+</ul>
+<p><a href="https://imgse.com/i/xGRaTS"><img src="https://s1.ax1x.com/2022/10/08/xGRaTS.png" alt="xGRaTS.png"></a></p>
+<p><a href="https://imgse.com/i/xGRUw8"><img src="https://s1.ax1x.com/2022/10/08/xGRUw8.png" alt="xGRUw8.png"></a> <a href="https://imgse.com/i/xGRYOP"><img src="https://s1.ax1x.com/2022/10/08/xGRYOP.png" alt="xGRYOP.png"></a> <a href="https://imgse.com/i/xGRwFg"><img src="https://s1.ax1x.com/2022/10/08/xGRwFg.png" alt="xGRwFg.png"></a></p>
+<h3 id="感受野">感受野</h3>
+<p><a href="https://imgse.com/i/xGR0YQ"><img src="https://s1.ax1x.com/2022/10/08/xGR0YQ.png" alt="xGR0YQ.png"></a> <a href="https://imgse.com/i/xGRBWj"><img src="https://s1.ax1x.com/2022/10/08/xGRBWj.png" alt="xGRBWj.png"></a></p>
+]]></content>
+      <categories>
+        <category>深度学习</category>
+      </categories>
+      <tags>
+        <tag>CNN</tag>
+      </tags>
   </entry>
 </search>

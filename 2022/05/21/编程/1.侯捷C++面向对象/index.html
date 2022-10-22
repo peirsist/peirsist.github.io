@@ -100,7 +100,7 @@ class是C++中最重要的，侯捷老师：“一个人写了一个class，看�
     <h2 id="侯捷c面向对象"><strong>侯捷C++面向对象</strong></h2>
 <p>很喜欢这种娓娓道来的讲课，而不是填鸭式的灌输知识点，对零碎的知识点特此记录。</p>
 <blockquote>
-<p><strong><font color='red'>培养正规的、大气的编程习惯</font></strong></p>
+<p><strong><font color="red">培养正规的、大气的编程习惯</font></strong></p>
 </blockquote>
 <p><code>class</code>是C++中最重要的，侯捷老师：“<strong>一个人写了一个<code>class</code>，看他是否受过良好的、正规的训练，看以下几点</strong>：”</p>
 <!-- - 数据成员用`private`，成员函数大部分`public`
@@ -114,7 +114,7 @@ class是C++中最重要的，侯捷老师：“一个人写了一个class，看�
 <li>函数返回值是<code>return by value</code>还是<code>return by reference</code>，同时考虑是否加<code>const</code>。尽可能的用<code>return by reference</code></li>
 <li>对于一个函数本身，考虑是否加<code>const</code></li>
 </ul>
-<hr />
+<hr>
 <p>知识点总结：</p>
 <!-- > 1. `inline`函数，若函数在`class body`内定义，便自动能为`inline`函数**候选人**，函数外要加`inline`关键字，但究竟能不能成为`inline`函数，由编译器决定。`inline`函数像宏一样，有它的特性，但是没有它的缺点，`inline`函数执行速度很快。
 > 2. 构造函数初始化要使用**初始化列表**的方式，不要用`assign`赋值的方式。数值的设定有两个阶段：先是初始化，再是赋值。构造函数可以`overloading`，**函数重载**，但是在编译器看来是不重名的。
