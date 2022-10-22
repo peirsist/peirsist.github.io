@@ -1,100 +1,363 @@
-<!DOCTYPE HTML>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="google-site-verification" content="" />
-  <meta name="referrer" content="unsafe-url">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <title>C-C3程序猿</title>
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Peirsist">
-  <meta name="description" content="看c3程序员C++视频的一些笔记
-
-你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com)
-C++中::和:， .和-&amp;gt;的作用和区别? - 知乎 (zhihu.com)
-static与const - 知乎 (zhihu.com)
-一">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="看c3程序员C++视频的一些笔记  你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com) C++中::和:， .和-&gt;的作用和区别? - 知乎 (zhihu.com) static与const - 知乎 (zhihu.com) 一文带你了解static 和const - 知乎 (zhihu.com) (2条消息) c++中 n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C-C3程序猿">
+<meta property="og:url" content="http://example.com/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:site_name" content="EEWIKI">
+<meta property="og:description" content="看c3程序员C++视频的一些笔记  你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com) C++中::和:， .和-&gt;的作用和区别? - 知乎 (zhihu.com) static与const - 知乎 (zhihu.com) 一文带你了解static 和const - 知乎 (zhihu.com) (2条消息) c++中 n">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211002165551868.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211004120911813.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211018233256498.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172544775.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172649352.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019233541178.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020135253168.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020164955371.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020174208051.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020214242953.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020220806664.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221534209.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221707835.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221741333.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202239635.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202658926.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203623112.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203952490.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021204111880.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021220439165.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021221722313.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225354564.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225639639.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230353091.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230635796.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021231644579.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022105401533.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022110526056.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111543036.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111709836.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022121233984.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224340411.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224522966.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224613026.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224747037.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224808615.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224924888.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026102816318.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103235801.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103307827.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170316284.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170448680.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170501131.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026172757953.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026173241390.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174105364.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174241876.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174807707.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224231250.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224303886.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224329145.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230436353.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230456972.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092044192.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092222524.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092242701.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105929960.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105946262.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030172724604.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173054674.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173746509.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101246245.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101741998.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104651606.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104853068.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110403838.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110431568.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110841773.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031111537579.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112511357.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112810468.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112838946.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110222527770.png">
+<meta property="og:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png">
+<meta property="article:published_time" content="2021-09-21T01:54:41.000Z">
+<meta property="article:modified_time" content="2022-10-21T06:03:42.705Z">
+<meta property="article:author" content="Peirsist">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png">
   
   
-  <meta property="og:title" content="C-C3程序猿"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:site_name" content="EEWIKI"/>
-  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
-  <link rel="alternate" href="/atom.xml" title="EEWIKI" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/m.min.css">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+  <title>C-C3程序猿 - EEWIKI</title>
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":false,"default":"C"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <a id="top"></a>
-  <div id="main">
-    <div class="main-ctnr">
-      <div class="behind">
-  <a href="/" class="back black-color">
-    <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-        <path d="M2 30 L30 2 M30 30 L2 2"></path>
-    </svg>
-  </a>
   
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="C-C3程序猿"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-21 09:54" pubdate>
+          September 21, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          20k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          166 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
 </div>
 
+</div>
 
-  <article class="standard post">
-    <div class="title">
+  </header>
+
+  <main>
+    
       
-  
-    <h1 class="page-title center">
-        C-C3程序猿
-    </h1>
-  
 
-
-    </div>
-    <div class="meta center">
-      <time datetime="2021-09-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2021-09-21
-</time>
-
-
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/编程/">编程</a>
-
-
-
-
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/C/">C</a>
-
-
-    </div>
-    <hr>
-    
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9C%8Bc3%E7%A8%8B%E5%BA%8F%E5%91%98c%E8%A7%86%E9%A2%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0"><span class="toc-text">看c3程序员C++视频的一些笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="toc-text">输入输出流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">命名空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new-delete"><span class="toc-text">new &amp; delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-text">引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E5%81%9A%E5%8F%82%E6%95%B0"><span class="toc-text">引用做参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="toc-text">for循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BC%BA%E7%9C%81%E5%80%BC"><span class="toc-text">函数缺省值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-text">函数重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8B%E5%85%83"><span class="toc-text">友元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-text">成员函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8"><span class="toc-text">构造函数：自动调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E7%A7%81%E6%9C%89%E5%8C%96"><span class="toc-text">成员属性私有化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this%E6%8C%87%E9%92%88"><span class="toc-text">this指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#staticconst"><span class="toc-text">static&amp;const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-text">浅拷贝&amp;深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="toc-text">构造函数初始化列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%BD%9C%E5%AF%B9%E8%B1%A1"><span class="toc-text">类作对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-text">空指针访问成员函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-text">运算符重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-text">递增运算符重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-text">多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA"><span class="toc-text">如何判断数据是否为空</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF"><span class="toc-text">模板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-text">冒泡排序</span></a></li></ol></li></ol>
-    
-    <div class="picture-container">
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
       
+
     </div>
-    <h2 id="看c3程序员c视频的一些笔记">看c3程序员C++视频的一些笔记</h2>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">C-C3程序猿</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    Last updated on October 21, 2022 pm
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="看c3程序员c视频的一些笔记">看c3程序员C++视频的一些笔记</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/edisonchou/p/4669098.html">你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/165992745">C++中::和:， .和-&gt;的作用和区别? - 知乎 (zhihu.com)</a></li>
@@ -118,7 +381,7 @@ static与const - 知乎 (zhihu.com)
 <h3 id="命名空间">命名空间</h3>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; <span class="comment">//使用命名空间</span></span><br><span class="line"><span class="comment">//命名空间，解决C语言中重定义</span></span><br><span class="line"><span class="keyword">namespace</span> stu <span class="comment">//声明命名空间</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">23</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> stu1</span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">sort</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">56</span> &lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> stu;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> stu1;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stu::<span class="built_in">sort</span>();<span class="comment">//::作用域运算符</span></span><br><span class="line">    stu1::<span class="built_in">sort</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png" alt="image-20211001101337224" /><figcaption aria-hidden="true">image-20211001101337224</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211001101337224.png" srcset="/img/loading.gif" lazyload alt="image-20211001101337224" /><figcaption aria-hidden="true">image-20211001101337224</figcaption>
 </figure>
 <h3 id="结构体">结构体</h3>
 <p>C语言中结构体看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rW411R7g4?p=10">【C++教程】_哔哩哔哩_bilibili</a></p>
@@ -138,7 +401,7 @@ static与const - 知乎 (zhihu.com)
 <p>引用给变量起别名，typedef给类型起别名</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> a = <span class="number">12</span>;</span><br><span class="line">   <span class="type">int</span> &amp;c = a; <span class="comment">//&amp;不是取地址，是引用。声明变量a的一个引用c，c是变量a的别名</span></span><br><span class="line"></span><br><span class="line">   c = <span class="number">14</span>;</span><br><span class="line">   cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211002165551868.png" alt="image-20211002165551868" /><figcaption aria-hidden="true">image-20211002165551868</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211002165551868.png" srcset="/img/loading.gif" lazyload alt="image-20211002165551868" /><figcaption aria-hidden="true">image-20211002165551868</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="comment">//常量类型的引用</span></span><br><span class="line">   <span class="type">const</span> <span class="type">int</span> &amp;a = <span class="number">12</span>;</span><br><span class="line">   <span class="type">const</span> <span class="type">char</span> &amp;b = <span class="string">&#x27;v&#x27;</span>;</span><br><span class="line">   cout &lt;&lt; a &lt;&lt; endl &lt;&lt; b &lt;&lt; endl;</span><br><span class="line"><span class="comment">//数组的引用</span></span><br><span class="line">   <span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line">   <span class="built_in">int</span> (&amp;p)[<span class="number">10</span>] = arr; <span class="comment">//p的用法和arr一样</span></span><br><span class="line">   p[<span class="number">0</span>] = <span class="number">100</span>;</span><br><span class="line">   cout &lt;&lt; arr[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">   <span class="type">int</span> arr2[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">   <span class="built_in">int</span> (&amp;p2)[<span class="number">2</span>][<span class="number">3</span>] = arr2;</span><br><span class="line">   p2[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">67</span>;</span><br><span class="line">   cout &lt;&lt; arr2[<span class="number">2</span>][<span class="number">3</span>]&lt;&lt;endl;</span><br><span class="line">   <span class="comment">//指针的引用</span></span><br><span class="line"><span class="comment">// 类型 + 引用</span></span><br><span class="line">   <span class="type">int</span> c = <span class="number">78</span>;</span><br><span class="line">   <span class="type">int</span> *point = &amp;c;</span><br><span class="line">   cout &lt;&lt; *point&lt;&lt;endl;</span><br><span class="line">   <span class="type">int</span>* (&amp;p3) = point;</span><br><span class="line">   *p3 = <span class="number">97</span>;</span><br><span class="line">   cout &lt;&lt; c;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="引用做参数">引用做参数</h3>
@@ -162,7 +425,7 @@ static与const - 知乎 (zhihu.com)
 <li>友元类，不同类使用另一个类私有成员</li>
 </ul>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211004120911813.png" alt="image-20211004120911813" /><figcaption aria-hidden="true">image-20211004120911813</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211004120911813.png" srcset="/img/loading.gif" lazyload alt="image-20211004120911813" /><figcaption aria-hidden="true">image-20211004120911813</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cpeople</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> a;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		a = <span class="number">54</span>;</span><br><span class="line">		cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun_pro</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		a = <span class="number">54</span>;</span><br><span class="line">		cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">fun2</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">friend</span> <span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">CP</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cchild</span> : <span class="keyword">public</span> Cpeople</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun6</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">fun_pro</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cpeople op2;</span><br><span class="line">	op2.<span class="built_in">fun</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CP</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Cpeople op3;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun3</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		op3.<span class="built_in">fun</span>();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cpeople op;</span><br><span class="line">	op.<span class="built_in">fun</span>();</span><br><span class="line"></span><br><span class="line">	CP op4;</span><br><span class="line">	op4.<span class="built_in">fun3</span>();</span><br><span class="line"></span><br><span class="line">	Cchild op_child;</span><br><span class="line">	op_child.<span class="built_in">fun6</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>类和int一样，都是一种数据类型。只有用类声明对象时，才会开辟出一块空间</p>
@@ -198,7 +461,7 @@ static与const - 知乎 (zhihu.com)
 <p>==构造函数的顺序是：先构造内层的，在构造外层的，析构函数的执行顺序服从“先进后出”的规则，与构造函数顺序相反。==</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//手机类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cphone</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="built_in">Cphone</span>(string name)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;phone&quot;</span> &lt;&lt; endl;</span><br><span class="line">		C_PhoneNmae = name;</span><br><span class="line">	&#125;</span><br><span class="line">	~<span class="built_in">Cphone</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;phone destructor&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//手机品牌</span></span><br><span class="line">	string C_PhoneNmae;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//人类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//属性</span></span><br><span class="line">	string c_name;</span><br><span class="line">	Cphone c_phone;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Cperson</span>(string name,string phone):<span class="built_in">c_name</span>(name),<span class="built_in">c_phone</span>(phone)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;person &quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">	~<span class="built_in">Cperson</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;person destructor&quot;</span> &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">Cperson <span class="title">per1</span><span class="params">(<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;xiaomi&quot;</span>)</span></span>;</span><br><span class="line">	cout &lt;&lt; per1.c_name &lt;&lt; <span class="string">&quot; have &quot;</span> &lt;&lt; per1.c_phone.C_PhoneNmae &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211018233256498.png" alt="image-20211018233256498" /><figcaption aria-hidden="true">image-20211018233256498</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211018233256498.png" srcset="/img/loading.gif" lazyload alt="image-20211018233256498" /><figcaption aria-hidden="true">image-20211018233256498</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_age; <span class="comment">//非静态成员变量，属于类的对象</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> c_name; <span class="comment">//静态成员函数变量，不属于类的对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span> <span class="comment">//非静态成员函数，不属于类的对象</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">fun1</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">//静态成员函数，属于类的对象</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson per1;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;size of per1 is &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(per1) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="空指针访问成员函数">空指针访问成员函数</h3>
@@ -206,20 +469,20 @@ static与const - 知乎 (zhihu.com)
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_age;</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">showName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;this is the class name&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//由于没有创建对象，使用this指针产生异常</span></span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">showAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">this</span> == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; <span class="keyword">this</span>-&gt;c_age &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson *p = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="comment">//p-&gt;showAge();</span></span><br><span class="line">	p-&gt;<span class="built_in">showName</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//class CBuilding; //goodgay中使用了building类，因此要先声明一下，让编译器认识，类似于函数声明</span></span><br><span class="line"><span class="comment">/*-----------------Building class------------------------*/</span></span><br><span class="line"><span class="comment">//建筑类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CBuilding</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">CBuilding</span>();</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	string c_livingroom;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	string c_bedroom;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">CGoodgay</span>;<span class="comment">//友元类</span></span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">goodgay::visit</span><span class="params">()</span></span>;<span class="comment">//友元成员函数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数，类内声明，类外定义，要声明是哪个类的构造函数</span></span><br><span class="line">CBuilding::<span class="built_in">CBuilding</span>()</span><br><span class="line">&#123;</span><br><span class="line">	c_livingroom = <span class="string">&quot;living room&quot;</span>;</span><br><span class="line">	c_bedroom = <span class="string">&quot;bed room&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------------Googgay class-----------------------------*/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CGoodgay</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CBuilding * building1;</span><br><span class="line">	<span class="built_in">CGoodgay</span>();</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">visit</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//构造函数，初始化成员变量</span></span><br><span class="line">CGoodgay::<span class="built_in">CGoodgay</span>()</span><br><span class="line">&#123;</span><br><span class="line">	building1 = <span class="keyword">new</span> CBuilding;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CGoodgay::visit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Good gay is looking at &quot;</span> &lt;&lt; building1-&gt;c_livingroom &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Good gay is looking at &quot;</span> &lt;&lt; building1-&gt;c_bedroom &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-------------------test-------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CGoodgay gay1;</span><br><span class="line">	gay1.<span class="built_in">visit</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*-----------------main function-----------------------*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172544775.png" alt="image-20211019172544775" /><figcaption aria-hidden="true">image-20211019172544775</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172544775.png" srcset="/img/loading.gif" lazyload alt="image-20211019172544775" /><figcaption aria-hidden="true">image-20211019172544775</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172649352.png" alt="image-20211019172649352" /><figcaption aria-hidden="true">image-20211019172649352</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019172649352.png" srcset="/img/loading.gif" lazyload alt="image-20211019172649352" /><figcaption aria-hidden="true">image-20211019172649352</figcaption>
 </figure>
 <h3 id="运算符重载">运算符重载</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019233541178.png" alt="image-20211019233541178" /><figcaption aria-hidden="true">image-20211019233541178</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211019233541178.png" srcset="/img/loading.gif" lazyload alt="image-20211019233541178" /><figcaption aria-hidden="true">image-20211019233541178</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CPerson</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">public</span>:<span class="comment">//成员函数重载+</span></span><br><span class="line">		CPerson <span class="keyword">operator</span>+(CPerson &amp;p)</span><br><span class="line">		&#123;</span><br><span class="line">			CPerson temp;</span><br><span class="line">			temp.c_a = <span class="keyword">this</span>-&gt;c_a + p.c_a;</span><br><span class="line">			temp.c_b = <span class="keyword">this</span>-&gt;c_b + p.c_b;</span><br><span class="line">			<span class="keyword">return</span> temp;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">	<span class="type">int</span> c_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CPerson per1;</span><br><span class="line">	per1.c_a = <span class="number">34</span>;</span><br><span class="line">	per1.c_b = <span class="number">54</span>;</span><br><span class="line">	CPerson per2;</span><br><span class="line">	per2.c_a = <span class="number">54</span>;</span><br><span class="line">	per2.c_b = <span class="number">74</span>;</span><br><span class="line">	CPerson per3;</span><br><span class="line"></span><br><span class="line">	per3 = per1 + per2;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;per3.c_a =&quot;</span> &lt;&lt; per3.c_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;per3.c_b =&quot;</span> &lt;&lt; per3.c_b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">////全局函数重载+</span></span><br><span class="line"><span class="comment">//CPerson operator+ (CPerson &amp;p1, CPerson &amp;p2)</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//	CPerson temp;</span></span><br><span class="line"><span class="comment">//	temp.c_a = p1.c_a + p2.c_a;</span></span><br><span class="line"><span class="comment">//	temp.c_b = p1.c_b + p2.c_b;</span></span><br><span class="line"><span class="comment">//	return temp;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line">   <span class="comment">//成员函数重载本质调用</span></span><br><span class="line">	Cperson p3 = p1.<span class="keyword">operator</span>+(p2)</span><br><span class="line">	简写：p3 = p1+p2;</span><br><span class="line">	全局函数重载本质调用</span><br><span class="line">	Cperson p3 = <span class="keyword">operator</span>+(p1,p2)</span><br><span class="line">	简写: p3 = p1+p2</span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cperson</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">	<span class="type">int</span> c_b;</span><br><span class="line">	<span class="built_in">Cperson</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">89</span>;</span><br><span class="line">		c_b = <span class="number">93</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ostream &amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;cout ,Cperson &amp;p)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c_a: &quot;</span> &lt;&lt; p.c_a  &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;c_b: &quot;</span> &lt;&lt; p.c_b &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> cout;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cperson per1;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; per1 &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//cout &lt;&lt; per1 &lt;&lt;endl;无限追加输入，是因为链式编程思想</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="递增运算符重载">递增运算符重载</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020135253168.png" alt="image-20211020135253168" /><figcaption aria-hidden="true">image-20211020135253168</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020135253168.png" srcset="/img/loading.gif" lazyload alt="image-20211020135253168" /><figcaption aria-hidden="true">image-20211020135253168</figcaption>
 </figure>
 <h3 id="继承">继承</h3>
 <p>好处：减少重复的代码</p>
@@ -231,282 +494,586 @@ static与const - 知乎 (zhihu.com)
 </ul>
 <p>父类又叫基类</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020164955371.png" alt="image-20211020164955371" /><figcaption aria-hidden="true">image-20211020164955371</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020164955371.png" srcset="/img/loading.gif" lazyload alt="image-20211020164955371" /><figcaption aria-hidden="true">image-20211020164955371</figcaption>
 </figure>
 <p>父类中的非静态成员变量都会被继承下去，无论是否私有还是公有</p>
 <p>子类与父类中的同名函数，同名变量。默认会调用子类中的，子类中的会隐藏掉父类中所有的同名函数</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020174208051.png" alt="image-20211020174208051" /><figcaption aria-hidden="true">image-20211020174208051</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020174208051.png" srcset="/img/loading.gif" lazyload alt="image-20211020174208051" /><figcaption aria-hidden="true">image-20211020174208051</figcaption>
 </figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CFather</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">CFather</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">34</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CSon</span> :<span class="keyword">public</span> CFather</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="type">int</span> c_a;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">CSon</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		c_a = <span class="number">56</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CSon son1;</span><br><span class="line">	cout &lt;&lt; son1.c_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; son1.CFather::c_a &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test01</span>();</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020214242953.png" alt="image-20211020214242953" /><figcaption aria-hidden="true">image-20211020214242953</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020214242953.png" srcset="/img/loading.gif" lazyload alt="image-20211020214242953" /><figcaption aria-hidden="true">image-20211020214242953</figcaption>
 </figure>
 <h3 id="多态">多态</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020220806664.png" alt="image-20211020220806664" /><figcaption aria-hidden="true">image-20211020220806664</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020220806664.png" srcset="/img/loading.gif" lazyload alt="image-20211020220806664" /><figcaption aria-hidden="true">image-20211020220806664</figcaption>
 </figure>
 <p>重载：函数名相同，参数不同</p>
 <p>重写：函数返回值，函数名，形参列表都相同</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221534209.png" alt="image-20211020221534209" /><figcaption aria-hidden="true">image-20211020221534209</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221534209.png" srcset="/img/loading.gif" lazyload alt="image-20211020221534209" /><figcaption aria-hidden="true">image-20211020221534209</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221707835.png" alt="image-20211020221707835" /><figcaption aria-hidden="true">image-20211020221707835</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221707835.png" srcset="/img/loading.gif" lazyload alt="image-20211020221707835" /><figcaption aria-hidden="true">image-20211020221707835</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221741333.png" alt="image-20211020221741333" /><figcaption aria-hidden="true">image-20211020221741333</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211020221741333.png" srcset="/img/loading.gif" lazyload alt="image-20211020221741333" /><figcaption aria-hidden="true">image-20211020221741333</figcaption>
 </figure>
 <p>==成员函数不属于对象==</p>
 <p>==不管是什么类型的指针，都占4个字节==</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202239635.png" alt="image-20211021202239635" /><figcaption aria-hidden="true">image-20211021202239635</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202239635.png" srcset="/img/loading.gif" lazyload alt="image-20211021202239635" /><figcaption aria-hidden="true">image-20211021202239635</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202658926.png" alt="image-20211021202658926" /><figcaption aria-hidden="true">image-20211021202658926</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021202658926.png" srcset="/img/loading.gif" lazyload alt="image-20211021202658926" /><figcaption aria-hidden="true">image-20211021202658926</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203623112.png" alt="image-20211021203623112" /><figcaption aria-hidden="true">image-20211021203623112</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203623112.png" srcset="/img/loading.gif" lazyload alt="image-20211021203623112" /><figcaption aria-hidden="true">image-20211021203623112</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203952490.png" alt="image-20211021203952490" /><figcaption aria-hidden="true">image-20211021203952490</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021203952490.png" srcset="/img/loading.gif" lazyload alt="image-20211021203952490" /><figcaption aria-hidden="true">image-20211021203952490</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021204111880.png" alt="image-20211021204111880" /><figcaption aria-hidden="true">image-20211021204111880</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021204111880.png" srcset="/img/loading.gif" lazyload alt="image-20211021204111880" /><figcaption aria-hidden="true">image-20211021204111880</figcaption>
 </figure>
 <p><strong>==通过父类的指针，可以调用不同的子类对象的函数或成员==</strong></p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021220439165.png" alt="image-20211021220439165" /><figcaption aria-hidden="true">image-20211021220439165</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021220439165.png" srcset="/img/loading.gif" lazyload alt="image-20211021220439165" /><figcaption aria-hidden="true">image-20211021220439165</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021221722313.png" alt="image-20211021221722313" /><figcaption aria-hidden="true">image-20211021221722313</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021221722313.png" srcset="/img/loading.gif" lazyload alt="image-20211021221722313" /><figcaption aria-hidden="true">image-20211021221722313</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225354564.png" alt="image-20211021225354564" /><figcaption aria-hidden="true">image-20211021225354564</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225354564.png" srcset="/img/loading.gif" lazyload alt="image-20211021225354564" /><figcaption aria-hidden="true">image-20211021225354564</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225639639.png" alt="image-20211021225639639" /><figcaption aria-hidden="true">image-20211021225639639</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021225639639.png" srcset="/img/loading.gif" lazyload alt="image-20211021225639639" /><figcaption aria-hidden="true">image-20211021225639639</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230353091.png" alt="image-20211021230353091" /><figcaption aria-hidden="true">image-20211021230353091</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230353091.png" srcset="/img/loading.gif" lazyload alt="image-20211021230353091" /><figcaption aria-hidden="true">image-20211021230353091</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230635796.png" alt="image-20211021230635796" /><figcaption aria-hidden="true">image-20211021230635796</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021230635796.png" srcset="/img/loading.gif" lazyload alt="image-20211021230635796" /><figcaption aria-hidden="true">image-20211021230635796</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021231644579.png" alt="image-20211021231644579" /><figcaption aria-hidden="true">image-20211021231644579</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211021231644579.png" srcset="/img/loading.gif" lazyload alt="image-20211021231644579" /><figcaption aria-hidden="true">image-20211021231644579</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022105401533.png" alt="image-20211022105401533" /><figcaption aria-hidden="true">image-20211022105401533</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022105401533.png" srcset="/img/loading.gif" lazyload alt="image-20211022105401533" /><figcaption aria-hidden="true">image-20211022105401533</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022110526056.png" alt="image-20211022110526056" /><figcaption aria-hidden="true">image-20211022110526056</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022110526056.png" srcset="/img/loading.gif" lazyload alt="image-20211022110526056" /><figcaption aria-hidden="true">image-20211022110526056</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111543036.png" alt="image-20211022111543036" /><figcaption aria-hidden="true">image-20211022111543036</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111543036.png" srcset="/img/loading.gif" lazyload alt="image-20211022111543036" /><figcaption aria-hidden="true">image-20211022111543036</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111709836.png" alt="image-20211022111709836" /><figcaption aria-hidden="true">image-20211022111709836</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022111709836.png" srcset="/img/loading.gif" lazyload alt="image-20211022111709836" /><figcaption aria-hidden="true">image-20211022111709836</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022121233984.png" alt="image-20211022121233984" /><figcaption aria-hidden="true">image-20211022121233984</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211022121233984.png" srcset="/img/loading.gif" lazyload alt="image-20211022121233984" /><figcaption aria-hidden="true">image-20211022121233984</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224340411.png" alt="image-20211024224340411" /><figcaption aria-hidden="true">image-20211024224340411</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224340411.png" srcset="/img/loading.gif" lazyload alt="image-20211024224340411" /><figcaption aria-hidden="true">image-20211024224340411</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224522966.png" alt="image-20211024224522966" /><figcaption aria-hidden="true">image-20211024224522966</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224522966.png" srcset="/img/loading.gif" lazyload alt="image-20211024224522966" /><figcaption aria-hidden="true">image-20211024224522966</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224613026.png" alt="image-20211024224613026" /><figcaption aria-hidden="true">image-20211024224613026</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224613026.png" srcset="/img/loading.gif" lazyload alt="image-20211024224613026" /><figcaption aria-hidden="true">image-20211024224613026</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224747037.png" alt="image-20211024224747037" /><figcaption aria-hidden="true">image-20211024224747037</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224747037.png" srcset="/img/loading.gif" lazyload alt="image-20211024224747037" /><figcaption aria-hidden="true">image-20211024224747037</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224808615.png" alt="image-20211024224808615" /><figcaption aria-hidden="true">image-20211024224808615</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224808615.png" srcset="/img/loading.gif" lazyload alt="image-20211024224808615" /><figcaption aria-hidden="true">image-20211024224808615</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224924888.png" alt="image-20211024224924888" /><figcaption aria-hidden="true">image-20211024224924888</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211024224924888.png" srcset="/img/loading.gif" lazyload alt="image-20211024224924888" /><figcaption aria-hidden="true">image-20211024224924888</figcaption>
 </figure>
 <p>==<strong>接口都是一样的，由于对象不同，就显示出多态的意义了</strong>==</p>
 <p>一个接口，有多种形态</p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026102816318.png" alt="image-20211026102816318" /><figcaption aria-hidden="true">image-20211026102816318</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026102816318.png" srcset="/img/loading.gif" lazyload alt="image-20211026102816318" /><figcaption aria-hidden="true">image-20211026102816318</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103235801.png" alt="image-20211026103235801" /><figcaption aria-hidden="true">image-20211026103235801</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103235801.png" srcset="/img/loading.gif" lazyload alt="image-20211026103235801" /><figcaption aria-hidden="true">image-20211026103235801</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103307827.png" alt="image-20211026103307827" /><figcaption aria-hidden="true">image-20211026103307827</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026103307827.png" srcset="/img/loading.gif" lazyload alt="image-20211026103307827" /><figcaption aria-hidden="true">image-20211026103307827</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170316284.png" alt="image-20211026170316284" /><figcaption aria-hidden="true">image-20211026170316284</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170316284.png" srcset="/img/loading.gif" lazyload alt="image-20211026170316284" /><figcaption aria-hidden="true">image-20211026170316284</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170448680.png" alt="image-20211026170448680" /><figcaption aria-hidden="true">image-20211026170448680</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170448680.png" srcset="/img/loading.gif" lazyload alt="image-20211026170448680" /><figcaption aria-hidden="true">image-20211026170448680</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170501131.png" alt="image-20211026170501131" /><figcaption aria-hidden="true">image-20211026170501131</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026170501131.png" srcset="/img/loading.gif" lazyload alt="image-20211026170501131" /><figcaption aria-hidden="true">image-20211026170501131</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026172757953.png" alt="image-20211026172757953" /><figcaption aria-hidden="true">image-20211026172757953</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026172757953.png" srcset="/img/loading.gif" lazyload alt="image-20211026172757953" /><figcaption aria-hidden="true">image-20211026172757953</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026173241390.png" alt="image-20211026173241390" /><figcaption aria-hidden="true">image-20211026173241390</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026173241390.png" srcset="/img/loading.gif" lazyload alt="image-20211026173241390" /><figcaption aria-hidden="true">image-20211026173241390</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174105364.png" alt="image-20211026174105364" /><figcaption aria-hidden="true">image-20211026174105364</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174105364.png" srcset="/img/loading.gif" lazyload alt="image-20211026174105364" /><figcaption aria-hidden="true">image-20211026174105364</figcaption>
 </figure>
 <h3 id="如何判断数据是否为空">如何判断数据是否为空</h3>
 <p><strong>EOF文件的结尾</strong></p>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174241876.png" alt="image-20211026174241876" /><figcaption aria-hidden="true">image-20211026174241876</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174241876.png" srcset="/img/loading.gif" lazyload alt="image-20211026174241876" /><figcaption aria-hidden="true">image-20211026174241876</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174807707.png" alt="image-20211026174807707" /><figcaption aria-hidden="true">image-20211026174807707</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026174807707.png" srcset="/img/loading.gif" lazyload alt="image-20211026174807707" /><figcaption aria-hidden="true">image-20211026174807707</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224231250.png" alt="image-20211026224231250" /><figcaption aria-hidden="true">image-20211026224231250</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224231250.png" srcset="/img/loading.gif" lazyload alt="image-20211026224231250" /><figcaption aria-hidden="true">image-20211026224231250</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224303886.png" alt="image-20211026224303886" /><figcaption aria-hidden="true">image-20211026224303886</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224303886.png" srcset="/img/loading.gif" lazyload alt="image-20211026224303886" /><figcaption aria-hidden="true">image-20211026224303886</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224329145.png" alt="image-20211026224329145" /><figcaption aria-hidden="true">image-20211026224329145</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026224329145.png" srcset="/img/loading.gif" lazyload alt="image-20211026224329145" /><figcaption aria-hidden="true">image-20211026224329145</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230436353.png" alt="image-20211026230436353" /><figcaption aria-hidden="true">image-20211026230436353</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230436353.png" srcset="/img/loading.gif" lazyload alt="image-20211026230436353" /><figcaption aria-hidden="true">image-20211026230436353</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230456972.png" alt="image-20211026230456972" /><figcaption aria-hidden="true">image-20211026230456972</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211026230456972.png" srcset="/img/loading.gif" lazyload alt="image-20211026230456972" /><figcaption aria-hidden="true">image-20211026230456972</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092044192.png" alt="image-20211027092044192" /><figcaption aria-hidden="true">image-20211027092044192</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092044192.png" srcset="/img/loading.gif" lazyload alt="image-20211027092044192" /><figcaption aria-hidden="true">image-20211027092044192</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092222524.png" alt="image-20211027092222524" /><figcaption aria-hidden="true">image-20211027092222524</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092222524.png" srcset="/img/loading.gif" lazyload alt="image-20211027092222524" /><figcaption aria-hidden="true">image-20211027092222524</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092242701.png" alt="image-20211027092242701" /><figcaption aria-hidden="true">image-20211027092242701</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027092242701.png" srcset="/img/loading.gif" lazyload alt="image-20211027092242701" /><figcaption aria-hidden="true">image-20211027092242701</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105929960.png" alt="image-20211027105929960" /><figcaption aria-hidden="true">image-20211027105929960</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105929960.png" srcset="/img/loading.gif" lazyload alt="image-20211027105929960" /><figcaption aria-hidden="true">image-20211027105929960</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105946262.png" alt="image-20211027105946262" /><figcaption aria-hidden="true">image-20211027105946262</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211027105946262.png" srcset="/img/loading.gif" lazyload alt="image-20211027105946262" /><figcaption aria-hidden="true">image-20211027105946262</figcaption>
 </figure>
 <h2 id="模板">模板</h2>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030172724604.png" alt="image-20211030172724604" /><figcaption aria-hidden="true">image-20211030172724604</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030172724604.png" srcset="/img/loading.gif" lazyload alt="image-20211030172724604" /><figcaption aria-hidden="true">image-20211030172724604</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173054674.png" alt="image-20211030173054674" /><figcaption aria-hidden="true">image-20211030173054674</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173054674.png" srcset="/img/loading.gif" lazyload alt="image-20211030173054674" /><figcaption aria-hidden="true">image-20211030173054674</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173746509.png" alt="image-20211030173746509" /><figcaption aria-hidden="true">image-20211030173746509</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211030173746509.png" srcset="/img/loading.gif" lazyload alt="image-20211030173746509" /><figcaption aria-hidden="true">image-20211030173746509</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101246245.png" alt="image-20211031101246245" /><figcaption aria-hidden="true">image-20211031101246245</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101246245.png" srcset="/img/loading.gif" lazyload alt="image-20211031101246245" /><figcaption aria-hidden="true">image-20211031101246245</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101741998.png" alt="image-20211031101741998" /><figcaption aria-hidden="true">image-20211031101741998</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031101741998.png" srcset="/img/loading.gif" lazyload alt="image-20211031101741998" /><figcaption aria-hidden="true">image-20211031101741998</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104651606.png" alt="image-20211031104651606" /><figcaption aria-hidden="true">image-20211031104651606</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104651606.png" srcset="/img/loading.gif" lazyload alt="image-20211031104651606" /><figcaption aria-hidden="true">image-20211031104651606</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104853068.png" alt="image-20211031104853068" /><figcaption aria-hidden="true">image-20211031104853068</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031104853068.png" srcset="/img/loading.gif" lazyload alt="image-20211031104853068" /><figcaption aria-hidden="true">image-20211031104853068</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110403838.png" alt="image-20211031110403838" /><figcaption aria-hidden="true">image-20211031110403838</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110403838.png" srcset="/img/loading.gif" lazyload alt="image-20211031110403838" /><figcaption aria-hidden="true">image-20211031110403838</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110431568.png" alt="image-20211031110431568" /><figcaption aria-hidden="true">image-20211031110431568</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110431568.png" srcset="/img/loading.gif" lazyload alt="image-20211031110431568" /><figcaption aria-hidden="true">image-20211031110431568</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110841773.png" alt="image-20211031110841773" /><figcaption aria-hidden="true">image-20211031110841773</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031110841773.png" srcset="/img/loading.gif" lazyload alt="image-20211031110841773" /><figcaption aria-hidden="true">image-20211031110841773</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031111537579.png" alt="image-20211031111537579" /><figcaption aria-hidden="true">image-20211031111537579</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031111537579.png" srcset="/img/loading.gif" lazyload alt="image-20211031111537579" /><figcaption aria-hidden="true">image-20211031111537579</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112511357.png" alt="image-20211031112511357" /><figcaption aria-hidden="true">image-20211031112511357</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112511357.png" srcset="/img/loading.gif" lazyload alt="image-20211031112511357" /><figcaption aria-hidden="true">image-20211031112511357</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112810468.png" alt="image-20211031112810468" /><figcaption aria-hidden="true">image-20211031112810468</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112810468.png" srcset="/img/loading.gif" lazyload alt="image-20211031112810468" /><figcaption aria-hidden="true">image-20211031112810468</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112838946.png" alt="image-20211031112838946" /><figcaption aria-hidden="true">image-20211031112838946</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211031112838946.png" srcset="/img/loading.gif" lazyload alt="image-20211031112838946" /><figcaption aria-hidden="true">image-20211031112838946</figcaption>
 </figure>
 <h1 id="算法">算法</h1>
 <h3 id="冒泡排序">冒泡排序</h3>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110222527770.png" alt="image-20211110222527770" /><figcaption aria-hidden="true">image-20211110222527770</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110222527770.png" srcset="/img/loading.gif" lazyload alt="image-20211110222527770" /><figcaption aria-hidden="true">image-20211110222527770</figcaption>
 </figure>
 <figure>
-<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png" alt="image-20211110224058824" /><figcaption aria-hidden="true">image-20211110224058824</figcaption>
+<img src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png" srcset="/img/loading.gif" lazyload alt="image-20211110224058824" /><figcaption aria-hidden="true">image-20211110224058824</figcaption>
 </figure>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
 
-  </article>
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-  <div class="busuanzi center">
-    page PV:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
-    site PV:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
-    site UV:&nbsp;<span id="busuanzi_value_site_uv"></span>
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B/" class="category-chain-item">编程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/">#C</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/" title="虚拟机安装Ubuntu18.04">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">虚拟机安装Ubuntu18.04</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
   </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
 
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-
-
-
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
   </div>
-  <footer class="page-footer"><div class="clearfix">
 </div>
-<div class="right-foot">
-    <div class="firstrow">
-        <a href="#top" target="_self">
-        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-            <path d="M10 30 L26 16 10 2 Z"></path>
-        </svg>
-        </a>
-        © peirsist 2022
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
-    <div class="secondrow">
-        <a target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">
-        Theme Pln
-        </a>
-    </div>
+  
+  
+  
+  
 </div>
-<div class="clearfix">
-</div>
-</footer>
-  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-<script src="/js/search.min.js"></script>
-<script type="text/javascript">
 
-// disqus scripts
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-// dropdown scripts
-$(".dropdown").click(function(event) {
-  var current = $(this);
-  event.stopPropagation();
-  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
-});
-$(document).click(function(){
-    $(".dropdown-content").removeClass("open");
-})
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
-var path = "/search.xml";
-searchFunc(path, 'local-search-input', 'local-search-result');
 
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
 </script>
 
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
