@@ -2051,4 +2051,71 @@ blockquote {
         <tag>生活</tag>
       </tags>
   </entry>
+  <entry>
+    <title>健康作息</title>
+    <url>/2022/10/24/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/00%E5%81%A5%E5%BA%B7%E4%BD%9C%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="section"></h1>
+<h2 id="饮食">| 饮食</h2>
+<ol type="1">
+<li>少油少甜</li>
+<li>不吃辣</li>
+<li>晚上8点后不吃东西</li>
+</ol>
+<h2 id="工作">| 工作</h2>
+<ol type="1">
+<li>避免长时间（1小时）看电脑，每1小时，户外5分钟</li>
+<li>坐姿端正，避免脖子前倾和弯腰驼背</li>
+</ol>
+<h2 id="运动">| 运动</h2>
+<ol type="1">
+<li>每天<strong>户外运动</strong>大于1小时</li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>运动形式</title>
+    <url>/2022/10/24/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/00%E8%BF%90%E5%8A%A8%E5%BD%A2%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="section"></h1>
+<h2 id="运动形式">| 运动形式</h2>
+<h3 id="跑步">跑步</h3>
+<h3 id="跳绳">跳绳</h3>
+<h3 id="体能类">体能类</h3>
+<ol type="1">
+<li>背部和肩部肌肉
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1CL411x7gV/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">练出更宽的肩膀和背部，不再瘦弱（一对哑铃在家练）_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ul></li>
+<li>胸部肌肉
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1rY411H7V2/?spm_id_from=333.788.recommend_more_video.5&amp;vd_source=83831fc0970a6c8704479f7cfc679937">练出有型胸肌，不再单薄（一对哑铃在家练）_哔哩哔哩_bilibili</a></li>
+</ul></li>
+<li>手臂/腿部肌肉
+<ol type="1">
+<li>（负重）深蹲</li>
+</ol></li>
+<li>手臂肌肉
+<ul>
+<li>直立哑铃交替</li>
+</ul></li>
+</ol>
+<blockquote>
+<p><strong>links:</strong> 1. <a href="https://www.jirou.com/html/yalingdaquan.html">哑铃健身图解大全（适合在家锻炼）</a> 2.</p>
+</blockquote>
+<h2 id="运动频率">| 运动频率</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line">    Start(新的一天) --&gt; badminton&#123;&quot;打羽毛球？&quot;&#125;</span><br><span class="line">    </span><br><span class="line">    badminton --&gt;|是| dumbbell[&quot;力量训练&quot;]</span><br><span class="line">     </span><br><span class="line">    badminton --&gt;|否| running[&quot;耐力、爆发力训练&quot;]</span><br><span class="line">    running --&gt; dumbbell</span><br><span class="line">    </span><br><span class="line">    dumbbell --&gt; End(洗洗睡觉)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
 </search>
