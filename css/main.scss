@@ -33,7 +33,7 @@ $small: 18px;
 }
 
 html {
-    font-family: sans-serif;
+    font-family: serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%
 }
@@ -75,7 +75,7 @@ h6,
 .description,
 .busuanzi,
 .archive-num {
-    font-family: 'Open Sans Condensed', Futura, AvenirNext, Avenir, sans-serif;
+    font-family: 'Open Sans Condensed', Futura, AvenirNext, Avenir, serif;
 }
 
 article,figure,footer,nav,section {
@@ -85,7 +85,7 @@ article,figure,footer,nav,section {
 body {
     overflow-x: hidden;
     font-size: $small;
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "PingFang SC",STHeiti,"Helvetica Neue","Microsoft Yahei",Tahoma,Simsun,sans-serif;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "PingFang SC",STHeiti,"Helvetica Neue","Microsoft Yahei",Tahoma,Simsun,serif;
     background-color: $background;
     margin: 0;
     padding: 0;

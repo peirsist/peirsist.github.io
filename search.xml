@@ -413,14 +413,14 @@ s.t. ||w||_1\lt C
   </entry>
   <entry>
     <title>Weekly Meeting</title>
-    <url>/2022/10/21/weeklymeeting/</url>
+    <url>/2022/10/23/weeklymeeting/</url>
     <content><![CDATA[<h1 id="weekly-meeting">Weekly Meeting</h1>
 <hr>
-<h1 id="section">2022-10-25</h1>
-<h2 id="comments">1、comments</h2>
-<h2 id="近期工作">2、近期工作</h2>
+<h2 id="section">2022-10-25</h2>
+<h3 id="comments">1、comments</h3>
+<h3 id="近期工作">2、近期工作</h3>
 <ol type="1">
-<li>20221019，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
+<li><em>2022-10-19，周三</em>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
 </ol>
 <ul>
 <li><p><strong><mark>如何输出变量到CSV文件</mark></strong></p>
@@ -429,11 +429,21 @@ s.t. ||w||_1\lt C
 <li><a href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv文本文件（也可用excel打开）_浦柳人的博客-CSDN博客_c++输出csv文件</a></li>
 </ol></li>
 </ul>
+<ol start="2" type="1">
+<li><em>2022-10-20，周四</em>，上午工程伦理，下午睡觉醒来，洗洗衣服就5点，然后就跑去运动了。晚上做了hexo博客。</li>
+<li><em>2022-10-21，周五</em>，上午打球，下午看反向传播算法</li>
+<li><em>2022-10-22，周六</em>，上午打球，下午看论文，但是 <strong>效率很低</strong></li>
+<li><em>2022-10-23，周日</em>，上午打球，下午复习反向传播</li>
+</ol>
+<blockquote>
+<p>存在的问题：</p>
+<p><strong><font color="red">做事效率不够专注，效率太低。</font></strong></p>
+</blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="section-1">2022-10-18</h1>
-<h2 id="comments-1">1、comments</h2>
-<h2 id="近期工作-1">2、近期工作</h2>
+<h2 id="section-1">2022-10-18</h2>
+<h3 id="comments-1">1、comments</h3>
+<h3 id="近期工作-1">2、近期工作</h3>
 <ol type="1">
 <li><p>周三，在实验室电脑上安装虚拟机，安装gcc、g++，运行PartitionSort的代码，从中提取TSS的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
 <li><p>周四，与老师讨论，规范weekly meeting的内容。跟作者发邮件</p>
@@ -474,7 +484,7 @@ s.t. ||w||_1\lt C
 </ol></li>
 </ul></li>
 </ol>
-<h2 id="下一步计划">3、下一步计划</h2>
+<h3 id="下一步计划">3、下一步计划</h3>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -661,17 +671,29 @@ s.t. ||w||_1\lt C
   </entry>
   <entry>
     <title>机器学习资料链接</title>
-    <url>/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%80%BB/</url>
+    <url>/2022/10/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%80%BB/</url>
     <content><![CDATA[<h2 id="数学基础"><strong>1. 数学基础</strong></h2>
 <ol type="1">
+<li>老齐课程，<a href="http://www.itdiffer.com/">首页 · 老齐教室 (itdiffer.com)</a>
+<ul>
+<li><strong><a href="http://math.itdiffer.com/">本书说明 · 机器学习数学基础 (itdiffer.com)</a></strong></li>
+<li><strong><a href="https://www.bilibili.com/video/BV1QG411t72j/?spm_id_from=333.788&amp;vd_source=83831fc0970a6c8704479f7cfc679937">如何度量距离_哔哩哔哩_bilibili</a></strong></li>
+</ul></li>
 <li><a href="https://www.bilibili.com/video/BV1pb411u7t1?spm_id_from=333.999.0.0">线性代数基础课程【小元老师】【超级0基础入门】</a></li>
 <li><a href="https://www.bilibili.com/video/BV1ib411t7YR?spm_id_from=333.999.0.0">线性代数的本质</a></li>
 <li><a href="https://www.bilibili.com/video/BV14b411M7Jn?spm_id_from=333.999.0.0">概率论与数理统计知识详解【小元老师】【考研数学】</a></li>
 <li><a href="https://www.bilibili.com/video/BV1ys411472E?spm_id_from=333.999.0.0">【官方双语/合集】线性代数的本质 - 系列合集</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1729545">非常适合初学者的机器学习的数学基础专辑（pdf下载）</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1843235?from=article.detail.1729545">建议初学者收藏的机器学习初学者手抄本：数学基础、机器学习经典算法、统计学习方法等</a></li>
+<li>机器学习数学基础pdf
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/104986706">《机器学习数学基础》已开源，附完整下载！ - 知乎 (zhihu.com)</a></li>
+<li><a href="https://mml-book.github.io/">Mathematics for Machine Learning | Companion webpage to the book “Mathematics for Machine Learning”.</a></li>
+</ul></li>
 </ol>
 <h2 id="机器学习"><strong>2. 机器学习</strong></h2>
 <ol type="1">
-<li><strong>🔗<a href="机器学习/00Tra_ML/02.线性回归.md">线性回归</a></strong></li>
+<li>🔗<a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">线性回归</a></li>
 </ol>
 <ul>
 <li><a href="https://blog.csdn.net/gongxifacai_believe/category_6834186.html">Machine Learning_魏晓蕾的博客-CSDN博客</a><mark>前辈们做的机器学习笔记</mark></li>
@@ -690,7 +712,7 @@ s.t. ||w||_1\lt C
 <h2 id="深度学习"><strong>3. 深度学习</strong></h2>
 <ol type="1">
 <li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong></li>
-<li><strong>🔗<a href="机器学习/05DL/CNN.md">CNN</a></strong></li>
+<li><a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/" title="CNN">🔗CNN</a></li>
 </ol>
 <h2 id="强化学习"><strong>4. 强化学习</strong></h2>
 <ol type="1">
@@ -713,6 +735,7 @@ s.t. ||w||_1\lt C
 <li><a href="https://zhuanlan.zhihu.com/p/443547881">机器学习VS深度学习：有什么区别？ - 知乎 (zhihu.com)</a></li>
 <li></li>
 </ul>
+<p>机器学习手册分为三个部分，<strong>数学基础</strong>、<strong>机器学习经典算法</strong>、<strong>统计学习方法</strong>。建议有时间的同学可以这三个部分<strong>按照顺序学习</strong>，时间少的同学，我建议直接看机器学习经典算法，遇到问题查一下数学基础，也可以一边看机器学习经典算法，一边看统计学习方法，查漏补缺。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1587,6 +1610,7 @@ blockquote {
 <li><a href="https://blog.csdn.net/qq_38140292/article/details/118885686?">【Typora】github-与PicGO搭建图床_指尖听戏的博客-CSDN博客</a></li>
 <li><a href="https://blog.csdn.net/qq_38140292/article/details/119076411">【hexo】基础教程-二-文章新增图片上传_指尖听戏的博客-CSDN博客_hexo怎么传照片</a></li>
 </ul></li>
+<li><a href="https://www.mingdao.me/Hexo/hexo-link-post/">Hexo如何增加站内文章链接 | 明道学苑 (mingdao.me)</a></li>
 <li>生成归档页，显示全部。<a href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考</a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置首页分页之前默认就有，这里就不额外加了</span></span><br><span class="line"><span class="comment"># index_generator:</span></span><br><span class="line"><span class="comment">#   per_page: 5</span></span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br><span class="line">  yearly: <span class="literal">true</span>  <span class="comment">#是否按年生成归档</span></span><br><span class="line">  monthly: <span class="literal">false</span>  <span class="comment">#为了加快生成速度，按月归档就不要了</span></span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br></pre></td></tr></table></figure>
@@ -1780,23 +1804,23 @@ blockquote {
 </tr>
 </tbody>
 </table>
-<p><a href="https://imgtu.com/i/XgAtXD#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAtXD.png" alt="XgAtXD.png"></a></p>
+<p><a href="https://imgtu.com/i/XgAtXD#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAtXD.png" alt="XgAtXD.png" style="zoom:150%;"></a></p>
 <table style="width:6%;">
 <colgroup>
 <col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><a href="https://imgtu.com/i/XgAa0H#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAa0H.png" alt="XgAa0H.png"></a></th>
+<th><a href="https://imgtu.com/i/XgAa0H#pic_center"><img src="https://s1.ax1x.com/2022/06/11/XgAa0H.png" alt="XgAa0H.png" style="zoom:150%;"></a></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://imgtu.com/i/XgAUne"><img src="https://s1.ax1x.com/2022/06/11/XgAUne.png" alt="XgAUne.png"></a></td>
+<td><a href="https://imgtu.com/i/XgAUne"><img src="https://s1.ax1x.com/2022/06/11/XgAUne.png" alt="XgAUne.png" style="zoom:150%;"></a></td>
 </tr>
 </tbody>
 </table>
-<p><a href="https://imgtu.com/i/XgAd7d"><img src="https://s1.ax1x.com/2022/06/11/XgAd7d.png" alt="XgAd7d.png"></a></p>
+<p><a href="https://imgtu.com/i/XgAd7d"><img src="https://s1.ax1x.com/2022/06/11/XgAd7d.png" alt="XgAd7d.png" style="zoom:150%;"></a></p>
 <p><code>python</code>计算代价函数的代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">conputeCost</span> (x, y, theta):</span><br><span class="line">    inner = np.power(((x * theta.T) – y), <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> np.<span class="built_in">sum</span>(inner) / (<span class="number">2</span> * <span class="built_in">len</span>(x))</span><br></pre></td></tr></table></figure> 通过图像，<span class="math inline">\(y\)</span> 轴是代价函数的最小值 <span class="math inline">\(\mathrm{min}J(\theta)\)</span> ，<span class="math inline">\(x\)</span>轴是迭代次数。如果随着迭代次数的增加，代价函数越来越小，就说明 <strong><code>梯度下降</code></strong> 在正常工作。</p>
 <h3 id="梯度下降-vs.-正规方程">梯度下降 vs. 正规方程</h3>
 <table>
@@ -1906,6 +1930,125 @@ blockquote {
       </categories>
       <tags>
         <tag>CNN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打好羽毛球总结-自己经验</title>
+    <url>/2022/10/23/%E6%89%93%E5%A5%BD%E7%BE%BD%E6%AF%9B%E7%90%83%E6%80%BB%E7%BB%93-%E8%87%AA%E5%B7%B1%E7%BB%8F%E9%AA%8C/</url>
+    <content><![CDATA[<h2 id="前言">前言</h2>
+<p>从2021年10月开始频繁的打羽毛球，想想在河大的时候，想打球的时候就去场上找人打，跟各种各样的人打，那时候水平真的提升的快，经常看羽毛球视频。到2022年9月上过几次羽毛球课。</p>
+<p>经过一年，回想过去打球的经历，总结一下过去经验。</p>
+<h2 id="总结自己的经验">总结（自己的经验）</h2>
+<h3 id="基础">基础</h3>
+<p>羽毛球最重要的是：（<strong>基础，基础最重要</strong>）</p>
+<ol type="1">
+<li><strong><font color="red">步伐</font></strong>。七分步伐三分手法，非常重要。</li>
+</ol>
+<ul>
+<li>交叉步和并步</li>
+</ul>
+<ol start="2" type="1">
+<li><strong><font color="red">后场高远球、杀球的姿势</font></strong>。首先侧身、架拍、挥拍。</li>
+<li><strong><font color="red">体力</font></strong> 。</li>
+</ol>
+<p>难点在于如何在打球的时候 <strong>下意识</strong> 做出这些动作，只能靠日复一日的练习。</p>
+<hr>
+<h3 id="进阶">进阶</h3>
+<ol type="1">
+<li><strong>球路的变化</strong>，调动对手
+<ul>
+<li>球路要多样，以调动对手为主</li>
+</ul></li>
+<li><strong>接杀</strong>
+<ul>
+<li>正手接杀挡对角</li>
+<li>正手接杀卸力挡网</li>
+<li>反手接杀挡对角</li>
+<li>反手接杀卸力挡网。后场起跳重杀，卸力挡网最好要刚刚贴网而过，破坏连贯。</li>
+</ul></li>
+<li><strong>一拍后场杀球</strong></li>
+<li><strong>调动的意识</strong>，得经常训练，下意识</li>
+<li><strong>发球推球</strong>
+<ul>
+<li>别人发球后，推球到后场</li>
+</ul></li>
+<li>如何做到不起球，贴网而过的球</li>
+<li><strong>抢高点</strong></li>
+<li><strong>低点回球</strong></li>
+<li><strong>动作一致性</strong></li>
+<li><strong>如何节省体力</strong> (依靠步伐和高质量回球)
+<ul>
+<li>高质量的回球让对手很难受，所以对手回球质量降低，你就不用快速的跑动</li>
+<li>加上省力的步伐，就可以充分的节省体力。</li>
+</ul></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>羽毛球</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>机器学习数学基础</title>
+    <url>/2022/10/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h2 id="内积空间">内积空间</h2>
+<p><strong>点积</strong>是<strong>内积</strong>的具体表现形式之一。</p>
+<p><span class="math display">\[&lt;\vec{u},\vec{v}&gt; = \vec{u} \cdot \vec{v} = u_1v_1+...+u_nv_n\]</span></p>
+<p>只有把内积定义成点积的时候，<strong>内积空间</strong>才叫做<strong>欧几里得空间</strong>或<strong>欧式空间</strong>。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何高效休息</title>
+    <url>/2022/10/24/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%BC%91%E6%81%AF/</url>
+    <content><![CDATA[<h1 id="section"></h1>
+<p>今天不谈工作谈休息。当然休息是为了更好地工作，所以谈休息也是谈工作。</p>
+<p>什么样的休息，才能最大限度地让人精神饱满地投入到接下来的工作？</p>
+<p>流行的休息法大概有两派，就好像气宗和剑宗。老一辈的人认为应该劳逸结合，每工作一段时间就休息一下，搞个什么工间操之类，就好像学生按节上课一样。年轻人强调拼劲，认为最好猛干一天，然后下班拼命放松。具体的休息内容，老一辈建议出门走两圈，或者跟（真）人聊聊天。年轻人则宁可躺在床上读个什么手机段子。</p>
+<p><strong>现在我们有强有力的科学证据，老一辈的做法是对的。</strong></p>
+<p>今天要说的是99U上的一篇文章，<em>“<strong>A Science-Backed Guide to Taking Truly Restful Breaks</strong>”</em>（良好休息的科学指南），作者 Christian Jarrett。</p>
+<p>文章标题有点像微信朋友圈转发的那种生活小常识，但这篇文章其实是一个最新研究的综述。</p>
+<p>科学家对休息效果的定义是，你在办公室工作一天，中间使用了什么休息方法，到下午下班前的精神状态和工作效率仍能保持高水平。</p>
+<p>我们先来猜一下，在以下这几种休息活动中，哪个效率最高？</p>
+<ol type="1">
+<li><p><mark>放松：什么都不干，做做白日梦，或者做几个伸展运动</mark></p></li>
+<li><p>给身体补充点什么东西：喝杯咖啡之类</p></li>
+<li><p><mark>社交：跟同事聊聊天</mark></p></li>
+<li><p>认知：读读新闻，查看邮件</p></li>
+</ol>
+<p>第4项，是我们大多数人最喜欢的休息方法。而且此前就有研究表明，<strong>一个人越累越困，反而越想上网看点什么东西。这个现象非常有意思，这就是为什么我们越晚睡的时候就越会……更晚睡。</strong></p>
+<p>但研究结果非常明确——<strong>上网不但不能休息，反而会让我们变得更累。</strong></p>
+<p>这是因为<strong>脑力劳动者最需要花费</strong>，也是最需要<strong>从休息中恢复</strong>的两个资源，是“<strong>意志力</strong>”和“<strong>注意力</strong>”。现在很多心理学实验都认为这是<strong>两个有限的资源，最好用在刀刃上</strong>。</p>
+<p>所以休息的目的就是让注意力和意志力回血。但是上网——<strong>阅读会消耗注意力</strong>；决定是否点击，是否购买之类的<strong>各种决策会消耗意志力</strong>。</p>
+<p>研究结果，真正有用的休息是1、3这两项。喝咖啡也没用。</p>
+<p>所以科学家的<strong><font color="red">第一个建议</font></strong>是要休息，先断网。</p>
+<p><strong><font color="red">第二个建议</font></strong>是短而频繁的休息比长时间工作然后长时间休息更好。</p>
+<p>这个原理是人体不是汽车，你把油快用完了统一加一次就行，而是必须随时用随时补充。大概每隔半小时或者一小时就休息几分钟，效果良好。另外这种短休息流程要从上午就开始做，不要等到下午很累了再做。</p>
+<p><strong><font color="red">第三个建议</font></strong>是最好休息的时候离开办公室。</p>
+<p>有的公司喜欢让所有同事留在公司午休，吃个午饭也要在一起，其实并不利于休息。多伦多大学的研究者，最近研究观察了一百多位在大学工作的人，看他们午饭怎么吃。结果是如果你午饭跟同事一起吃，不论聊的是不是工作，休息效果都不好——快下班的时候别人评价你看上去很疲惫。如果这顿午饭还是老板要求全体一起吃的，更累。</p>
+<p>所以从休息角度，找同事聊天最好用上班时间，午饭还是自由点好。</p>
+<p>研究表明，哪怕出去散步五分钟，效果都要好得多。</p>
+<h2 id="评论">| 评论</h2>
+<p>我看这些研究中价值最大的还是有关上网的一项。对高强度脑力劳动者来说，“上网休息一下”，拿手机找两个猫的可爱图片看看，简直是再正常不过的事情了。可是现在我们知道<strong>凡是调动了注意力和意志力的行为就是消耗而不是休息。</strong></p>
+<p>说白了，就是我们常常把“娱乐”和“休息”给混为一谈。</p>
+<h2 id="由此得到">| 由此得到</h2>
+<p>娱乐不是休息。</p>
+<h2 id="总结">| 总结</h2>
+<blockquote>
+<p>科学家关于休息的几点建议：</p>
+<ol type="1">
+<li><p>要休息，先断网。</p></li>
+<li><p>短而频繁的休息比长时间工作然后长时间休息更好。</p></li>
+<li><p>最好休息的时候离开办公室。</p></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
 </search>
