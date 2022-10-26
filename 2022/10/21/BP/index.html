@@ -121,6 +121,7 @@
 <p><strong><mark>梯度要乘以一个负号</mark></strong></p>
 <p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
 <p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
+<p>第 <span class="math inline">\(l\)</span> 层的误差项可以通过第 <span class="math inline">\(l + 1\)</span> 层的误差项计算得到，这就是误差的反向传播（BackPropagation，BP）。反向传播算法的含义是：第 <span class="math inline">\(l\)</span> 层的一个神经元的误差项（或敏感性）是所有与该神经元相连的第 <span class="math inline">\(l + 1\)</span> 层的神经元的误差项的权重和．然后，再乘上该神经元激活函数的梯度</p>
 
 
   </article>

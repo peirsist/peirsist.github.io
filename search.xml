@@ -274,6 +274,7 @@ s.t. ||w||_1\lt C
 <p><strong><mark>梯度要乘以一个负号</mark></strong></p>
 <p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
 <p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
+<p>第 <span class="math inline">\(l\)</span> 层的误差项可以通过第 <span class="math inline">\(l + 1\)</span> 层的误差项计算得到，这就是误差的反向传播（BackPropagation，BP）。反向传播算法的含义是：第 <span class="math inline">\(l\)</span> 层的一个神经元的误差项（或敏感性）是所有与该神经元相连的第 <span class="math inline">\(l + 1\)</span> 层的神经元的误差项的权重和．然后，再乘上该神经元激活函数的梯度</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -415,10 +416,17 @@ s.t. ||w||_1\lt C
     <title>Weekly Meeting</title>
     <url>/2022/10/23/weeklymeeting/</url>
     <content><![CDATA[<h1 id="weekly-meeting">Weekly Meeting</h1>
-<hr>
 <h2 id="section">2022-10-25</h2>
 <h3 id="comments">1、comments</h3>
 <h3 id="近期工作">2、近期工作</h3>
+<ol type="1">
+<li><em>2022-10-25，周三</em>，上午英语，下午海洋</li>
+</ol>
+<h3 id="下一步计划">3、下一步计划</h3>
+<hr>
+<h2 id="section-1">2022-10-25</h2>
+<h3 id="comments-1">1、comments</h3>
+<h3 id="近期工作-1">2、近期工作</h3>
 <ol type="1">
 <li><em>2022-10-19，周三</em>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
 </ol>
@@ -439,6 +447,7 @@ s.t. ||w||_1\lt C
 <li>外卖困在系统里。</li>
 <li>整blog，又5点了，跑步吃饭。</li>
 </ul></li>
+<li><em>2022-10-25，周二</em>，上午数字图像处理，下午党支部会议，晚上组会。</li>
 </ol>
 <blockquote>
 <p>存在的问题：</p>
@@ -446,9 +455,9 @@ s.t. ||w||_1\lt C
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="section-1">2022-10-18</h2>
-<h3 id="comments-1">1、comments</h3>
-<h3 id="近期工作-1">2、近期工作</h3>
+<h2 id="section-2">2022-10-18</h2>
+<h3 id="comments-2">1、comments</h3>
+<h3 id="近期工作-2">2、近期工作</h3>
 <ol type="1">
 <li><p>周三，在实验室电脑上安装虚拟机，安装gcc、g++，运行PartitionSort的代码，从中提取TSS的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
 <li><p>周四，与老师讨论，规范weekly meeting的内容。跟作者发邮件</p>
@@ -489,7 +498,7 @@ s.t. ||w||_1\lt C
 </ol></li>
 </ul></li>
 </ol>
-<h3 id="下一步计划">3、下一步计划</h3>
+<h3 id="下一步计划-1">3、下一步计划</h3>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -1384,6 +1393,7 @@ blockquote {
 <li><p><a href="https://www.bilibili.com/video/BV1MK411j7CR?spm_id_from=333.1007.top_right_bar_window_history.content.click">数据结构：懒猫老师-数据结构-(34)哈夫曼树(Huffman Tree,霍夫曼树,赫夫曼树)_哔哩哔哩_bilibili</a></p></li>
 <li><p><a href="https://zhuanlan.zhihu.com/p/387679625">数据结构：懒猫老师-数据结构-(34)哈夫曼树(PPT文稿) - 知乎 (zhihu.com)</a></p></li>
 <li><p><a href="https://www.bilibili.com/video/BV1nJ411V7bd?from=search&amp;seid=2456030176850049565&amp;spm_id_from=333.337.0.0">数据结构：数据结构与算法基础（青岛大学-王卓）_哔哩哔哩_bilibili</a></p></li>
+<li><p><a href="https://blog.csdn.net/qq_28114615/article/details/86633509">前缀树(字典树)应用——实现 Trie (前缀树)、添加与搜索单词_HerofH_的博客-CSDN博客</a></p></li>
 </ul>
 ]]></content>
       <categories>
@@ -2185,6 +2195,482 @@ blockquote {
       </categories>
       <tags>
         <tag>人生规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数电</title>
+    <url>/2021/05/21/%E6%99%B6%E4%BD%93%E7%AE%A1/%E6%95%B0%E7%94%B5/</url>
+    <content><![CDATA[<h1 id="数电">数电</h1>
+<p>请观看pdf</p>
+
+
+	<div class="row">
+    <embed src="数电.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>==注：此笔记结合课本、配套PPT看==</p>
+<h2 id="第一章"><strong>第一章</strong></h2>
+<h3 id="二进制数的补码"><strong>1. 二进制数的补码：</strong></h3>
+<ol type="1">
+<li>最高位为符号位（0为正，1为负）</li>
+<li>正数的补码和它的原码相同</li>
+<li>负数的补码=数值位迟位求反+1</li>
+</ol>
+<h3 id="为什么有这种原则"><strong>2. 为什么有这种原则？</strong></h3>
+<ul>
+<li>还是为了<span class="math inline">\(5+(-5)=0\)</span>可以实现</li>
+</ul>
+<p>编码的目的：区分信息和事物，为数字电路处理信息打基础</p>
+<ul>
+<li>0、1编码是为了信息处理，最后还要解码</li>
+<li>在进入数字电路世界之前，要进行编码，编码的目的是把一个现实世界转换成二进制</li>
+<li><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424095505689.png" title="fig:" alt="image-20210424095505689"></li>
+</ul>
+<h2 id="第二章-逻辑代数基础"><strong>第二章 逻辑代数基础</strong></h2>
+<h3 id="学习重点"><strong>学习重点</strong></h3>
+<ul>
+<li>基本逻辑运算</li>
+<li>公式表示方法</li>
+<li>逻辑函数的化简</li>
+</ul>
+<h3 id="知识点"><strong>知识点</strong></h3>
+<ul>
+<li>香农提出了电子电路和0 1的关联</li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424100327691.png" alt="image-20210424100327691" style="zoom: 67%;"></p>
+<ul>
+<li><strong>基本公式和常见公式</strong></li>
+<li>代入定理</li>
+<li>反演定理(在逻辑代数中有一定意义，但在数字电路实现中，意义不大)</li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205701745.png" alt="image-20210424205701745" style="zoom:50%;"></p>
+<h3 id="逻辑代数描述方法"><strong>逻辑代数描述方法</strong></h3>
+<ul>
+<li><p>真值表——抽象度不高，但描述是确定的</p></li>
+<li><p>逻辑式——表达最简洁</p></li>
+<li><p>逻辑图——跟电路对应关系最好</p></li>
+<li><p>波形图——实验室最容易得到</p></li>
+<li><p>卡诺图</p></li>
+<li><p>硬件描述语言</p>
+<p><strong>同一中逻辑关系在不同形式下的编码方式</strong></p></li>
+</ul>
+<p>表示方法可以不同，但是对同一个逻辑关系来讲，是可以相互转化的</p>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424110606155.png" alt="image-20210424110606155" style="zoom:67%;"></p>
+<p>根据搭建电路所需要的器件类型，对逻辑函数进行一定化简（德摩根+常用公式）</p>
+<ul>
+<li>真值表<span class="math inline">\(\Leftrightarrow\)</span>逻辑式 $ $</li>
+<li>逻辑式<span class="math inline">\(\Leftrightarrow\)</span>逻辑图 <span class="math inline">\(\checkmark\)</span>
+<ul>
+<li>逻辑式<span class="math inline">\(\rightarrow\)</span>逻辑图，需要根据所有的门类型，对逻辑式进行转化</li>
+<li>逻辑图<span class="math inline">\(\rightarrow\)</span>逻辑式，在分析中常用，拿到别人设计的电路图，想知道功能时
+<ul>
+<li>实验室</li>
+<li>写出逻辑式</li>
+</ul></li>
+</ul></li>
+<li>波形图<span class="math inline">\(\rightarrow\)</span>真值表 <span class="math inline">\(\checkmark\)</span>
+<ul>
+<li>要看波形图是否完整，要遍历所有值，波形图一列对应真值表一行</li>
+</ul></li>
+<li>波形图<span class="math inline">\(\rightarrow\)</span>逻辑式 <span class="math inline">\(\checkmark\)</span></li>
+</ul>
+<h3 id="逻辑函数两种标准形式">逻辑函数两种标准形式</h3>
+<ul>
+<li><p>最小项<span class="math inline">\(m\)</span>之和</p>
+<ul>
+<li>最小项是乘积项，值为<span class="math inline">\(1\)</span>，来源于真值表。<strong>与</strong>得<span class="math inline">\(0\)</span>容易，得<span class="math inline">\(1\)</span>难，得<span class="math inline">\(1\)</span>只对应一种情况，写<span class="math inline">\(1\)</span>的式子</li>
+<li>有<span class="math inline">\(n\)</span>个变量，均以原变量与反变量的形式出现一次</li>
+<li>最小项一定取了真值表的某一行</li>
+<li>最小项编号的时候，以令最小项为<span class="math inline">\(1\)</span>的取值为编号，因为只有唯一一种情况，使最小项为<span class="math inline">\(1\)</span></li>
+</ul>
+<p><strong>最小项性质：</strong></p>
+<ul>
+<li>在任意输入变量取值下，有且仅有一个最小项为<span class="math inline">\(1\)</span></li>
+<li>全体最小项之和为<span class="math inline">\(1\)</span></li>
+<li>==<strong>任意两个最小项之积为<span class="math inline">\(0\)</span>。因为任何取值，无法使两个最小项同时为<span class="math inline">\(1\)</span></strong>==</li>
+<li>==<strong>两个相邻的最小项之和可以合并</strong>==。<strong>相邻：仅有一个变量不同的最小项</strong></li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205551903.png" alt="image-20210424205551903" style="zoom: 50%;"></p></li>
+<li><p>最大项<span class="math inline">\(M\)</span>之积</p>
+<ul>
+<li>最大项是<strong>或</strong>项、相加项。<strong>或</strong>得<span class="math inline">\(1\)</span>容易，得<span class="math inline">\(0\)</span>难，得<span class="math inline">\(0\)</span>只对应一种情况，写<span class="math inline">\(0\)</span>的式子</li>
+<li>一个最大项也对应真值表某一行</li>
+<li>最大项编号的时候，以令最大项为<span class="math inline">\(0\)</span>的取值为编号，因为只有唯一一种情况，使最小项为<span class="math inline">\(0\)</span></li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205111833.png" alt="image-20210424205111833" style="zoom: 50%;"></p></li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205146673.png" alt="image-20210424205146673" style="zoom:50%;"></p>
+<h3 id="卡诺图化简用对称展开的方式理解对称的方块都是相邻的">卡诺图化简（用对称展开的方式理解，<strong>对称的方块都是相邻的</strong>）</h3>
+<ul>
+<li><p>实质：将逻辑函数的最小项之和以图形方式表示</p></li>
+<li><p>最小项用方块表示，逻辑相邻用几何相邻表示，<strong>运用了相邻最小项可以合并的原理</strong></p></li>
+<li><p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205219633.png" alt="image-20210424205219633" style="zoom: 50%;"></p></li>
+<li><p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424205248745.png" alt="image-20210424205248745" style="zoom: 50%;"></p></li>
+<li><p>卡诺图和真值表一样，逻辑式不写成最小项的形式，一样可以填卡诺图</p></li>
+<li><p>画卡诺图不必把逻辑式化成最小项的形式，可以直接画</p>
+<ul>
+<li><p><span class="math inline">\(example:Y(A,B,C,D)=A&#39;B&#39;C&#39;D+A&#39;BD&#39;+AB&#39;\)</span></p>
+<ul>
+<li><span class="math inline">\(AB&#39;\)</span>对应<span class="math inline">\(4\)</span>个最小项：</li>
+</ul>
+<p><span class="math display">\[
+\begin{align}
+AB&#39;&amp; =  AB&#39;(C+C&#39;)=AB&#39;C+AB&#39;C&#39;\\
+   &amp; =AB&#39;C(D+D&#39;)+AB&#39;C&#39;(D+D&#39;)\\
+   &amp; =AB&#39;CD+AB&#39;CD&#39;+AB&#39;C&#39;D+AB&#39;C&#39;D&#39;\\
+   &amp; = \sum(m_{11},m_{10},m_9,m_8)
+\end{align}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(A&#39;BD&#39;\)</span>对应<span class="math inline">\(2\)</span>个最小项</li>
+<li><span class="math inline">\(A&#39;B&#39;C&#39;D\)</span>对应<span class="math inline">\(1\)</span>个最小项</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424152406666.png" alt="image-20210424152406666" style="zoom:50%;"></p>
+<ul>
+<li>合并最小项的原则：
+<ul>
+<li>两个相邻最小项可合并为一项，消去一对因子</li>
+<li>四个排成矩形的相邻最小项可合并为一项，消去两对因子</li>
+<li>八个相邻最小项可合并为一项，消去三对因子</li>
+</ul></li>
+<li>化简原则
+<ul>
+<li>圈尽可能地大('或'少)</li>
+<li>一个圈包围的方块尽可能的多(‘与’少)</li>
+</ul></li>
+<li>两变量卡诺图最多可以含有<span class="math inline">\(2\)</span>个最小项，且不能化简</li>
+<li>三变量卡诺图最多可以含有<span class="math inline">\(4\)</span>个最小项，且不能化简</li>
+<li>四变量卡诺图最多可以含有<span class="math inline">\(8\)</span>个最小项，且不能化简(<strong>对折展开原理</strong>)</li>
+<li>==一个逻辑函数如果可以表示成最小项之和，也一定能表达成最大项之积，而最小项和最大项的标号是<strong>互补</strong>的==</li>
+</ul>
+<h3 id="具有无关项的逻辑函数及其化简">具有无关项的逻辑函数及其化简</h3>
+<ul>
+<li><p><strong>约束项</strong>：逻辑函数中对输入变量的取值有限制，与这些被限制的取值对应的最小项称为约束项</p></li>
+<li><p><strong>任意项</strong>：在输入变量某些取值下，函数值为1或0不影响逻辑电路的功能，与这些取值对应的最小项称为任意项</p></li>
+<li><p><strong>无关项</strong>：约束项和任意项统称为无关项，它们可以写入逻辑式，也可以不写入逻辑式。</p></li>
+<li><p>无关项是设计人员基于一定物理背景下的应用</p></li>
+</ul>
+<h2 id="第三章-门电路"><strong>第三章 门电路</strong></h2>
+<h3 id="简单介绍"><strong>1. 简单介绍</strong></h3>
+<ul>
+<li><p>选择离散的电压信号（离散的电压序列）表示信息</p>
+<ul>
+<li><p>电压容易产生、测量</p></li>
+<li><p>低功耗，有电压可以没电流</p></li>
+<li><p>易受环境的影响</p></li>
+<li><p>需要直流</p></li>
+<li><p>电压遇到<span class="math inline">\(RC\)</span>网络慢</p></li>
+</ul></li>
+<li><p><strong>Voltage pros:</strong></p>
+<ul>
+<li>easy generation, detection</li>
+<li>lots of engineering knowledge</li>
+<li>potentially low power in steady state zero</li>
+</ul></li>
+<li><p><strong>Voltage cons:</strong></p></li>
+<li><p>easily affected by environment</p></li>
+<li><p>DC connectivity required?</p></li>
+<li><p>R &amp; C effects slow things down</p></li>
+</ul>
+<p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424195054922.png" alt="image-20210424195054922" style="zoom: 50%;"></p>
+<ul>
+<li><p><strong>Noise and inaccuracy are inevitable</strong>: we can't reliably reproduce infinite information--we must design our system to tolerate some amount of error if it is to process information reliably.</p></li>
+<li><p>在模拟系统中，<span class="math inline">\(0.37和0.369\)</span>是不一样的，最后造成误差</p></li>
+<li><p><strong>Why digital?</strong></p>
+<ul>
+<li>because it keeps the contracts simple. 可靠，具有<strong>tolerate some amount of error</strong>的能力</li>
+<li><strong>But the price we pay for this robustness</strong>: All the information that we transfer between modules is only 1 crummy bit!</li>
+</ul></li>
+<li><p><span class="math inline">\(example:\)</span>要传<span class="math inline">\(0.37\mathrm{volt}\)</span>的信号，模拟系统中一根线就可以，而在数字系统中，要<span class="math inline">\(0.37\rightarrow\)</span>二进制(<span class="math inline">\(010100....\)</span>)</p>
+<ul>
+<li>要么多根线传输，牺牲空间</li>
+<li>要么一根线，<span class="math inline">\(1bit、1bit\)</span>的传输，牺牲时间</li>
+</ul></li>
+<li><p>表面上<span class="math inline">\(0、1\)</span>，实际上传的还是电压信号，那为什么还能有tolerate some amount of error的能力？</p>
+<ul>
+<li>所有的数字器件必须签合同。</li>
+<li><span class="math inline">\(Contract\)</span> : I will only output $1's $ and <span class="math inline">\(0&#39;s\)</span>. and they will be <span class="math inline">\(GOOD\)</span> <span class="math inline">\(1&#39;s\)</span> and <span class="math inline">\(0&#39;s\)</span>, Yet. I will tolerate inputs that are not quite up to my high standards.​</li>
+</ul></li>
+<li><p>Using Voltages "Digitally"</p>
+<ul>
+<li>Key idea: don't allow <span class="math inline">\(“0”\)</span> to be mistaken for a <span class="math inline">\(“1”\)</span> or vice versa</li>
+<li><strong>Use the same "uniform representation convention" for every component</strong> <strong>and wire</strong> in our digital system to implement devices with high reliability, we outlaw "close calls" via a representation convention which forbids a range of voltages between "0" and "1"</li>
+<li><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424203813475.png" alt="image-20210424203813475" style="zoom:67%;"></li>
+</ul>
+<h3 id="数字电路中也丢失了一些东西"><strong>数字电路中，也丢失了一些东西</strong></h3>
+<ul>
+<li>当逻辑函数的真值表从一行变到另一行的时候，每一行都是确定的值，但变化的时候每一个值都在经过<span class="math inline">\(Forbidden \ Zone\)</span>这个区。即只知道真值表（稳定时候的值），并不是每时每刻输出都有意义，逻辑代数没有描述非静态下的表达</li>
+</ul></li>
+<li><p><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210424204945891.png" alt="image-20210424204945891" style="zoom:80%;"></p></li>
+<li><p><span class="math inline">\(CMOS\)</span>制造工艺中，<span class="math inline">\(sio_2\)</span>层很薄，薄到要去数原子个数，所以很容易被击穿，因此要加保护电路</p></li>
+<li><p>==<strong>输出低电平时，希望<span class="math inline">\(MOS\)</span>管工作在哪个区？</strong>==</p></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210426212511021.png" alt="image-20210426212511021"><figcaption aria-hidden="true">image-20210426212511021</figcaption>
+</figure>
+<ul>
+<li>输出电平，导通的<span class="math inline">\(MOS\)</span>管起开关作用，目的是把<strong>"地"</strong>拉出来，起下拉的作用，希望在这个器件上的压降小，<strong>即<span class="math inline">\(v_{ds}\)</span>小，故<span class="math inline">\(MOS\)</span>管工作在线性区</strong></li>
+</ul></li>
+<li><p>所有的信号，只有流经电路，就一定会在时间上留下痕迹——==<strong>延迟</strong>==</p></li>
+<li><p><span class="math inline">\(CMOS\)</span>反相器由于上下两个管子的互补特性，在给出了理想的高低电平的同时，也带来了一个问题：==<strong>在过渡区时，两个管子同时导通</strong>==，不是工作在我们所期望的截止区和线性电阻区，而是工作在恒流区，有一个==<strong>尖峰电流(是动态功耗的来源)，导致动态功耗一定不为0</strong>==。<span class="math inline">\(CMOS\)</span>反相器静态功耗近乎为0，动态功耗一定不为0。动态，即在<span class="math inline">\(0 \rightarrow1 \ and\ 1\rightarrow0\)</span>之间跳变的时候，尖峰电流是动态功耗的来源。</p></li>
+<li><p>数字电路的电源电压<span class="math inline">\(V_{DD}\)</span>一直在下降，动态功耗会降低很多，因为动态功耗是数字电路主要的功耗。<strong>但降低电源电压，数字化的'0'和'1'会很接近</strong></p></li>
+<li><p><span class="math inline">\(CMOS\)</span>电路原则</p>
+<ul>
+<li>由上拉(<span class="math inline">\(PMOS\)</span>)和下拉(<span class="math inline">\(NMOS\)</span>)两部分组成，上拉负责输出1，下拉负责输出0，上拉和下拉要覆盖真值表的所有行。</li>
+<li>上拉和下拉不能同时导通</li>
+<li>上拉由<span class="math inline">\(PMOS\)</span>构成，下拉由<span class="math inline">\(NMOS\)</span>构成，就注定了，上拉全由反变量控制(<span class="math inline">\(PMOS\)</span>由反变量控制)，下拉全由原变量控制</li>
+</ul></li>
+<li><p><span class="math inline">\(CMOS\)</span>器件在构成逻辑运算的时候，都是...非，不能直接得到与门，或门。因为<span class="math inline">\(NMOS\)</span>通过控制原变量，下拉出地，输出反变量。而与、或运算是逻辑原变量的运算，输出还是原变量。</p></li>
+<li><p>串联拓扑结构天生代表逻辑'与'运算，并联拓扑结构天生代表逻辑'或'运算</p></li>
+<li><p>==<strong>反相器是<span class="math inline">\(CMOS\)</span>电路中最小的逻辑单元</strong>==</p></li>
+<li></li>
+</ul>
+<h2 id="第四章组合逻辑电路"><strong>第四章、组合逻辑电路</strong></h2>
+<h3 id="看书和笔记"><strong>1. 看书和笔记</strong></h3>
+<ul>
+<li>编码器
+<ul>
+<li>普通编码器</li>
+<li>优先编码器</li>
+</ul></li>
+<li>译码器</li>
+<li>数据选择器</li>
+<li>加法器</li>
+<li>竞争—冒险</li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515165122396.png" alt="image-20210515165122396"><figcaption aria-hidden="true">image-20210515165122396</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515165529756.png" alt="image-20210515165529756"><figcaption aria-hidden="true">image-20210515165529756</figcaption>
+</figure>
+<ul>
+<li>第一个图，当A，B=1时，出现了固定的竞争冒险，不是同时向相反变化偶然出现的。</li>
+<li>当卡诺图中出现相切时，就会出现固定的竞争冒险现象。与Y=A+A'的方法一样。因为当出现相切的时候，就是一个变量在变的时候，就会有A和A接反相器的电路，出现时间差</li>
+</ul>
+<h3 id="eda工具"><strong>2. EDA工具</strong></h3>
+<ul>
+<li><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515170338966.png" title="fig:" alt="image-20210515170338966"></li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515170702622.png" alt="image-20210515170702622"><figcaption aria-hidden="true">image-20210515170702622</figcaption>
+</figure>
+<ul>
+<li><p>希望把所有的硬件连线等都放在芯片中，需要EDA工作来做</p></li>
+<li><p>用EDA工具来设计，跟EDA配合使用的是可编程逻辑器件</p></li>
+<li><p>器件</p>
+<ul>
+<li>门电路，通用性好</li>
+<li>中规模器件，译码器、编码器等。都有自己的编号，功能表，不能改</li>
+</ul></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515171858606.png" alt="image-20210515171858606"><figcaption aria-hidden="true">image-20210515171858606</figcaption>
+</figure></li>
+<li><p>用一种语言来描述我们所要设计和实现的电路</p></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515172544196.png" alt="image-20210515172544196"><figcaption aria-hidden="true">image-20210515172544196</figcaption>
+</figure></li>
+<li><p>将通用型和专用型结合起来</p>
+<ul>
+<li>厂家在生产的时候是通用的，成本低，时间短</li>
+<li>芯片内部是自己定制的。在芯片内部放大量的门、运算器，如何连线，由用户定义</li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515172847467.png" alt="image-20210515172847467"><figcaption aria-hidden="true">image-20210515172847467</figcaption>
+</figure></li>
+<li><p>在用通用型器件时，最烦的就是器件之间的连线</p></li>
+<li><p>可编程逻辑器件就像一个电子面包板，在器件的内部，准备好了大量的数字电路的基本模块，而基本模块的连接由EDA工具连接--------逻辑综合，把一个电路的描述和电路的实现挂钩</p></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515173602836.png" alt="image-20210515173602836"><figcaption aria-hidden="true">image-20210515173602836</figcaption>
+</figure></li>
+<li><p>逻辑综合类似于：高级语言到机器码，由编译器完成。硬件描述语言描述的电路到电路连接实现，由EDA工具完成。我的描述告诉电路------&gt;电路进行综合-------&gt;电路告诉芯片</p></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515174309350.png" alt="image-20210515174309350"><figcaption aria-hidden="true">image-20210515174309350</figcaption>
+</figure></li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515174707872.png" alt="image-20210515174707872"><figcaption aria-hidden="true">image-20210515174707872</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515175202228.png" alt="image-20210515175202228"><figcaption aria-hidden="true">image-20210515175202228</figcaption>
+</figure>
+<ul>
+<li>硬件描述语言，写的程序看似有前有后，一逻辑综合完，就没有顺序，所有输入都被拉到前面，并行</li>
+<li><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515175708834.png" title="fig:" alt="image-20210515175708834"></li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515175905095.png" alt="image-20210515175905095"><figcaption aria-hidden="true">image-20210515175905095</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515180025891.png" alt="image-20210515180025891"><figcaption aria-hidden="true">image-20210515180025891</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515180226919.png" alt="image-20210515180226919"><figcaption aria-hidden="true">image-20210515180226919</figcaption>
+</figure>
+<ul>
+<li>微电子行业的人喜欢用verilog</li>
+<li>可编程逻辑器件的人喜欢用VHDL，因为侧重从上往下，并不关心电路是如何实现的</li>
+<li>Verilog偏底层，VHDL系统级</li>
+<li><img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515181027954.png" title="fig:" alt="image-20210515181027954"></li>
+</ul>
+<h2 id="第五章-时序逻辑电路"><strong>第五章 时序逻辑电路</strong></h2>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515181120392.png" alt="image-20210515181120392"><figcaption aria-hidden="true">image-20210515181120392</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515203541206.png" alt="image-20210515203541206"><figcaption aria-hidden="true">image-20210515203541206</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515204224905.png" alt="image-20210515204224905"><figcaption aria-hidden="true">image-20210515204224905</figcaption>
+</figure>
+<ul>
+<li><p>时序逻辑电路中，不是所有信号都是有效信号，当认为是有效信号时，才开启load存入记忆系统</p></li>
+<li><figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210515210523093.png" alt="image-20210515210523093"><figcaption aria-hidden="true">image-20210515210523093</figcaption>
+</figure></li>
+<li><p>上图这个电路没有输入，不能把0、1放进去。要把输入引出来，但反相器没发引</p></li>
+</ul>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210517095836570.png" alt="image-20210517095836570"><figcaption aria-hidden="true">image-20210517095836570</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210517095911924.png" alt="image-20210517095911924"><figcaption aria-hidden="true">image-20210517095911924</figcaption>
+</figure>
+<figure>
+<img src="/.com//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210517101045077.png" alt="image-20210517101045077"><figcaption aria-hidden="true">image-20210517101045077</figcaption>
+</figure>
+<ul>
+<li>通过两条反馈线，与S=1, R=1的情况相与，变成S=0, R=1或S=1,R=0的信号，避免了SR同时为1</li>
+<li>==<span class="math inline">\(Q:\)</span>但这两条反馈线对<span class="math inline">\(SR\  flip-flop\)</span>的<strong>置1、置0、保持</strong>功能有影响吗？==</li>
+</ul>
+<p>​</p>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+      <tags>
+        <tag>数电</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MOS电容总结</title>
+    <url>/2022/03/23/%E6%99%B6%E4%BD%93%E7%AE%A1/MOS%E7%AE%A1%E7%94%B5%E5%AE%B9/</url>
+    <content><![CDATA[<h2 id="mos电容"><span class="math inline">\(MOS\)</span>电容</h2>
+<h3 id="栅沟电容c_gc与mos管工作状态有关">1. 栅沟电容<span class="math inline">\(C_{GC}\)</span>(与<span class="math inline">\(MOS\)</span>管工作状态有关)</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(MOS\)</span>工作状态</th>
+<th style="text-align: left;">电容分布</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">截止区</td>
+<td style="text-align: left;"><strong>栅—衬底</strong><span class="math inline">\(C_{GCB}\)</span> 电容</td>
+<td><span class="math inline">\(C_{ox}WL\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">线性区</td>
+<td style="text-align: left;"><strong>栅—源</strong>+<strong>栅—漏 </strong><span class="math inline">\(C_{GCD}\)</span> 电容</td>
+<td><span class="math inline">\(C_{ox}WL\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">饱和区</td>
+<td style="text-align: left;"><strong>栅—源 </strong><span class="math inline">\(C_{GCS}\)</span>电容</td>
+<td><span class="math inline">\(\frac{2}{3}C_{ox}WL\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+C_{GC}=C_{GCD}+C_{GCB}+C_{GCS}
+\]</span></p>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/image-20210421184251631.3uvmhlhrmbq0.webp" style="zoom:150%;"></p>
+<h3 id="覆盖电容栅源栅漏">2. 覆盖电容(栅—源、栅—漏)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>分布</th>
+<th>符号</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>栅—源</td>
+<td><span class="math inline">\(C_{GSO}\)</span></td>
+<td><span class="math inline">\(C_{ox}x_dW=C_oW\)</span></td>
+</tr>
+<tr class="even">
+<td>栅—漏</td>
+<td><span class="math inline">\(C_{GDO}\)</span></td>
+<td><span class="math inline">\(C_{ox}x_dW=C_oW\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="结电容扩散电容">3. 结电容(扩散电容)</h3>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>电容分布</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>底板电容</td>
+<td>源—衬底、漏—衬底</td>
+<td><span class="math inline">\(C_jWL_s\)</span></td>
+</tr>
+<tr class="even">
+<td>侧壁电容</td>
+<td>源—衬底、漏—衬底</td>
+<td><span class="math inline">\(C&#39;_{sw}x_j(2L_s+W)\)</span> <br> <span class="math inline">\(=C_{jsw}(2L_s+W)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+C_{diff}= C_{bottom}+C_{sidewall}=C_j×面积+C_{jsw}×周长\\
+\quad=C_jWL_s+C_{jsw}(2L_s+W)
+\]</span></p>
+<p><strong>注：</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(C_j\)</span></td>
+<td>每单位面积的结电容</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_{jsw}\)</span></td>
+<td><span class="math inline">\(sidewall\)</span>每单位周长的结电容</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+      <tags>
+        <tag>MOS</tag>
       </tags>
   </entry>
 </search>
