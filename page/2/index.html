@@ -1,289 +1,352 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="google-site-verification" content="" />
-  <meta name="referrer" content="unsafe-url">
-  
-  <title>page</title>
-  <meta name="author" content="Peirsist">
-  
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:site_name" content="EEWIKI"/>
-  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
-  <link rel="alternate" href="/atom.xml" title="EEWIKI" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/m.min.css">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="peirsist">
+    
+    <title>
+        
+        EEWIKI
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"17px","font_family":"STHeiti","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
+  </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
 
+
 <body>
-  <a id="top"></a>
-  <div id="main">
-    <div class="main-ctnr">
-      <nav class="navbar">
-  <div class="nav-container">
-  <div class="nav navbar-nav navbar-left">
-    <div class="navbar-header">
-      <a href="/" class="navbar-brand">EEWiKi</a>
-    </div>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
-    <div class="dropdown">
-      <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <svg class="i-tag" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-          <circle cx="24" cy="8" r="2"></circle>
-          <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-        </svg>
-      </span></a>
-
-      <ul class="dropdown-content">
-
-          
-           <div><a href="/categories/机器学习/">机器学习</a></div><div><a href="/categories/学习链接/">学习链接</a></div><div><a href="/categories/科研/">科研</a></div><div><a href="/categories/编程/">编程</a></div><div><a href="/categories/英语/">英语</a></div><div><a href="/categories/计算机网络/">计算机网络</a></div><div><a href="/categories/数据结构/">数据结构</a></div><div><a href="/categories/计算机组成原理/">计算机组成原理</a></div><div><a href="/categories/LaTex/">LaTex</a></div><div><a href="/categories/随笔与个人文集/">随笔与个人文集</a></div><div><a href="/categories/强化学习/">强化学习</a></div><div><a href="/categories/深度学习/">深度学习</a></div><div><a href="/categories/硬件/">硬件</a></div>
-
-      </ul>
-
-    </div>
     
-
-  </div>
-  <div id="site_search" class="">
-  <input type="text" id="local-search-input" name="q" placeholder="search" class="form-control"/>
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
 </div>
-<div id="local-search-result"></div>
 
 
-  <div class="nav navbar-nav navbar-right">
-    <div class="dropdown">
-      <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <svg class="i-link" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-          <path d="M18 8 C18 8 24 2 27 5 30 8 29 12 24 16 19 20 16 21 14 17 M14 24 C14 24 8 30 5 27 2 24 3 20 8 16 13 12 16 11 18 15"></path>
-        </svg>
-      </a>
-      <base href="/">
-      <ul class="dropdown-content">
-        
-          <div>
-            <a href="/links.html">
-        links
-      </a>
-    </div>
-     
-          <div>
-            <a target="_blank" rel="noopener" href="https://github.com/XXX/">
-        Github
-      </a>
-    </div>
-     
-          <div>
-            <a href="/rss2.xml">
-        rss
-      </a>
-    </div>
-     
-    </ul>
-    </div>
-    <div class="archives"><a href="/archives">
-      <svg class="i-archive" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M4 10 L4 28 28 28 28 10 M2 4 L2 10 30 10 30 4 Z M12 15 L20 15"></path>
-      </svg>
-    </a></div>
-  </div>
-  </div>
-</nav>
+<main class="page-container">
 
-<ul class="posts">
-  
     
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/BP/">
-            Back Propagation
-        </a>
-    </h1>
-  
+
+    <div class="page-main-content is-home">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper transparent-1">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               EEWIKI
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
 
 
-  <div class="excerpt">
-  
-    梯度下降
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/BP/">
+                        Back Propagation
+                    </a>
+                </h3>
+
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+
+	
+    
+	
+
+
+
+
+梯度下降
 
 梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降
 
-梯度下降（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主
-  
-  <a href="/2022/10/21/BP/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T10:39:25.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+梯度下降（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Log...
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Oct 25 2022 13:34:12 GMT+0800">
+                2022-10-25
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+    </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/机器学习/">机器学习</a>
+    <a class="read-more" href="/2022/10/21/BP/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E7%BC%96%E7%A8%8B/Markdown/">
+                        Markdown使用记录
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/编程/Markdown/">
-            Markdown使用记录
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    Markdown的使用
+                <div class="home-article-content keep-markdown-body">
+                    
+                        Markdown的使用
 
 Markdown 前景色、背景色丨慕课网教程 (imooc.com)
 Markdown笔记|自定义不同颜色的字体高亮|理Risen的博客-CSDN博客_
-  
-  <a href="/2022/10/21/编程/Markdown/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T05:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
 
 
 
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:36:16 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/markdown/">markdown</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/markdown/">markdown</a>
+    <a class="read-more" href="/2022/10/21/%E7%BC%96%E7%A8%8B/Markdown/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
-  </div>
-</li>
-<hr>
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00.%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        什么是机器学习
+                    </a>
+                </h3>
 
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/机器学习/00.什么是机器学习/">
-            什么是机器学习
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    机器学习相关的链接
+                <div class="home-article-content keep-markdown-body">
+                    
+                        机器学习相关的链接
 
 Machine Learning_魏晓蕾的博客-CSDN博客前辈们做的机器学习笔记
 神经网络与深度学习-邱锡鹏
 数学基础、机器学习
-《动手学深度学习》 — 动手学深度学习 2.0.0-beta0 docume
-  
-  <a href="/2022/10/21/机器学习/00.什么是机器学习/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+《动手学深度学习》 — 动手学深度学习 2.0.0-beta0 documentati...
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:15:52 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+    </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/机器学习/">机器学习</a>
+    <a class="read-more" href="/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00.%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E7%BC%96%E7%A8%8B/Matlab/">
+                        Matlab
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/编程/Matlab/">
-            Matlab
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    Matlab
+                <div class="home-article-content keep-markdown-body">
+                    
+                        Matlab
 
 学习建议
 东北大学薛定宇教授
@@ -292,460 +355,588 @@ Machine Learning_魏晓蕾的博客-CSDN博客前辈们做的机器学习笔记
 
 网课某老师
 
-[!TIP] 大家的目标不要想着成为什么 “Matlab 方面的大
-  
-  <a href="/2022/10/21/编程/Matlab/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+[!TIP] 大家的目标不要想着成为什么 “Matlab 方面的大拿”，而是...
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:16:43 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Matlab/">Matlab</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
+    <a class="read-more" href="/2022/10/21/%E7%BC%96%E7%A8%8B/Matlab/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/Matlab/">Matlab</a>
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E7%BC%96%E7%A8%8B/Python/">
+                        Python
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/编程/Python/">
-            Python
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    Python
+                <div class="home-article-content keep-markdown-body">
+                    
+                        Python
 后续更新...
-  
-  <a href="/2022/10/21/编程/Python/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
 
+                    
+                </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/编程/">编程</a>
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:56:24 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Python/">Python</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
+    <a class="read-more" href="/2022/10/21/%E7%BC%96%E7%A8%8B/Python/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/Python/">Python</a>
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%90%AC%E5%8A%9B/">
+                        英语学习方法
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/英语学习/听力/">
-            英语学习方法
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    👉英语听、说、读、写完整学习思路—【学英语那点事】微信公众号
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+👉英语听、说、读、写完整学习思路—【学英语那点事】微信公众号
 👉英语听力不好的朋友看过来—【学英语那点事】微信公众号
 👉还是听力—【学英语那点事】微信公众号
 👉口语—【学英语那点事】微信公众号
-👉英语学习要回归到句子上—【
-  
-  <a href="/2022/10/21/英语学习/听力/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+👉英语学习要回归到句子上—【学英语...
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:17:03 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E5%90%AC%E5%8A%9B/">听力</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/英语/">英语</a>
+    <a class="read-more" href="/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E5%90%AC%E5%8A%9B/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E7%BC%96%E7%A8%8B/Ubuntu%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+                        Linux指令
+                    </a>
+                </h3>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/听力/">听力</a>
-
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/编程/Ubuntu常用命令/">
-            Linux指令
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    linux常用命令
+                <div class="home-article-content keep-markdown-body">
+                    
+                        linux常用命令
 
 完美解决ubuntu中文件夹加锁的情况_源代码杀手的博客-CSDN博客_ubuntu文件夹上锁
 [Ubuntu]Linux下如何解决目录绿色高亮？_wqyolo的博客-CSDN博客_linux文件夹绿色高亮
 
-  
-  <a href="/2022/10/21/编程/Ubuntu常用命令/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
 
+解决...
+                    
+                </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/编程/">编程</a>
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:56:45 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Linux/">Linux</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
+    <a class="read-more" href="/2022/10/21/%E7%BC%96%E7%A8%8B/Ubuntu%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/Linux/">Linux</a>
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E7%94%9F%E8%AF%8D/">
+                        生词
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/英语学习/生词/">
-            生词
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    科研中的生词
+                <div class="home-article-content keep-markdown-body">
+                    
+                        科研中的生词
 unicast 单播
 Ethernet 以太网
 unicast reliability feature 单播可靠性功能
 parse 解析[电子、计算机、通信]
-  
-  <a href="/2022/10/21/英语学习/生词/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
 
+                    
+                </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/英语/">英语</a>
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:17:07 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E7%94%9F%E8%AF%8D/">生词</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
 
+    <a class="read-more" href="/2022/10/21/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E7%94%9F%E8%AF%8D/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/生词/">生词</a>
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/LaTex/">
+                        LaTex
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/软件使用/LaTex/">
-            LaTex
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    latex中\begin{verbatim}以及？_音程的博客-CSDN博客
+                <div class="home-article-content keep-markdown-body">
+                    
+                        
+latex中\begin{verbatim}以及？_音程的博客-CSDN博客
 Latex 中的空格汇总_hysterisis的博客-CSDN博客
-LaTeX省略号 - 知乎 (zhihu.com)在LaTeX中，分别使用“”，“”，“”
-  
-  <a href="/2022/10/21/软件使用/LaTex/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+LaTeX省略号 - 知乎 (zhihu.com)在LaTeX中，分别使用“”，“”，“”，“”...
+                    
+                </div>
 
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:17:42 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/categories/LaTex/">LaTex</a>&nbsp;
+                        </li>
+                    
+                    
+                </ul>
+            </span>
+        
+        
+    </div>
 
-    
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/categories/LaTex/">LaTex</a>
+    <a class="read-more" href="/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/LaTex/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
 
+            </li>
+        
+            <li class="home-article-item">
 
+                
 
+                <h3 class="home-article-title">
+                    <a href="/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Office/">
+                        Office的使用
+                    </a>
+                </h3>
 
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-    
-<li class="post-item">
-  
-  
-    <h1 class="index-title">
-        <a href="/2022/10/21/软件使用/Office/">
-            Office的使用
-        </a>
-    </h1>
-  
-
-
-  <div class="excerpt">
-  
-    一、Word
+                <div class="home-article-content keep-markdown-body">
+                    
+                        一、Word
 2022年5月13日于家中
 写专业的论文用latex比较方便，但是latex很不直观，平时就用latex写，效率其实很低，建议平时积累用word，排版用Latex
 
-【Word丨毕业论文格式教程】简直是写论文必备~_哔
-  
-  <a href="/2022/10/21/软件使用/Office/">
-    more
-  </a>
-  </div>
-  <div class="index-meta">
-    <time datetime="2022-10-21T01:54:41.000Z" itemprop="datePublished">
-  <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
-  </svg>
-  &nbsp;
-  2022-10-21
-</time>
+【Word丨毕业论文格式教程】简直是写论文必备~_哔哩哔哩_b...
+                    
+                </div>
+
+                
+<div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span>
+            <i class="fas fa-history"></i>&nbsp;
+            <span class="home-article-date" data-date="Fri Oct 21 2022 13:17:50 GMT+0800">
+                2022-10-21
+            </span>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fas fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Office/">Office</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a class="read-more" href="/2022/10/21/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Office/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/"
+        >Prev</a>
+    
+
+    
+        <a class="next btn"
+           href="/page/3/"
+        >Next</a>
+    
+</div>
+
+    </div>
+</div>
 
 
+                
+            </div>
 
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2021</span> -
+            
+            2022
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">peirsist</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
 
 
     
-    &nbsp;
-    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <circle cx="24" cy="8" r="2"></circle>
-      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
-    </svg>
-    &nbsp;
-    <a href="/tags/Office/">Office</a>
-
-
-  </div>
-</li>
-<hr>
-
-
-
-
-
-  
-</ul>
-<ul class="pager">
-    <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next</a>
-</ul>
-
-
-    </div>
-  </div>
-  <footer class="page-footer"><div class="clearfix">
-</div>
-<div class="right-foot">
-    <div class="firstrow">
-        <a href="#top" target="_self">
-        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
-            <path d="M10 30 L26 16 10 2 Z"></path>
-        </svg>
-        </a>
-        © peirsist 2022
-    </div>
-    <div class="secondrow">
-        <a target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">
-        Theme Pln
-        </a>
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
     </div>
 </div>
-<div class="clearfix">
+
+    
+
+</main>
+
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
 </div>
-</footer>
-  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-<script src="/js/search.min.js"></script>
-<script type="text/javascript">
-
-// disqus scripts
 
 
-// dropdown scripts
-$(".dropdown").click(function(event) {
-  var current = $(this);
-  event.stopPropagation();
-  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
-});
-$(document).click(function(){
-    $(".dropdown-content").removeClass("open");
-})
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
 
-var path = "/search.xml";
-searchFunc(path, 'local-search-input', 'local-search-result');
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
 
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
 </script>
+
+
 
 </body>
 </html>
