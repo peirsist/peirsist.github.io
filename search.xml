@@ -181,18 +181,30 @@
   <entry>
     <title>学习链接</title>
     <url>/2022/10/19/tolearn/</url>
-    <content><![CDATA[<h1 id="一专业类"><strong>一、专业类</strong></h1>
-<h2 id="机器学习"><strong>机器学习</strong></h2>
-<h2 id="数学基础"><strong>1. 数学基础</strong></h2>
+    <content><![CDATA[<h1 id="专业类"><strong>专业类</strong></h1>
+<h2 id="数学基础"><strong>数学基础</strong></h2>
 <ol type="1">
+<li>老齐课程，<a class="link" href="http://www.itdiffer.com/">首页 · 老齐教室 (itdiffer.com)<i class="fas fa-external-link-alt"></i></a>
+<ul>
+<li><strong><a class="link" href="http://math.itdiffer.com/">本书说明 · 机器学习数学基础 (itdiffer.com)<i class="fas fa-external-link-alt"></i></a></strong></li>
+<li><strong><a class="link" href="https://www.bilibili.com/video/BV1QG411t72j/?spm_id_from=333.788&amp;vd_source=83831fc0970a6c8704479f7cfc679937">如何度量距离_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></strong></li>
+</ul></li>
 <li><a class="link" href="https://www.bilibili.com/video/BV1pb411u7t1?spm_id_from=333.999.0.0">线性代数基础课程【小元老师】【超级0基础入门】<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://www.bilibili.com/video/BV1ib411t7YR?spm_id_from=333.999.0.0">线性代数的本质<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://www.bilibili.com/video/BV14b411M7Jn?spm_id_from=333.999.0.0">概率论与数理统计知识详解【小元老师】【考研数学】<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://www.bilibili.com/video/BV1ys411472E?spm_id_from=333.999.0.0">【官方双语/合集】线性代数的本质 - 系列合集<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://cloud.tencent.com/developer/article/1729545">非常适合初学者的机器学习的数学基础专辑（pdf下载）<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://cloud.tencent.com/developer/article/1843235?from=article.detail.1729545">建议初学者收藏的机器学习初学者手抄本：数学基础、机器学习经典算法、统计学习方法等<i class="fas fa-external-link-alt"></i></a></li>
+<li>机器学习数学基础pdf
+<ul>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/104986706">《机器学习数学基础》已开源，附完整下载！ - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://mml-book.github.io/">Mathematics for Machine Learning | Companion webpage to the book “Mathematics for Machine Learning”.<i class="fas fa-external-link-alt"></i></a></li>
+</ul></li>
 </ol>
-<h2 id="机器学习-1"><strong>2. 机器学习</strong></h2>
+<h2 id="机器学习"><strong>机器学习</strong></h2>
+<!-- 1. **🔗[线性回归](机器学习/00Tra_ML/02.线性回归.md)** -->
 <ol type="1">
-<li><strong>🔗<a href="机器学习/00Tra_ML/02.线性回归.md">线性回归</a></strong></li>
+<li>🔗<a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">线性回归</a></li>
 </ol>
 <ul>
 <li><a class="link" href="https://blog.csdn.net/gongxifacai_believe/category_6834186.html">Machine Learning_魏晓蕾的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a><mark>前辈们做的机器学习笔记</mark></li>
@@ -208,12 +220,12 @@
 <li><a class="link" href="https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html">【英文】机器学习可解释性| Interpretable Machine Learning (christophm.github.io)<i class="fas fa-external-link-alt"></i></a></li>
 <li></li>
 </ol>
-<h2 id="深度学习"><strong>3. 深度学习</strong></h2>
+<h2 id="深度学习"><strong>深度学习</strong></h2>
 <ol type="1">
-<li><strong><a class="link" href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong>🔗<a href="机器学习/05DL/CNN.md">CNN</a></strong></li>
+<li><strong><a class="link" href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】<i class="fas fa-external-link-alt"></i></a></strong> <!-- 2. **🔗[CNN](机器学习/05DL/CNN.md)** --></li>
+<li><a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/" title="CNN">🔗CNN</a></li>
 </ol>
-<h2 id="强化学习"><strong>4. 强化学习</strong></h2>
+<h2 id="强化学习"><strong>强化学习</strong></h2>
 <ol type="1">
 <li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
 <li><a class="link" href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总<i class="fas fa-external-link-alt"></i></a></li>
@@ -238,6 +250,77 @@
 <li><strong><a class="link" href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><strong><a class="link" href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></strong></li>
 </ol>
+<h2 id="数电"><strong>数电</strong></h2>
+<blockquote>
+<ol type="1">
+<li><a class="link" href="https://blog.csdn.net/qq_41193189/article/details/103393850">数字电路时序参数总结_tpd是什么参数<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="http://blog.sina.com.cn/s/blog_5d942c720102woxi.html#:~:text=电路在组合电路中的input-to-output延迟可以用两个参数表示，也即tpd和tcd。%20传输延时%20(Propagation,delay%2C%20tpd)--此物理量表明了输入端信号开始变化到输出端信号稳定所需要的时间。%20组合逻辑中，这个量用来保证输入端经过tpd的时间后，输出端不会再有任何的变化。">FPGA技术(1):理解FPGA的时序（建立/保持时间，最大时钟频率）<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<ul>
+<li>==传输延时(Propagation delay, tpd)==--此物理量表明了输入端信号开始变化到输出端信号稳定所需要的时间。组合逻辑中，这个量用来保证输入端经过tpd的时间后，输出端不会再有任何的变化。</li>
+<li>==污染延时 (Contamination delay, tcd)==--此物理量表明输入端信号开始变化到输出端信号开始变化所需要的时间。也就是说，在tcd时间内，输出不会有任何变化。==即输入变化后，输出还能坚持多久不变==</li>
+</ul>
+<ol start="3" type="1">
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/93664819#:~:text=奇数分频器跟偶数分频器一样，当计数器的值等于分频系数（加1或者减1）的一半或等于分频系数时，时钟信号翻转。,奇数分频器分频原理如下图：%20上图的分频系数是3，用一个计数器在上升沿计数，每次计数到1翻转一次，每次计数到3再翻转一次，然后周期重复得到信号clkp1，它的周期就是clk的3倍，但是它的占空比不是50%（占空比就是clk为高的时间占整个时钟周期的百分比）。">时钟分频系列——偶数分频/奇数分频/分数分频 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.cnblogs.com/cosmo89929/archive/2013/02/05/2893056.html">简单分频原理与实现——计数器 - cosmo89929 - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li></li>
+</ol>
+</blockquote>
+<ul>
+<li><a class="link" href="https://hdlbits.01xz.net/wiki/Exams/m2014_q4h">Verilog学习网站<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://ww2.mathworks.cn/help/matlab/ref/importtool.html">MATLAB文档<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.processon.com/;jsessionid=C29B9EDCFE08DF1F472FB37C29140DB9.jvm1">ProcessOn - 免费在线作图，思维导图，流程图，实时协作<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.cnblogs.com/BUAA-Wander/">BUAA-Wander - 博客园 (cnblogs.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://csacademy.com/app/graph_editor/">图论绘图)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.bilibili.com/read/cv10338711">HDLBits_Verilog学习笔记Ⅰ——Verilog Language_Basics - 哔哩哔哩 (bilibili.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/356601327">数字IC/FPGA设计100问之——学习路径 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/184031850">Verilog HDL刷题网站推荐——HDLBits - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/69637323">5分钟了解Verilog HDL语法结构 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://www.zhihu.com/people/xia-qing-er-39">北理- 夏晴儿 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://sie.bit.edu.cn/xyxw/zhxw/b186836.htm">北京理工大学信息电子学院 -预推免<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://kaoyan.koolearn.com/20201013/1410195.html">北京理工大学2021考研专业目录：信息与电子学院_考研_新东方在线 (koolearn.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://blog.csdn.net/qq_41061258/article/details/102566990">夏令营,预推免经验分享（计科方向，天大+北理+上交+国防科大+北邮+清华深圳）_rl小透明-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li></li>
+<li></li>
+</ul>
+<h2 id="微电子">微电子</h2>
+<ul>
+<li>为什么三极管能放大电流？
+<ul>
+<li>==答==：三极管的放大其实并不是真正的放大，只是<img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=I_%7BBN%7D">和<img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=I_%7BCN%7D">把<img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=I_%7BEN%7D">做了分流，而<img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=I_%7BBN%7D">由于自身缺陷，只能分走极小的一部分，其余绝大部分被<img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=I_%7BCN%7D">分走，而且栅极的结构尺寸确定，那么电流比例就确定了，这就是放大倍数 <img lazyload alt="image" data-src="https://www.zhihu.com/equation?tex=%5Cbeta"> ，<span class="math inline">\(\beta\)</span> 固定只发生在三极管工作在放大区！！！</li>
+<li>三极管中的薄的基极将发射结和集电结反紧密的联系在一起，可以把发射结的电流几乎全部地传输到反偏的集电结回路中去，这正是三极管实现放大作用的关键所在。</li>
+<li>三极管的结构。器件并不是<strong>对称的！！！</strong>三个区域的参杂浓度明显不同，其中，发射极的参杂浓度高于集电极，基极的参杂浓度最低。此外，在几何尺寸上，基极很薄，集电极的面积比发射极大，正式这种结构特点，构成了三极管具有电流放的作用的物质基础。</li>
+<li>其实我认为放大这个词是导致大多数人无法理解的真实原因。 放大镜可以放大钱吗?我拿一块钱，你拿放大5倍的放大镜看就是5块钱?<img lazyload alt="image" data-src="https://pic1.zhimg.com/v2-3ac403672728e5e91f5b2d3c095e415a.png"> 所谓==放大其实是用小的基极电流去控制了大的集电极电流!注意是控制!==永远都不要用放大这个概念了，不然这辈子都无法理解模拟电路!</li>
+</ul></li>
+<li>什么是冲击响应
+<ul>
+<li>冲激响应就是某个线性时不变系统的输入输出关系的基本特征，任何形式的输入信号，都可以分解成无穷多个不同比例的冲激，而输出就是相应的不同比例的响应的累加。</li>
+</ul></li>
+<li>如何理解费米能级？
+<ul>
+<li><strong>费米能级</strong>反映了电子在不同能态上的填充水平，<strong>费米能级</strong>是绝对零度下电子所能够占据的最高能级。低于费米能级的能带全满，高于费米能级的能带全空。</li>
+<li>==费米狄拉克分布函数含义==：能量为<span class="math inline">\(E\)</span>的量子态被电子占据的概率</li>
+</ul></li>
+<li>强电场下，为什么会速度饱和
+<ul>
+<li>载流子速度饱和，是载流子在材料中传输的一个基本特性，实质上是在==电场很强时载流子平均能量升高，使载流子通过散射损失能量与从电场获取能量差不多快时==，载流子漂移速度不再随电场增强而增大，从而达到其漂移速度上限。这个速度被称作饱和速度，而此时的电场强度称为临界电场强度。散射的存在，导致速度会在某一个值趋于饱和</li>
+</ul></li>
+</ul>
+<h2 id="通信">通信</h2>
+<ul>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/399265357">一、通信系统模型（通信原理） - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://blog.csdn.net/flypassion/article/details/103546657">通信原理及系统系列8—— 如何消除码间串扰_flypassion的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li>麦克斯韦方程组
+<ul>
+<li><img lazyload alt="image" data-src="C:\Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210829155855021.png" style="zoom:67%;"></li>
+<li></li>
+</ul></li>
+</ul>
+<h2 id="半导体物理">半导体物理</h2>
+<ul>
+<li><a class="link" href="https://www.bilibili.com/video/BV1fp4y1z7oF?from=search&amp;seid=3011327188028506472">【物理】半导体物理 西安电子科技大学 柴常春等主讲_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></li>
+<li></li>
+</ul>
 <h1 id="二软能力"><strong>二、软能力</strong></h1>
 <h2 id="羽毛球"><strong>羽毛球</strong></h2>
 <ol type="1">
@@ -285,10 +368,7 @@
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
-    <content><![CDATA[<h2 id="section">2022-11-01</h2>
-<h3 id="comments">comments</h3>
-<h3 id="近期工作">近期工作</h3>
-<ol type="1">
+    <content><![CDATA[<h2 id="2022-11-01"><a href="#2022-11-01" class="headerlink" title="2022-11-01"></a>2022-11-01</h2><h3 id="comments"><a href="#comments" class="headerlink" title="comments"></a>comments</h3><h3 id="近期工作"><a href="#近期工作" class="headerlink" title="近期工作"></a>近期工作</h3><ol>
 <li><em>2022-10-25，周三</em>，上午英语，下午海洋</li>
 <li><em>2022-10-25，周四</em>，上午工程伦理考试，下午数字图像处理，晚上考试。</li>
 </ol>
@@ -296,31 +376,28 @@
 <blockquote>
 <p><font size="5">发现一深入学什么，学不会就不想学就不敢兴趣了😅，数字图像就是这样，不会之前听着可好，一深入，就发现不太喜欢。现在就想模拟器件挺好，但是你好像忘记了当初搞不懂BJT，什么载流子的原理时的痛苦了。<strong>一深入了解就发现有些东西不是你想的那么回事</strong>，尽快了解，找到自己的方向。目前考虑编程、硬件</font></p>
 </blockquote>
-<h3 id="下一步计划">下一步计划</h3>
-<hr>
-<h2 id="section-1">2022-10-25</h2>
-<h3 id="comments-1">comments</h3>
-<h3 id="近期工作-1">近期工作</h3>
-<ol type="1">
+<h3 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h3><hr>
+<h2 id="2022-10-25"><a href="#2022-10-25" class="headerlink" title="2022-10-25"></a>2022-10-25</h2><h3 id="comments-1"><a href="#comments-1" class="headerlink" title="comments"></a>comments</h3><h3 id="近期工作-1"><a href="#近期工作-1" class="headerlink" title="近期工作"></a>近期工作</h3><ol>
 <li><em>2022-10-19，周三</em>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
 </ol>
 <ul>
 <li><p><strong><mark>如何输出变量到CSV文件</mark></strong></p>
-<ol type="1">
-<li><a class="link" href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang的博客-CSDN博客_c++ 追加写文件<i class="fas fa-external-link-alt"></i></a></li>
+<ol>
+<li><a class="link" href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang的博客-CSDN博客_c++ 追加写文件<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv文本文件（也可用excel打开）_浦柳人的博客-CSDN博客_c++输出csv文件<i class="fas fa-external-link-alt"></i></a></li>
-</ol></li>
+</ol>
+</li>
 </ul>
-<ol start="2" type="1">
+<ol start="2">
 <li><em>2022-10-20，周四</em>，上午工程伦理，下午睡觉醒来，洗洗衣服就5点，然后就跑去运动了。晚上做了hexo博客。</li>
 <li><em>2022-10-21，周五</em>，上午打球，下午看反向传播算法</li>
 <li><em>2022-10-22，周六</em>，上午打球，下午看论文，但是 <strong>效率很低</strong></li>
 <li><em>2022-10-23，周日</em>，上午打球，下午复习反向传播</li>
-<li><em>2022-10-24，周一</em>，上午英语课，下午睡到3点
-<ul>
+<li><em>2022-10-24，周一</em>，上午英语课，下午睡到3点<ul>
 <li>外卖困在系统里。</li>
 <li>整blog，又5点了，跑步吃饭。</li>
-</ul></li>
+</ul>
+</li>
 <li><em>2022-10-25，周二</em>，上午数字图像处理，下午党支部会议，晚上组会。</li>
 </ol>
 <p>🔴 <strong>存在的问题：</strong></p>
@@ -328,52 +405,56 @@
 <p><strong><font color="red">做事效率不够专注，效率太低。</font></strong></p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h2 id="section-2">2022-10-18</h2>
-<h3 id="comments-2">comments</h3>
-<h3 id="近期工作-2">近期工作</h3>
-<ol type="1">
-<li><p>周三，在实验室电脑上安装虚拟机，安装gcc、g++，运行PartitionSort的代码，从中提取TSS的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
+<h2 id="2022-10-18"><a href="#2022-10-18" class="headerlink" title="2022-10-18"></a>2022-10-18</h2><h3 id="comments-2"><a href="#comments-2" class="headerlink" title="comments"></a>comments</h3><h3 id="近期工作-2"><a href="#近期工作-2" class="headerlink" title="近期工作"></a>近期工作</h3><ol>
+<li><p>周三，在实验室电脑上安装虚拟机，安装gcc、g++，运行PartitionSort的代码，从中提取TSS的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p>
+</li>
 <li><p>周四，与老师讨论，规范weekly meeting的内容。跟作者发邮件</p>
 <ul>
 <li><p><strong><mark>如何发邮件</mark></strong></p>
-<ol type="1">
+<ol>
 <li><strong><a class="link" href="https://www.zhihu.com/question/27145261">如何礼貌地向文献作者索要源代码？ - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><strong><a class="link" href="https://www.zhihu.com/question/29748091">给论文作者发邮件问问题？ - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><strong><a class="link" href="https://blog.csdn.net/wuyanne/article/details/116047368">发邮件向论文作者卑微求代码模板_一只小小小飞鸟的博客-CSDN博客_给论文作者发邮件请教问题模板<i class="fas fa-external-link-alt"></i></a></strong></li>
-</ol></li>
-<li><p><strong><mark>邮件内容</mark></strong></p></li>
-</ul></li>
-<li><p>周五，和张楠讨论<em>Fast Online Packet Classification With Convolutional Neural Network</em></p></li>
+</ol>
+</li>
+<li><p><strong><mark>邮件内容</mark></strong></p>
+</li>
+</ul>
+</li>
+<li><p>周五，和张楠讨论<em>Fast Online Packet Classification With Convolutional Neural Network</em></p>
+</li>
 <li><p>周六，看TM中TSS部分的代码</p>
 <ul>
-<li><strong><mark>cuckoo hash</mark></strong>
-<ol type="1">
+<li><strong><mark>cuckoo hash</mark></strong><ol>
 <li><strong><a class="link" href="https://zhuanlan.zhihu.com/p/462815302">布隆过滤器与布谷鸟过滤器 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><strong><a class="link" href="https://zhuanlan.zhihu.com/p/442498412">布谷鸟哈希和布谷鸟过滤器 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><strong><a class="link" href="https://blog.csdn.net/nannanxiami/article/details/109568254">Cuckoo Hash 布谷鸟哈希_nannanxiami的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong><a class="link" href="https://blog.csdn.net/suwei19870312/article/details/7442786?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=1">Cuckoo Hash 基本思想和代码实现_码农SW的博客-CSDN博客_cuckoo hash<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong><a class="link" href="https://blog.csdn.net/wc13197389627/article/details/112433980?spm=1001.2101.3001.6650.5&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=6">Cuckoo Hash及其性质_Rauchy的博客-CSDN博客_cuckoo hash<i class="fas fa-external-link-alt"></i></a></strong></li>
-</ol></li>
-</ul></li>
+<li><strong><a class="link" href="https://blog.csdn.net/suwei19870312/article/details/7442786?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=1">Cuckoo Hash 基本思想和代码实现_码农SW的博客-CSDN博客_cuckoo hash<i class="fas fa-external-link-alt"></i></a></strong></li>
+<li><strong><a class="link" href="https://blog.csdn.net/wc13197389627/article/details/112433980?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=6">Cuckoo Hash及其性质_Rauchy的博客-CSDN博客_cuckoo hash<i class="fas fa-external-link-alt"></i></a></strong></li>
+</ol>
+</li>
+</ul>
+</li>
 <li><p>周一，<em>A Learned Bloom Filter-assisted Scheme for Packet Classification in Software-Defined Networking</em></p>
 <ul>
-<li><strong><mark>Bloom Filter</mark></strong>
-<ol type="1">
+<li><strong><mark>Bloom Filter</mark></strong><ol>
 <li><a class="link" href="https://blog.csdn.net/qq_40124555/article/details/122810154">什么是布隆过滤器？如何使用？_Java技术债务的博客-CSDN博客_布隆过滤器<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://zhuanlan.zhihu.com/p/148716788">通俗易懂讲布隆过滤器 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://developer.aliyun.com/article/1046992">图解布隆过滤器，十分钟带你理解什么是布隆过滤器？-阿里云开发者社区 (aliyun.com)<i class="fas fa-external-link-alt"></i></a></li>
-</ol></li>
-<li><strong><mark>cross production 交叉熵</mark></strong>
-<ol type="1">
-<li><a class="link" href="https://blog.csdn.net/xiao_xian_/article/details/116011455">机器学习--- 交叉熵损失(CrossEntropy Loss)--(附代码)_Jankin_Tian的博客-CSDN博客_交叉熵损失函数代码<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+</li>
+<li><strong><mark>cross production 交叉熵</mark></strong><ol>
+<li><a class="link" href="https://blog.csdn.net/xiao_xian_/article/details/116011455">机器学习— 交叉熵损失(CrossEntropy Loss)–(附代码)_Jankin_Tian的博客-CSDN博客_交叉熵损失函数代码<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" href="https://zhuanlan.zhihu.com/p/35709485">损失函数｜交叉熵损失函数 - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
 <li></li>
-</ol></li>
-</ul></li>
 </ol>
-<h3 id="下一步计划-1">下一步计划</h3>
-]]></content>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="下一步计划-1"><a href="#下一步计划-1" class="headerlink" title="下一步计划"></a>下一步计划</h3>]]></content>
       <categories>
         <category>科研</category>
       </categories>
@@ -1714,14 +1795,20 @@ AB&#39;&amp; =  AB&#39;(C+C&#39;)=AB&#39;C+AB&#39;C&#39;\\
   <entry>
     <title>Linux指令</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Ubuntu%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="linux常用命令">linux常用命令</h2>
-<ul>
-<li><p><a class="link" href="https://blog.csdn.net/weixin_41194129/article/details/107430369">完美解决ubuntu中文件夹加锁的情况_源代码杀手的博客-CSDN博客_ubuntu文件夹上锁<i class="fas fa-external-link-alt"></i></a></p></li>
-<li><p>[<a class="link" href="https://blog.csdn.net/nan_xiaobai/article/details/99108689">Ubuntu]Linux下如何解决目录绿色高亮？_wqyolo的博客-CSDN博客_linux文件夹绿色高亮<i class="fas fa-external-link-alt"></i></a></p></li>
+    <content><![CDATA[<p><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/linux%E5%8F%82%E8%80%83%E5%91%BD%E4%BB%A4.8ncy197uf9k.webp"></p>
+<h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><ul>
+<li><p><a class="link" href="https://blog.csdn.net/weixin_41194129/article/details/107430369">完美解决ubuntu中文件夹加锁的情况_源代码杀手的博客-CSDN博客_ubuntu文件夹上锁<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p>[<a class="link" href="https://blog.csdn.net/nan_xiaobai/article/details/99108689">Ubuntu]Linux下如何解决目录绿色高亮？_wqyolo的博客-CSDN博客_linux文件夹绿色高亮<i class="fas fa-external-link-alt"></i></a></p>
+</li>
 <li></li>
 </ul>
-<h3 id="解决文件夹带锁">解决文件夹带锁</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 777 + 文件名</span><br></pre></td></tr></table></figure>
+<h3 id="解决文件夹带锁"><a href="#解决文件夹带锁" class="headerlink" title="解决文件夹带锁"></a>解决文件夹带锁</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo chmod 777 + 文件名</span><br></pre></td></tr></table></figure>
+
+
+
+
+
 ]]></content>
       <categories>
         <category>编程</category>
@@ -2301,8 +2388,29 @@ blockquote {
   <entry>
     <title>研究生规划</title>
     <url>/2022/05/19/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%942-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="研究生规划"><strong>研究生规划</strong></h2>
-<p><code>2022</code>年<code>5</code>月<code>12</code>日</p>
+    <content><![CDATA[<h2 id="研究生（人生）目标"><a href="#研究生（人生）目标" class="headerlink" title="研究生（人生）目标"></a>研究生（人生）目标</h2><p>研究生需要达到的要求：</p>
+<ol>
+<li>专业上<ul>
+<li>找到自己的方向，并使之成为擅长的领域</li>
+<li>雅思，英语听说读写，可以正常交流</li>
+</ul>
+</li>
+<li>生活上<ul>
+<li>对生活有热情</li>
+<li>常怀感恩之心和敬畏之心</li>
+<li>遇事积极向上，不要有负面情绪。一切不好的东西总会过去的~</li>
+</ul>
+</li>
+<li>个人<ul>
+<li>沉稳、冷静</li>
+<li>控制好自己的情绪，不要向身边的人，尤其是亲人、朋友发脾气</li>
+<li></li>
+</ul>
+</li>
+</ol>
+<p><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2021-11-16_15-12-26.5kop4jg2ulw.webp"></p>
+<p><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/%E5%9F%B9%E5%85%BB%E7%9B%AE%E6%A0%87.4k2krbev3yq0.webp"><br><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/%E7%BC%96%E7%A8%8B.7ldzhsn3bds0.webp"><br><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A6%81%E6%B1%82.6212ok9ggcw0.webp"><br><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/%E5%8F%A3%E8%AF%AD%E7%9B%AE%E6%A0%87.2v56xg5nvc20.webp"><br><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/%E7%A7%AF%E7%B4%AF%E9%A1%B9%E7%9B%AE.52nce0nwoe40.webp"></p>
+<h2 id="研究生规划"><a href="#研究生规划" class="headerlink" title="研究生规划"></a><strong>研究生规划</strong></h2><p><code>2022</code>年<code>5</code>月<code>12</code>日   </p>
 <p><a class="link" href="https://www.bilibili.com/video/BV1AB4y1m7yV?spm_id_from=333.880.my_history.page.click">【研0必看】985导师分享研究生期间学习规划，让你实现边玩边学！_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></p>
 <p>做一个研究生规划，毕竟三年时间也是非常宝贵的，我既不想虚度时光，但也不想整天学的很累，按照自己的节奏来，所以早早地做一个规划吧，为研究生生涯画上一个完美的句号。</p>
 <p>我是不打算读博了，但是呢，在国内读研究生都是以培养学术研究为目标的，再说研究方向和工作也可能不相关，所以科研任务（决定毕业）和找工作基本上是两条路。</p>
@@ -2321,21 +2429,22 @@ blockquote {
 <li>但是不熬夜，11点之前可以睡着（当然这需要室友的配合，希望未来的室友不打游戏，可以早点睡觉）</li>
 <li>有时间去玩，锻炼身体</li>
 </ul>
-<p>看似简单，其实也不容易。</p></li>
+<p> 看似简单，其实也不容易。</p>
+</li>
 <li><p><strong><font color="red"> 养成专注的习惯 </font></strong></p>
-<p>学习就是学习，学习的时候就不要看手机，每天专心学习<code>7-8</code>个小时，完全可以完成要求，也完全有时间去玩。</p></li>
-<li><p><strong><font color="red"> 成熟稳重</font></strong></p>
+<p> 学习就是学习，学习的时候就不要看手机，每天专心学习<code>7-8</code>个小时，完全可以完成要求，也完全有时间去玩。</p>
+</li>
+<li><p><strong><font color="red"> 成熟稳重</font></strong> </p>
 <ul>
 <li>一个人出去旅游，出去玩</li>
 <li>一个人在陌生的城市里立足</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><strong>尽快的独立起来，做事不要依靠任何人，可以独当一面，成熟稳重起来</strong></p>
 <hr>
-<ol type="1">
-<li><p><code>2022.5.12-2022.9</code> <strong><font color="red"> 研究生开学前 </font></strong></p>
-<ul>
-<li><strong>打好编程基础。学习C++课程</strong></li>
+<ol>
+<li><code>2022.5.12-2022.9</code> <strong><font color="red"> 研究生开学前 </font></strong><br>- <strong>打好编程基础。学习C++课程</strong><ul>
 <li>目前基础语法学完了，总结一下，上传。</li>
 <li>正在学<code>STL</code>，有<code>46</code>节课，一天<code>2-3</code>节</li>
 <li><strong>一定要动手去写代码</strong></li>
@@ -2344,18 +2453,24 @@ blockquote {
 <li>一共<code>97</code>节，<code>45</code>天，一天<code>2</code>节课就可以，</li>
 <li><strong>复习很重要</strong>，第一天学过之后，第二天复习，那么后面会复习的越来越多，前面的以前可能有的学过，所以前面尽可能多看，后面重要的放慢进度。</li>
 <li><strong>操作系统</strong></li>
-<li><strong>英语学习。</strong>英语在面试，生活中用处还是非常大的，<strong>英语一定要坚持学</strong>。
-<ul>
+<li><strong>英语学习。</strong>英语在面试，生活中用处还是非常大的，<strong>英语一定要坚持学</strong>。<ul>
 <li>做六级，六级考的也不太高</li>
-</ul></li>
-<li><strong>确定自己的研究方向，看论文，记笔记</strong> ---</li>
-</ul></li>
-<li><p><code>2022.9-2023.3</code><strong><font color="red"> 研一上半年 </font></strong></p>
+</ul>
+</li>
+<li><strong>确定自己的研究方向，看论文，记笔记</strong></li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li><p><code>2022.9-2023.3</code><strong><font color="red">  研一上半年 </font></strong></p>
 <ul>
 <li>应该会有很多专业课程</li>
 <li>看论文，对于研究背景什么的，平时就记录自己的想法，到时候写开题报告，论文的时候可以直接拿来用。不要让写论文、改论文这些事去耽误找工作的时间</li>
-</ul></li>
-<li><p>先写到这里吧，到时候再具体看情况，毕竟计划赶不上变化，但是一个大致的规划还是要有的~</p></li>
+</ul>
+</li>
+<li><p>先写到这里吧，到时候再具体看情况，毕竟计划赶不上变化，但是一个大致的规划还是要有的~</p>
+</li>
 </ol>
 <hr>
 ]]></content>
