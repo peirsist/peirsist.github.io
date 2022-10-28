@@ -24,7 +24,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"peirsist.github.io","root":"/","language":"en","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"17px","font_family":"STHeiti","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"16px","font_family":"STHeiti, sans-serif","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving.","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
   </script>
@@ -204,7 +204,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-28 00:03:29</span>
+        <span class="pc">2022-10-28 10:19:19</span>
     </span>
     
     
@@ -235,7 +235,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>562 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>571 Words</span>
         </span>
     
     
@@ -256,64 +256,74 @@
             
 
             <div class="article-content keep-markdown-body">
-                <h1 id="搭建hexo博客">搭建hexo博客</h1>
-<h2 id="hexo">hexo</h2>
-<ol type="1">
-<li><p>很简洁的主题，很喜欢<a class="link" target="_blank" rel="noopener" href="https://gaoryrt.com/categories/随笔与个人文集/">pln主题<i class="fas fa-external-link-alt"></i></a>，</p>
-<ul>
-<li><a class="link" target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">gaoryrt/hexo-theme-pln: 📝 Plain theme for Hexo. (github.com)<i class="fas fa-external-link-alt"></i></a></li>
-</ul></li>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo<i class="fas fa-external-link-alt"></i></a></p></li>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18z4y197J7/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Hexo博客教程之写文章_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></p></li>
+                <h1 id="搭建hexo博客"><a href="#搭建hexo博客" class="headerlink" title="搭建hexo博客"></a>搭建hexo博客</h1><h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><ol>
+<li>很简洁的主题，很喜欢<a class="link" target="_blank" rel="noopener" href="https://gaoryrt.com/categories/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/">pln主题<i class="fas fa-external-link-alt"></i></a>，<ul>
+<li>[gaoryrt&#x2F;hexo-theme-pln: 📝 Plain theme for Hexo. (github.com)](<a class="link" target="_blank" rel="noopener" href="https://github.com/gaoryrt/hexo-theme-pln">https://github.com/gaoryrt/hexo-theme-pln<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+</li>
 </ol>
-<h2 id="指令">指令</h2>
-<ol type="1">
+<p><img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-27_23-19-43.48teaudc6xq0.webp"></p>
+<ol start="2">
+<li><a class="link" target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18z4y197J7/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">Hexo博客教程之写文章_哔哩哔哩_bilibili<i class="fas fa-external-link-alt"></i></a></li>
+</ol>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><ol>
 <li>hexo g 生成静态页面</li>
 <li>hexo d 发布本地内容到仓库</li>
 <li>hexo s 生成静态页面</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<h2 id="错误">错误</h2>
-<ol type="1">
+
+
+
+
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><ol>
 <li>错误如下：解决<a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45020818/article/details/126949337">解决Hexo部署时报错：Error: Spawn failed_薛定谔的壳的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">atal: unable to access <span class="string">&#x27;https://github.com/a956551943/a956551943.github.io/&#x27;</span>: Encountered end of file</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/usr/local/src/hexo/hanyubolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:376:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
-<h2 id="配置">配置</h2>
-<ol type="1">
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">atal: unable to access <span class="string">&#x27;https://github.com/a956551943/a956551943.github.io/&#x27;</span>: Encountered end of file</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/usr/local/src/hexo/hanyubolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:376:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something<span class="string">&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
 <li><a class="link" target="_blank" rel="noopener" href="https://www.jianshu.com/p/e17711e44e00">Hexo使用攻略-添加分类及标签 - 简书 (jianshu.com)<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/xinyflove/article/details/108791970">Hexo博客添加搜索功能_PeakXin的博客-CSDN博客_hexo搜索功能<i class="fas fa-external-link-alt"></i></a></li>
-<li>hexo显示pdf
-<ul>
+<li>hexo显示pdf<ul>
 <li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37726222/article/details/123071678">【有用】hexo post中pdf文件的插入_时间里的河的博客-CSDN博客_hexo 插入pdf<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45926582/article/details/107559639?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5">hexo如何分类分标签进行展示与pdf、图片_月球转转转的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
-</ul></li>
-<li>hexo上传图片
-<ul>
-<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44783934/article/details/107798324?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&amp;utm_relevant_index=2">解决PicGo+GitHub搭建个人图床上传失败问题_wnhyang的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
+<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45926582/article/details/107559639?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-107559639-blog-115603908.pc_relevant_multi_platform_whitelistv3&utm_relevant_index=5">hexo如何分类分标签进行展示与pdf、图片_月球转转转的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
+</ul>
+</li>
+<li>hexo上传图片<ul>
+<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44783934/article/details/107798324?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-1-107798324-blog-104450037.t0_edu_mix&utm_relevant_index=2">解决PicGo+GitHub搭建个人图床上传失败问题_wnhyang的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
 <li><mark>PicGo上传失败，改用PicX</mark> <strong><a class="link" target="_blank" rel="noopener" href="https://picx.xpoet.cn/#/upload">图片上传 | PicX 图床神器 (xpoet.cn)<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38140292/article/details/118885686?">【Typora】github-与PicGO搭建图床_指尖听戏的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38140292/article/details/118885686">【Typora】github-与PicGO搭建图床_指尖听戏的博客-CSDN博客<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38140292/article/details/119076411">【hexo】基础教程-二-文章新增图片上传_指尖听戏的博客-CSDN博客_hexo怎么传照片<i class="fas fa-external-link-alt"></i></a></li>
-</ul></li>
+</ul>
+</li>
 <li><a class="link" target="_blank" rel="noopener" href="https://www.mingdao.me/Hexo/hexo-link-post/">Hexo如何增加站内文章链接 | 明道学苑 (mingdao.me)<i class="fas fa-external-link-alt"></i></a></li>
 <li>生成归档页，显示全部。<a class="link" target="_blank" rel="noopener" href="https://sobaigu.com/hexo-archives-show-all-in-one-page.html">参考<i class="fas fa-external-link-alt"></i></a></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置首页分页之前默认就有，这里就不额外加了</span></span><br><span class="line"><span class="comment"># index_generator:</span></span><br><span class="line"><span class="comment">#   per_page: 5</span></span><br><span class="line"></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br><span class="line">  yearly: <span class="literal">true</span>  <span class="comment">#是否按年生成归档</span></span><br><span class="line">  monthly: <span class="literal">false</span>  <span class="comment">#为了加快生成速度，按月归档就不要了</span></span><br><span class="line"></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 40  <span class="comment">#值为0表示不分页，按需填写</span></span><br></pre></td></tr></table></figure>
-<h2 id="主题">主题</h2>
-<ol type="1">
-<li>Fulid
+
+
+
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ol>
+<li><p>Fulid</p>
 <ul>
-<li><a class="link" target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">fluid-dev/hexo-theme-fluid: 一款 Material Design 风格的 Hexo 主题 / An elegant Material-Design theme for Hexo (github.com)<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/start/#主题简介">开始使用 | Hexo Fluid 用户手册 (fluid-dev.com)<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#slogan-打字机">配置指南 | Hexo Fluid 用户手册 (fluid-dev.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">fluid-dev&#x2F;hexo-theme-fluid: 一款 Material Design 风格的 Hexo 主题 &#x2F; An elegant Material-Design theme for Hexo (github.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/start/#%E4%B8%BB%E9%A2%98%E7%AE%80%E4%BB%8B">开始使用 | Hexo Fluid 用户手册 (fluid-dev.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/#slogan-%E6%89%93%E5%AD%97%E6%9C%BA">配置指南 | Hexo Fluid 用户手册 (fluid-dev.com)<i class="fas fa-external-link-alt"></i></a></li>
 <li></li>
-</ul></li>
-<li>keep主题
+</ul>
+</li>
+<li><p>keep主题</p>
 <ul>
-<li><a class="link" target="_blank" rel="noopener" href="https://xpoet.cn/">XPoet's Blog<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://xpoet.cn/2020/04/Keep-主题使用指南/">Keep 主题使用指南 | XPoet's Blog<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://xpoet.cn/">XPoet’s Blog<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" target="_blank" rel="noopener" href="https://xpoet.cn/2020/04/Keep-%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Keep 主题使用指南 | XPoet’s Blog<i class="fas fa-external-link-alt"></i></a></li>
 <li><a class="link" target="_blank" rel="noopener" href="https://keep-docs.xpoet.cn/usage-tutorial/advanced.html">进阶使用 | Keep 主题使用指南 (xpoet.cn)<i class="fas fa-external-link-alt"></i></a></li>
 <li></li>
-</ul></li>
+</ul>
+</li>
 </ol>
 
             </div>
