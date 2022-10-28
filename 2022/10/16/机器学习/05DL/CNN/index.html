@@ -28,7 +28,119 @@
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
   </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 
 <body>
@@ -204,7 +316,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-21 14:03:15</span>
+        <span class="pc">2022-10-28 20:30:49</span>
     </span>
     
     
@@ -264,53 +376,53 @@
 <p>举个例子来理解什么是宽度，高度和深度，假如使用CIFAR-10中的图像是作为卷积神经网络的输入，该 <strong>输入数据体</strong> 的维度是32x32x3（宽度，高度和深度）。<strong>我们将看到，层中的神经元将只与前一层中的一小块区域连接，而不是采取全连接方式。</strong> 对于用来分类CIFAR-10中的图像的卷积网络，其最后的输出层的维度是1x1x10，因为在卷积神经网络结构的最后部分将会把全尺寸的图像压缩为包含分类评分的一个向量，<strong>向量是在深度方向排列的</strong>。</p>
 <p>卷积神经网络利用输入是图片的特点，把神经元设计成三个维度 ： <code>width, height, depth (height * width * channel</code> ) (注意这个 <code>depth</code> 不是神经网络的深度，而是用来描述神经元的) 。比如输入的图片大小是 <code>32 × 32 × 3 (rgb)</code>，那么输入神经元就也具有 <code>32×32×3</code> 的维度。下面是图解</p>
 <p><img lazyload alt="image" data-src="https://img-blog.csdn.net/20160404000318630"></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xG2vMq"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xG2vMq.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xG2vMq"><img lazyload alt="xG2vMq.png" data-src="https://s1.ax1x.com/2022/10/08/xG2vMq.png"></a></p>
 <p>我的理解是卷积核就相当于神经元，但这个神经元是局部连接的，就是说一个神经元/卷积核只接受卷积核尺寸大小的数据输入，对输入的数据通过卷积核内的权重和偏置进行一次卷积运算，得到一个输出值，通过多次移动便得到了一层激活层的输出。权值共享的意思也就是这个神经元/卷积核在移动中用的是同一组权重和偏置</p>
 <h3 id="卷积神经网络能干什么">卷积神经网络能干什么</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRpZT"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRpZT.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRii4"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRii4.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xG2zLV"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xG2zLV.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xG2xs0"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xG2xs0.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRkW9"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRkW9.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRpZT"><img lazyload alt="xGRpZT.png" data-src="https://s1.ax1x.com/2022/10/08/xGRpZT.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRii4"><img lazyload alt="xGRii4.png" data-src="https://s1.ax1x.com/2022/10/08/xGRii4.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xG2zLV"><img lazyload alt="xG2zLV.png" data-src="https://s1.ax1x.com/2022/10/08/xG2zLV.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xG2xs0"><img lazyload alt="xG2xs0.png" data-src="https://s1.ax1x.com/2022/10/08/xG2xs0.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRkW9"><img lazyload alt="xGRkW9.png" data-src="https://s1.ax1x.com/2022/10/08/xGRkW9.png"></a></p>
 <h2 id="卷积神经网络架构">卷积神经网络架构</h2>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR9dU"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGR9dU.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRCoF"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRCoF.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRFJJ"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRFJJ.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRAzR"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRAzR.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRVQ1"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRVQ1.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR9dU"><img lazyload alt="xGR9dU.png" data-src="https://s1.ax1x.com/2022/10/08/xGR9dU.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRCoF"><img lazyload alt="xGRCoF.png" data-src="https://s1.ax1x.com/2022/10/08/xGRCoF.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRFJJ"><img lazyload alt="xGRFJJ.png" data-src="https://s1.ax1x.com/2022/10/08/xGRFJJ.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRAzR"><img lazyload alt="xGRAzR.png" data-src="https://s1.ax1x.com/2022/10/08/xGRAzR.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRVQ1"><img lazyload alt="xGRVQ1.png" data-src="https://s1.ax1x.com/2022/10/08/xGRVQ1.png"></a></p>
 <ul>
 <li>红→蓝，<code>6</code> 是代表 <code>6</code> 个卷积核，每个卷积核是 <code>5×5×3</code>，得到的 <code>28×28×6</code></li>
 <li>蓝→绿， <code>10</code> 是代表 <code>10</code> 个卷积核，每个卷积核是 <code>5×5×6</code></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRQFe"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRQFe.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRQFe"><img lazyload alt="xGRQFe.png" data-src="https://s1.ax1x.com/2022/10/08/xGRQFe.png"></a></p>
 <h3 id="卷积">卷积</h3>
 <ul>
 <li>卷积核可以拥有多个</li>
 <li>每个子区域使用相同的卷积核 <strong>（卷积参数共享）</strong></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRNef"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRNef.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRZsx"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRZsx.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRneK"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRneK.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRudO"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRudO.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR1Wd"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGR1Wd.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRNef"><img lazyload alt="xGRNef.png" data-src="https://s1.ax1x.com/2022/10/08/xGRNef.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRZsx"><img lazyload alt="xGRZsx.png" data-src="https://s1.ax1x.com/2022/10/08/xGRZsx.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRneK"><img lazyload alt="xGRneK.png" data-src="https://s1.ax1x.com/2022/10/08/xGRneK.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRudO"><img lazyload alt="xGRudO.png" data-src="https://s1.ax1x.com/2022/10/08/xGRudO.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR1Wd"><img lazyload alt="xGR1Wd.png" data-src="https://s1.ax1x.com/2022/10/08/xGR1Wd.png"></a></p>
 <h3 id="卷积层参数">卷积层参数</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRKoD"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRKoD.png"></a></p>
-<p><strong>1. 滑动窗口步长</strong> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGReL6"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGReL6.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRKoD"><img lazyload alt="xGRKoD.png" data-src="https://s1.ax1x.com/2022/10/08/xGRKoD.png"></a></p>
+<p><strong>1. 滑动窗口步长</strong> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGReL6"><img lazyload alt="xGReL6.png" data-src="https://s1.ax1x.com/2022/10/08/xGReL6.png"></a></p>
 <p><strong>2. 卷积核尺寸</strong> - 一般<code>3*3</code>，尺寸越大，特征提取越粗糙，尺寸越小，特征提取越细腻。</p>
 <p><strong>3. 边缘填充 padding</strong></p>
 <ul>
 <li>越往边界的点，能被利用的次数越少；越往中间的点，能被利用的次数越多。<code>padding</code> 一定程度上弥补了边界信息缺失的问题，加上一圈 <code>0</code> ，能够使得边缘特征充分的被利用。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRQFe"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRQFe.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRlJH"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRlJH.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRQFe"><img lazyload alt="xGRQFe.png" data-src="https://s1.ax1x.com/2022/10/08/xGRQFe.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRlJH"><img lazyload alt="xGRlJH.png" data-src="https://s1.ax1x.com/2022/10/08/xGRlJH.png"></a></p>
 <h3 id="pooling">pooling</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR8SA"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGR8SA.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR8SA"><img lazyload alt="xGR8SA.png" data-src="https://s1.ax1x.com/2022/10/08/xGR8SA.png"></a></p>
 <ul>
 <li>特征图个数不会变，只是去变长和宽。<code>pooling</code> 不涉及任何矩阵的计算</li>
 <li>最大 <code>pooling</code>，在神经网络中，一般认为值越大，特征越明显</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRGQI"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRGQI.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRJyt"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRJyt.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRGQI"><img lazyload alt="xGRGQI.png" data-src="https://s1.ax1x.com/2022/10/08/xGRGQI.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRJyt"><img lazyload alt="xGRJyt.png" data-src="https://s1.ax1x.com/2022/10/08/xGRJyt.png"></a></p>
 <h3 id="经典卷积神经网络">经典卷积神经网络</h3>
 <ul>
 <li><strong>带参数计算</strong> 的才能被叫做 <strong>层</strong></li>
 <li>深度学习，用更深的网络结构去提取原始图像中的特征</li>
 <li>分类还是回归，取决于损失函数和层如何连接</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRaTS"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRaTS.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRUw8"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRUw8.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRYOP"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRYOP.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRwFg"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRwFg.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRaTS"><img lazyload alt="xGRaTS.png" data-src="https://s1.ax1x.com/2022/10/08/xGRaTS.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGRUw8"><img lazyload alt="xGRUw8.png" data-src="https://s1.ax1x.com/2022/10/08/xGRUw8.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRYOP"><img lazyload alt="xGRYOP.png" data-src="https://s1.ax1x.com/2022/10/08/xGRYOP.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRwFg"><img lazyload alt="xGRwFg.png" data-src="https://s1.ax1x.com/2022/10/08/xGRwFg.png"></a></p>
 <h3 id="感受野">感受野</h3>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR0YQ"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGR0YQ.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRBWj"><img lazyload alt="image" data-src="https://s1.ax1x.com/2022/10/08/xGRBWj.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgse.com/i/xGR0YQ"><img lazyload alt="xGR0YQ.png" data-src="https://s1.ax1x.com/2022/10/08/xGR0YQ.png"></a> <a target="_blank" rel="noopener" href="https://imgse.com/i/xGRBWj"><img lazyload alt="xGRBWj.png" data-src="https://s1.ax1x.com/2022/10/08/xGRBWj.png"></a></p>
 
             </div>
 
