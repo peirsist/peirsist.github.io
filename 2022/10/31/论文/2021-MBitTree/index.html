@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="peirsist">
+    
+    <title>
+        
+            MBitTree |
+        
+        EEWiKi
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"peirsist.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"16px","font_family":"STHeiti, sans-serif","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving. || 生活有千万中模样，每一种都可以是幸福的样子","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               EEWiKi
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">MBitTree</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">peirsist</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2022-10-31 19:06:48</span>
+        <span class="mobile">2022-10-31 19:06</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2022-10-31 23:36:42</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AE%BA%E6%96%87/">论文</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>6.2k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>21 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                <p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/wolfzone025/article/details/6577668">IP数据包分类经典算法总结<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="摘要">摘要</h1>
+<p>摘要--数据包分类是许多网络服务的关键组成部分，如服务质量和网络安全。这些网络服务要求数据包分类尽可能快，同时使用较少的内存并支持可扩展性。此外，软件定义的网络交换机在规则集的高维度和大尺度方面对数据包分类提出了新的挑战。在本文中，我们提出了一个名为MBitTree的新解决方案，它包括对现有决策树算法的两个主要改进。首先，我们引入了一种新的规则集划分技术，以实现自适应和快速的规则集划分。第二，采用新的多比特切割方案来构建短树，同时很少造成规则复制。</p>
+<p>MBitTree可以提供较高的分类速度，并具有良好的可扩展性。实验结果表明，与CutSplit相比，MBitTree实现了高达6.8倍的内存消耗，以及高达1.7倍的内存访问次数的减少。此外，我们在FPGA上实现了MBitTree的原型，实施结果表明，我们的方法对于10K的规则集可以实现超过100Gbps的吞吐量，在NetFPGA上可以处理超过100K的规则集。</p>
+<p>Index Terms-packet classification, decision tree, bit cutting, FPGA</p>
+<h1 id="基础知识">基础知识</h1>
+<h2 id="文中基础概念">文中基础概念</h2>
+<h1 id="introduction">Introduction</h1>
+<p>数据包分类是许多网络服务的关键组成部分，例如服务质量(QoS)、网络安全和策略路由。数据包分类的速度对这些网络服务的性能有着重要的影响。因此，包分类是网络研究中一个非常活跃的课题。</p>
+<p>当前的数据包分类解决方案可以大致分为两类:基于硬件的解决方案和基于软件的解决方案[1]。使用三态内容可寻址存储器(TCAM) [2]、[3]、[4]的基于硬件的解决方案已成为行业中数据包分类的主要实施方式。它们利用TCAM将所有规则存储在关联存储器中，然后并行地将数据包与所有这些规则进行匹配。TCAM提供了恒定的分类时间并保证了高性能，但它有一些明显的限制，如高成本和高能耗[5]，使其无法实现大型分类器。相比之下，基于软件的解决方案，也称为算法解决方案，因其低成本和灵活性而受到广泛关注。随着软件定义网络(SDN)的出现，对高性能分组分类算法有着强烈的需求。</p>
+<p>有两种类型的包分类软件算法:基于散列和基于决策树的解决方案。其中，基于哈希的解决方案[6]、[7]、[8]支持快速更新，并使用线性内存，但由于大型规则集中的哈希冲突和元组扩展，它们存在性能问题。另一方面，决策树算法正被积极地研究，因为它们适合于处理具有许多领域的分类器，并且有助于在硬件上实现。在过去的二十年里，人们提出了大量的决策树算法，如基于等长切割的决策树[9]、[10]和基于等密切割的决策树[11]。这些算法的总体目标是在降低内存消耗的同时提供高吞吐量。</p>
+<p>然而，由于这些算法没有充分利用规则集的分布特征，随着字段数量和规则集大小的增长，设计高效的决策树算法非常具有挑战性。例如，OpenFlow交换机需要检查超过15个字段来对传入的数据包进行分类[12]，并且字段的数量预计在未来会增加。现代数据中心中大型规则集的规模可能达到数十万条规则[13]。</p>
+<p>此外，随着软件交换机的部署，在吞吐量、内存占用、可扩展性和更新性能方面对分组分类算法提出了更严格的要求。</p>
+<p>为了更好地利用规则集的分布特性，本文提出了一种新的决策树算法MBitTree，该算法能够以适中的内存占用提供较高的分类速度，并具有良好的可扩展性。</p>
+<p>MBitTree分两个阶段构建决策树。首先，我们提出了一种基于聚类算法的高效规则集划分技术，以实现自适应的快速规则集划分。这样就得到几个子集，其中特定领域前缀长度比较接近的规则属于同一个子集。第二，由于大多数规则属于前缀长度较长的子集，并且有更多的可选位来分隔规则，同时很少在这些子集中引起规则复制，因此使用新的多位切割方案来为这些子集构建短树。还有少数规则前缀长度短，可选位数少，所以使用优先级排序元组搜索空间[7]等其他算法辅助。</p>
+<p>本文的主要贡献如下: 1. 提出了一种新的规则集划分技术，能够实现快速、自适应的规则集划分，适用于各种类型的规则集。 2. 提出了一种新的位切割方案，它可以构建一个短树，同时很少引起规则复制。 3. 我们揭示了为什么我们提出的多位切削是可行和有效的原因。 4. 我们在FPGA上实现了MBitTree的原型，我们的方法可以为10K规则集实现超过100 Gbps的吞吐量，并且可以处理超过100K个规则集</p>
+<p>我们使用ClassBench [14]来评估我们的方法。实验结果表明，MBitTree可以生成有限数量的短决策树，并且具有适中的内存占用。与CutSplit [15]相比，MBitTree的内存消耗减少了6.8倍，平均内存访问次数减少了1.7倍。MBitTree可以在100k规则集上以毫秒而不是秒的速度构建决策树。此外，我们在FPGA上实现了MBitTree的原型。</p>
+<p>本文的其余部分组织如下。第二节介绍了研究背景，并对相关工作进行了总结。第三节介绍了MBitTree的技术细节。</p>
+<p>第四节提供了实验结果。最后，第五部分得出结论和我们未来的工作</p>
+<h1 id="background">Background</h1>
+<p>在本节中，我们首先回顾了数据包分类的背景。之后，我们简要介绍两种相关的算法方法：决策树和基于哈希的解决方案。</p>
+<h2 id="a.-数据包分类问题">A. 数据包分类问题</h2>
+<p>一个数据包分类器包含一个规则列表，每个规则由多个匹配字段和数据包匹配时要采取的行动组成。例如，在标准的5元分类器中，有IP地址、端口号和协议类型。</p>
+<p>OpenFlow 1.0扩展了标准5元组，增加了7个头字段[12]。数据包分类的目的是从规则列表中找到一个传入的数据包所匹配的具有最高优先级的规则。表一显示了一个2元组分类器的例子。</p>
+<h2 id="b.-基于决策树的解决方案">B. 基于决策树的解决方案</h2>
+<p>数据包分类可以被看作是计算几何学中的点定位问题[16]。数据包头中的字段对应于几何空间的尺寸。而一个数据包表示一个点，而一条规则表示空间中的一个超矩形。那么，对一个数据包进行分类就相当于找到包含代表数据包的点的最高优先级的超矩形。表一中的规则集的几何视图如图1所示。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/1.3x6q7w68qew0.png"><figcaption aria-hidden="true">1</figcaption>
+</figure>
+<p>在基于决策树的解决方案中，数据包分类问题的几何视图被采纳，并建立了一棵决策树。树的根节点覆盖了包含所有规则的整个搜索空间。然后迭代地将搜索空间划分为更小的子空间，直到每个子空间所覆盖的规则不超过一个称为binth的桶大小。接下来，我们将讨论建立决策树进行数据包分类的两种常见技术：节点切割和规则集分区。</p>
+<h3 id="节点切割">1）节点切割。</h3>
+<p>根据搜索空间的划分方法，节点切割技术可分为三种主要方法：等尺寸切割、等密度切割和比特切割。</p>
+<ol type="1">
+<li><strong>等大小切割。</strong></li>
+</ol>
+<p>HiCuts[9]对搜索空间进行切割，以创建一组等大小的子空间，这些子空间将规则尽可能均匀地分开。然而，HiCuts只考虑在一个节点上切割一个维度，所以HiCuts构建的树的深度会很高。HyperCuts[17]是HiCuts的一个改进。首先，HyperCuts提出在一个节点上同时切割多个维度。其次，HyperCuts提出了一个优化方案，将所有兄弟姐妹共有的规则移到父节点。然而，在HyperCuts中仍然存在相当多的规则冗余。原因是，等密切割适合于规则集分布均匀的情况，但在现实中并不均匀。</p>
+<ol start="2" type="1">
+<li><strong>等密切割。</strong></li>
+</ol>
+<p>HyperSplit[11]提出沿规则边界切割搜索空间，构建一个平衡的二叉树，使规则均匀地分布在子节点。HyperSplit在一定程度上减少了内存消耗，但它只考虑一个节点的一个维度。随着规则集规模的扩大，HyperSplit构建的树的深度将迅速增加。等密切割基本上是牺牲了分类速度来换取较低的内存使用量。</p>
+<ol start="3" type="1">
+<li><strong>比特切割。</strong></li>
+</ol>
+<p>位切割的想法是从规则中提取一些离散的位，将这些位解释为一个数字，并将这个数字作为索引放入子节点的阵列中。</p>
+<p>与等尺寸切割和等密度切割相比，位切割更加灵活，但其性能取决于位选择方案。研究人员提出了许多位选择方案，如D2BS中的最大子节点最小化[18]，BitCuts中的规则分离性[19]，MC-SBC中的信息熵[20]，以及ByteCuts中的子节点规则数最小化[21]。这些方案从不同角度对位选择提出了独特的见解。然而，它们也有一些不足之处。例如，它们中的大多数没有考虑到位之间的相关性，很容易陷入局部最优方案中。</p>
+<h3 id="规则集的划分">2）规则集的划分。</h3>
+<p>通过节点切割建立单一的决策树存在固有的缺陷。它没有考虑规则之间的差异，如表I中的R1和R11，导致了大量的规则复制。解决这个问题的方法之一是规则集分区技术。它根据规则的特点将一个规则集划分为若干个子集，这样可以大大减少内存的消耗，同时对算法的吞吐量造成很小的影响。</p>
+<p>EffiCuts[10]是一个著名的算法，它根据字段大小对规则集进行分区。EffiCuts提出了可分离树的思想，将小规则和大规则放在不同的子集中，然后用等大小的切割来为每个子集建立一棵独立的树。EffiCuts的问题是，它使用所有字段来划分规则集，并产生了太多的子集。例如，对于F元组的规则集，最多可以生成2F的子集。HybridCuts[22]和SmartSplit[23]只使用IP地址字段来划分规则集，以避免产生过多的子集。CutSplit[15]和CutTSS[24]通过选择极少数小字段作为规则集划分的基础，进一步将其扩展到多字段规则集。基于字段大小的规则集划分可以有效地分离规则集，它需要定义一个关键阈值来区分大字段和小字段。然而，对于各种类型的规则集来说，很难找到一个最佳阈值。</p>
+<p>ParaSplit[25]使用聚类和模拟退火算法来寻找最佳分区，但它需要数万次的迭代才能收敛。最近的工作NeuroCuts[26]使用深度神经网络对规则集进行自适应的分割。在面对各种规则集时，它的通用性更强，但它也需要大量的训练，并且需要很长的时间来收敛到其最佳解决方案。PartitionSort[27]通过将规则集划分为几个可排序的子集并为每个子集构建一个MITree，实现了对数的分类和更新时间。然而，由于对分区的严格限制，PartitionSort比SmartSplit和CutSplit产生更多的树，导致更多的内存访问和更慢的分类速度。</p>
+<h2 id="c.-基于哈希的解决方案">C. 基于哈希的解决方案</h2>
+<p>元组空间搜索（TSS）[6]将规则划分为不同的元组，每个元组对应一个哈希表，所以它只需要一次内存访问就可以向哈希表插入和删除规则。TSS具有使用线性内存和支持快速更新的优点，但由于哈希碰撞和元组扩展，有一个性能问题。PSTSS [7] 和 TupleMerge [8] 是 TSS 的改进。PSTSS通过对图元按优先级降序排序来减少平均查表次数，但其最差的搜索性能与TSS相同。TupleMerge通过放宽规则可以放在同一个元组中的限制来减少元组的数量，但是合并元组可能导致哈希冲突的增加。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-52.4yvd5idejwo0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-25-52</figcaption>
+</figure>
+<h1 id="方案">方案</h1>
+<p>在本节中，我们首先介绍了MBitTree的框架。然后，我们对规则集的分布做了几个关键的观察，并根据我们的观察结果提出了一个自适应的规则集划分技术。之后，使用多比特切割方案来构建子集的树，以利用规则集的分布特征。最后，我们描述了如何对一个数据包进行分类。</p>
+<h2 id="a.-思路与框架">A. 思路与框架</h2>
+<p>根据以上回顾，规则集分区可以大大减少规则的复制，同时对吞吐量造成的影响很小。与等尺寸切割和等密度切割相比，位切割是一种更灵活的节点切割方法，其性能取决于位选择方案。因此，我们的想法是将规则集分区和位切割结合起来，建立一个高效的决策树。我们提出了一个自适应的规则集分区技术和一个多比特切割方案来建立一个高效的决策树。</p>
+<p>MBitTree的框架包括构建决策树和数据包分类，如图2所示。MBitTree通过两个步骤建立决策树：规则集分区和多比特切割。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-10.1p3lqj6awa80.png"></p>
+<h3 id="a-自适应规则集分区">a) <strong>自适应规则集分区</strong>。</h3>
+<p>我们根据对规则集的观察结果，选择一些适当的字段作为规则集分区的基础。然后使用聚类算法来实现快速和自适应的规则集划分，因此得到了几个子集。</p>
+<h3 id="b-多位切割">b) <strong>多位切割</strong>。</h3>
+<p>采用多比特切割方案来建立子集的树，它使用比特分离能力和通配符比率作为选择切割比特的标准，称为有效比特。</p>
+<h3 id="c-数据包分类">c) <strong>数据包分类</strong>。</h3>
+<p>MBitTree搜索每一棵树以找到匹配规则。为了搜索一棵树，我们首先看它的根节点并检查节点的类型。如果它是一个叶子节点。</p>
+<p>我们使用线性搜索来获得匹配规则。否则，我们使用存储在内部节点的有效位来遍历树，直到到达一个叶子节点为止。</p>
+<h2 id="b.-自适应规则集分区">B. 自适应规则集分区</h2>
+<p>规则集的分布有特定的特点，利用这些特点有助于建立一个更好的树。我们对访问控制列表（ACL）、防火墙（FW）和IP链（IPC）规则集做了一些观察。可以发现，IP地址的前缀长度倾向于分布在边缘，即很大一部分前缀长度位于0或32附近，如图3所示。因此，我们使用IP地址作为聚类的基础。具体来说，首先得到每个规则的SrcIP和DstIP前缀长度，并用二维坐标系中的一个点表示，其中X轴代表SrcIP的前缀长度，Y轴代表DstIP的前缀长度。例如，一个SrcIP为8.76.223.16/31，DstIP为184.144.168.0/24的规则被映射到坐标系中的点（31，24）。此外，我们还分析了OpenFlow分类器中IP前缀长度的分布。我们使用ClassBench-ng[28]，一个新的开源工具，来生成OpenFlow 1.0流量规则。类似的趋势也可以在OpenFlow规则集中找到。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-24.4s1lkko2nle0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-25-24</figcaption>
+</figure>
+<p>在将规则集中的所有规则映射到二维坐标系后，我们使用基于分区的聚类算法K-means对规则集进行分区，因为其聚类速度快，时间复杂度低。K-means的关键是选择聚类的数量和每个聚类的初始中心点。我们根据规则集的分布特征，设定聚类数k=4，每个聚类的初始中心点为C0（24，24）、C1（24，0）、C2（0，24）、C3（0，0）。需要注意的是，聚类数量和初始聚类中心的选择对聚类结果有很大影响。通过实验证明，我们的选择是合理的。一般来说，完成聚类过程只需要2-4次迭代，所以聚类的时间开销很低。</p>
+<p>在选择了k个初始聚类中心后，计算每个规则的点到k个中心的距离，并将该规则归入最近的聚类，然后重新计算新的聚类中心。我们在聚类过程中使用平方的欧几里得距离。重复上述过程，直到满足收敛条件，即每个聚类中心的位置没有变化。聚类的目的是把SrcIP和DstIP前缀长度比较接近的规则放到同一个聚类中，每个聚类对应一个子集，这样可以为以后的多比特切割提供更多的可选位。</p>
+<p>以表I中的规则为例，由于每个字段的位宽为3，所以每个簇的初始中心分别为C0（3，3）、C1（3，0）、C2（0，3）和C3（0，0）。</p>
+<p>规则R1-R11的聚类结果如表二所示。</p>
+<p>从这个例子中可以看出，大部分规则被归入前缀较长的集群，包括C0、C1和C2，而C3集群中的规则数量非常少。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-13.6xrnfggmojc0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-13</figcaption>
+</figure>
+<h2 id="c.-有效位的选择">C. 有效位的选择</h2>
+<p>在规则集分割后得到几个子集，然后用多位切割来建立子集的决策树。</p>
+<p>关键问题是如何选择最佳的切割位，称为有效位，以均匀地分离规则。对于一个有d个字段和l个长度的规则集（例如，在传统的五元组规则集中，d等于5，l等于104），我们为每条规则创建一个比特串。位串中每个比特的值是0、1和通配符（*）中的一个。</p>
+<p>有两个指标被用来选择有效的位：位分离能力和通配符比率。位分离能力决定了规则分布在这个位位置上是否均匀，通配符比率估计了规则复制的程度。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-41.10u4nzrv8068.png"></p>
+<h3 id="d.-位的相关性">D. 位的相关性</h3>
+<p>当面对大规模的规则集时，需要在一个节点上选择多个位来降低树的高度。在随后的位选择中，如果我们只用S（i）和P（i）作为选择标准，就会产生位之间的相关性问题，即这些位上的值大致相同。</p>
+<p>例如，对于表二中的规则R1-R7，第3位和第5位上的数值几乎相同，所以选择这两个位作为有效位的结果与选择其中一个位相同。</p>
+<p>有两种方法可以解决比特之间的相关性问题：计算比特之间的相关性和从最大的子节点中选择有效比特。然而，计算比特的相关性会带来很多额外的计算。此外，计算两个比特之间的相关性很容易，但要计算三个或更多比特之间的相关性就很难。在实践中，我们经常需要在一个节点上选择三个以上的有效比特。</p>
+<p>因此，我们采用第二种方法：从最后一个比特选择过程中形成的规则数量最多的子节点中选择有效比特，这样所选择的有效比特可以进一步分离非叶子节点[29]。这种方法可以保证这次选择的有效位不会与之前的有效位产生关联问题。例如，图4中第一次选位后形成了两个子节点，在接下来的选位过程中，我们将左边的子节点作为计算对象，所以选择了第3位作为有效位。MBitTree对规则R1-R7产生的树如图6所示。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-04.kt4p7eydw5c.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-04</figcaption>
+</figure>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-26.42pmis2c6te0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-26</figcaption>
+</figure>
+<p>通过多位切割建立的决策树是一个迭代过程，所以我们需要决定何时停止多位切割过程。在节点中的规则数量不超过一个叫做binth的阈值的情况下，多比特切割就会停止。</p>
+<h2 id="e.-数据包分类">E. 数据包分类</h2>
+<p>通过多位切割建立的树数量有限。为了对一个数据包进行分类，MBitTree搜索每一棵树，以找到匹配的规则。为了避免不必要的查找，每棵树都引入了一个树的优先级，它被设置为树中最高的规则优先级。在查找时，如果匹配规则的优先级大于树的优先级，那么就跳过这棵树。为了搜索一棵树，我们首先看它的根节点，并检查节点类型。如果它是一个叶子节点，我们使用线性搜索来获得匹配规则。否则，我们使用存储在内部节点的有效位来遍历树，直到到达一个叶子节点。</p>
+<p>MBitTree的节点数据结构如图7所示。我们用1个字节来表示节点的类型：内部节点或叶子节点。对于每个内部节点，我们用1个字节表示有效位的数量，8个字节用于有效位信息，包括维度和位置。叶子节点用1个字节表示叶子节点所覆盖的规则数。内部节点和叶子节点都使用4个字节来存储阵列指针。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-37.2swxztywvju0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-37</figcaption>
+</figure>
+<h2 id="f-.-基于fpga的实现">F . 基于FPGA的实现</h2>
+<p>为了实现高吞吐量，我们将MBitTree构建的决策森林（包括n个子树）映射到具有n个线性管道的并行多管道架构中，如图8所示，其中黄色块表示内部节点的遍历，蓝色块表示叶节点的规则匹配。每条管道都用来遍历决策树，并与树的叶子节点上的规则列表相匹配。树的遍历阶段由一个存储树节点的内存块和一个基于有效位生成内存访问地址的逻辑组成，如图9所示。叶子节点中的规则是并行匹配的，以充分利用FPGA上可用的并行性，包括规则之间和规则内字段之间的并行搜索。优先级解析器从n条流水线的输出中选择具有最高优先级的规则。</p>
+<p>此外，由于FPGA上的块RAM支持双端口读取，流水线可以利用这一功能在每个时钟周期内处理两个数据包。因此，一个双包搜索流水线可以实现2倍的速度提升。由于篇幅有限，我们简要介绍一下初步结果。</p>
+<p>最大的时钟速率是从后置和路由报告中得到的。使用10K规则集，在NetFPGA上实现的时钟超过150MHz。这相当于64字节最小尺寸数据包的吞吐量超过100Gbps。</p>
+<p>我们的架构也可以处理超过100K的规则集。</p>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-53.6mtp2g7e9ok0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-53</figcaption>
+</figure>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-13.1mzhoi75kyv4.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-13</figcaption>
+</figure>
+<h1 id="实验">实验</h1>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-29.4qj5clqn0vi0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-29</figcaption>
+</figure>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-51.ni7s0vsqab4.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-51</figcaption>
+</figure>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-00.rba08lozb2o.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-28-00</figcaption>
+</figure>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-13.20ozqkc5j3s0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-28-13</figcaption>
+</figure>
+<h1 id="结论">结论</h1>
+<h1 id="参考文献">参考文献：</h1>
+
+            </div>
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2022/10/31/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E4%BA%86%E8%A7%A3%E9%9B%85%E6%80%9D/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">雅思报班及题型了解</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2022/10/30/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E7%AC%AC315%E5%B0%81%E4%BF%A1%E4%B8%A8%E6%AF%94%E7%A9%B7%E6%9B%B4%E5%8F%AF%E6%80%95%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">第315封信《硅谷来信》丨比穷更可怕的是什么</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%B8%AD%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">2.1.</span> <span class="nav-text">文中基础概念</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number">3.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#background"><span class="nav-number">4.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">A. 数据包分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-%E5%9F%BA%E4%BA%8E%E5%86%B3%E7%AD%96%E6%A0%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.2.</span> <span class="nav-text">B. 基于决策树的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E5%88%87%E5%89%B2"><span class="nav-number">4.2.1.</span> <span class="nav-text">1）节点切割。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%9B%86%E7%9A%84%E5%88%92%E5%88%86"><span class="nav-number">4.2.2.</span> <span class="nav-text">2）规则集的划分。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-%E5%9F%BA%E4%BA%8E%E5%93%88%E5%B8%8C%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.3.</span> <span class="nav-text">C. 基于哈希的解决方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%A1%88"><span class="nav-number">5.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-%E6%80%9D%E8%B7%AF%E4%B8%8E%E6%A1%86%E6%9E%B6"><span class="nav-number">5.1.</span> <span class="nav-text">A. 思路与框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-%E8%87%AA%E9%80%82%E5%BA%94%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E5%8C%BA"><span class="nav-number">5.1.1.</span> <span class="nav-text">a) 自适应规则集分区。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-%E5%A4%9A%E4%BD%8D%E5%88%87%E5%89%B2"><span class="nav-number">5.1.2.</span> <span class="nav-text">b) 多位切割。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB"><span class="nav-number">5.1.3.</span> <span class="nav-text">c) 数据包分类。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-%E8%87%AA%E9%80%82%E5%BA%94%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E5%8C%BA"><span class="nav-number">5.2.</span> <span class="nav-text">B. 自适应规则集分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-%E6%9C%89%E6%95%88%E4%BD%8D%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-number">5.3.</span> <span class="nav-text">C. 有效位的选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#d.-%E4%BD%8D%E7%9A%84%E7%9B%B8%E5%85%B3%E6%80%A7"><span class="nav-number">5.3.1.</span> <span class="nav-text">D. 位的相关性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB"><span class="nav-number">5.4.</span> <span class="nav-text">E. 数据包分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-.-%E5%9F%BA%E4%BA%8Efpga%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.5.</span> <span class="nav-text">F . 基于FPGA的实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">6.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">8.</span> <span class="nav-text">参考文献：</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2021</span> -
+            
+            2022
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">peirsist</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/post-helper.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/toc.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/anime.min.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
