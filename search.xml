@@ -393,6 +393,10 @@
 </ul></li>
 <li><strong><em>2022-11-01，周二</em></strong>，</li>
 </ol>
+<p>🔴 <strong>存在的问题：</strong></p>
+<blockquote>
+<p><strong><font color="red"> <font size="5">切忌长时间看电脑，尤其是晚上超过9点看电脑！！！一到12点就长痘</font> </font></strong></p>
+</blockquote>
 <h3 id="下一步计划">下一步计划</h3>
 <hr>
 <h2 id="section-1">2022-10-25</h2>
@@ -2863,13 +2867,36 @@ blockquote {
   <entry>
     <title>MBitTree</title>
     <url>/2022/10/31/%E8%AE%BA%E6%96%87/2021-MBitTree/</url>
-    <content><![CDATA[<p><a class="link" href="https://blog.csdn.net/wolfzone025/article/details/6577668">IP数据包分类经典算法总结<i class="fas fa-external-link-alt"></i></a></p>
+    <content><![CDATA[<h1 id="启示">启示</h1>
+<ol type="1">
+<li>位切割</li>
+<li>为每一颗树设立优先级</li>
+<li>划分方法，不采用规则范围，采用前缀长度，来聚类，似乎更合理。</li>
+</ol>
+<p><a class="link" href="https://blog.csdn.net/wolfzone025/article/details/6577668">IP数据包分类经典算法总结<i class="fas fa-external-link-alt"></i></a></p>
 <h1 id="摘要">摘要</h1>
 <p>摘要--数据包分类是许多网络服务的关键组成部分，如服务质量和网络安全。这些网络服务要求数据包分类尽可能快，同时使用较少的内存并支持可扩展性。此外，软件定义的网络交换机在规则集的高维度和大尺度方面对数据包分类提出了新的挑战。在本文中，我们提出了一个名为MBitTree的新解决方案，它包括对现有决策树算法的两个主要改进。首先，我们引入了一种新的规则集划分技术，以实现自适应和快速的规则集划分。第二，采用新的多比特切割方案来构建短树，同时很少造成规则复制。</p>
 <p>MBitTree可以提供较高的分类速度，并具有良好的可扩展性。实验结果表明，与CutSplit相比，MBitTree实现了高达6.8倍的内存消耗，以及高达1.7倍的内存访问次数的减少。此外，我们在FPGA上实现了MBitTree的原型，实施结果表明，我们的方法对于10K的规则集可以实现超过100Gbps的吞吐量，在NetFPGA上可以处理超过100K的规则集。</p>
 <p>Index Terms-packet classification, decision tree, bit cutting, FPGA</p>
 <h1 id="基础知识">基础知识</h1>
+<h2 id="预备知识">预备知识</h2>
+<ol type="1">
+<li>K-means聚类分析
+<ol type="1">
+<li>与分类、序列标注等任务不同，聚类是在事先并不知道任何样本标签的情况下，通过数据之间的内在关系把样本划分为若干类别，使得同类别样本之间的相似度高，不同类别之间的样本相似度低（即增大类内聚，减少类间距）。</li>
+<li><a class="link" href="https://blog.csdn.net/qq_43741312/article/details/97128745">K-means聚类算法原理及python实现<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link" href="https://zhuanlan.zhihu.com/p/184686598">KMeans聚类算法详解<i class="fas fa-external-link-alt"></i></a></li>
+</ol></li>
+<li>距离的度量
+<ol type="1">
+<li><a class="link" href="https://img-blog.csdn.net/20161218152146962?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGFveWFucWk4OTMy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">距离的度量<i class="fas fa-external-link-alt"></i></a></li>
+</ol></li>
+</ol>
 <h2 id="文中基础概念">文中基础概念</h2>
+<ol type="1">
+<li>IP地址的前缀长度倾向于分布在边缘，即很大一部分前缀长度位于0或32附近，如图3所示。因此，我们使用IP地址作为聚类的基础。</li>
+<li>FW规则集中有更复杂的几何结构</li>
+</ol>
 <h1 id="introduction">Introduction</h1>
 <p>数据包分类是许多网络服务的关键组成部分，例如服务质量(QoS)、网络安全和策略路由。数据包分类的速度对这些网络服务的性能有着重要的影响。因此，包分类是网络研究中一个非常活跃的课题。</p>
 <p>当前的数据包分类解决方案可以大致分为两类:基于硬件的解决方案和基于软件的解决方案[1]。使用三态内容可寻址存储器(TCAM) [2]、[3]、[4]的基于硬件的解决方案已成为行业中数据包分类的主要实施方式。它们利用TCAM将所有规则存储在关联存储器中，然后并行地将数据包与所有这些规则进行匹配。TCAM提供了恒定的分类时间并保证了高性能，但它有一些明显的限制，如高成本和高能耗[5]，使其无法实现大型分类器。相比之下，基于软件的解决方案，也称为算法解决方案，因其低成本和灵活性而受到广泛关注。随着软件定义网络(SDN)的出现，对高性能分组分类算法有着强烈的需求。</p>
@@ -2878,7 +2905,7 @@ blockquote {
 <p>此外，随着软件交换机的部署，在吞吐量、内存占用、可扩展性和更新性能方面对分组分类算法提出了更严格的要求。</p>
 <p>为了更好地利用规则集的分布特性，本文提出了一种新的决策树算法MBitTree，该算法能够以适中的内存占用提供较高的分类速度，并具有良好的可扩展性。</p>
 <p>MBitTree分两个阶段构建决策树。首先，我们提出了一种基于聚类算法的高效规则集划分技术，以实现自适应的快速规则集划分。这样就得到几个子集，其中特定领域前缀长度比较接近的规则属于同一个子集。第二，由于大多数规则属于前缀长度较长的子集，并且有更多的可选位来分隔规则，同时很少在这些子集中引起规则复制，因此使用新的多位切割方案来为这些子集构建短树。还有少数规则前缀长度短，可选位数少，所以使用优先级排序元组搜索空间[7]等其他算法辅助。</p>
-<p>本文的主要贡献如下: 1. 提出了一种新的规则集划分技术，能够实现快速、自适应的规则集划分，适用于各种类型的规则集。 2. 提出了一种新的位切割方案，它可以构建一个短树，同时很少引起规则复制。 3. 我们揭示了为什么我们提出的多位切削是可行和有效的原因。 4. 我们在FPGA上实现了MBitTree的原型，我们的方法可以为10K规则集实现超过100 Gbps的吞吐量，并且可以处理超过100K个规则集</p>
+<p>本文的主要贡献如下: 1. 提出了一种新的<strong>规则集划分技术</strong>，能够实现快速、自适应的规则集划分，适用于各种类型的规则集。 2. 提出了一种新的<strong>位切割方案</strong>，它可以构建一个短树，同时很少引起规则复制。 3. 我们揭示了为什么我们提出的多位切削是可行和有效的原因。 4. 我们在FPGA上实现了MBitTree的原型，我们的方法可以为10K规则集实现超过100 Gbps的吞吐量，并且可以处理超过100K个规则集</p>
 <p>我们使用ClassBench [14]来评估我们的方法。实验结果表明，MBitTree可以生成有限数量的短决策树，并且具有适中的内存占用。与CutSplit [15]相比，MBitTree的内存消耗减少了6.8倍，平均内存访问次数减少了1.7倍。MBitTree可以在100k规则集上以毫秒而不是秒的速度构建决策树。此外，我们在FPGA上实现了MBitTree的原型。</p>
 <p>本文的其余部分组织如下。第二节介绍了研究背景，并对相关工作进行了总结。第三节介绍了MBitTree的技术细节。</p>
 <p>第四节提供了实验结果。最后，第五部分得出结论和我们未来的工作</p>
@@ -2890,7 +2917,7 @@ blockquote {
 <h2 id="b.-基于决策树的解决方案">B. 基于决策树的解决方案</h2>
 <p>数据包分类可以被看作是计算几何学中的点定位问题[16]。数据包头中的字段对应于几何空间的尺寸。而一个数据包表示一个点，而一条规则表示空间中的一个超矩形。那么，对一个数据包进行分类就相当于找到包含代表数据包的点的最高优先级的超矩形。表一中的规则集的几何视图如图1所示。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/1.3x6q7w68qew0.png"><figcaption aria-hidden="true">1</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/1.3x6q7w68qew0.png"><figcaption aria-hidden="true">规则集</figcaption>
 </figure>
 <p>在基于决策树的解决方案中，数据包分类问题的几何视图被采纳，并建立了一棵决策树。树的根节点覆盖了包含所有规则的整个搜索空间。然后迭代地将搜索空间划分为更小的子空间，直到每个子空间所覆盖的规则不超过一个称为binth的桶大小。接下来，我们将讨论建立决策树进行数据包分类的两种常见技术：节点切割和规则集分区。</p>
 <h3 id="节点切割">1）节点切割。</h3>
@@ -2906,7 +2933,7 @@ blockquote {
 <ol start="3" type="1">
 <li><strong>比特切割。</strong></li>
 </ol>
-<p>位切割的想法是从规则中提取一些离散的位，将这些位解释为一个数字，并将这个数字作为索引放入子节点的阵列中。</p>
+<p><strong>位切割的想法是从规则中提取一些离散的位，将这些位解释为一个数字，并将这个数字作为索引放入子节点的阵列中。</strong></p>
 <p>与等尺寸切割和等密度切割相比，位切割更加灵活，但其性能取决于位选择方案。研究人员提出了许多位选择方案，如D2BS中的最大子节点最小化[18]，BitCuts中的规则分离性[19]，MC-SBC中的信息熵[20]，以及ByteCuts中的子节点规则数最小化[21]。这些方案从不同角度对位选择提出了独特的见解。然而，它们也有一些不足之处。例如，它们中的大多数没有考虑到位之间的相关性，很容易陷入局部最优方案中。</p>
 <h3 id="规则集的划分">2）规则集的划分。</h3>
 <p>通过节点切割建立单一的决策树存在固有的缺陷。它没有考虑规则之间的差异，如表I中的R1和R11，导致了大量的规则复制。解决这个问题的方法之一是规则集分区技术。它根据规则的特点将一个规则集划分为若干个子集，这样可以大大减少内存的消耗，同时对算法的吞吐量造成很小的影响。</p>
@@ -2914,9 +2941,6 @@ blockquote {
 <p>ParaSplit[25]使用聚类和模拟退火算法来寻找最佳分区，但它需要数万次的迭代才能收敛。最近的工作NeuroCuts[26]使用深度神经网络对规则集进行自适应的分割。在面对各种规则集时，它的通用性更强，但它也需要大量的训练，并且需要很长的时间来收敛到其最佳解决方案。PartitionSort[27]通过将规则集划分为几个可排序的子集并为每个子集构建一个MITree，实现了对数的分类和更新时间。然而，由于对分区的严格限制，PartitionSort比SmartSplit和CutSplit产生更多的树，导致更多的内存访问和更慢的分类速度。</p>
 <h2 id="c.-基于哈希的解决方案">C. 基于哈希的解决方案</h2>
 <p>元组空间搜索（TSS）[6]将规则划分为不同的元组，每个元组对应一个哈希表，所以它只需要一次内存访问就可以向哈希表插入和删除规则。TSS具有使用线性内存和支持快速更新的优点，但由于哈希碰撞和元组扩展，有一个性能问题。PSTSS [7] 和 TupleMerge [8] 是 TSS 的改进。PSTSS通过对图元按优先级降序排序来减少平均查表次数，但其最差的搜索性能与TSS相同。TupleMerge通过放宽规则可以放在同一个元组中的限制来减少元组的数量，但是合并元组可能导致哈希冲突的增加。</p>
-<figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-52.4yvd5idejwo0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-25-52</figcaption>
-</figure>
 <h1 id="方案">方案</h1>
 <p>在本节中，我们首先介绍了MBitTree的框架。然后，我们对规则集的分布做了几个关键的观察，并根据我们的观察结果提出了一个自适应的规则集划分技术。之后，使用多比特切割方案来构建子集的树，以利用规则集的分布特征。最后，我们描述了如何对一个数据包进行分类。</p>
 <h2 id="a.-思路与框架">A. 思路与框架</h2>
@@ -2932,37 +2956,40 @@ blockquote {
 <h2 id="b.-自适应规则集分区">B. 自适应规则集分区</h2>
 <p>规则集的分布有特定的特点，利用这些特点有助于建立一个更好的树。我们对访问控制列表（ACL）、防火墙（FW）和IP链（IPC）规则集做了一些观察。可以发现，IP地址的前缀长度倾向于分布在边缘，即很大一部分前缀长度位于0或32附近，如图3所示。因此，我们使用IP地址作为聚类的基础。具体来说，首先得到每个规则的SrcIP和DstIP前缀长度，并用二维坐标系中的一个点表示，其中X轴代表SrcIP的前缀长度，Y轴代表DstIP的前缀长度。例如，一个SrcIP为8.76.223.16/31，DstIP为184.144.168.0/24的规则被映射到坐标系中的点（31，24）。此外，我们还分析了OpenFlow分类器中IP前缀长度的分布。我们使用ClassBench-ng[28]，一个新的开源工具，来生成OpenFlow 1.0流量规则。类似的趋势也可以在OpenFlow规则集中找到。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-24.4s1lkko2nle0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-25-24</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-24.4s1lkko2nle0.png"><figcaption aria-hidden="true">SIP前缀长度分布</figcaption>
 </figure>
 <p>在将规则集中的所有规则映射到二维坐标系后，我们使用基于分区的聚类算法K-means对规则集进行分区，因为其聚类速度快，时间复杂度低。K-means的关键是选择聚类的数量和每个聚类的初始中心点。我们根据规则集的分布特征，设定聚类数k=4，每个聚类的初始中心点为C0（24，24）、C1（24，0）、C2（0，24）、C3（0，0）。需要注意的是，聚类数量和初始聚类中心的选择对聚类结果有很大影响。通过实验证明，我们的选择是合理的。一般来说，完成聚类过程只需要2-4次迭代，所以聚类的时间开销很低。</p>
-<p>在选择了k个初始聚类中心后，计算每个规则的点到k个中心的距离，并将该规则归入最近的聚类，然后重新计算新的聚类中心。我们在聚类过程中使用平方的欧几里得距离。重复上述过程，直到满足收敛条件，即每个聚类中心的位置没有变化。聚类的目的是把SrcIP和DstIP前缀长度比较接近的规则放到同一个聚类中，每个聚类对应一个子集，这样可以为以后的多比特切割提供更多的可选位。</p>
+<p>在选择了k个初始聚类中心后，计算每个规则的点到k个中心的距离，并将该规则归入最近的聚类，然后重新计算新的聚类中心。我们在聚类过程中<strong>使用平方的欧几里得距离</strong>。重复上述过程，直到满足收敛条件，即每个聚类中心的位置没有变化。聚类的目的是把SrcIP和DstIP前缀长度比较接近的规则放到同一个聚类中，每个聚类对应一个子集，这样可以为以后的多比特切割提供更多的可选位。</p>
 <p>以表I中的规则为例，由于每个字段的位宽为3，所以每个簇的初始中心分别为C0（3，3）、C1（3，0）、C2（0，3）和C3（0，0）。</p>
 <p>规则R1-R11的聚类结果如表二所示。</p>
 <p>从这个例子中可以看出，大部分规则被归入前缀较长的集群，包括C0、C1和C2，而C3集群中的规则数量非常少。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-13.6xrnfggmojc0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-13</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-13.6xrnfggmojc0.png"><figcaption aria-hidden="true">规则R1-R11的聚类结果</figcaption>
 </figure>
 <h2 id="c.-有效位的选择">C. 有效位的选择</h2>
 <p>在规则集分割后得到几个子集，然后用多位切割来建立子集的决策树。</p>
 <p>关键问题是如何选择最佳的切割位，称为有效位，以均匀地分离规则。对于一个有d个字段和l个长度的规则集（例如，在传统的五元组规则集中，d等于5，l等于104），我们为每条规则创建一个比特串。位串中每个比特的值是0、1和通配符（*）中的一个。</p>
 <p>有两个指标被用来选择有效的位：位分离能力和通配符比率。位分离能力决定了规则分布在这个位位置上是否均匀，通配符比率估计了规则复制的程度。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-41.10u4nzrv8068.png"></p>
-<h3 id="d.-位的相关性">D. 位的相关性</h3>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-25-52.4yvd5idejwo0.png"><figcaption aria-hidden="true">Effective Bit选择算法</figcaption>
+</figure>
+<h2 id="d.-位的相关性">D. 位的相关性</h2>
 <p>当面对大规模的规则集时，需要在一个节点上选择多个位来降低树的高度。在随后的位选择中，如果我们只用S（i）和P（i）作为选择标准，就会产生位之间的相关性问题，即这些位上的值大致相同。</p>
 <p>例如，对于表二中的规则R1-R7，第3位和第5位上的数值几乎相同，所以选择这两个位作为有效位的结果与选择其中一个位相同。</p>
 <p>有两种方法可以解决比特之间的相关性问题：计算比特之间的相关性和从最大的子节点中选择有效比特。然而，计算比特的相关性会带来很多额外的计算。此外，计算两个比特之间的相关性很容易，但要计算三个或更多比特之间的相关性就很难。在实践中，我们经常需要在一个节点上选择三个以上的有效比特。</p>
 <p>因此，我们采用第二种方法：从最后一个比特选择过程中形成的规则数量最多的子节点中选择有效比特，这样所选择的有效比特可以进一步分离非叶子节点[29]。这种方法可以保证这次选择的有效位不会与之前的有效位产生关联问题。例如，图4中第一次选位后形成了两个子节点，在接下来的选位过程中，我们将左边的子节点作为计算对象，所以选择了第3位作为有效位。MBitTree对规则R1-R7产生的树如图6所示。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-04.kt4p7eydw5c.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-04</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-04.kt4p7eydw5c.png"><figcaption aria-hidden="true">切割后结果</figcaption>
 </figure>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-26.42pmis2c6te0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-26</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-26.42pmis2c6te0.png"><figcaption aria-hidden="true">多位切割</figcaption>
 </figure>
 <p>通过多位切割建立的决策树是一个迭代过程，所以我们需要决定何时停止多位切割过程。在节点中的规则数量不超过一个叫做binth的阈值的情况下，多比特切割就会停止。</p>
 <h2 id="e.-数据包分类">E. 数据包分类</h2>
-<p>通过多位切割建立的树数量有限。为了对一个数据包进行分类，MBitTree搜索每一棵树，以找到匹配的规则。为了避免不必要的查找，每棵树都引入了一个树的优先级，它被设置为树中最高的规则优先级。在查找时，如果匹配规则的优先级大于树的优先级，那么就跳过这棵树。为了搜索一棵树，我们首先看它的根节点，并检查节点类型。如果它是一个叶子节点，我们使用线性搜索来获得匹配规则。否则，我们使用存储在内部节点的有效位来遍历树，直到到达一个叶子节点。</p>
-<p>MBitTree的节点数据结构如图7所示。我们用1个字节来表示节点的类型：内部节点或叶子节点。对于每个内部节点，我们用1个字节表示有效位的数量，8个字节用于有效位信息，包括维度和位置。叶子节点用1个字节表示叶子节点所覆盖的规则数。内部节点和叶子节点都使用4个字节来存储阵列指针。</p>
+<p>通过多位切割建立的树数量有限。为了对一个数据包进行分类，MBitTree搜索每一棵树，以找到匹配的规则。<strong>为了避免不必要的查找，每棵树都引入了一个树的优先级，它被设置为树中最高的规则优先级</strong>。在查找时，如果匹配规则的优先级大于树的优先级，那么就跳过这棵树。为了搜索一棵树，我们首先看它的根节点，并检查节点类型。如果它是一个叶子节点，我们使用线性搜索来获得匹配规则。否则，我们使用存储在内部节点的有效位来遍历树，直到到达一个叶子节点。</p>
+<p><strong>MBitTree的节点数据结构</strong>如图7所示。我们用1个字节来表示节点的类型：内部节点或叶子节点。对于每个内部节点，我们用1个字节表示有效位的数量，8个字节用于有效位信息，包括维度和位置。叶子节点用1个字节表示叶子节点所覆盖的规则数。内部节点和叶子节点都使用4个字节来存储阵列指针。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-37.2swxztywvju0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-37</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-37.2swxztywvju0.png"><figcaption aria-hidden="true">MBitTree的节点数据结构</figcaption>
 </figure>
 <h2 id="f-.-基于fpga的实现">F . 基于FPGA的实现</h2>
 <p>为了实现高吞吐量，我们将MBitTree构建的决策森林（包括n个子树）映射到具有n个线性管道的并行多管道架构中，如图8所示，其中黄色块表示内部节点的遍历，蓝色块表示叶节点的规则匹配。每条管道都用来遍历决策树，并与树的叶子节点上的规则列表相匹配。树的遍历阶段由一个存储树节点的内存块和一个基于有效位生成内存访问地址的逻辑组成，如图9所示。叶子节点中的规则是并行匹配的，以充分利用FPGA上可用的并行性，包括规则之间和规则内字段之间的并行搜索。优先级解析器从n条流水线的输出中选择具有最高优先级的规则。</p>
@@ -2970,25 +2997,31 @@ blockquote {
 <p>最大的时钟速率是从后置和路由报告中得到的。使用10K规则集，在NetFPGA上实现的时钟超过150MHz。这相当于64字节最小尺寸数据包的吞吐量超过100Gbps。</p>
 <p>我们的架构也可以处理超过100K的规则集。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-53.6mtp2g7e9ok0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-26-53</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-26-53.6mtp2g7e9ok0.png"><figcaption aria-hidden="true">MBiTree多流水线架构</figcaption>
 </figure>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-13.1mzhoi75kyv4.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-13</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-13.1mzhoi75kyv4.png"><figcaption aria-hidden="true">硬件中树遍历过程</figcaption>
 </figure>
 <h1 id="实验">实验</h1>
+<p>在本节中，我们将MBitTree与HybridCuts[22]、PartitionSort[26]和CutSplit[15]进行比较。我们使用ClassBench[14]来生成实验的规则集。ClassBench包括3个不同类别的12个不同的种子文件。5个访问控制列表（ACL），5个防火墙（FW），和2个IP链（IPC）。我们为每个种子生成3种不同大小的规则集，分别为1k、10k和100k。规则集是用种子类型和大小来命名的，例如，ACL1 1k意味着ACL1类型的规则集有大约1000条规则。此外，我们还为ACL1、FW1和IPC1种子类型生成了500k和1M的规则集，以验证MBitTree的可扩展性。</p>
+<p>我们测量了四个指标：内存访问、内存足迹、构建时间和可扩展性。所有的实验都是在一台装有Intel Core i7 CPU @ 1.80GHz和8GB内存的机器上进行的，运行Ubuntu 18.04并使用GCC 7.5.0编译。</p>
+<h2 id="a.-内存访问">A. 内存访问</h2>
+<p>图10显示了MBitTree以及HybridCuts、PartitionSort和CutSplit的平均内存访问次数。</p>
+<p>很明显，MBitTree的表现优于其他算法，而且随着规则集的增大，其改善程度也在增加。例如，对于FW 1k规则集和FW 10k规则集，MBitTree需要20和23次内存访问来分类一个数据包，而CutSplit分别需要31和38次内存访问。MBitTree平均需要16次内存访问来对数据包进行分类，而在HybridCuts、PartitionSort和CutSplit中，它分别需要30、28和38次内存访问。与HybridCuts、PartitionSort和CutSplit相比，MBitTree平均实现了1.9倍、2.4倍和1.7倍的改进。</p>
+<p>优先排序树的优化方法可以大大降低平均内存访问量。如果找到一个高优先级的规则，就不需要搜索后面的树，因为这些树中没有更高优先级的规则。因此，MBitTree可能只需要查看一棵大树。此外，MBitTree使用多个比特来分隔规则，所以可以建立更短的决策树。例如，在一个节点上选择i个有效位可以创建2i个子节点。</p>
+<p>这些解释了为什么MBitTree在内存访问数量上比HybridCuts和CutSplit表现得好得多。</p>
+<p>PartitionSort需要更多的内存访问来对一个数据包进行分类，因为它比其他三种算法产生更多的分区子集。PartitionSort中分区子集的数量从2到49不等，平均为21.8个子集。相比之下，无论规则集的类型和大小如何，MBitTree产生的子集数量相对稳定，平均为3.8个子集。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-29.4qj5clqn0vi0.png"></p>
+<h2 id="b.-内存占用">B. 内存占用</h2>
+<p>图11显示了MBitTree以及HybridCuts、PartitionSort和CutSplit的内存足迹。对于大多数规则集，MBitTree比HybridCuts、PartitionSort和CutSplit消耗的空间更少。在所有的规则集中，MBitTree平均消耗13.2字节/规则，而在HybridCuts、PartitionSort和CutSplit中，它平均需要35.4字节/规则、55.4字节/规则和90.3字节/规则。MBitTree的低内存占用率意味着在MBitTree构建的树中很少有规则重复。应该注意的是，CutSplit在一些FW规则集上消耗的空间更大。原因是在这些FW规则集中有更复杂的几何结构。而且CutSplit在预切割阶段后使用HyperSplit来构建树，而HyperSplit对这些规则集有某些不兼容的问题，产生了突然的内存爆炸。</p>
 <figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-29.4qj5clqn0vi0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-29</figcaption>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-51.ni7s0vsqab4.png"><figcaption aria-hidden="true">平均内存占用</figcaption>
 </figure>
-<figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-27-51.ni7s0vsqab4.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-27-51</figcaption>
-</figure>
-<figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-00.rba08lozb2o.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-28-00</figcaption>
-</figure>
-<figure>
-<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-13.20ozqkc5j3s0.png"><figcaption aria-hidden="true">Snipaste_2022-10-31_23-28-13</figcaption>
-</figure>
+<h2 id="c.-构建时间">C. 构建时间</h2>
+<p>图12显示了MBitTree以及HybridCuts、PartitionSort和CutSplit在100k规则集上的构建时间。很明显，PartitionSort是其中最快的一个。相比之下，MBitTree比PartitionSort多花了一点时间，因为它在位选择过程中进行了几次迭代。然而，MBitTree仍然可以在一秒钟内为所有100k规则集建立决策树，比HybridCuts和CutSplit快得多。与CutSplit相比，MBitTree对100k规则集的平均构建时间减少了一个数量级。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-00.rba08lozb2o.png"></p>
+<h2 id="d.-可扩展性">D. 可扩展性</h2>
+<p>图13显示了MBitTree从1k规则集到1M规则集的内存占用情况。可以发现，内存占用与规则集的规模之间几乎呈线性关系。MBitTree为50万条规则集构建决策树只消耗了几个MBytes，为100万条规则集构建决策树则消耗了大约10Mbytes。内存占用的良好可扩展性使得MBitTree适用于大型分类器。 <img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-10-31_23-28-13.20ozqkc5j3s0.png"></p>
 <h1 id="结论">结论</h1>
+<p>我们提供了两个关键的贡献。首先，我们提出了<strong>一种基于聚类的新的规则集划分技术</strong>，以实现自适应和快速的规则集划分。其次，我们提出了<strong>一种新的多比特切割方案</strong>，以建立一个短的树，同时很少引起规则复制，它使用比特分离能力和通配符比例来选择有效的比特。我们一起提出了MBitTree，一个新的基于树的数据包分类解决方案，在内存访问和内存占用方面改进了现有的决策树算法，包括CutSplit。我们还在FPGA上实现了MBitTree的原型，我们的方法可以在NetFPGA上处理超过100K的规则集。</p>
 <h1 id="参考文献">参考文献：</h1>
 ]]></content>
       <categories>
