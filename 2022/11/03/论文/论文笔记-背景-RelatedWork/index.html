@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="peirsist">
+    
+    <title>
+        
+            论文笔记-背景-RelatedWork |
+        
+        EEWiKi
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"peirsist.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"16px","font_family":"STHeiti, sans-serif","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving. || 生活有千万中模样，每一种都可以是幸福的样子","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               EEWiKi
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">论文笔记-背景-RelatedWork</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">peirsist</span>
+                            
+                                <span class="author-label">Lv4</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2022-11-03 10:06:48</span>
+        <span class="mobile">2022-11-03 10:06</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2022-11-04 16:19:50</span>
+    </span>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AE%BA%E6%96%87/">论文</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>6.4k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>24 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                <h2 id="面向未来网络的高性能数据包查找与分类技术研究">2019面向未来网络的高性能数据包查找与分类技术研究</h2>
+<p>沈潼 张大方 湖南大学 信息科学与工程学院</p>
+<p>本文提出了范围向量的概念，并依据这个概念提出了一种基于散列函数的支持规则快速更新的高性能包分类算法。本文根据真实规则的源与目的地址前缀长度的分布将规则映射到不同的范围向量空间，数据包分类时需要在各个范围向量空间内查找，通常需要遍历所有范围向量空间。基于这个观察，本文设计并实现了一种基于范围向量的散列算法。每一个范围向量对应的散列表使用各字段的最大公共比特长度进行散列计算。范围向量散列算法具有常数级的规则更新速度。由于数据包分类是根据匹配规则的最高优先级决定，因此该算法需要搜索所有散列表。本文通过定义散列表的优先级对散列表进行优先级排序。因此，该算法可以在不降低更新性能和不增加内存消耗的前提下，进一步提高包分类的速度。</p>
+<p>现有的基于软件的包分类算法大多是单线程，少数算法能够扩展到多线程，因此研究多线程包分类算法具有非常重要理论依据和应用意义。本文针对不同的算法逻辑和数据结构，合理运用数据并行模式和流水线并行模式，设计了一个通用的多线程包分类框架。同时，本文还对多线程的锁机制进行优化，利用原子操作和硬件同步原语设计无锁化多线程版本，实现真正意义上每个线程的独立运行。</p>
+<h3 id="背景">背景</h3>
+<p>互联网实际上就是由网络节点和网络链路组成的一个庞大系统。其中，网络节点负责网络功能的实现与运行，而网络链路负责数据与信息的传输。网络链路的传输速度由链路介质及传输技术决定，而网络节点的性能则由数据层的相关技术决定。</p>
+<p>数据包分类是指根据指定的数据包携带的一系列信息（如源地址、目的地址、源端口号、目的端口号和协议等）在一套规则集中按照最高优先级匹配的原则，找到该数据包待执行的操作或任务。</p>
+<p><mark>软件定义网络是什么？</mark></p>
+<p>包分类是交换机、路由器和其他网络设备中用于支持安全性[56]、QoS[57,58]和高级功能[59,60]的基本操作之一，其中数据包在分类器中根据多字段规则集进行匹配。 例如，为了保护网络资源不被攻击，五元组防火墙规则通常被添加到交换机以筛选 哪些数据包应该被通过哪些应该被丢弃。在传统的网络应用中，规则保持相对静态。 因此，离线构建的分类器通常拥有设计精良的数据结构，这类分类器可以实现高效 的数据包分类。数据包分类器设计的主要目标是通过合理的内存占用来执行高速数 据包转发。由于规则更新不频繁，分类器可以离线构建。</p>
+<p>软件定义网络[50,61,62]（SDN）的出现为网络创新提供了巨大的机会，以使网 络支持新的特性和增值功能。这些功能包括流量工程[63]、网络功能虚拟化[64,65]（NFV）和高性能云计算[66,67]的支持。然而，这些新功能除了依赖于基本的快速包 分类外，还依赖于分类器中规则的动态更新能力[40,68]。一方面，网络应用必须对大 量的用户和请求进行即时响应，使得分类器规则必须频繁更新，以满足不同的需求。 另一方面，网络功能的常规迁移或变更总是会改变拓扑结构和策略，从而分类器的 规则必定会有相应的更新。因此，快速的规则更新对于当前的分类器是绝对必要且 有意义的。</p>
+<p>尽管包分类非常重要，并且已经吸引了很多研究者的关注，但是现有的算法往往不能同时满足上述两个要求，即快速包分类的同时支持快速规则更新。决策树的算法，如HyperCuts[36]、EffiCuts[37]和SmartSplit[38]，都能实现快速的包分 类，但不能实现快速的规则更新。基于哈希的算法，比如在Open vSwitch[69]（OVS） 中实现的元组空间搜索[39]（TSS），可以实现快速规则更新但不能实现高速包分类。 PartitionSort[40]（PS）和TupleMerge[41]（TM）可以提升包分类的速度但都牺牲了规 则更新的性能。同时实现快速的包分类和规则更新是满足先进的网络管理和高效云 计算的新需求和基本挑战之一。</p>
+<h3 id="现状">现状</h3>
+<p>在工业界，大型路由器以及高端分类器都是利用硬件设备，如三态内容寻址存储器（TCAM）、现场可编程门阵列（FPGA）和专门的网络处理器芯片，来实现高性能的数据包查找和分类。尽管这些器件设备具有非常好的性能，也能满足当前的大多数需求，但是它们的成本非常昂贵，导致它们的售价非常高。</p>
+<p>路由查找算法根据数据结构的不同可分为基于字典树的算法、基于决策搜索树的算法以及基于哈希表过滤器的算法，而包分类算法则可以分为基于维度降解的算法和基于空间划分的算法。本文所提出的所有方法，都是基于软件的，并不针对某一类特殊硬件。</p>
+<p>高性能在线包分类算法的研究。该研究点是对匹配内容的维度的扩展。即从单维度扩展到了多维度。包分类从匹配过程这个角度来看是多个字段的查找匹配，或者说路由查找是包分类在单维度上的特例。为了解决包分类规则频繁更新的问题，本文提出了一种基于范围向量哈希的在线包分类算法，在保证高效的数据包分类的同时，提供快速的规则更新。</p>
+<p>包分类技术不仅仅会被应用在路由器上，它们还可能会被应用在网管、防火墙、端系统等所有可能的网络节点上。而这些设备往往不仅仅只是用于包分类，而是集成了其它的功能。通常，<strong>用于包分类的那部分功能会被作为模块抽取出来，形成分类器</strong>，便于重复利用。图2.2为一个普通分类器的结构和功能图。通常分类器会包含一个规则集，当数据包到达时，先对包头进行解析，然后根据包头字段在规则集找到匹配的规则，并实行匹配规则规定的行为。</p>
+<blockquote>
+<p>通常在传统的TCP/IP协议里为5个字段，在OpenFlow协议[32]里可以达到40多个字段。</p>
+</blockquote>
+<figure>
+<img lazyload alt="image" data-src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/分类器.5fwaxpgm8nk0.png"><figcaption aria-hidden="true">分类器</figcaption>
+</figure>
+<p>包分类规则集是分类器中最关键的数据结构之一。规则集通常是由控制器生成并进行维护的。规则集包含一系列分类规则，每一个规则又包含了用于分类数据包 需要判断的所有包头字段（匹配域）、规则优先级以及一个或多个行为（操作）。包 分类规则集通常包含几十万条规则，因此存储在片外存储器上。为了加快分类速度， 分类器通常会在片上存储器中维护一个或多个小规则集作为大规则集缓存。在数据 包分类的过程中，可能会有多个规则与分类对象匹配，这时根据最高优先级匹配的 原则，选择这些匹配规则中优先级最高的规则作为最终的匹配结果，并执行其规定的操作。</p>
+<h3 id="包分类算法">包分类算法</h3>
+<p>基于维度降解的算法 Cross-producting[33]和RFC[34]将多维规则分割成若干个单维规则。它们逐个与单维规则进行匹配，然后合并各个匹配的结果。这类方法的更新速度非常缓慢，因为 每个单维规则都对应一次规则更新。此外，最终的合并过程将成为性能瓶颈，尤其 当规则集较大时。</p>
+<p>基于空间划分的方法通常将 <strong>整个规则空间划分为若干个子空间，将规则集分为几组分别放入每个子空间中</strong>。 分为两个步骤，<strong>1）确定要搜索的子空间</strong> ，以及 <strong>2）将数据包与相应子空间中的子规则集进行匹配</strong>，而不是将传入的数据包直接与整个规则集进行匹配。这种类型的方法进一步分为两个主要的子类别：基于决策树的方法和基于哈希的方法。</p>
+<p>基于决策树的方法，它们的关键思想如HiCuts[35]和HyperCuts[36]是将搜索空间 <strong>递归划分</strong> 成若干子区域，直到每个区域中的规则数量低于某一阈值。由于决策树的效率，这些方法可以实现高速数据包分类。然而，其中一个缺点是由于规则复制而导致大量内存消耗，因为有些规则可能需要复制到多个分区中。<strong>缓慢和复杂的规则更新是这些方法的另一个缺点</strong>。虽然EffiCuts[37]和SmartSplit[38]基于规则分布，采用不同的规则空间分区策略来减少规则复制和内存访问量，但它们仍然不能支持快速更新。</p>
+<p><strong>现有的基于散列的方法可以实现快速规则更新，但不能高效分类</strong>。在OVS中实现的元组空间搜索方法[39]（TSS）基于元组将规则划分成不同的子集。<strong>一个元组是一组前缀长度构成的向量</strong>，每个前缀长度对应于规则集中各个字段的长度。<strong>每个子集部署为哈希表</strong> 以实现数据包的快速索引分类和快速规则更新。为了对数据包进行分类并遵循优先级优先的原则，需要搜索所有的哈希表，从而其分类时间将随着哈希表的数量线性增加。 修剪元组空间搜索算法[39]（PTSS）通过元组按照包含关系以字典树的形式过滤掉那些不可能匹配的远足空间来提升分类性能。虽然在PTSS中确实可以减少用于 匹配的元组的数量，但是合并结果非常耗时，并且更新操作仍然很复杂。</p>
+<p>PartitionSort[40]（PS）结合了TSS和决策树的优点。PS不是基于元组划分规则，而是将规则划分成可排序的规则集，并通过平衡搜索树存储它们。因此，PS以处理可排序规则集为代价，减少了哈希计算次数，实现了比TSS更快的数据包分类。换 句话说，与TSS相比，PS以降低规则更新的速度来加快数据包的分类速度。</p>
+<p>TupleMerge[41]（TM）通过减少得到的哈希表的数量来改进TSS的分类。TM重新定义了规则和元组之间的兼容性，以便那些相似但不完全相同的规则可以放在同 一个哈希表（元组）中。然而，这种方法可能导致哈希表的重叠，这将导致一个规则可能映射到的哈希表是不确定的，从而严重损害了规则更新的性能。此外，哈希表的数量会随着时间的推移而增加，因此，在一定时间后其分类性能会急剧下降。 为了重新提升性能，当哈希表的数量超过某一阈值时，必须重新构建所有哈希表。 这使得它不能应用于在线包分类。</p>
+<blockquote>
+<p>什么是OVS? OVS是一个高质量的，多层虚拟交换机。虚拟交换呢？就是，利用软件的方式形成交换部件，所以也叫软件交换机，跟传统的物理交换机相比，虚拟交换机同要具备很多有点：1.配置灵活，因为是软件实现的，一台物理服务器上可以配置数十太或者数百台虚拟交换机，而且端口数目可以灵活选择 2. 成本低廉，通过软件的方式可轻易达到10Gbps的交换速度。 <a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/sqx2011/article/details/39344869">OVS - 简介<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p><strong>数据包查找和分类技术本身并不复杂，但是随着网络技术和网络功能的不断更新和发展，已有的算法已经不适应当前网络对于性能以及功能的需求</strong>。 尤其，面向未来的高性能网络，数据包查找和分类技术还需要进一步被研究和发展。通常情况下，判断一个路由查找算法或数据包分类算法的好坏，往往会从以下四个方面进行 评估。 1. <strong>查找（分类）速度</strong>。算法的性能是判断该算法最直接的评价指标之一。通常， 对于路由查找算法以及数据报分类算法都会使用<strong>每秒完成多少次查找（lps）</strong> 来定量评价算法的性能。在某些时候可以用每秒完成千次查找（Klps）和每 秒完成兆次查找（Mlps）来更合理地描述。 2. <strong>更新速度</strong>。除了查找（分类）性能之外，前缀（规则）更新的速度也是重要 的评价指标之一。尤其近年来，查找和分类算法的更新速度越来越受到重视， 因为当前及未来网络对路由器和分类器的更新性能需求非常高。一般地，对于前缀或规则更新的速度都会使用<strong>每秒完成多少次更新（ups）</strong>、每秒完成多少千次（Kups）或兆次（Mups）更新来定量评价。 3. <strong>内存需求</strong>。一般而言，<strong>对于任何算法它的运行内存占用必定越小越好</strong>。因为 <strong>内存越小就越有可能放入片上存储器，通过提高缓存的命中率来提高算法的性能</strong>。另一方面，对于一些存储非常有限的设备，如TCAM等，内存占用是 一个非常重要的指标。通常情况下，兆字节（MB）会用来评估一个算法运行 内存的大小。对于内存需求很大的算法，往往很难被实际部署。</p>
+<h2 id="基于范围向量的高性能在线数据包分类算法">基于范围向量的高性能在线数据包分类算法</h2>
+<h2 id="基于-gpu-加速的包分类算法研究与实现">2020基于 GPU 加速的包分类算法研究与实现</h2>
+<p>华南理工大学 专业硕士学位答辩 电子与信息学院 王君君</p>
+<p>虽然 SDN网络有诸多优点，能满足当前或者未来网络的的业务需求，但由于刚起步，整体技术还不完善，性能上存在诸多瓶颈，OpenFlow作为数据层面转 发数据包依据的主流协议，它打破了传统网络分层的概念，所有需要匹配的字段 都包括在一张流表里面，实现了协议的扁平化[2-3]。随着时间的推移，OpenFlow 协议的版本从最初的 1.0，逐渐发展到 1.1，1.2，1.3，1.4 等版本协议，从协议版 本的升级来看，流表里面用来匹配的字段数量不断增加，从最初 1.0 版本的 15 匹配字段，发展到如今高达 45 个匹配字段，其中有 15 个必检字段[4]。而传统五 元组包分类的算法已经无法满足OpenFlow协议字段匹配的需求，由此OpenFlow 协议的匹配成为了数据平面的一个主要的性能瓶颈。</p>
+<p>包分类是一种在预定义规则集中匹配数据包从而根据规则定义的动作处理数据包的方法，其中输入包可以匹配一个或多个规则，我们选择具有最高优先级的规则定义的动作处理输入数据包[5]。</p>
+<h1 id="introduction">Introduction</h1>
+<h2 id="bytecuts-fast-packet-classification-by-interior-bit-extraction"><em>2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</em></h2>
+<p>Packet classification is an important part of many network devices such as firewalls, routers, and other services. When these devices receive a packet, they must decide how to handle it. Most packet classifiers are defined by a list of rule. Each rule matches certain packet headers and defines an action for those packets. Possible actions include “forward onto physical port 1”, “send to the web server running on this device”, and “discard”. The classifier finds the first rule that matches a given packet and follows the action associated with that rule.</p>
+<p>Rule list sizes have been increasing. As new vulnerabilities are found and new devices are added to the network, new rules are added to deal with these new situations. Rule lists with thousands of rules are now commonplace. Any packet classifier used must be able to handle these increasingly large rule lists.</p>
+<p>Packet classifiers must be fast. These network devices have real-time constraints; delays caused at one device propagate through the network as packet take longer to be forwarded between devices.</p>
+<blockquote>
+<p>数据包分类是许多网络设备的一个重要部分，如防火墙、路由器和其他服务。当这些设备收到一个数据包时，它们必须决定如何处理它。大多数数据包分类器是由一个规则列表定义的。每个规则匹配某些数据包头，并为这些数据包定义一个动作。可能的行动包括 "转发到物理端口1"、"发送到在此设备上运行的网络服务器 "和 "丢弃"。分类器找到第一个匹配给定数据包的规则，并遵循与该规则相关的行动。 规则列表的大小一直在增加。随着新的漏洞被发现和新的设备被添加到网络中，新的规则也被添加进来以处理这些新情况。现在，拥有数千条规则的规则列表已经很常见了。任何使用的数据包分类器必须能够处理这些越来越大的规则列表。 数据包分类器必须是快速的。这些网络设备有实时限制；在一个设备上造成的延迟会通过网络传播，因为数据包在设备之间需要更长的时间来转发。</p>
+</blockquote>
+<p>Later decision tree variants, such as EffiCuts [3] and SmartSplit [4] have introduced better tools for controlling memory usage at the cost of search times. These methods define several categories of rules which are expected not to require much rule replication, which reduces memory consumption, but it produces multiple trees, which increases search times.</p>
+<p>Other methods, such as Tuple Space Search [5], TupleMerge [6], and PartitionSort [7] are able to use only linear memory.</p>
+<p>These methods partition the rules into other sets and then use either hashing (Tuple Space Search, TupleMerge) or sorting (PartitionSort) to be able to search them. Classification time is thus tied to the number of partitions required. If the number of partitions becomes large, then search times suffer.</p>
+<p>These methods used in OpenFlow and other software-defined networks because they support fast updates.</p>
+<h1 id="related-work">Related Work</h1>
+<h2 id="bytecuts-fast-packet-classification-by-interior-bit-extraction-1"><em>2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</em></h2>
+<p>Decision trees are a well-studied area of packet classification. HiCuts [9] is one of the oldest and most well-known classifiers of this type and has spawned several derivatives. In HiCuts, one field of the packet domain is partitioned (or cut) into several equal-sized pieces. The rules are then allocated to the partitions that they correspond to. This process is repeated for each of these sublists until only a few rules remain. One problem with HiCuts is that the rule and domain boundaries do not always align and rules that cross these boundaries must be replicated into multiple partitions. Rules that are orthogonal to the field being cut are especially problematic since they must be replicated into each partition. This can result in a significant memory blowup.</p>
+<p>决策树是数据包分类的一个被充分研究的领域。HiCuts[9]是这种类型的最古老和最著名的分类器之一，并且已经产生了几个衍生产品。在HiCuts中，数据包领域的一个领域被分割（或切割）成几个大小相等的部分。然后，规则被分配到它们所对应的分区中。这个过程对每个子列表重复进行，直到只剩下几条规则。HiCuts的一个问题是，规则和领域的边界并不总是一致的，跨越这些边界的规则必须被复制到多个分区。与被切割领域正交的规则尤其成问题，因为它们必须被复制到每个分区。这可能会导致显著的内存爆炸。</p>
+<p>HyperCuts [1] is a variant on HiCuts. Its chief improvement is that it allows cutting on multiple fields at once. This allows the overall tree height to be lower resulting in faster classification times, but it suffers from the same rule replication problem as HiCuts does. The tree that HyperCuts produces for Classifier I can be seen in Figure 2.</p>
+<p>HyperCuts[1]是HiCuts的一个变种。它的主要改进之处在于，它允许一次对多个字段进行切割。这使得整个树的高度降低，从而加快了分类的速度，但是它和HiCuts一样存在着规则复制的问题。图2中可以看到HyperCuts为分类器I生成的树。</p>
+<p>HyperSplit [2] takes a slightly different approach. Instead of creating many equal-sized cuts, HyperSplit creates a single cut (or split) of variable size. This split is chosen to balance the number of rules in the two resulting partitions. Compared to HiCuts and HyperCuts, this results in less replication and lower memory requirements since each rule is copied into at most two partitions. However, the tree height is normally higher since it has a smaller branching factor. The tree that HyperSplit produces for Classifier I can be seen in Figure 3.</p>
+<p>Each of these algorithms has memory problems caused by significant rule replication. ByteCuts prevents this rule replication by separating incompatible rules into different trees.</p>
+<p>HyperSplit[2]采取了一种略有不同的方法。HyperSplit不是创建许多大小相等的切割，而是创建一个大小可变的单一切割（或分割）。选择这种分割是为了平衡所产生的两个分区中的规则数量。与HiCuts和HyperCuts相比，这导致了较少的复制和较低的内存需求，因为每个规则最多复制到两个分区中。然而，树的高度通常较高，因为它有一个较小的分支因子。HyperSplit为分类器I产生的树可以在图3中看到。</p>
+<p>这些算法中的每一种都有因大量规则复制而引起的内存问题。ByteCuts通过将不兼容的规则分离到不同的树中来防止这种规则的复制。</p>
+<p>EffiCuts [3] attempts to solve the rule replication problem by dividing the rules into multiple HyperCuts trees. It classifies rules as being either long or short on a particular field (similar to a tuple space method) and all rules with the same classification are placed into the same tree. Since all of the rules in a given tree have similar properties, it is expected that there will not be much replication required. The downside is that searching multiple trees is likely to take longer than searching a single tree.</p>
+<p>SmartSplit [4] tries a similar strategy to EffiCuts except it only considers two fields: source and destination address. This results in fewer trees and thus generally faster search times at the expense of greater rule replication (though generally less than HyperCuts). Additionally, they can estimate the memory usage and tree heights of a rule list to determine whether one or multiple trees would be better as well as if they should use HyperCuts or HyperSplit trees. This allows them to better balance the tradeoffs between speed and memory. This can be seen by comparing the trees in Figure 4 to those in Figures 2 and 3.</p>
+<p>SmartSplit has a small, fixed set of trees available and EffiCuts has a limited ability to merge the rule lists for its larger, otherwise fixed set of trees. In contrast, ByteCuts has a larger, more flexible, set to choose from. This allows it to better fit the rules to trees which leads to less replication and faster searches.</p>
+<p>EffiCuts[3]试图通过将规则分为多个HyperCuts树来解决规则复制的问题。它将规则分类为特定领域的长或短（类似于元组空间方法），所有具有相同分类的规则都被放入同一棵树中。由于一个给定的树中的所有规则都有类似的属性，预计不会有太多的复制要求。缺点是搜索多棵树的时间可能比搜索一棵树要长。</p>
+<p>SmartSplit[4]尝试了一种与EffiCuts类似的策略，只是它只考虑两个字段：源地址和目的地址。这导致了更少的树，因此通常更快的搜索时间，代价是更大的规则复制（尽管通常比HyperCuts少）。此外，他们可以估计内存使用量和规则列表的树高，以确定一个或多个树会更好，以及他们是否应该使用HyperCuts或HyperSplit树。这使他们能够更好地平衡速度和内存之间的权衡。通过比较图4中的树和图2和图3中的树，可以看出这一点。</p>
+<p>SmartSplit有一个小的、固定的树集可用，EffiCuts有一个有限的能力来合并其较大的、其他固定的树集的规则列表。相比之下，ByteCuts有一个更大、更灵活的集合可供选择。这使得它能够更好地将规则与树相匹配，从而减少复制和加快搜索。</p>
+
+            </div>
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2022/11/03/%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">数据包分类方案整理</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2022/11/02/%E8%AE%BA%E6%96%87/2017-BitCuts/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">BitCuts</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E6%9C%AA%E6%9D%A5%E7%BD%91%E7%BB%9C%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%8C%85%E6%9F%A5%E6%89%BE%E4%B8%8E%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6"><span class="nav-number">1.</span> <span class="nav-text">2019面向未来网络的高性能数据包查找与分类技术研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.2.</span> <span class="nav-text">现状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%85%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">包分类算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E5%90%91%E9%87%8F%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E5%9C%A8%E7%BA%BF%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">基于范围向量的高性能在线数据包分类算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-gpu-%E5%8A%A0%E9%80%9F%E7%9A%84%E5%8C%85%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">2020基于 GPU 加速的包分类算法研究与实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#introduction"><span class="nav-number"></span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bytecuts-fast-packet-classification-by-interior-bit-extraction"><span class="nav-number">1.</span> <span class="nav-text">2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#related-work"><span class="nav-number"></span> <span class="nav-text">Related Work</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bytecuts-fast-packet-classification-by-interior-bit-extraction-1"><span class="nav-number">1.</span> <span class="nav-text">2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2021</span> -
+            
+            2022
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">peirsist</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/dark-light-toggle.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/code-block.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/post-helper.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/toc.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/anime.min.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

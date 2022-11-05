@@ -9,7 +9,7 @@
     
     <title>
         
-            雅思报班及题型了解 |
+            数据包分类方案整理 |
         
         EEWiKi
     </title>
@@ -189,7 +189,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">雅思报班及题型了解</span>
+                <span class="title-hover-animation">数据包分类方案整理</span>
             </div>
 
             
@@ -211,13 +211,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2022-10-31 22:54:41</span>
-        <span class="mobile">2022-10-31 22:54</span>
+        <span class="pc">2022-11-03 10:06:48</span>
+        <span class="mobile">2022-11-03 10:06</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2022-10-31 23:39:52</span>
+        <span class="pc">2022-11-04 17:44:24</span>
     </span>
     
     
@@ -226,7 +226,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a>&nbsp;
+                        <a href="/categories/%E8%AE%BA%E6%96%87/">论文</a>&nbsp;
                     </li>
                 
             </ul>
@@ -237,12 +237,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>53 Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>5 Mins</span>
         </span>
     
     
@@ -258,9 +258,75 @@
             
 
             <div class="article-content keep-markdown-body">
-                <p>很早就有考雅思的想法，这次别再犹豫了，以后自己的时间越来越少</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/question/335517100">学习雅思报哪个机构好？ - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/question/551794049">洋葱雅思怎么样？ - 知乎 (zhihu.com)<i class="fas fa-external-link-alt"></i></a></p>
+                <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">style: bullet | number | inline (default: bullet) </span><br><span class="line">min_depth: 1 (default: 1) </span><br><span class="line">max_depth: 6 (default: 6) </span><br><span class="line">title: string (default: undefined) </span><br><span class="line">allow_inconsistent_headings: </span><br><span class="line">boolean: true (default: false) </span><br><span class="line">delimiter: string (default: |) </span><br><span class="line">varied_style: boolean (default: false)</span><br></pre></td></tr></table></figure>
+<h1 id="硬件">1 硬件</h1>
+<h1 id="软件">2 软件</h1>
+<h2 id="决策树">2.1 决策树</h2>
+<h3 id="规则集分组">2.1.1 规则集分组</h3>
+<p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
+<ol type="1">
+<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。
+<ul>
+<li><del>HiCuts(1999), HyperCuts(2004)</del>, <em>Efficuts(2010)</em>, <del>HyperSplit(2011),</del> <em>SmartSplit(2014), CutSplit(2018)</em></li>
+</ul></li>
+<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。
+<ul>
+<li>HashTable</li>
+<li><em>ByteCuts(2018)</em></li>
+</ul></li>
+<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。
+<ul>
+<li><em>ParaSplit</em></li>
+</ul></li>
+<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。
+<ul>
+<li><em>NeuroCuts(2019)</em></li>
+</ul></li>
+</ol>
+<p>按字段大小、前缀长度分组等启发式策略建立在对规则集分布特征观察的基础之上，原理相 对简单、容易实现，但对于不同的规则集，往往需 要手动调整部分参数以获得理想结果; 聚类算法、 神经网络模型则可以使用机器学习来替代人工调 整，实现对规则子集的自适应划分，但需要经过大 量的训练和迭代才能收敛。</p>
+<h3 id="节点切割">2.1.2 节点切割</h3>
+<p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
+<p>各类决策树算法在节点切割方面的主要区别为: 1. <strong><font color="red">切割维度的选择</font></strong>。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。 2. <strong><font color="red">切割端点的选择</font></strong> 1. <strong>Equi - size</strong> - 快速将节点等分为 <span class="math inline">\(2^n\)</span> 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中 - <em>HiCuts(1999), HyperCuts(2004), Efficuts(2010)</em> 2. <strong>Equi-dense</strong> - 而等密切割能够缓解规则复制问题，但也存在树深度增加、节点索引复杂等问题。 - <em>HyperSplit(2011), SmartSplit(2014)</em> 1. <strong>Bit cutting</strong> - 利用规则每一位都可表示为 0、1 或者 * ( 通配符) 的特点，选择其中有效比特将规则映射到各个子节点中，从而避免了盲目地切割整个搜索空间。 - <em>BitCuts(2017), ByteCuts(2018), MBitTree(2021)</em></p>
+<blockquote>
+<p>另一个角度看，等分切割也是一种特殊的比特切割，但只允许使用连续的最高有效位。</p>
+</blockquote>
+<h3 id="hicuts">2.1.3 HiCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>： 一次选择单个维度，将搜索 空间划分为等大小的子空间</li>
+<li><strong>规则集分组方式</strong>：无</li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>优点</strong>：首个决策树分类算法，快速 切割规则空间</li>
+<li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大</li>
+</ol>
+<h3 id="hypercuts">2.1.4 HyperCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>： 一次选择多个维度，将搜索 空间划分为等大小的子空间</li>
+<li><strong>规则集分组方式</strong>：无</li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>优点</strong>：HiCuts 的改进，树深度较小， 分类速度较快，规则复制相 比 HiCuts 有所优化</li>
+<li><strong>缺点</strong>：内存消耗仍然较大，可扩展性较差</li>
+</ol>
+<h3 id="efficuts">2.1.5 EffiCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>：</li>
+<li><strong>规则集分组方式</strong>：</li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>优点</strong>：大大减少了规则复制</li>
+<li><strong>缺点</strong>：划分树的数目太多，查找速度慢</li>
+</ol>
+<h3 id="hypersplit">2.1.6 HyperSplit</h3>
+<p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。 1. <strong>思路</strong>： 一次选择单个维度和特定的 端点，将搜索空间划分为两 个规则数几乎相等的子空间 2. <strong>规则集分组方式</strong>：无 3. <strong>节点切割方式</strong>：<strong><em>equi-dense</em></strong> 4. <strong>优点</strong>：进一步优化规则复制问题， 内存消耗小 5. <strong>缺点</strong>：树深度较大，遍历树所需 的访存次数较多</p>
+<h3 id="bitcuts">2.1.7 BitCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>： 选择规则中的有效比特来划分搜索空间</li>
+<li><strong>规则集分组方式</strong>：无</li>
+<li><strong>节点切割方式</strong>：<strong><em>bit-cutting</em></strong></li>
+<li><strong>优点</strong>：分类速度在 4 种算法中最 快，吞吐量高</li>
+<li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大 ## 2.2 哈希表</li>
+</ol>
+<h2 id="决策树结合哈希表">2.3 决策树结合哈希表</h2>
+<h2 id="机器学习">2.4 机器学习</h2>
+<h2 id="其他">2.5 其他</h2>
 
             </div>
 
@@ -274,13 +340,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/2022/11/02/%E8%AE%BA%E6%96%87/2017-BitCuts/"
+                               href="/2022/11/03/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E8%A6%81%E8%AF%BB%E5%8D%9A%E5%90%97/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">BitCuts</span>
+                                <span class="post-nav-title-item">要读博吗</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                             </a>
@@ -290,10 +356,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2022/10/31/%E8%AE%BA%E6%96%87/2021-MBitTree/"
+                               href="/2022/11/03/%E8%AE%BA%E6%96%87/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E8%83%8C%E6%99%AF-RelatedWork/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">MBitTree</span>
+                                <span class="post-nav-title-item">论文笔记-背景-RelatedWork</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -312,7 +378,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">1 硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">2 软件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%BB%84"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1 规则集分组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E7%82%B9%E5%88%87%E5%89%B2"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2 节点切割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hicuts"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.1.3 HiCuts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hypercuts"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.1.4 HyperCuts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#efficuts"><span class="nav-number">2.1.5.</span> <span class="nav-text">2.1.5 EffiCuts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hypersplit"><span class="nav-number">2.1.6.</span> <span class="nav-text">2.1.6 HyperSplit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bitcuts"><span class="nav-number">2.1.7.</span> <span class="nav-text">2.1.7 BitCuts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%BB%93%E5%90%88%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.3 决策树结合哈希表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.3.</span> <span class="nav-text">2.4 机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">2.4.</span> <span class="nav-text">2.5 其他</span></a></li></ol></li></ol>
     </div>
 </div>
 
