@@ -89,25 +89,25 @@
 <h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
 <ul>
 <li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
-<li>但仍然无法复制粘贴 参考<a class="link" target="_blank" rel="noopener" href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)<i class="fas fa-external-link-alt"></i></a></li>
+<li>但仍然无法复制粘贴 参考<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
 <li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
 </ul>
 <h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
 <ul>
-<li><p><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？<i class="fas fa-external-link-alt"></i></a></strong></p></li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
 <li><p><code>Ubuntu</code>更改源</p></li>
 </ul>
 <h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
 <ul>
-<li><p><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程<i class="fas fa-external-link-alt"></i></a></strong></p></li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
 <li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
 </ul>
-<p><img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" style="zoom: 50%;"></p>
+<p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;"></p>
 <p><strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
 <ul>
-<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"<i class="fas fa-external-link-alt"></i></a></strong></li>
-<li><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客<i class="fas fa-external-link-alt"></i></a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"</a></strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
 </ul>
 <p>原因在于python依赖的安装包没有安装。</p>
 <h3 id="python-binding解决">python Binding解决</h3>
@@ -116,18 +116,18 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a class="link" target="_blank" rel="noopener" href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。<i class="fas fa-external-link-alt"></i></a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
 </ul>
 <h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p><strong><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决<i class="fas fa-external-link-alt"></i></a></strong></p></li>
-<li><p><strong><a class="link" target="_blank" rel="noopener" href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装<i class="fas fa-external-link-alt"></i></a></strong></p></li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
 <li><p>可以再把与python有关的再装一遍</p></li>
 <li><figure>
-<img lazyload alt="image" data-src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70"><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
+<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的"><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
 </figure></li>
 <li><p>出现以下图片后</p></li>
 </ul>
@@ -138,10 +138,10 @@
 </ul>
 <h2 id="其他参考网站">其他参考网站</h2>
 <ul>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）<i class="fas fa-external-link-alt"></i></a></p></li>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）<i class="fas fa-external-link-alt"></i></a></p></li>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）<i class="fas fa-external-link-alt"></i></a></p></li>
-<li><p><a class="link" target="_blank" rel="noopener" href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing<i class="fas fa-external-link-alt"></i></a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p></li>
 </ul>
 
 
