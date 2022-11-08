@@ -1,286 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>线性回归.md</title>
-    <url>/2022/10/20/2.LinearRegression/</url>
-    <content><![CDATA[<h1 id="线性回归">线性回归</h1>
-<p>假设数据集为： <span class="math display">\[
-\mathcal{D}=\{(x_1, y_1),(x_2, y_2),\cdots,(x_N, y_N)\}
-\]</span> 后面我们记： <span class="math display">\[
-X=(x_1,x_2,\cdots,x_N)^T,Y=(y_1,y_2,\cdots,y_N)^T
-\]</span> 线性回归假设： <span class="math display">\[
-f(w)=w^Tx
-\]</span></p>
-<h2 id="最小二乘法">最小二乘法</h2>
-<p>对这个问题，采用二范数定义的平方误差来定义损失函数： <span class="math display">\[
-L(w)=\sum\limits_{i=1}^N||w^Tx_i-y_i||^2_2
-\]</span> 展开得到： <span class="math display">\[
-\begin{align}
-L(w)&amp;=(w^Tx_1-y_1,\cdots,w^Tx_N-y_N)\cdot (w^Tx_1-y_1,\cdots,w^Tx_N-y_N)^T\nonumber\\
-&amp;=(w^TX^T-Y^T)\cdot (Xw-Y)=w^TX^TXw-Y^TXw-w^TX^TY+Y^TY\nonumber\\
-&amp;=w^TX^TXw-2w^TX^TY+Y^TY
-\end{align}
-\]</span> 最小化这个值的 $ $ ： <span class="math display">\[
-\begin{align}
-\hat{w}=\mathop{argmin}\limits_wL(w)&amp;\longrightarrow\frac{\partial}{\partial w}L(w)=0\nonumber\\
-&amp;\longrightarrow2X^TX\hat{w}-2X^TY=0\nonumber\\
-&amp;\longrightarrow \hat{w}=(X^TX)^{-1}X^TY=X^+Y
-\end{align}
-\]</span> 这个式子中 <span class="math inline">\((X^TX)^{-1}X^T\)</span> 又被称为伪逆。对于行满秩或者列满秩的 <span class="math inline">\(X\)</span>，可以直接求解，但是对于非满秩的样本集合，需要使用奇异值分解（SVD）的方法，对 <span class="math inline">\(X\)</span> 求奇异值分解，得到 <span class="math display">\[
-X=U\Sigma V^T
-\]</span> 于是： <span class="math display">\[
-X^+=V\Sigma^{-1}U^T
-\]</span> 在几何上，最小二乘法相当于模型（这里就是直线）和试验值的距离的平方求和，假设我们的试验样本张成一个 <span class="math inline">\(p\)</span> 维空间（满秩的情况）：<span class="math inline">\(X=Span(x_1,\cdots,x_N)\)</span>，而模型可以写成 <span class="math inline">\(f(w)=X\beta\)</span>，也就是 <span class="math inline">\(x_1,\cdots,x_N\)</span> 的某种组合，而最小二乘法就是说希望 <span class="math inline">\(Y\)</span> 和这个模型距离越小越好，于是它们的差应该与这个张成的空间垂直： <span class="math display">\[
-X^T\cdot(Y-X\beta)=0\longrightarrow\beta=(X^TX)^{-1}X^TY
-\]</span></p>
-<h2 id="噪声为高斯分布的-mle">噪声为高斯分布的 MLE</h2>
-<p>对于一维的情况，记 <span class="math inline">\(y=w^Tx+\epsilon,\epsilon\sim\mathcal{N}(0,\sigma^2)\)</span>，那么 <span class="math inline">\(y\sim\mathcal{N}(w^Tx,\sigma^2)\)</span>。代入极大似然估计中： <span class="math display">\[
-\begin{align}
-L(w)=\log p(Y|X,w)&amp;=\log\prod\limits_{i=1}^Np(y_i|x_i,w)\nonumber\\
-&amp;=\sum\limits_{i=1}^N\log(\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y_i-w^Tx_i)^2}{2\sigma^2}})\\
-\mathop{argmax}\limits_wL(w)&amp;=\mathop{argmin}\limits_w\sum\limits_{i=1^N}(y_i-w^Tx_i)^2
-\end{align}
-\]</span> 这个表达式和最小二乘估计得到的结果一样。</p>
-<h2 id="权重先验也为高斯分布的-map">权重先验也为高斯分布的 MAP</h2>
-<p>取先验分布 <span class="math inline">\(w\sim\mathcal{N}(0,\sigma_0^2)\)</span>。于是：  <span class="math display">\[
-\begin{align}
-\hat{w}=\mathop{argmax}\limits_wp(w|Y)&amp;=\mathop{argmax}\limits_wp(Y|w)p(w)\nonumber\\
-&amp;=\mathop{argmax}\limits_w\log p(Y|w)p(w)\nonumber\\
-&amp;=\mathop{argmax}\limits_w(\log p(Y|w)+\log p(w))\nonumber\\
-&amp;=\mathop{argmin}\limits_w[(y-w^Tx)^2+\frac{\sigma^2}{\sigma_0^2}w^Tw]
-\end{align}
-\]</span> 这里省略了 <span class="math inline">\(X\)</span>，<span class="math inline">\(p(Y)\)</span>和 <span class="math inline">\(w\)</span> 没有关系，同时也利用了上面高斯分布的 MLE的结果。</p>
-<p>我们将会看到，超参数 <span class="math inline">\(\sigma_0\)</span>的存在和下面会介绍的 Ridge 正则项可以对应，同样的如果将先验分布取为 Laplace 分布，那么就会得到和 L1 正则类似的结果。</p>
-<h2 id="正则化">正则化</h2>
-<p>在实际应用时，如果样本容量不远远大于样本的特征维度，很可能造成过拟合，对这种情况，我们有下面三个解决方式：</p>
-<ol type="1">
-<li>加数据</li>
-<li>特征选择（降低特征维度）如 PCA 算法。</li>
-<li>正则化</li>
-</ol>
-<p>正则化一般是在损失函数（如上面介绍的最小二乘损失）上加入正则化项（表示模型的复杂度对模型的惩罚），下面我们介绍一般情况下的两种正则化框架。 <span class="math display">\[
-\begin{align}
-L1&amp;:\mathop{argmin}\limits_wL(w)+\lambda||w||_1,\lambda\gt0\\
-L2&amp;:\mathop{argmin}\limits_wL(w)+\lambda||w||^2_2,\lambda \gt 0
-\end{align}
-\]</span> 下面对最小二乘误差分别分析这两者的区别。</p>
-<h3 id="l1-lasso">L1 Lasso</h3>
-<p>L1正则化可以引起稀疏解。</p>
-<p>从最小化损失的角度看，由于 L1 项求导在0附近的左右导数都不是0，因此更容易取到0解。</p>
-<p>从另一个方面看，L1 正则化相当于： <span class="math display">\[
-\mathop{argmin}\limits_wL(w)\\
-s.t. ||w||_1\lt C
-\]</span> 我们已经看到平方误差损失函数在 <span class="math inline">\(w\)</span> 空间是一个椭球，因此上式求解就是椭球和 <span class="math inline">\(||w||_1=C\)</span>的切点，因此更容易相切在坐标轴上。</p>
-<h3 id="l2-ridge">L2 Ridge</h3>
-<p><span class="math display">\[
-\begin{align}
-\hat{w}=\mathop{argmin}\limits_wL(w)+\lambda w^Tw&amp;\longrightarrow\frac{\partial}{\partial w}L(w)+2\lambda w=0\nonumber\\
-&amp;\longrightarrow2X^TX\hat{w}-2X^TY+2\lambda \hat w=0\nonumber\\
-&amp;\longrightarrow \hat{w}=(X^TX+\lambda \mathbb{I})^{-1}X^TY
-\end{align}
-\]</span></p>
-<p>可以看到，这个正则化参数和前面的 MAP 结果不谋而合。利用2范数进行正则化不仅可以是模型选择 <span class="math inline">\(w\)</span> 较小的参数，同时也避免 $ X^TX$不可逆的问题。</p>
-<h2 id="小结">小结</h2>
-<p>线性回归模型是最简单的模型，但是麻雀虽小，五脏俱全，在这里，我们利用最小二乘误差得到了闭式解。同时也发现，在噪声为高斯分布的时候，MLE 的解等价于最小二乘误差，而增加了正则项后，最小二乘误差加上 L2 正则项等价于高斯噪声先验下的 MAP解，加上 L1 正则项后，等价于 Laplace 噪声先验。</p>
-<p>传统的机器学习方法或多或少都有线性回归模型的影子：</p>
-<ol type="1">
-<li>线性模型往往不能很好地拟合数据，因此有三种方案克服这一劣势：
-<ol type="1">
-<li>对特征的维数进行变换，例如多项式回归模型就是在线性特征的基础上加入高次项。</li>
-<li>在线性方程后面加入一个非线性变换，即引入一个非线性的激活函数，典型的有线性分类模型如感知机。</li>
-<li>对于一致的线性系数，我们进行多次变换，这样同一个特征不仅仅被单个系数影响，例如多层感知机（深度前馈网络）。</li>
-</ol></li>
-<li>线性回归在整个样本空间都是线性的，我们修改这个限制，在不同区域引入不同的线性或非线性，例如线性样条回归和决策树模型。</li>
-<li>线性回归中使用了所有的样本，但是对数据预先进行加工学习的效果可能更好（所谓的维数灾难，高维度数据更难学习），例如 PCA 算法和流形学习。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Intro_Math.md</title>
-    <url>/2022/10/20/1.Intro_Math/</url>
-    <content><![CDATA[<h1 id="introduction">Introduction</h1>
-<p>对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号： <span class="math display">\[
-X_{N\times p}=(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}=(x_{i1},x_{i2},\cdots,x_{ip})^{T}
-\]</span> 这个记号表示有 <span class="math inline">\(N\)</span> 个样本，每个样本都是 <span class="math inline">\(p\)</span> 维向量。其中每个观测都是由 <span class="math inline">\(p(x|\theta)\)</span> 生成的。</p>
-<h2 id="频率派的观点">频率派的观点</h2>
-<p><span class="math inline">\(p(x|\theta)\)</span>中的 <span class="math inline">\(\theta\)</span> 是一个常量。对于 <span class="math inline">\(N\)</span> 个观测来说观测集的概率为 <span class="math inline">\(p(X|\theta)\mathop{=}\limits _{iid}\prod\limits _{i=1}^{N}p(x_{i}|\theta))\)</span> 。为了求 <span class="math inline">\(\theta\)</span> 的大小，我们采用最大对数似然MLE的方法：</p>
-<p><span class="math display">\[
-\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
-\]</span></p>
-<h2 id="贝叶斯派的观点">贝叶斯派的观点</h2>
-<p>贝叶斯派认为 <span class="math inline">\(p(x|\theta)\)</span> 中的 <span class="math inline">\(\theta\)</span> 不是一个常量。这个 <span class="math inline">\(\theta\)</span> 满足一个预设的先验的分布 <span class="math inline">\(\theta\sim p(\theta)\)</span> 。于是根据贝叶斯定理依赖观测集参数的后验可以写成：</p>
-<p><span class="math display">\[
-p(\theta|X)=\frac{p(X|\theta)\cdot p(\theta)}{p(X)}=\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}
-\]</span> 为了求 <span class="math inline">\(\theta\)</span> 的值，我们要最大化这个参数后验MAP：</p>
-<p><span class="math display">\[
-\theta_{MAP}=\mathop{argmax}\limits _{\theta}p(\theta|X)=\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)
-\]</span> 其中第二个等号是由于分母和 <span class="math inline">\(\theta\)</span> 没有关系。求解这个 <span class="math inline">\(\theta\)</span> 值后计算<span class="math inline">\(\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}\)</span> ，就得到了参数的后验概率。其中 <span class="math inline">\(p(X|\theta)\)</span> 叫似然，是我们的模型分布。得到了参数的后验分布后，我们可以将这个分布用于预测贝叶斯预测： <span class="math display">\[
-p(x_{new}|X)=\int\limits _{\theta}p(x_{new}|\theta)\cdot p(\theta|X)d\theta
-\]</span> 其中积分中的被乘数是模型，乘数是后验分布。</p>
-<h2 id="小结">小结</h2>
-<p>频率派和贝叶斯派分别给出了一系列的机器学习算法。频率派的观点导出了一系列的统计机器学习算法而贝叶斯派导出了概率图理论。在应用频率派的 MLE 方法时最优化理论占有重要地位。而贝叶斯派的算法无论是后验概率的建模还是应用这个后验进行推断时积分占有重要地位。因此采样积分方法如 MCMC 有很多应用。</p>
-<h1 id="mathbasics">MathBasics</h1>
-<h2 id="高斯分布">高斯分布</h2>
-<h3 id="一维情况-mle">一维情况 MLE</h3>
-<p>高斯分布在机器学习中占有举足轻重的作用。在 MLE 方法中：</p>
-<p><span class="math display">\[
-\theta=(\mu,\Sigma)=(\mu,\sigma^{2}),\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
-\]</span> 一般地，高斯分布的概率密度函数PDF写为：</p>
-<p><span class="math display">\[
-p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
-\]</span> 带入 MLE 中我们考虑一维的情况</p>
-<p><span class="math display">\[
-\log p(X|\theta)=\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)=\sum\limits _{i=1}^{N}\log\frac{1}{\sqrt{2\pi}\sigma}\exp(-(x_{i}-\mu)^{2}/2\sigma^{2})
-\]</span> 首先对 <span class="math inline">\(\mu\)</span> 的极值可以得到 ： <span class="math display">\[
-\mu_{MLE}=\mathop{argmax}\limits _{\mu}\log p(X|\theta)=\mathop{argmax}\limits _{\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
-\]</span> 于是： <span class="math display">\[
-\frac{\partial}{\partial\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}=0\longrightarrow\mu_{MLE}=\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}
-\]</span> 其次对 <span class="math inline">\(\theta\)</span> 中的另一个参数 <span class="math inline">\(\sigma\)</span> ，有： <span class="math display">\[
-\begin{align}
-\sigma_{MLE}=\mathop{argmax}\limits _{\sigma}\log p(X|\theta)&amp;=\mathop{argmax}\limits _{\sigma}\sum\limits _{i=1}^{N}[-\log\sigma-\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]\nonumber\\
-&amp;=\mathop{argmin}\limits _{\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]
-\end{align}
-\]</span> 于是： <span class="math display">\[
-\frac{\partial}{\partial\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]=0\longrightarrow\sigma_{MLE}^{2}=\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
-\]</span> 值得注意的是，上面的推导中，首先对 <span class="math inline">\(\mu\)</span> 求 MLE， 然后利用这个结果求 <span class="math inline">\(\sigma_{MLE}\)</span> ，因此可以预期的是对数据集求期望时 <span class="math inline">\(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]\)</span> 是无偏差的： <span class="math display">\[
-\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\frac{1}{N}\sum\limits _{i=1}^{N}\mathbb{E}_{\mathcal{D}}[x_{i}]=\mu
-\]</span> 但是当对 <span class="math inline">\(\sigma_{MLE}\)</span> 求 期望的时候由于使用了单个数据集的 <span class="math inline">\(\mu_{MLE}\)</span>，因此对所有数据集求期望的时候我们会发现 <span class="math inline">\(\sigma_{MLE}\)</span> 是 有偏的：</p>
-<p><span class="math display">\[
-\begin{align}
-\mathbb{E}_{\mathcal{D}}[\sigma_{MLE}^{2}]&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu_{MLE})^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}^{2}-2x_{i}\mu_{MLE}+\mu_{MLE}^{2})\nonumber
-\\&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu_{MLE}^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}+\mu^{2}-\mu_{MLE}^{2}]\nonumber\\
-&amp;= \mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}]-\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}-\mu^{2}]=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mu^{2})\nonumber\\&amp;=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mathbb{E}_{\mathcal{D}}^{2}[\mu_{MLE}])=\sigma^{2}-Var[\mu_{MLE}]\nonumber\\&amp;=\sigma^{2}-Var[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\sigma^{2}-\frac{1}{N^{2}}\sum\limits _{i=1}^{N}Var[x_{i}]=\frac{N-1}{N}\sigma^{2}
-\end{align}
-\]</span> 所以： <span class="math display">\[
-\hat{\sigma}^{2}=\frac{1}{N-1}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
-\]</span></p>
-<h3 id="多维情况">多维情况</h3>
-<p>多维高斯分布表达式为： <span class="math display">\[
-p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
-\]</span> 其中 <span class="math inline">\(x,\mu\in\mathbb{R}^{p},\Sigma\in\mathbb{R}^{p\times p}\)</span> ，<span class="math inline">\(\Sigma\)</span> 为协方差矩阵，一般而言也是半正定矩阵。这里我们只考虑正定矩阵。首先我们处理指数上的数字，指数上的数字可以记为 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(\mu\)</span> 之间的马氏距离。对于对称的协方差矩阵可进行特征值分解，<span class="math inline">\(\Sigma=U\Lambda U^{T}=(u_{1},u_{2},\cdots,u_{p})diag(\lambda_{i})(u_{1},u_{2},\cdots,u_{p})^{T}=\sum\limits _{i=1}^{p}u_{i}\lambda_{i}u_{i}^{T}\)</span> ，于是：</p>
-<p><span class="math display">\[
-\Sigma^{-1}=\sum\limits _{i=1}^{p}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}
-\]</span></p>
-<p><span class="math display">\[
-\Delta=(x-\mu)^{T}\Sigma^{-1}(x-\mu)=\sum\limits _{i=1}^{p}(x-\mu)^{T}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}(x-\mu)=\sum\limits _{i=1}^{p}\frac{y_{i}^{2}}{\lambda_{i}}
-\]</span></p>
-<p>我们注意到 <span class="math inline">\(y_{i}\)</span> 是 <span class="math inline">\(x-\mu\)</span> 在特征向量 <span class="math inline">\(u_{i}\)</span> 上的投影长度，因此上式子就是 <span class="math inline">\(\Delta\)</span> 取不同值时的同心椭圆。</p>
-<p>下面我们看多维高斯模型在实际应用时的两个问题</p>
-<ol type="1">
-<li><p>参数 <span class="math inline">\(\Sigma,\mu\)</span> 的自由度为 <span class="math inline">\(O(p^{2})\)</span> 对于维度很高的数据其自由度太高。解决方案：高自由度的来源是 <span class="math inline">\(\Sigma\)</span> 有 <span class="math inline">\(\frac{p(p+1)}{2}\)</span> 个自由参数，可以假设其是对角矩阵，甚至在各向同性假设中假设其对角线上的元素都相同。前一种的算法有 Factor Analysis，后一种有概率 PCA(p-PCA) 。</p></li>
-<li><p>第二个问题是单个高斯分布是单峰的，对有多个峰的数据分布不能得到好的结果。解决方案：高斯混合GMM 模型。</p></li>
-</ol>
-<p>下面对多维高斯分布的常用定理进行介绍。</p>
-<p>我们记 <span class="math inline">\(x=(x_1, x_2,\cdots,x_p)^T=(x_{a,m\times 1}, x_{b,n\times1})^T,\mu=(\mu_{a,m\times1}, \mu_{b,n\times1}),\Sigma=\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\)</span>，已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma)\)</span>。</p>
-<p>首先是一个高斯分布的定理：</p>
-<blockquote>
-<p>定理：已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma), y\sim Ax+b\)</span>，那么 <span class="math inline">\(y\sim\mathcal{N}(A\mu+b, A\Sigma A^T)\)</span>。</p>
-<p>证明：<span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b]=A\mathbb{E}[x]+b=A\mu+b\)</span>，<span class="math inline">\(Var[y]=Var[Ax+b]=Var[Ax]=A\cdot Var[x]\cdot A^T\)</span>。</p>
-</blockquote>
-<p>下面利用这个定理得到 <span class="math inline">\(p(x_a),p(x_b),p(x_a|x_b),p(x_b|x_a)\)</span> 这四个量。</p>
-<ol type="1">
-<li><p><span class="math inline">\(x_a=\begin{pmatrix}\mathbb{I}_{m\times m}&amp;\mathbb{O}_{m\times n})\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}\)</span>，代入定理中得到： <span class="math display">\[
-\mathbb{E}[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_a\\
-Var[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}\mathbb{I}\\\mathbb{O}\end{pmatrix}=\Sigma_{aa}
-\]</span> 所以 <span class="math inline">\(x_a\sim\mathcal{N}(\mu_a,\Sigma_{aa})\)</span>。</p></li>
-<li><p>同样的，<span class="math inline">\(x_b\sim\mathcal{N}(\mu_b,\Sigma_{bb})\)</span>。</p></li>
-<li><p>对于两个条件概率，我们引入三个量： <span class="math display">\[
-x_{b\cdot a}=x_b-\Sigma_{ba}\Sigma_{aa}^{-1}x_a\\
-\mu_{b\cdot a}=\mu_b-\Sigma_{ba}\Sigma_{aa}^{-1}\mu_a\\
-\Sigma_{bb\cdot a}=\Sigma_{bb}-\Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
-\]</span> 特别的，最后一个式子叫做 <span class="math inline">\(\Sigma_{bb}\)</span> 的 Schur Complementary。可以看到： <span class="math display">\[
-x_{b\cdot a}=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}
-\]</span> 所以： <span class="math display">\[
-\mathbb{E}[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_{b\cdot a}\\
-Var[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}-\Sigma_{aa}^{-1}\Sigma_{ba}^T\\\mathbb{I}_{n\times n}\end{pmatrix}=\Sigma_{bb\cdot a}
-\]</span> 利用这三个量可以得到 <span class="math inline">\(x_b=x_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a\)</span>。因此： <span class="math display">\[
-\mathbb{E}[x_b|x_a]=\mu_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a
-\]</span></p>
-<p><span class="math display">\[
-Var[x_b|x_a]=\Sigma_{bb\cdot a}
-\]</span></p>
-<p>这里同样用到了定理。</p></li>
-<li><p>同样： <span class="math display">\[
-x_{a\cdot b}=x_a-\Sigma_{ab}\Sigma_{bb}^{-1}x_b\\
-\mu_{a\cdot b}=\mu_a-\Sigma_{ab}\Sigma_{bb}^{-1}\mu_b\\
-\Sigma_{aa\cdot b}=\Sigma_{aa}-\Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ba}
-\]</span> 所以： <span class="math display">\[
-\mathbb{E}[x_a|x_b]=\mu_{a\cdot b}+\Sigma_{ab}\Sigma_{bb}^{-1}x_b
-\]</span></p>
-<p><span class="math display">\[
-Var[x_a|x_b]=\Sigma_{aa\cdot b}
-\]</span></p></li>
-</ol>
-<p>下面利用上边四个量，求解线性模型：</p>
-<blockquote>
-<p>已知：<span class="math inline">\(p(x)=\mathcal{N}(\mu,\Lambda^{-1}),p(y|x)=\mathcal{N}(Ax+b,L^{-1})\)</span>，求解：<span class="math inline">\(p(y),p(x|y)\)</span>。</p>
-<p>解：令 <span class="math inline">\(y=Ax+b+\epsilon,\epsilon\sim\mathcal{N}(0,L^{-1})\)</span>，所以 <span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b+\epsilon]=A\mu+b\)</span>，<span class="math inline">\(Var[y]=A \Lambda^{-1}A^T+L^{-1}\)</span>，因此： <span class="math display">\[
-  p(y)=\mathcal{N}(A\mu+b,L^{-1}+A\Lambda^{-1}A^T)
-  \]</span> 引入 <span class="math inline">\(z=\begin{pmatrix}x\\y\end{pmatrix}\)</span>，我们可以得到 <span class="math inline">\(Cov[x,y]=\mathbb{E}[(x-\mathbb{E}[x])(y-\mathbb{E}[y])^T]\)</span>。对于这个协方差可以直接计算： <span class="math display">\[
-  \begin{align}
-  Cov(x,y)&amp;=\mathbb{E}[(x-\mu)(Ax-A\mu+\epsilon)^T]=\mathbb{E}[(x-\mu)(x-\mu)^TA^T]=Var[x]A^T=\Lambda^{-1}A^T
-  \end{align}
-  \]</span> 注意到协方差矩阵的对称性，所以 <span class="math inline">\(p(z)=\mathcal{N}\begin{pmatrix}\mu\\A\mu+b\end{pmatrix},\begin{pmatrix}\Lambda^{-1}&amp;\Lambda^{-1}A^T\\A\Lambda^{-1}&amp;L^{-1}+A\Lambda^{-1}A^T\end{pmatrix})\)</span>。根据之前的公式，我们可以得到： <span class="math display">\[
-  \mathbb{E}[x|y]=\mu+\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}(y-A\mu-b)
-  \]</span></p>
-<p><span class="math display">\[
-  Var[x|y]=\Lambda^{-1}-\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}A\Lambda^{-1}
-  \]</span></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Back Propagation</title>
-    <url>/2022/10/21/BP/</url>
-    <content><![CDATA[
-
-	<div class="row">
-    <embed src="BP.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<!-- 
-
-	<div class="row">
-    <embed src="https://cloud.tsinghua.edu.cn/f/952edbd1e02d409cbd01/" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-<p>--&gt;</p>
-<!-- <iframe src="BP.pdf" width="800px" height="800px" frameborder="0" scrolling="no"></iframe> -->
-<h2 id="梯度下降">梯度下降</h2>
-<ol type="1">
-<li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
-</ol>
-<p><a href="https://so.csdn.net/so/search?q=梯度下降&amp;spm=1001.2101.3001.7020">梯度下降</a>（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主要目的是通过迭代找到目标函数的最小值，或者收敛到最小值。</p>
-<h3 id="思想">思想</h3>
-<p><strong>梯度下降法的基本思想可以类比为一个下山的过程。</strong> 假设这样一个场景：一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)。但此时山上的浓雾很大，导致可视度很低；因此，下山的路径就无法确定，必须利用自己周围的信息一步一步地找到下山的路。这个时候，便可利用梯度下降算法来帮助自己下山。怎么做呢，<strong>首先以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着下降方向走一步，然后又继续以当前位置为基准，再找最陡峭的地方，再走直到最后到达最低处；同理上山也是如此，只是这时候就变成梯度上升算法了。</strong></p>
-<p>梯度下降的基本过程就和下山的场景很类似。</p>
-<p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
-<h3 id="数学表示">数学表示</h3>
-<p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
-<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;"></p>
-<p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
-<p><strong><mark>α</mark></strong></p>
-<p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
-<p><strong><mark>梯度要乘以一个负号</mark></strong></p>
-<p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
-<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
-<p>第 <span class="math inline">\(l\)</span> 层的误差项可以通过第 <span class="math inline">\(l + 1\)</span> 层的误差项计算得到，这就是误差的反向传播（BackPropagation，BP）。反向传播算法的含义是：第 <span class="math inline">\(l\)</span> 层的一个神经元的误差项（或敏感性）是所有与该神经元相连的第 <span class="math inline">\(l + 1\)</span> 层的神经元的误差项的权重和．然后，再乘上该神经元激活函数的梯度</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-  </entry>
-  <entry>
     <title>test.md</title>
     <url>/2022/10/20/test-md/</url>
     <content><![CDATA[<h2 id="测试latex">测试latex</h2>
@@ -311,8 +31,8 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>学习链接</title>
     <url>/2022/10/19/tolearn/</url>
-    <content><![CDATA[<h1 id="专业类"><strong>专业类</strong></h1>
-<h2 id="数学基础"><strong>数学基础</strong></h2>
+    <content><![CDATA[<h1 id="专业类">1 <strong>专业类</strong></h1>
+<h2 id="数学基础">1.1 <strong>数学基础</strong></h2>
 <ol type="1">
 <li>老齐课程，<a href="http://www.itdiffer.com/">首页 · 老齐教室 (itdiffer.com)</a>
 <ul>
@@ -331,14 +51,14 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://mml-book.github.io/">Mathematics for Machine Learning | Companion webpage to the book “Mathematics for Machine Learning”.</a></li>
 </ul></li>
 </ol>
-<h2 id="数据结构与算法">数据结构与算法</h2>
-<h2 id="c">C++</h2>
+<h2 id="数据结构与算法">1.2 数据结构与算法</h2>
+<h2 id="c">1.3 C++</h2>
 <ol type="1">
 <li>把C++基础过一遍，黑马程序员</li>
 <li><a href="https://www.bilibili.com/video/BV1W4411T7wL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">C++进阶之STL</a></li>
 </ol>
-<h2 id="计算机网络">计算机网络</h2>
-<h2 id="机器学习"><strong>机器学习</strong></h2>
+<h2 id="计算机网络">1.4 计算机网络</h2>
+<h2 id="机器学习">1.5 <strong>机器学习</strong></h2>
 <!-- 1. **🔗[线性回归](机器学习/00Tra_ML/02.线性回归.md)** -->
 <ol type="1">
 <li>🔗<a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" title="线性回归">线性回归</a></li>
@@ -357,12 +77,12 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://christophm.github.io/interpretable-ml-book/preface-by-the-author.html">【英文】机器学习可解释性| Interpretable Machine Learning (christophm.github.io)</a></li>
 <li></li>
 </ol>
-<h2 id="深度学习"><strong>深度学习</strong></h2>
+<h2 id="深度学习">1.6 <strong>深度学习</strong></h2>
 <ol type="1">
 <li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong> <!-- 2. **🔗[CNN](机器学习/05DL/CNN.md)** --></li>
 <li><a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/" title="CNN">🔗CNN</a></li>
 </ol>
-<h2 id="强化学习"><strong>强化学习</strong></h2>
+<h2 id="强化学习">1.7 <strong>强化学习</strong></h2>
 <ol type="1">
 <li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
 <li><a href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总</a></li>
@@ -374,7 +94,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://www.bilibili.com/video/BV1vG4y1n7Rp/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">强化学习论文分享2022-10-13_哔哩哔哩_bilibili</a></li>
 <li></li>
 </ol>
-<h2 id="计算机系统"><strong>计算机系统</strong></h2>
+<h2 id="计算机系统">1.8 <strong>计算机系统</strong></h2>
 <ol type="1">
 <li><strong><a href="https://www.bilibili.com/video/BV1cD4y1D7uR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937&amp;t=42.5">【CSAPP-深入理解计算机系统】</a></strong></li>
 <li><a href="https://www.bilibili.com/video/BV17K4y1N7Q2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深入理解计算机系统合集（周更中）_哔哩哔哩_bilibili</a>
@@ -387,7 +107,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><strong><a href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili</a></strong></li>
 <li><strong><a href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili</a></strong></li>
 </ol>
-<h2 id="shell编程">shell编程</h2>
+<h2 id="shell编程">1.9 shell编程</h2>
 <ol type="1">
 <li><a href="https://www.bilibili.com/video/BV1G7411K7q8/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">尚硅谷-Linux视频教程-shell编程（入门到精通）</a>
 <ol type="1">
@@ -396,15 +116,15 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://www.bilibili.com/video/BV12L411T79C/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">跟我一起写Makefile</a></li>
 </ol>
 <hr>
-<h2 id="数电"><strong>数电</strong></h2>
+<h2 id="数电">1.10 <strong>数电</strong></h2>
 <blockquote>
 <ol type="1">
 <li><a href="https://blog.csdn.net/qq_41193189/article/details/103393850">数字电路时序参数总结_tpd是什么参数</a></li>
 <li><a href="http://blog.sina.com.cn/s/blog_5d942c720102woxi.html#:~:text=电路在组合电路中的input-to-output延迟可以用两个参数表示，也即tpd和tcd。%20传输延时%20(Propagation,delay%2C%20tpd)--此物理量表明了输入端信号开始变化到输出端信号稳定所需要的时间。%20组合逻辑中，这个量用来保证输入端经过tpd的时间后，输出端不会再有任何的变化。">FPGA技术(1):理解FPGA的时序（建立/保持时间，最大时钟频率）</a></li>
 </ol>
 <ul>
-<li>==传输延时(Propagation delay, tpd)==--此物理量表明了输入端信号开始变化到输出端信号稳定所需要的时间。组合逻辑中，这个量用来保证输入端经过tpd的时间后，输出端不会再有任何的变化。</li>
-<li>==污染延时 (Contamination delay, tcd)==--此物理量表明输入端信号开始变化到输出端信号开始变化所需要的时间。也就是说，在tcd时间内，输出不会有任何变化。==即输入变化后，输出还能坚持多久不变==</li>
+<li><mark>传输延时 (Propagation delay, tpd)</mark>--此物理量表明了输入端信号开始变化到输出端信号稳定所需要的时间。组合逻辑中，这个量用来保证输入端经过 tpd 的时间后，输出端不会再有任何的变化。</li>
+<li><mark>污染延时 (Contamination delay, tcd)</mark>--此物理量表明输入端信号开始变化到输出端信号开始变化所需要的时间。也就是说，在 tcd 时间内，输出不会有任何变化。<mark>即输入变化后，输出还能坚持多久不变</mark></li>
 </ul>
 <ol start="3" type="1">
 <li><a href="https://zhuanlan.zhihu.com/p/93664819#:~:text=奇数分频器跟偶数分频器一样，当计数器的值等于分频系数（加1或者减1）的一半或等于分频系数时，时钟信号翻转。,奇数分频器分频原理如下图：%20上图的分频系数是3，用一个计数器在上升沿计数，每次计数到1翻转一次，每次计数到3再翻转一次，然后周期重复得到信号clkp1，它的周期就是clk的3倍，但是它的占空比不是50%（占空比就是clk为高的时间占整个时钟周期的百分比）。">时钟分频系列——偶数分频/奇数分频/分数分频 - 知乎 (zhihu.com)</a></li>
@@ -426,65 +146,60 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://sie.bit.edu.cn/xyxw/zhxw/b186836.htm">北京理工大学信息电子学院 -预推免</a></li>
 <li><a href="https://kaoyan.koolearn.com/20201013/1410195.html">北京理工大学2021考研专业目录：信息与电子学院_考研_新东方在线 (koolearn.com)</a></li>
 <li><a href="https://blog.csdn.net/qq_41061258/article/details/102566990">夏令营,预推免经验分享（计科方向，天大+北理+上交+国防科大+北邮+清华深圳）_rl小透明-CSDN博客</a></li>
-<li></li>
-<li></li>
 </ul>
-<h2 id="微电子">微电子</h2>
+<h2 id="微电子">1.11 微电子</h2>
+<ol type="1">
+<li><strong>为什么三极管能放大电流？</strong></li>
+</ol>
 <ul>
-<li>为什么三极管能放大电流？
-<ul>
-<li>==答==：三极管的放大其实并不是真正的放大，只是<img src="https://www.zhihu.com/equation?tex=I_%7BBN%7D" alt="[公式]">和<img src="https://www.zhihu.com/equation?tex=I_%7BCN%7D" alt="[公式]">把<img src="https://www.zhihu.com/equation?tex=I_%7BEN%7D" alt="[公式]">做了分流，而<img src="https://www.zhihu.com/equation?tex=I_%7BBN%7D" alt="[公式]">由于自身缺陷，只能分走极小的一部分，其余绝大部分被<img src="https://www.zhihu.com/equation?tex=I_%7BCN%7D" alt="[公式]">分走，而且栅极的结构尺寸确定，那么电流比例就确定了，这就是放大倍数 <img src="https://www.zhihu.com/equation?tex=%5Cbeta" alt="[公式]"> ，<span class="math inline">\(\beta\)</span> 固定只发生在三极管工作在放大区！！！</li>
+<li>答：三极管的放大其实并不是真正的放大，只是 <span class="math inline">\(I_{BN}\)</span> 和 <span class="math inline">\(I_{CN}\)</span> 把 <span class="math inline">\(I_{EN}\)</span> 做了分流，而 <span class="math inline">\(I_{BN}\)</span> 由于自身缺陷，只能分走极小的一部分，其余绝大部分被 <span class="math inline">\(I_{CN}\)</span> 分走，而且栅极的结构尺寸确定，那么电流比例就确定了，这就是放大倍数 <span class="math inline">\(\beta\)</span>，<span class="math inline">\(\beta\)</span> 固定只发生在三极管工作在放大区！！！</li>
 <li>三极管中的薄的基极将发射结和集电结反紧密的联系在一起，可以把发射结的电流几乎全部地传输到反偏的集电结回路中去，这正是三极管实现放大作用的关键所在。</li>
 <li>三极管的结构。器件并不是<strong>对称的！！！</strong>三个区域的参杂浓度明显不同，其中，发射极的参杂浓度高于集电极，基极的参杂浓度最低。此外，在几何尺寸上，基极很薄，集电极的面积比发射极大，正式这种结构特点，构成了三极管具有电流放的作用的物质基础。</li>
-<li>其实我认为放大这个词是导致大多数人无法理解的真实原因。 放大镜可以放大钱吗?我拿一块钱，你拿放大5倍的放大镜看就是5块钱?<img src="https://pic1.zhimg.com/v2-3ac403672728e5e91f5b2d3c095e415a.png" alt="[大笑]"> 所谓==放大其实是用小的基极电流去控制了大的集电极电流!注意是控制!==永远都不要用放大这个概念了，不然这辈子都无法理解模拟电路!</li>
-</ul></li>
-<li>什么是冲击响应
+<li>其实我认为放大这个词是导致大多数人无法理解的真实原因。 放大镜可以放大钱吗?我拿一块钱，你拿放大5倍的放大镜看就是5块钱? 所谓<mark>放大其实是用小的基极电流去控制了大的集电极电流! 注意是控制!</mark>永远都不要用放大这个概念了，不然这辈子都无法理解模拟电路!</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>什么是冲击响应</strong></li>
+</ol>
 <ul>
 <li>冲激响应就是某个线性时不变系统的输入输出关系的基本特征，任何形式的输入信号，都可以分解成无穷多个不同比例的冲激，而输出就是相应的不同比例的响应的累加。</li>
-</ul></li>
-<li>如何理解费米能级？
+</ul>
+<ol start="3" type="1">
+<li><strong>如何理解费米能级？</strong></li>
+</ol>
 <ul>
 <li><strong>费米能级</strong>反映了电子在不同能态上的填充水平，<strong>费米能级</strong>是绝对零度下电子所能够占据的最高能级。低于费米能级的能带全满，高于费米能级的能带全空。</li>
-<li>==费米狄拉克分布函数含义==：能量为<span class="math inline">\(E\)</span>的量子态被电子占据的概率</li>
-</ul></li>
-<li>强电场下，为什么会速度饱和
-<ul>
-<li>载流子速度饱和，是载流子在材料中传输的一个基本特性，实质上是在==电场很强时载流子平均能量升高，使载流子通过散射损失能量与从电场获取能量差不多快时==，载流子漂移速度不再随电场增强而增大，从而达到其漂移速度上限。这个速度被称作饱和速度，而此时的电场强度称为临界电场强度。散射的存在，导致速度会在某一个值趋于饱和</li>
-</ul></li>
+<li><mark>费米狄拉克分布函数含义</mark>：能量为 <span class="math inline">\(E\)</span> 的量子态被电子占据的概率</li>
 </ul>
-<h2 id="通信">通信</h2>
+<ol start="4" type="1">
+<li><strong>强电场下，为什么会速度饱和</strong></li>
+</ol>
+<ul>
+<li>载流子速度饱和，是载流子在材料中传输的一个基本特性，实质上是在<mark>电场很强时载流子平均能量升高，使载流子通过散射损失能量与从电场获取能量差不多快时</mark>，载流子漂移速度不再随电场增强而增大，从而达到其漂移速度上限。这个速度被称作饱和速度，而此时的电场强度称为临界电场强度。散射的存在，导致速度会在某一个值趋于饱和</li>
+</ul>
+<h2 id="通信">1.12 通信</h2>
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/399265357">一、通信系统模型（通信原理） - 知乎 (zhihu.com)</a></li>
 <li><a href="https://blog.csdn.net/flypassion/article/details/103546657">通信原理及系统系列8—— 如何消除码间串扰_flypassion的博客-CSDN博客</a></li>
-<li>麦克斯韦方程组
-<ul>
-<li><img src="/.io//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20210829155855021.png" alt="image-20210829155855021" style="zoom:67%;"></li>
-<li></li>
-</ul></li>
+<li>麦克斯韦方程组 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/麦克斯韦.43ivarjmvgi0.png" alt="麦克斯韦"></li>
 </ul>
-<h2 id="半导体物理">半导体物理</h2>
+<h2 id="半导体物理">1.13 半导体物理</h2>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1fp4y1z7oF?from=search&amp;seid=3011327188028506472">【物理】半导体物理 西安电子科技大学 柴常春等主讲_哔哩哔哩_bilibili</a></li>
 <li></li>
 </ul>
-<h1 id="二软能力"><strong>二、软能力</strong></h1>
-<h2 id="羽毛球"><strong>羽毛球</strong></h2>
+<h1 id="软能力">2 <strong>软能力</strong></h1>
+<h2 id="羽毛球">2.1 <strong>羽毛球</strong></h2>
 <ol type="1">
-<li><strong><a href="https://www.bilibili.com/video/BV12t4y1e7L4/?spm_id_from=333.788.recommend_more_video.11&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？_哔哩哔哩_bilibili</a></strong></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1n94y127z9/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置_哔哩哔哩_bilibili</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV1yT411T78Y/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】我发了短球对方总推我底线就特别难受！怎么解决？_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1pN4y1F72H/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球反手训练，让你获得更大的反手击球力量，轻松将球打到后场_哔哩哔哩_bilibili</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1PG41187Vq/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球初学者常见错误_哔哩哔哩_bilibili</a></strong></li>
-<li><a href="https://www.bilibili.com/video/BV1vU4y1r7Vf/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球高级动作，提升你的羽毛球技能_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV19d4y1o75Z/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球步法，轻松应对网前及后场球_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1hT411w7fL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球挑球常出现的错误_哔哩哔哩_bilibili</a></li>
-<li><strong><a href="https://www.bilibili.com/video/BV1LP4y1a7HH/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【高清低视角】林丹vs薛松 剪辑版 享受丹神的球速吧_哔哩哔哩_bilibili</a></strong>
-<ul>
-<li>看完这个视频，感觉林丹很轻松的原因。
-<ul>
-<li>一是，回球到位，所以让对手很难受，因为回球到位，对手难受，自己才很轻松。无论是接杀，还是什么，回球都让对方很难受</li>
-</ul></li>
-</ul></li>
+<li><p><strong><a href="https://www.bilibili.com/video/BV12t4y1e7L4/?spm_id_from=333.788.recommend_more_video.11&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球改怎么练力量，为什么和健身不一样呢？爆发力和耐力怎么练？_哔哩哔哩_bilibili</a></strong></p></li>
+<li><p><strong><a href="https://www.bilibili.com/video/BV1n94y127z9/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】单打最佳套路，国际球员常用的（转身球套路），学上这套路，不只是限制对方进攻而且还是限制对方回球位置_哔哩哔哩_bilibili</a></strong></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1yT411T78Y/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【李宇轩】我发了短球对方总推我底线就特别难受！怎么解决？_哔哩哔哩_bilibili</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1pN4y1F72H/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球反手训练，让你获得更大的反手击球力量，轻松将球打到后场_哔哩哔哩_bilibili</a></p></li>
+<li><p><strong><a href="https://www.bilibili.com/video/BV1PG41187Vq/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球初学者常见错误_哔哩哔哩_bilibili</a></strong></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1vU4y1r7Vf/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球高级动作，提升你的羽毛球技能_哔哩哔哩_bilibili</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV19d4y1o75Z/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球步法，轻松应对网前及后场球_哔哩哔哩_bilibili</a></p></li>
+<li><p><a href="https://www.bilibili.com/video/BV1hT411w7fL/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">羽毛球挑球常出现的错误_哔哩哔哩_bilibili</a></p></li>
+<li><p><strong><a href="https://www.bilibili.com/video/BV1LP4y1a7HH/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【高清低视角】林丹vs薛松 剪辑版 享受丹神的球速吧_哔哩哔哩_bilibili</a></strong></p>
+<p>看完这个视频，感觉林丹很轻松的原因。 一是，回球到位，所以让对手很难受，因为回球到位，对手难受，自己才很轻松。无论是接杀，还是什么，回球都让对方很难受</p></li>
 </ol>
 <p><strong><mark>控制自己的情绪，积极向上生活</mark></strong></p>
 <ol type="1">
@@ -499,7 +214,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <ol type="1">
 <li><a href="https://www.bilibili.com/video/BV1te4y1v79b/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">武汉大学陈铭：论恐惧与鬼_哔哩哔哩_bilibili</a></li>
 </ol>
-<h1 id="三英语"><strong>三、英语</strong></h1>
+<h1 id="英语">3 <strong>英语</strong></h1>
 <ol type="1">
 <li><a href="https://www.bilibili.com/video/BV13B4y1E78c/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">中英文逻辑_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.bilibili.com/video/BV16T41137jP/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">雅思写作小作文进阶篇——用数学模型拿捏考官_哔哩哔哩_bilibili</a></li>
@@ -514,61 +229,65 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
-    <content><![CDATA[<h2 id="section">2022-11-01</h2>
-<h3 id="comments">comments</h3>
-<h3 id="近期工作">近期工作</h3>
+    <content><![CDATA[<h1 id="section">1 2022-11-01</h1>
+<h2 id="comments">1.1 comments</h2>
+<h2 id="近期工作">1.2 近期工作</h2>
 <ol type="1">
-<li><p><strong><em>2022-11-02，周三</em></strong>，上午英语pre之后，回来取快递 <em>AC108EX</em> 手胶，然后贴手胶，确实好用，然后就在看羽毛球视频，下午睡觉之后，数字图像处理水印现状到 3:30，看论文<em>bitcut</em>。 ✅ ❌ ✘ ✔ ✓ ✗</p></li>
-<li><p><strong><em>2022-11-03，周四</em></strong>，上午看论文<em>2017-BitCuts A Fast Packet Classification algorithm using bit-level cutting-Tsinghua University</em>，但是还没有举出来例子，<strong>注意力集中果然坚持不了长时间，但是看论文又需要集中注意力，所以一篇论文得分段来看。</strong> 下午超导课程，为了发论文，跨学科交流，5:00跑步，6:30<em>数字图像编码</em> ，讲到7:40，安装<em>Obsidian.1.0.3</em></p></li>
+<li><p><strong><em>2022-11-02，周三</em></strong>，上午英语 pre 之后，回来取快递 <em>AC108EX</em> 手胶，然后贴手胶，确实好用，然后就在看羽毛球视频，下午睡觉之后，数字图像处理水印现状到 3:30，看论文<em>bitcut</em>。 ✅ ❌ ✘ ✔ ✓ ✗</p></li>
+<li><p><strong><em>2022-11-03，周四</em></strong>，上午看论文<em>2017-BitCuts A Fast Packet Classification algorithm using bit-level cutting-Tsinghua University</em>，但是还没有举出来例子，<strong>注意力集中果然坚持不了长时间，但是看论文又需要集中注意力，所以一篇论文得分段来看。</strong> 下午超导课程，为了发论文，跨学科交流，5:00 跑步，6:30 <em>数字图像编码</em> ，讲到 7:40，安装<em>Obsidian.1.0.3</em></p></li>
 <li><p><strong><em>2022-11-04，周五</em></strong>，看了一天 <em>2018-ByteCuts Fast Packet Classification by Interior Bit Extraction</em>，（🤬真的要吐槽一句，写论文的人把论文写的这么难懂干什么，总要定义个什么东西）没看懂。下午总结数据包分类 <em>decision tree</em> 部分，晚上区块链课。</p></li>
-<li><p><strong><em>2022-11-05，周六</em></strong>，上午看玩羽毛球视频，中午买了羊肉去吃火锅，下午2:00-3:30开党会，4:00-5:00打羽毛球，5:00-5:50跑步，5:50-6:30学四吃饭，7:00-9:00电影《暗战1》，刘德华真的太帅了:)</p></li>
+<li><p><strong><em>2022-11-05，周六</em></strong>，上午看玩羽毛球视频，中午买了羊肉去吃火锅，下午 2:00-3:30 开党会，4:00-5:00 打羽毛球，5:00-5:50 跑步，5:50-6:30 学四吃饭，7:00-9:00 电影《暗战 1》，刘德华真的太帅了:)</p></li>
 </ol>
 <blockquote>
-<p><strong><font color="red"> <font size="5"> 切忌暴饮暴食，不要晚上8:00后吃东西（最近经常吃瓜子☹，不要再胡吃了），更不要吃垃圾食品（高糖高油食品：油炸类食品，碳酸饮料，薯片/薯条，烤肠，膨化类食品）</font> </font></strong></p>
+<p><strong><font color="red"> <font size="5"> 切忌暴饮暴食，不要晚上 8:00 后吃东西（最近经常吃瓜子☹，不要再胡吃了），更不要吃垃圾食品（高糖高油食品：油炸类食品，碳酸饮料，薯片/薯条，烤肠，膨化类食品）</font> </font></strong></p>
 </blockquote>
 <blockquote>
 <p><a href="https://www.bilibili.com/read/cv9503271">长期高油、高糖、高盐会对人体造成哪些危害？怎样吃才算是真正的健康呢？ - 哔哩哔哩 (bilibili.com)</a></p>
 </blockquote>
 <ol start="5" type="1">
 <li><strong><em>2022-11-06，周日</em></strong>，上午去实验室看硕士论文，了解现状，下午看到 3 点不想看了，去跑步了，晚上回来 7 点好像又在看羽毛球😅。得专注一点.......</li>
-<li><strong><em>2022-11-07，周一</em></strong>，上午继续看论文，下午看到 4 点，去打羽毛球</li>
+<li><strong><em>2022-11-07，周一</em></strong>，上午继续看论文，下午看到 4 点，去打羽毛球，吃完饭 8 点，然后看羽毛球装备到 10 点</li>
+<li><strong><em>2022-11-07，周二</em></strong>，上午总结数据包现状，1:30-3:00 讨论，回来练习怎么讲，到 5:30 去吃饭，回来不开组会了，然后又看羽毛球视频了😅，准备英语 project 几个问题。</li>
 </ol>
-<h3 id="下一步计划">下一步计划</h3>
+<blockquote>
+<p><strong><font color="red">组会一定要提前一天准备好，前一天一定要张嘴说，一说出来就会发现，好多东西还不会，张嘴说与心里想有很大区别，同样写出来与心里想也有很大区别。</font></strong></p>
+</blockquote>
+<h2 id="下一步计划">1.3 下一步计划</h2>
 <hr>
-<h2 id="section-1">2022-11-01</h2>
-<h3 id="comments-1">comments</h3>
+<h1 id="section-1">2 2022-11-01</h1>
+<h2 id="comments-1">2.1 comments</h2>
 <ol type="1">
 <li>实验在什么平台，怎么做的，跟谁对比，哪些参数对比</li>
 <li>每一组实验，实验结果，哪里的创新导致这样的实验结果</li>
-<li>11月底，达到论文突破20篇，用什么思路解决了什么问题</li>
+<li>11 月底，达到论文突破 20 篇，用什么思路解决了什么问题</li>
 </ol>
 <p>🟢 <strong>师姐的笔记</strong></p>
-<p>在就是用他所说的例子讲方案的时候可以配上对应的流程图，他比较喜欢这样，觉得清楚。再就是加上结论（工作之后的成果经过加工后的你自己的想法），还有下周工作。汇报内容序号后面加上（comments1,2,3....），他觉得这样清楚，再就是因为他自己都不记得自己提了啥comments,你得提醒他一下。</p>
-<h3 id="近期工作-1">近期工作</h3>
+<p>在就是用他所说的例子讲方案的时候可以配上对应的流程图，他比较喜欢这样，觉得清楚。再就是加上结论（工作之后的成果经过加工后的你自己的想法），还有下周工作。汇报内容序号后面加上（comments1,2,3....），他觉得这样清楚，再就是因为他自己都不记得自己提了啥 comments,你得提醒他一下。</p>
+<h2 id="近期工作-1">2.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-10-26，周三</em></strong>，上午英语，下午海洋</li>
 <li><strong><em>2022-10-27，周四</em></strong>，上午工程伦理考试，下午数字图像处理，晚上考试。</li>
 </ol>
 <p>🔴 <strong>注：今日感想</strong></p>
 <blockquote>
-<p><font size="5">发现一深入学什么，学不会就不想学就不敢兴趣了😅，数字图像就是这样，不会之前听着可好，一深入，就发现不太喜欢。现在就想模拟器件挺好，但是你好像忘记了当初搞不懂BJT，什么载流子的原理时的痛苦了。<strong>一深入了解就发现有些东西不是你想的那么回事</strong>，尽快了解，找到自己的方向。目前考虑编程、硬件</font></p>
+<p><font size="5">发现一深入学什么，学不会就不想学就不敢兴趣了😅，数字图像就是这样，不会之前听着可好，一深入，就发现不太喜欢。现在就想模拟器件挺好，但是你好像忘记了当初搞不懂 BJT，什么载流子的原理时的痛苦了。<strong>一深入了解就发现有些东西不是你想的那么回事</strong>，尽快了解，找到自己的方向。目前考虑编程、硬件</font></p>
 </blockquote>
 <ol start="3" type="1">
-<li><strong><em>2022-10-28，周五</em></strong>，上午 9:00 点醒，看羽毛球视频，下午睡觉洗衣服，跑步，看《五亿探长雷洛1》。</li>
+<li><strong><em>2022-10-28，周五</em></strong>，上午 9:00 点醒，看羽毛球视频，下午睡觉洗衣服，跑步，看《五亿探长雷洛 1》。</li>
 <li><strong><em>2022-10-29，周六</em></strong>，上午睡觉，下午在看电影吃瓜子，一句话，啥都没干~</li>
-<li><strong><em>2022-10-30，周日</em></strong>，上午从 8:30-12:00 打羽毛球，吃完饭 1:00，下午准备英语presentation的演讲稿和图标作文。</li>
-<li><strong><em>2022-10-31，周一</em></strong>，上午英语课，下午 2:30 讨论明天汇报的内容，看论文 <strong><em><big> <font face="Times new roman"> MBitTree A fast and scalable packet classification for software switches </font></big></em></strong> 到5点，吃饭回来把这篇论文看懂了。
+<li><strong><em>2022-10-30，周日</em></strong>，上午从 8:30-12:00 打羽毛球，吃完饭 1:00，下午准备英语 presentation 的演讲稿和图标作文。</li>
+<li><strong><em>2022-10-31，周一</em></strong>，上午英语课，下午 2:30 讨论明天汇报的内容，看论文 <strong><em><big> <font face="Times new roman"> MBitTree A fast and scalable packet classification for software switches </font></big></em></strong> 到 5 点，吃饭回来把这篇论文看懂了。
 <ul>
 <li>做事要关闭手机，看看自己做这件事花了多长时间</li>
 <li><strong>《决策树报文分类算法_吕高锋》</strong> 这篇论文很重要</li>
 <li>450￥ 买了羽毛球鞋</li>
 <li>今天看英文的速度还可以，还要加强。</li>
-<li>待办：<del>英语演讲练习及 ppt 修改</del>，英语test，<del>准备论文</del>，了解雅思</li>
+<li>待办：<del>英语演讲练习及 ppt 修改</del>，英语 test，<del>准备论文</del>，了解雅思</li>
 </ul></li>
 </ol>
 <p>🔴 <strong>存在的问题：</strong></p>
 <blockquote>
-<p><strong><font color="red"> <font size="5">切忌长时间看电脑，尤其是晚上超过9点看电脑！！！一到12点就长痘</font> </font></strong></p>
+<p><strong><font color="red"> <font size="5">切忌长时间看电脑，尤其是晚上超过 9 点看电脑！！！一到 12 点就长痘</font> </font></strong></p>
 </blockquote>
 <ol start="7" type="1">
 <li><strong><em>2022-11-01，周二</em></strong>，上午在实验室准备讲例子，下午睡觉，然后更新印象笔记，晚上听组会。</li>
@@ -577,34 +296,34 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <blockquote>
 <ol type="1">
 <li>每次去更新那个印象笔记太浪费时间了，因为巨难用😅，每次浪费一些没必要的时间。</li>
-<li>每次准备讲论文的时候，反复去查期刊，单位，也浪费不必要的时间，每次看论文，<strong>打开ppt，md 文件</strong>，作者信息、单位等两个文件都放。另外说一句，看论文的时候，<strong>所有论文的 Introduction 和 Related work 可以翻译完和原文放在一个 md 文件中</strong>，方便你自己去写论文。然后其他部分没有必要全文翻译然后复制粘贴，其他部分<strong>提炼成一张图</strong>的形式。</li>
+<li>每次准备讲论文的时候，反复去查期刊，单位，也浪费不必要的时间，每次看论文，<strong>打开 ppt，md 文件</strong>，作者信息、单位等两个文件都放。另外说一句，看论文的时候，<strong>所有论文的 Introduction 和 Related work 可以翻译完和原文放在一个 md 文件中</strong>，方便你自己去写论文。然后其他部分没有必要全文翻译然后复制粘贴，其他部分<strong>提炼成一张图</strong>的形式。</li>
 <li><strong>周一（提前一天）要把组会所有东西准备好，包括演练。</strong></li>
 </ol>
 </blockquote>
-<h3 id="下一步计划-1">下一步计划</h3>
+<h2 id="下一步计划-1">2.3 下一步计划</h2>
 <hr>
-<h2 id="section-2">2022-10-25</h2>
-<h3 id="comments-2">comments</h3>
-<h3 id="近期工作-2">近期工作</h3>
+<h1 id="section-2">3 2022-10-25</h1>
+<h2 id="comments-2">3.1 comments</h2>
+<h2 id="近期工作-2">3.2 近期工作</h2>
 <ol type="1">
-<li><strong><em>2022-10-19，周三</em></strong>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出<code>packet</code>和<code>packet</code>对应哈希表的序号</li>
+<li><strong><em>2022-10-19，周三</em></strong>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出 <code>packet</code> 和 <code>packet</code> 对应哈希表的序号</li>
 </ol>
 <ul>
-<li><p><strong><mark>如何输出变量到CSV文件</mark></strong></p>
+<li><p><strong><mark>如何输出变量到 CSV 文件</mark></strong></p>
 <ol type="1">
-<li><a href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang的博客-CSDN博客_c++ 追加写文件</a></li>
-<li><a href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv文本文件（也可用excel打开）_浦柳人的博客-CSDN博客_c++输出csv文件</a></li>
+<li><a href="https://blog.csdn.net/weixin_43918046/article/details/106367507?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-106367507-blog-120163625.pc_relevant_aa_2&amp;utm_relevant_index=1">C++文件操作，读取，写入，追加写入_Guapifang 的博客-CSDN 博客_c++ 追加写文件</a></li>
+<li><a href="https://blog.csdn.net/weixin_43237242/article/details/100905961">C++将数据输出格式为.csv 文本文件（也可用 excel 打开）_浦柳人的博客-CSDN 博客_c++输出 csv 文件</a></li>
 </ol></li>
 </ul>
 <ol start="2" type="1">
-<li><strong><em>2022-10-20，周四</em></strong>，上午工程伦理，下午睡觉醒来，洗洗衣服就5点，然后就跑去运动了。晚上做了hexo博客。</li>
+<li><strong><em>2022-10-20，周四</em></strong>，上午工程伦理，下午睡觉醒来，洗洗衣服就 5 点，然后就跑去运动了。晚上做了 hexo 博客。</li>
 <li><strong><em>2022-10-21，周五</em></strong>，上午打球，下午看反向传播算法</li>
 <li><strong><em>2022-10-22，周六</em></strong>，上午打球，下午看论文，但是 <strong>效率很低</strong></li>
 <li><strong><em>2022-10-23，周日</em></strong>，上午打球，下午复习反向传播</li>
-<li><strong><em>2022-10-24，周一</em></strong>，上午英语课，下午睡到3点
+<li><strong><em>2022-10-24，周一</em></strong>，上午英语课，下午睡到 3 点
 <ul>
 <li>外卖困在系统里。</li>
-<li>整blog，又5点了，跑步吃饭。</li>
+<li>整 blog，又 5 点了，跑步吃饭。</li>
 </ul></li>
 <li><strong><em>2022-10-25，周二</em></strong>，上午数字图像处理，下午党支部会议，晚上组会。</li>
 </ol>
@@ -612,52 +331,52 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <blockquote>
 <p><strong><font color="red"> <font size="5">做事效率不够专注，效率太低。</font> </font></strong></p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);	</span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);    </span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="section-3">2022-10-18</h2>
-<h3 id="comments-3">comments</h3>
-<h3 id="近期工作-3">近期工作</h3>
+<h1 id="section-3">4 2022-10-18</h1>
+<h2 id="comments-3">4.1 comments</h2>
+<h2 id="近期工作-3">4.2 近期工作</h2>
 <ol type="1">
-<li><p>周三，在实验室电脑上安装虚拟机，安装gcc、g++，运行PartitionSort的代码，从中提取TSS的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
-<li><p>周四，与老师讨论，规范weekly meeting的内容。跟作者发邮件</p>
+<li><p>周三，在实验室电脑上安装虚拟机，安装 gcc、g++，运行 PartitionSort 的代码，从中提取 TSS 的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
+<li><p>周四，与老师讨论，规范 weekly meeting 的内容。跟作者发邮件</p>
 <ul>
 <li><p><strong><mark>如何发邮件</mark></strong></p>
 <ol type="1">
-<li><strong><a href="https://www.zhihu.com/question/27145261">如何礼貌地向文献作者索要源代码？ - 知乎 (zhihu.com)</a></strong></li>
-<li><strong><a href="https://www.zhihu.com/question/29748091">给论文作者发邮件问问题？ - 知乎 (zhihu.com)</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/wuyanne/article/details/116047368">发邮件向论文作者卑微求代码模板_一只小小小飞鸟的博客-CSDN博客_给论文作者发邮件请教问题模板</a></strong></li>
+<li>** <a href="https://www.zhihu.com/question/27145261">如何礼貌地向文献作者索要源代码？ - 知乎 (zhihu.com)</a> **</li>
+<li>** <a href="https://www.zhihu.com/question/29748091">给论文作者发邮件问问题？ - 知乎 (zhihu.com)</a> **</li>
+<li>** <a href="https://blog.csdn.net/wuyanne/article/details/116047368">发邮件向论文作者卑微求代码模板_一只小小小飞鸟的博客-CSDN 博客_给论文作者发邮件请教问题模板</a> **</li>
 </ol></li>
 <li><p><strong><mark>邮件内容</mark></strong></p></li>
 </ul></li>
 <li><p>周五，和张楠讨论<em>Fast Online Packet Classification With Convolutional Neural Network</em></p></li>
-<li><p>周六，看TM中TSS部分的代码</p>
+<li><p>周六，看 TM 中 TSS 部分的代码</p>
 <ul>
 <li><strong><mark>cuckoo hash</mark></strong>
 <ol type="1">
-<li><strong><a href="https://zhuanlan.zhihu.com/p/462815302">布隆过滤器与布谷鸟过滤器 - 知乎 (zhihu.com)</a></strong></li>
-<li><strong><a href="https://zhuanlan.zhihu.com/p/442498412">布谷鸟哈希和布谷鸟过滤器 - 知乎 (zhihu.com)</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/nannanxiami/article/details/109568254">Cuckoo Hash 布谷鸟哈希_nannanxiami的博客-CSDN博客</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/suwei19870312/article/details/7442786?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=1">Cuckoo Hash 基本思想和代码实现_码农SW的博客-CSDN博客_cuckoo hash</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/wc13197389627/article/details/112433980?spm=1001.2101.3001.6650.5&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=6">Cuckoo Hash及其性质_Rauchy的博客-CSDN博客_cuckoo hash</a></strong></li>
+<li>** <a href="https://zhuanlan.zhihu.com/p/462815302">布隆过滤器与布谷鸟过滤器 - 知乎 (zhihu.com)</a> **</li>
+<li>** <a href="https://zhuanlan.zhihu.com/p/442498412">布谷鸟哈希和布谷鸟过滤器 - 知乎 (zhihu.com)</a> **</li>
+<li>** <a href="https://blog.csdn.net/nannanxiami/article/details/109568254">Cuckoo Hash 布谷鸟哈希_nannanxiami 的博客-CSDN 博客</a> **</li>
+<li>** <a href="https://blog.csdn.net/suwei19870312/article/details/7442786?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-7442786-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=1">Cuckoo Hash 基本思想和代码实现_码农 SW 的博客-CSDN 博客_cuckoo hash</a> **</li>
+<li>** <a href="https://blog.csdn.net/wc13197389627/article/details/112433980?spm=1001.2101.3001.6650.5&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-112433980-blog-109568254.pc_relevant_3mothn_strategy_recovery&amp;utm_relevant_index=6">Cuckoo Hash 及其性质_Rauchy 的博客-CSDN 博客_cuckoo hash</a> **</li>
 </ol></li>
 </ul></li>
 <li><p>周一，<em>A Learned Bloom Filter-assisted Scheme for Packet Classification in Software-Defined Networking</em></p>
 <ul>
 <li><strong><mark>Bloom Filter</mark></strong>
 <ol type="1">
-<li><a href="https://blog.csdn.net/qq_40124555/article/details/122810154">什么是布隆过滤器？如何使用？_Java技术债务的博客-CSDN博客_布隆过滤器</a></li>
+<li><a href="https://blog.csdn.net/qq_40124555/article/details/122810154">什么是布隆过滤器？如何使用？_Java 技术债务的博客-CSDN 博客_布隆过滤器</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/148716788">通俗易懂讲布隆过滤器 - 知乎 (zhihu.com)</a></li>
 <li><a href="https://developer.aliyun.com/article/1046992">图解布隆过滤器，十分钟带你理解什么是布隆过滤器？-阿里云开发者社区 (aliyun.com)</a></li>
 </ol></li>
 <li><strong><mark>cross production 交叉熵</mark></strong>
 <ol type="1">
-<li><a href="https://blog.csdn.net/xiao_xian_/article/details/116011455">机器学习--- 交叉熵损失(CrossEntropy Loss)--(附代码)_Jankin_Tian的博客-CSDN博客_交叉熵损失函数代码</a></li>
+<li><a href="https://blog.csdn.net/xiao_xian_/article/details/116011455">机器学习--- 交叉熵损失(CrossEntropy Loss)--(附代码)_Jankin_Tian 的博客-CSDN 博客_交叉熵损失函数代码</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/35709485">损失函数｜交叉熵损失函数 - 知乎 (zhihu.com)</a></li>
 <li></li>
 </ol></li>
 </ul></li>
 </ol>
-<h3 id="下一步计划-2">下一步计划</h3>
+<h2 id="下一步计划-2">4.3 下一步计划</h2>
 ]]></content>
       <categories>
         <category>科研</category>
@@ -2108,13 +1827,27 @@ blockquote {
 <li><p>缺少一拍后场的杀球。</p></li>
 <li><p>打边线</p></li>
 <li><p>弧度要低，不要只打高远球</p></li>
-<li><p>低点击球，骗重心 看看下面这个视频：</p></li>
+<li><p>低点击球，骗重心 参考下面这个视频：</p></li>
 </ol>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1G14y1Y7dT/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">跟安徽省省运会单打冠军学习一下_哔哩哔哩_bilibili</a></li>
 </ul>
 <hr>
 <h2 id="section-2">3.3 <em>2022.11.07</em></h2>
+<ol type="1">
+<li>今天不知道是鞋的原因还是什么原因，打的还可以</li>
+<li>下一次继续注意:
+<ol type="1">
+<li><strong><font color="red">一致性，在击球前，不要让对手看出你要打什么球</font></strong></li>
+<li><strong>不要起高球</strong></li>
+<li><strong>高远球侧身转体发力</strong></li>
+<li><strong>加上手法骗重心</strong></li>
+<li><strong>低弧度打边线，逼对手回球不到位</strong></li>
+<li><strong>连贯</strong></li>
+<li>发力动作</li>
+<li>接杀破坏连贯</li>
+</ol></li>
+</ol>
 <hr>
 ]]></content>
       <categories>
@@ -2608,103 +2341,92 @@ blockquote {
   <entry>
     <title>数据包分类方案整理</title>
     <url>/2022/11/03/%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="硬件">1 硬件</h1>
-<h1 id="软件">2 软件</h1>
-<h2 id="决策树">2.1 决策树</h2>
-<h3 id="规则集分组">2.1.1 规则集分组</h3>
-<p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
-<ol type="1">
-<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。
-<ul>
+    <content><![CDATA[<h1 id="1-硬件"><a href="#1-硬件" class="headerlink" title="1 硬件"></a>1 硬件</h1><h1 id="2-软件"><a href="#2-软件" class="headerlink" title="2 软件"></a>2 软件</h1><h2 id="2-1-决策树"><a href="#2-1-决策树" class="headerlink" title="2.1 决策树"></a>2.1 决策树</h2><h3 id="2-1-1-规则集分组"><a href="#2-1-1-规则集分组" class="headerlink" title="2.1.1 规则集分组"></a>2.1.1 规则集分组</h3><p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
+<ol>
+<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。<ul>
 <li><del>HiCuts(1999), HyperCuts(2004)</del>, <em>Efficuts(2010)</em>, <del>HyperSplit(2011),</del> <em>SmartSplit(2014), CutSplit(2018)</em></li>
-</ul></li>
-<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。
-<ul>
+</ul>
+</li>
+<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。<ul>
 <li>HashTable</li>
 <li><em>ByteCuts(2018)</em></li>
-</ul></li>
-<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。
-<ul>
+</ul>
+</li>
+<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。<ul>
 <li><em>ParaSplit</em></li>
-</ul></li>
-<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。
-<ul>
+</ul>
+</li>
+<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。<ul>
 <li><em>NeuroCuts(2019)</em></li>
-</ul></li>
+</ul>
+</li>
 </ol>
 <p>按字段大小、前缀长度分组等启发式策略建立在对规则集分布特征观察的基础之上，原理相 对简单、容易实现，但对于不同的规则集，往往需 要手动调整部分参数以获得理想结果; 聚类算法、 神经网络模型则可以使用机器学习来替代人工调 整，实现对规则子集的自适应划分，但需要经过大 量的训练和迭代才能收敛。</p>
-<h3 id="节点切割">2.1.2 节点切割</h3>
-<p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
+<h3 id="2-1-2-节点切割"><a href="#2-1-2-节点切割" class="headerlink" title="2.1.2 节点切割"></a>2.1.2 节点切割</h3><p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
 <p>各类决策树算法在节点切割方面的主要区别为:</p>
-<ol type="1">
-<li><p><strong><font color="red">切割维度的选择</font></strong>。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p></li>
+<ol>
+<li><p>**<font color="red">切割维度的选择</font>**。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p>
+</li>
 <li><p><strong><font color="red">切割端点的选择</font></strong></p>
-<ol type="1">
-<li><strong>Equi - size</strong>
-<ul>
-<li>快速将节点等分为 <span class="math inline">\(2^n\)</span> 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
+<ol>
+<li><strong>Equi - size</strong><ul>
+<li>快速将节点等分为 $2^n$ 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
 <li><em>HiCuts(1999), HyperCuts(2004), Efficuts(2010)</em></li>
-</ul></li>
-<li><strong>Equi-dense</strong>
-<ul>
+</ul>
+</li>
+<li><strong>Equi-dense</strong><ul>
 <li>而等密切割能够缓解规则复制问题，但也存在树深度增加、节点索引复杂等问题。</li>
 <li><em>HyperSplit(2011), SmartSplit(2014)</em></li>
-</ul></li>
-<li><strong>Bit cutting</strong>
-<ul>
+</ul>
+</li>
+<li><strong>Bit cutting</strong><ul>
 <li>利用规则每一位都可表示为 0、1 或者 * ( 通配符) 的特点，选择其中有效比特将规则映射到各个子节点中，从而避免了盲目地切割整个搜索空间。</li>
 <li><em>BitCuts(2017), ByteCuts(2018), MBitTree(2021)</em></li>
-</ul></li>
-</ol></li>
+</ul>
+</li>
+</ol>
+</li>
 </ol>
 <blockquote>
 <p>另一个角度看，等分切割也是一种特殊的比特切割，但只允许使用连续的最高有效位。</p>
 </blockquote>
-<h3 id="hicuts">2.1.3 HiCuts</h3>
-<ol type="1">
+<h3 id="2-1-3-HiCuts"><a href="#2-1-3-HiCuts" class="headerlink" title="2.1.3 HiCuts"></a>2.1.3 HiCuts</h3><ol>
 <li><strong>思路</strong>： 一次选择单个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
 <li><strong>优点</strong>：首个决策树分类算法，快速 切割规则空间</li>
 <li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大</li>
 </ol>
-<h3 id="hypercuts">2.1.4 HyperCuts</h3>
-<ol type="1">
+<h3 id="2-1-4-HyperCuts"><a href="#2-1-4-HyperCuts" class="headerlink" title="2.1.4 HyperCuts"></a>2.1.4 HyperCuts</h3><ol>
 <li><strong>思路</strong>： 一次选择多个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
 <li><strong>优点</strong>：HiCuts 的改进，树深度较小， 分类速度较快，规则复制相 比 HiCuts 有所优化</li>
 <li><strong>缺点</strong>：内存消耗仍然较大，可扩展性较差</li>
 </ol>
-<h3 id="efficuts">2.1.5 EffiCuts</h3>
-<ol type="1">
-<li><strong>思路</strong>：</li>
+<h3 id="2-1-5-EffiCuts"><a href="#2-1-5-EffiCuts" class="headerlink" title="2.1.5 EffiCuts"></a>2.1.5 EffiCuts</h3><ol>
+<li><strong>思路</strong>： </li>
 <li><strong>规则集分组方式</strong>：</li>
-<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
+<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
 <li><strong>优点</strong>：大大减少了规则复制</li>
 <li><strong>缺点</strong>：划分树的数目太多，查找速度慢</li>
 </ol>
-<h3 id="hypersplit">2.1.6 HyperSplit</h3>
-<p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
-<ol type="1">
+<h3 id="2-1-6-HyperSplit"><a href="#2-1-6-HyperSplit" class="headerlink" title="2.1.6 HyperSplit"></a>2.1.6 HyperSplit</h3><p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
+<ol>
 <li><strong>思路</strong>： 一次选择单个维度和特定的 端点，将搜索空间划分为两 个规则数几乎相等的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<strong><em>equi-dense</em></strong></li>
+<li><strong>节点切割方式</strong>：<em><strong>equi-dense</strong></em></li>
 <li><strong>优点</strong>：进一步优化规则复制问题， 内存消耗小</li>
 <li><strong>缺点</strong>：树深度较大，遍历树所需 的访存次数较多</li>
 </ol>
-<h3 id="bitcuts">2.1.7 BitCuts</h3>
-<ol type="1">
+<h3 id="2-1-7-BitCuts"><a href="#2-1-7-BitCuts" class="headerlink" title="2.1.7 BitCuts"></a>2.1.7 BitCuts</h3><ol>
 <li><strong>思路</strong>： 选择规则中的有效比特来划分搜索空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<strong><em>bit-cutting</em></strong></li>
-<li><strong>优点</strong>：分类速度在 4 种算法中最 快，吞吐量高</li>
-<li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大 ## 2.2 哈希表</li>
+<li><strong>节点切割方式</strong>：<em><strong>bit-cutting</strong></em></li>
+<li><strong>优点</strong>：分类速度在 4 种算法中最快，吞吐量高</li>
+<li><strong>缺点</strong>：树深度较大，规则复制问题严重，内存消耗大</li>
 </ol>
-<h2 id="决策树结合哈希表">2.3 决策树结合哈希表</h2>
-<h2 id="机器学习">2.4 机器学习</h2>
-<h2 id="其他">2.5 其他</h2>
-]]></content>
+<h2 id="2-2-哈希表"><a href="#2-2-哈希表" class="headerlink" title="2.2 哈希表"></a>2.2 哈希表</h2><h2 id="2-3-决策树结合哈希表"><a href="#2-3-决策树结合哈希表" class="headerlink" title="2.3 决策树结合哈希表"></a>2.3 决策树结合哈希表</h2><h2 id="2-4-机器学习"><a href="#2-4-机器学习" class="headerlink" title="2.4 机器学习"></a>2.4 机器学习</h2><h2 id="2-5-其他"><a href="#2-5-其他" class="headerlink" title="2.5 其他"></a>2.5 其他</h2>]]></content>
       <categories>
         <category>论文</category>
       </categories>
@@ -2912,13 +2634,13 @@ blockquote {
 <h2 id="指标">2.1 指标</h2>
 <p>对于任何一个算法都有其性能评价标准，而包分类算法主要包括下面几个性能指标：</p>
 <ol type="1">
-<li><p><strong>数据包的匹配速度（分类速度）</strong>： 包分类算法就是为数据包的快速匹配所设计的，所以数据包的匹配速度作为包分类算法的核心评价指标， 关乎着包分类算法的设计意义。它是包分类算法最重要的性能指标，数据包处理系统应该满足线性处理能力，否则将成为整个系统的瓶颈，影响整个网络的服务质量。数据包的分类速度包括多种情况：</p>
+<li><p><strong>数据包的匹配速度（分类速度）</strong> ： 包分类算法就是为数据包的快速匹配所设计的，所以数据包的匹配速度作为包分类算法的核心评价指标， 关乎着包分类算法的设计意义。它是包分类算法最重要的性能指标，数据包处理系统应该满足线性处理能力，否则将成为整个系统的瓶颈，影响整个网络的服务质量。数据包的分类速度包括多种情况：</p>
 <ol type="1">
 <li><strong>平均包分类速度</strong>，对一个包进行分类查找的平均速度；</li>
 <li><strong>最坏包分类速度</strong>，对一个包进行分类查找可能的最慢速度；</li>
 <li><strong>统计包分类速度</strong>，在符合某种预先指定的规则下，对一个包进行分类查找的速度。<mark>（来源：2015基于OpenFlow协议的高速包分类算法研究_万云凯）</mark></li>
 </ol></li>
-<li><p><strong>算法内存占用</strong>： 一个好的算法设计， 不光要考虑到算法的运行速度，该算法的内存占用， 即空间复杂度也是需要考虑的， 优秀的算法都是在一定程度上优化空间复杂度， 以降低该算法的硬件成本， 所以算法的内存占用也是衡量包分类算法性能的重要指标之一。数据包分类算法的内存使用不仅包括</p>
+<li><p><strong>算法内存占用</strong> ： 一个好的算法设计， 不光要考虑到算法的运行速度，该算法的内存占用， 即空间复杂度也是需要考虑的， 优秀的算法都是在一定程度上优化空间复杂度， 以降低该算法的硬件成本， 所以算法的内存占用也是衡量包分类算法性能的重要指标之一。数据包分类算法的内存使用不仅包括</p>
 <ol type="1">
 <li><strong>存放规则集本身所占用的存储空间</strong></li>
 <li>还包括算法建立的<strong>用于查找的数据结构的存储空间</strong></li>
@@ -2932,7 +2654,11 @@ blockquote {
 <p>主要是对规则的适应性，包括以下两个方面：<strong>一是对规则数量的扩展</strong>，当规则集中规则数量增多时，算法性能要求能够稳定；<strong>另一方面是分类规则维数和层次上的扩展</strong>，要求算法能够根据更多的字段分类，而这些字段可能来自于数据链路层、网络层、传输层等，网络发展日新月异，理想的包分类算法应该能够处理规则集在数量和维度上的扩展。 <mark>（来源：2015基于OpenFlow协议的高速包分类算法研究_万云凯）</mark></p></li>
 </ol>
 <p>然而以上五个包分类算法的性能评价指标之间难以同时满足， 达到最优化，从而 <strong>现实中设计包分类算法可以针对一些场景的特点， 适当提高某些性能指标的性能， 牺牲其它指标的性能来满足一些特定场景需求。</strong></p>
-<p><strong>如果能够对规则集进行预处理归类， 在查找匹配的过程中只在某个类别的规则集中进行查找， 将会避免遍历整个规则集， 从而提高查找效率</strong>，（<mark><strong>划重点，所有方法都是这一思想</strong></mark>） 例如上文提到的元组空间查找算法（TSS） 就依据字段之间组合的长度的不同把规则集进行元组划分， 在查找匹配的过程中只在某个元组中进行查找， 大大提高了查找匹配的速度。</p>
+<p><strong>如果能够对规则集进行预处理归类， 在查找匹配的过程中只在某个类别的规则集中进行查找， 将会避免遍历整个规则集， 从而提高查找效率</strong>，（🟢 <strong><font color="red">Tips 划重点</font></strong>） 例如上文提到的元组空间查找算法（TSS） 就依据字段之间组合的长度的不同把规则集进行元组划分， 在查找匹配的过程中只在某个元组中进行查找， 大大提高了查找匹配的速度。</p>
+<p>🟢 <strong><font color="red">Tips 划重点</font></strong></p>
+<blockquote>
+<p><strong><mark>所有方法都是这一思想，就是想办法怎么把更快的分类别查找</mark></strong></p>
+</blockquote>
 <p>在本文中将<strong>利用网络中存在的局部流现象</strong>， 并结合规则集的优先级， <strong>把规则集拆分为主规则集（Major-Table） 和次规则集（Rarely-Table） 两部分</strong>， 查找匹配的时候优先在主规则集中查找， 若查找不到再去次规则集中进行查找， 下文将用 Major-Table 和 Rarely-Table 来分别代替主规则集和次规则集。 为了更快的查找匹配， <strong>对于主规则集和次规则集划分比例将依据局部流现象存在的比例进行划分</strong>。</p>
 <p>有大量的研究表明，在现实网络中存在着这样一种现象： 在网络中某段时间内的流往往属于同一段流，而这部分分流占据了网络中的大部分流量，此部分分流被一些研究人员称之为<strong>大象流</strong>，而那部分占据网络中的少部分流量的分流则被称为<strong>老鼠流</strong>。并且有许多研究人员针对大象流和老鼠流的识别做了大量的研究工作, 同时应用于像数据中心这样的大数据流环境当中[44-45]。研究试验后，给出了具体的数据信息如下：</p>
 <blockquote>
@@ -2941,16 +2667,34 @@ blockquote {
 <p>一般规则集都是存储在交换设备中， 由一条条的规则项组成， 每条规则项都具有相同的结构</p>
 <h2 id="规则集字段的维度划分">2.2 规则集字段的维度划分</h2>
 <p>如前文所述， 可以将规则集中的字段匹配方式分为精确匹配， 范围匹配， 前缀匹配三类， 精确匹配的代表字段有协议类型（TCP/UDP） ， 对于像端口号类型字段的匹配则采用范围匹配的方式， 而例如 IP 字段的匹配则采用的是前缀匹配。</p>
-<p><strong>由于不同匹配方式的特点不一样，目前还没有一种统一的匹配方式来满足三种字段匹配方式的需求，通常针对每种类型字段的特点，设计不同的匹配算法来各自进行匹配。</strong> （<mark><strong>划重点：不同字段就得采用不同的查找方式</strong></mark>）本文在研究三种类型字段的特点后，<strong>针对每种类型的字段各自提出了相应的匹配算法：</strong></p>
+<p><strong>由于不同匹配方式的特点不一样，目前还没有一种统一的匹配方式来满足三种字段匹配方式的需求，通常针对每种类型字段的特点，设计不同的匹配算法来各自进行匹配。</strong> （🟢 <strong><font color="red">Tips 划重点</font></strong>）</p>
+<p>🟢 <strong><font color="red">Tips 划重点</font></strong></p>
+<blockquote>
+<p><strong><mark>不同字段就得采用不同的查找方式</mark></strong></p>
+</blockquote>
+<p>本文在研究三种类型字段的特点后，<strong>针对每种类型的字段各自提出了相应的匹配算法：</strong></p>
 <ol type="1">
 <li>针对<strong>精确匹配字段</strong>，设计一种可以均衡哈希冲突和哈希查找时间的基于位运算的哈希算法；</li>
 <li>对于<strong>范围匹配字段</strong>，利用了区间排序的思路对该类字段提出了聚类查找算法；</li>
 <li>为<strong>前缀匹配字段建立了一颗前缀树</strong>，通过宽度优先搜索的方式去掉不相关的树分支，从而达到快速查找的目的，下面将进行具体的介绍。</li>
 </ol>
 <p>在包分类问题中， <strong>规则集中存在的字段大部分都是属于精确匹配字段</strong>， <strong>所采用的查找算法几乎都是利用哈希来设计的</strong>。 本文设计了一种可以均衡哈希冲突和哈希查找时间的哈希算法， 通过加入位运算的一些特性来减少哈希冲突的概率。</p>
-<p>根据上文所述， <strong>在规则集中如源端口号， 目的端口号等字段的取值往往不是一个单一的数值， 基本上是以一个范围区间的形式来展现的</strong>， 针对此类字段我们需要设计相应的查找算法来进行范围匹配字段的查找， <strong>目前针对范围匹配字段的查找算法往往都归类到了前缀匹配字段查找算法中</strong>， 主要思路是根据范围区间构建一棵类似前缀树的范围树来归类范围区间， 在查找的时候通过树结构查找特性快速的进行范围区间的定位， 从而查找到对应的规则集。 但此种<strong>根据范围树来设计的范围匹配字段查找算法的构建过程比较繁琐， 特别是范围区间之间交叠较多的时候， 构建的时间会显得比较长， 不利于快速的更新操作。</strong>（<mark><strong>划重点：缺点，有没有更好的解决方案</strong></mark>）</p>
+<p>根据上文所述， <strong>在规则集中如源端口号， 目的端口号等字段的取值往往不是一个单一的数值， 基本上是以一个范围区间的形式来展现的</strong>， 针对此类字段我们需要设计相应的查找算法来进行范围匹配字段的查找， <strong>目前针对范围匹配字段的查找算法往往都归类到了前缀匹配字段查找算法中</strong>， 主要思路是根据范围区间构建一棵类似前缀树的范围树来归类范围区间， 在查找的时候通过树结构查找特性快速的进行范围区间的定位， 从而查找到对应的规则集。 但此种<strong>根据范围树来设计的范围匹配字段查找算法的构建过程比较繁琐， 特别是范围区间之间交叠较多的时候， 构建的时间会显得比较长， 不利于快速的更新操作。</strong>（🟢 <strong><font color="red">Tips 划重点</font></strong>）</p>
+<p>🟢 <strong><font color="red">Tips 划重点</font></strong></p>
+<blockquote>
+<p><strong><mark>缺点，有没有更好的解决方案</mark></strong></p>
+</blockquote>
 <p>前缀匹配字段的查找算法目前比较主流的思路都是通过构建<strong>前缀查找树</strong>来设计的算法， 例如文献中所介绍的算法[50-51]。 此类基于<strong>前缀查找树的算法通常应用于 IP 查找</strong>中， 算法的主要思路在于像 IP 字段中会存在共同的前缀， 通过提取前缀构建查找树， 在查找匹配的过程中就可根据前缀范围快速的进行查找树减枝查找， 缩小查找范围， 加快查找速度。</p>
-<p>本章介绍了<strong>一种基于维度分解的实时动态包分类算法</strong>，（<mark><strong>划重点：决策树和哈希表能够结合，那么决策树和维度降解，哈希表和维度降解能不能结合</strong></mark>） 其中基于维度分解的实时动态包分类算法分为了规则集的动态更新算法和字段的维度分解两部分， 对于字段的维度分解主要包括了三类字段各自的查找算法： 基于位运算的哈希算法、 基于二分查找的聚类查找算法、 基于前缀树的查找算法。</p>
+<p>本章介绍了<strong>一种基于维度分解的实时动态包分类算法</strong>，（🟢 <strong><font color="red">Tips 划重点</font></strong>） 其中基于维度分解的实时动态包分类算法分为了规则集的动态更新算法和字段的维度分解两部分， 对于<strong>字段的维度分解</strong>主要包括了三类字段各自的查找算法：</p>
+<ol type="1">
+<li><p>基于位运算的哈希算法</p></li>
+<li><p>基于二分查找的聚类查找算法（范围）</p></li>
+<li><p>基于前缀树的查找算法</p></li>
+</ol>
+<p>🟢 <strong><font color="red">Tips 划重点</font></strong></p>
+<blockquote>
+<p><strong><mark>决策树和哈希表能够结合，那么决策树和维度降解，哈希表和维度降解能不能结合</mark></strong></p>
+</blockquote>
 <h2 id="异构平台编程模型-opencl">2.3 异构平台编程模型-OpenCL</h2>
 <p>在目前的计算机架构体系下， 现行的处理器有 CPU， GPU 等， 而不同的处理器所涉及的应用场景不一样， 对于 CPU 来说， 需要处理多条指令和多条数据，属于典型的多指令多数据（Mutiple Instruction Mutiple Data， MIMD） 处理单元。而对于 GPU 来讲， 只需要处理单条指令和多条数据即可满足需求， 属于典型的单指令多数据（Single Instruction Mutiple Data， SIMD） 处理单元。</p>
 <p>通常来讲，GPU 是执行特定的任务种类的， 只需要由控制器编译一条指令， 然后通过广播的方式发送到每个处理单元上执行即可[40]。 然而对于 CPU 的设计来说， 要并发处理多条指令和多条数据， 其结构设计十分复杂， 包括很复杂的流水线结构， 不再是单个控制路径， 具有多个控制路径的同时预编译也变得很复杂[41]。 基于以上 CPU 和 GPU 的设计理念来说， <strong>GPU 更加适合处理逻辑单一但数据量密集型的任务， 而 CPU 适合处理逻辑较复杂数据量较小的任务。</strong></p>
@@ -3031,8 +2775,60 @@ blockquote {
 </ol>
 <p><mark>看论文部分</mark></p>
 <h1 id="openflow-协议">6 2015-openflow 协议</h1>
-<p>表 2.1 是一个<strong>决策只包括允许和拒绝的 ACL 规则集</strong>，假设此时一个包头为 （175.77.88.254, 195.156.61.102, 102, 1710，UDP）的数据包到来，那么它将匹配的规则是规则 1，也就是说它被允许通过。</p>
+<blockquote>
+<ol type="1">
+<li>TCAM的介绍和分类方法的简介</li>
+</ol>
+</blockquote>
+<p>网络安全和网络服务要求网络流量进行更加细粒度的分类[1-3]，以满足在防火墙 (Firewall)[4]、服务质量(Quality of Service)[5-6]、策略路由(Policy Routing)[7]、流量计费 (Traffic Billing)[8]等各个领域[9]的需求。数据包分类技术应运而生。</p>
+<p>🟢 <strong><font color="red">Tips 划重点</font></strong></p>
+<blockquote>
+<p><strong><mark>包分类算法的背景还需要了解一下，了解背景有助于发现问题的本质。比如包分类在哪些地方应用，Action都有哪些，</mark></strong></p>
+</blockquote>
+<p>网络功能虚拟化（Network Function Virtualization）[10-11]以及软件定义网络（Software Defined Network，SDN）[12-13]等一系列前沿网络技术的发展，对数据 包分类技术提出了更高的标准和要求</p>
+<p><mark>了解一下SDN</mark></p>
+<p>表 2.1 是一个<strong>决策只包括允许和拒绝的 ACL 规则集</strong>，假设此时一个包头为（175.77.88.254, 195.156.61.102, 102, 1710，UDP）的数据包到来，那么它将匹配的规则是规则 1，也就是说它被允许通过。</p>
 <h1 id="高性能-ip-路由查找和分组分类技术的研究_郑凯-里面有详细分类">7 2001-高性能 IP 路由查找和分组分类技术的研究_郑凯 里面有详细分类</h1>
+<blockquote>
+<ol type="1">
+<li>详细的分类简介</li>
+</ol>
+</blockquote>
+<h1 id="包分类算法研究综述张杰鑫张铮">2015 包分类算法研究综述张杰鑫，张铮</h1>
+<h2 id="规则集特征概述和管理">规则集特征概述和管理</h2>
+<p>文献［８］对大量实际的规则集进行了研究，结果表明，实际规则集的规则数目不会太多，规则的协议域通常只有很少的几个取值，端口号的取值范围很广等特征。实际统计结果是所有规则集的实际复杂度均远小于理论复杂度［９］。 [8] Gupta P, McKeown N. Packet Classification on Multiple Fields (C) // Proce edings of ACM SIGCOMM' 99. New York, USA: ACM Press, 1999:14 7-160. [9] 元亚炬，李军. 高性能网包分类理论与算法综述[J]. 计算机学报，2013，36（2）：408-421.</p>
+<h1 id="决策树网包分类算法综述">2018-决策树网包分类算法综述</h1>
+<h2 id="实际应用中规则集的特点">实际应用中规则集的特点</h2>
+<p>虽然理论上的复杂性让我们很难设计一个单一的算法来很好的适应各种情况。但是，网包分类问题在现实应用中有一些内在的特点，可以用来降低网包分类的复杂度［7，8］ 。 Gupta 等人［9］通过对实际规则集的观察，总结出一系列<strong>规则集的特征</strong>:</p>
+<ol type="1">
+<li><p><strong>规则集的协议域限定在一个很小的范围内</strong>。Taylor［10］等人通过对 12 个真实的规则集进行分析， 得到规则集中常出现的协议为 TCP、UDP、ICMP、IPE、GRE、ESP、AH、EIGRP、OSPF，其中 <strong>TCP 的使用频率 最高</strong>。</p></li>
+<li><p><strong>端口号的范围通常很大，经常出现大于1023 的端口号</strong>。</p></li>
+<li><p><strong>与同一网包完全匹配的规则一般情况下少于5 个</strong>。</p></li>
+<li><p><strong>常见的前缀长度为</strong>0、32、21、23、24、30。</p></li>
+<li><p><strong>同一规则集内，多个规则往往在某个域上有相同的值</strong>。</p></li>
+<li><p><strong>规则集中含有部分冗余的规则</strong>。</p></li>
+</ol>
+<p>其中冗余是指: ①规则 T 出现在规则 R 之前，并且 R 是 T 的子集，因此网包会先匹配规则 T，而不会匹配规则 R。②规则 T 出现在规则 R 之后，并且 R 是 T 的子集，R 和 T 具 有相同的动作，在R 和 T 之间的规则，要么与R 不相交，要么与R 具有相同的动作。这种前向冗余可以只保 留具有相同动作并且范围更大的规则 T，对数据包进行匹配。</p>
+<p>实际应用中的规则集重叠的情况也与理论上的有所不同，Qi［11］等人对 WUSTL( 华盛顿大学圣路易斯分校) 公开的数据集进行分析，统计包括 ACL、FW、IPC 等一系列的规则集在各个维度上的投影区间个数，说 明了网包分类问题的实际复杂性，如表2 所示，根据表2 结果可以看出:</p>
+<ol type="1">
+<li><p>同一类型规则集合在不同维度上的统计特性不同。</p></li>
+<li><p>不同种类的规则集合的统计特性不同，虽然不同类型的规则有不同的特点。</p></li>
+<li><p>所有规则集合的实际复杂度均远小于理论复杂度。</p></li>
+</ol>
+<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/规则集复杂性比较.4ra856lh60s0.png" alt="规则集复杂性比较"><figcaption aria-hidden="true">规则集复杂性比较</figcaption>
+</figure>
+<p>第二种，基于规则集的特点优化的软件算法，这类算法是对实际规则集 进行观察，了解规则集的一些特点，利用这些特点实现更有效的网包分类算法应用于实际网络中。算法通常在特定的规则集上才有明显的效果，由于不同环境下的规则集具有不同的特点，很少有算法可以 适应所有条件下的规则集。</p>
+<p>最长前缀匹配，<strong>掩码匹配</strong>（<mark>什么是掩码匹配</mark>），精确匹配这些匹配方式的混合使用使得决策树中的每个节点都变得更加复杂。一种简单的解决方式是选择单一类型的匹配方式来覆盖匹配条件。例如将精确匹配，最长前缀匹配转 换成掩码匹配的形式，用1，0，* ( 通配) 来表示。表 4 规则集中的规则包含 2 个域: 3bit 的地址前缀，3bit 的 端口号范围。表5 为表4 的 bit 向量形式，将2 个域的向量串接起来即可构成一棵决策树，其中每个叶子都 唯一的代表规则集中的一条规则。图1 为根据表5 构建的决策树的部分示意图。</p>
+<p>HyperCuts 并不是对所有域进行切割，而是选择部分域进行切割，其中的选择方式为计算每个域中唯一区间的数量，以及所有域唯一区间数量的均值，选择唯一区间数量大于均值的域进行切割。例如，对于五元 组的5 个域，每个域的唯一区间数量为45、15、35、10、3，均值是 22。那么选择第 1 个和第 3 个域进行切割。 切割次数 NC( number of cuts) 利用启发式算法来确定。通过以下3 个方面来确定切割次数 NC: ①所有叶子 中规则数量的均值; ②叶子中含有规则数量的最大值; ③空的叶子的数量。切割次数从 1 开始，每次调整将 切割的次数乘2，然后判断均值是否减小? 子节点中规则最大值是否减小? 空节点数量是否增加? 这样持 续下去，在可允许的空间内选择最优的切割次数。如果某次切割后，空节点数量明显增加，那么就回退到上 次的切割次数，作为最优的切割次数。</p>
+<p>本文按照发展过程介绍了 7 个受到广泛关注的基于决策树的网包分类算法。决策树的结构提升了网包分类的速度，<strong>构建决策树的结构需要考虑以下几个方面</strong>:</p>
+<ol type="1">
+<li><p>是否划分规则集;</p></li>
+<li><p>域空间的切割方式;</p></li>
+<li><p>决策树节点的数据结构。</p></li>
+</ol>
+<p>基于决策树的网包分类算法普遍存在<strong>以牺牲内存为代价提升了网包的分类速度</strong>的情况，为了快速的分类，树中不可避免的存在冗余的规则。通过划分规则集的方式可以减少规则冗余的数量，然而过多的规则子集数量将影响网包的分类速度。分类速度与内存空间构成矛盾，需按照实际情况平衡。但是基于决策树的算法规则更新的速度差强人意，规则的更新很可能导致决策树的重建。</p>
+<p>总之，基于决策树的网包分类算法其优秀的分类性能满足了当前巨大网络流量的网络环境。但基于决策树的算法产生的规则冗余，占用大量内存空间，以及规则更新性能不佳的缺点导致其无法适用于对内存空间有严格限制，更新频繁的场景。减少决策树中的规则冗余，提高规则更新速度也是网包分类技术的研究重点。</p>
 ]]></content>
       <categories>
         <category>论文</category>
@@ -3833,5 +3629,325 @@ blockquote {
       <tags>
         <tag>CNN</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>线性回归.md</title>
+    <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.LinearRegression/</url>
+    <content><![CDATA[<h1 id="线性回归">线性回归</h1>
+<p>假设数据集为： <span class="math display">\[
+\mathcal{D}=\{(x_1, y_1),(x_2, y_2),\cdots,(x_N, y_N)\}
+\]</span> 后面我们记： <span class="math display">\[
+X=(x_1,x_2,\cdots,x_N)^T,Y=(y_1,y_2,\cdots,y_N)^T
+\]</span> 线性回归假设： <span class="math display">\[
+f(w)=w^Tx
+\]</span></p>
+<h2 id="最小二乘法">最小二乘法</h2>
+<p>对这个问题，采用二范数定义的平方误差来定义损失函数： <span class="math display">\[
+L(w)=\sum\limits_{i=1}^N||w^Tx_i-y_i||^2_2
+\]</span> 展开得到： <span class="math display">\[
+\begin{align}
+L(w)&amp;=(w^Tx_1-y_1,\cdots,w^Tx_N-y_N)\cdot (w^Tx_1-y_1,\cdots,w^Tx_N-y_N)^T\nonumber\\
+&amp;=(w^TX^T-Y^T)\cdot (Xw-Y)=w^TX^TXw-Y^TXw-w^TX^TY+Y^TY\nonumber\\
+&amp;=w^TX^TXw-2w^TX^TY+Y^TY
+\end{align}
+\]</span> 最小化这个值的 $ $ ： <span class="math display">\[
+\begin{align}
+\hat{w}=\mathop{argmin}\limits_wL(w)&amp;\longrightarrow\frac{\partial}{\partial w}L(w)=0\nonumber\\
+&amp;\longrightarrow2X^TX\hat{w}-2X^TY=0\nonumber\\
+&amp;\longrightarrow \hat{w}=(X^TX)^{-1}X^TY=X^+Y
+\end{align}
+\]</span> 这个式子中 <span class="math inline">\((X^TX)^{-1}X^T\)</span> 又被称为伪逆。对于行满秩或者列满秩的 <span class="math inline">\(X\)</span>，可以直接求解，但是对于非满秩的样本集合，需要使用奇异值分解（SVD）的方法，对 <span class="math inline">\(X\)</span> 求奇异值分解，得到 <span class="math display">\[
+X=U\Sigma V^T
+\]</span> 于是： <span class="math display">\[
+X^+=V\Sigma^{-1}U^T
+\]</span> 在几何上，最小二乘法相当于模型（这里就是直线）和试验值的距离的平方求和，假设我们的试验样本张成一个 <span class="math inline">\(p\)</span> 维空间（满秩的情况）：<span class="math inline">\(X=Span(x_1,\cdots,x_N)\)</span>，而模型可以写成 <span class="math inline">\(f(w)=X\beta\)</span>，也就是 <span class="math inline">\(x_1,\cdots,x_N\)</span> 的某种组合，而最小二乘法就是说希望 <span class="math inline">\(Y\)</span> 和这个模型距离越小越好，于是它们的差应该与这个张成的空间垂直： <span class="math display">\[
+X^T\cdot(Y-X\beta)=0\longrightarrow\beta=(X^TX)^{-1}X^TY
+\]</span></p>
+<h2 id="噪声为高斯分布的-mle">噪声为高斯分布的 MLE</h2>
+<p>对于一维的情况，记 <span class="math inline">\(y=w^Tx+\epsilon,\epsilon\sim\mathcal{N}(0,\sigma^2)\)</span>，那么 <span class="math inline">\(y\sim\mathcal{N}(w^Tx,\sigma^2)\)</span>。代入极大似然估计中： <span class="math display">\[
+\begin{align}
+L(w)=\log p(Y|X,w)&amp;=\log\prod\limits_{i=1}^Np(y_i|x_i,w)\nonumber\\
+&amp;=\sum\limits_{i=1}^N\log(\frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{(y_i-w^Tx_i)^2}{2\sigma^2}})\\
+\mathop{argmax}\limits_wL(w)&amp;=\mathop{argmin}\limits_w\sum\limits_{i=1^N}(y_i-w^Tx_i)^2
+\end{align}
+\]</span> 这个表达式和最小二乘估计得到的结果一样。</p>
+<h2 id="权重先验也为高斯分布的-map">权重先验也为高斯分布的 MAP</h2>
+<p>取先验分布 <span class="math inline">\(w\sim\mathcal{N}(0,\sigma_0^2)\)</span>。于是：  <span class="math display">\[
+\begin{align}
+\hat{w}=\mathop{argmax}\limits_wp(w|Y)&amp;=\mathop{argmax}\limits_wp(Y|w)p(w)\nonumber\\
+&amp;=\mathop{argmax}\limits_w\log p(Y|w)p(w)\nonumber\\
+&amp;=\mathop{argmax}\limits_w(\log p(Y|w)+\log p(w))\nonumber\\
+&amp;=\mathop{argmin}\limits_w[(y-w^Tx)^2+\frac{\sigma^2}{\sigma_0^2}w^Tw]
+\end{align}
+\]</span> 这里省略了 <span class="math inline">\(X\)</span>，<span class="math inline">\(p(Y)\)</span>和 <span class="math inline">\(w\)</span> 没有关系，同时也利用了上面高斯分布的 MLE的结果。</p>
+<p>我们将会看到，超参数 <span class="math inline">\(\sigma_0\)</span>的存在和下面会介绍的 Ridge 正则项可以对应，同样的如果将先验分布取为 Laplace 分布，那么就会得到和 L1 正则类似的结果。</p>
+<h2 id="正则化">正则化</h2>
+<p>在实际应用时，如果样本容量不远远大于样本的特征维度，很可能造成过拟合，对这种情况，我们有下面三个解决方式：</p>
+<ol type="1">
+<li>加数据</li>
+<li>特征选择（降低特征维度）如 PCA 算法。</li>
+<li>正则化</li>
+</ol>
+<p>正则化一般是在损失函数（如上面介绍的最小二乘损失）上加入正则化项（表示模型的复杂度对模型的惩罚），下面我们介绍一般情况下的两种正则化框架。 <span class="math display">\[
+\begin{align}
+L1&amp;:\mathop{argmin}\limits_wL(w)+\lambda||w||_1,\lambda\gt0\\
+L2&amp;:\mathop{argmin}\limits_wL(w)+\lambda||w||^2_2,\lambda \gt 0
+\end{align}
+\]</span> 下面对最小二乘误差分别分析这两者的区别。</p>
+<h3 id="l1-lasso">L1 Lasso</h3>
+<p>L1正则化可以引起稀疏解。</p>
+<p>从最小化损失的角度看，由于 L1 项求导在0附近的左右导数都不是0，因此更容易取到0解。</p>
+<p>从另一个方面看，L1 正则化相当于： <span class="math display">\[
+\mathop{argmin}\limits_wL(w)\\
+s.t. ||w||_1\lt C
+\]</span> 我们已经看到平方误差损失函数在 <span class="math inline">\(w\)</span> 空间是一个椭球，因此上式求解就是椭球和 <span class="math inline">\(||w||_1=C\)</span>的切点，因此更容易相切在坐标轴上。</p>
+<h3 id="l2-ridge">L2 Ridge</h3>
+<p><span class="math display">\[
+\begin{align}
+\hat{w}=\mathop{argmin}\limits_wL(w)+\lambda w^Tw&amp;\longrightarrow\frac{\partial}{\partial w}L(w)+2\lambda w=0\nonumber\\
+&amp;\longrightarrow2X^TX\hat{w}-2X^TY+2\lambda \hat w=0\nonumber\\
+&amp;\longrightarrow \hat{w}=(X^TX+\lambda \mathbb{I})^{-1}X^TY
+\end{align}
+\]</span></p>
+<p>可以看到，这个正则化参数和前面的 MAP 结果不谋而合。利用2范数进行正则化不仅可以是模型选择 <span class="math inline">\(w\)</span> 较小的参数，同时也避免 $ X^TX$不可逆的问题。</p>
+<h2 id="小结">小结</h2>
+<p>线性回归模型是最简单的模型，但是麻雀虽小，五脏俱全，在这里，我们利用最小二乘误差得到了闭式解。同时也发现，在噪声为高斯分布的时候，MLE 的解等价于最小二乘误差，而增加了正则项后，最小二乘误差加上 L2 正则项等价于高斯噪声先验下的 MAP解，加上 L1 正则项后，等价于 Laplace 噪声先验。</p>
+<p>传统的机器学习方法或多或少都有线性回归模型的影子：</p>
+<ol type="1">
+<li>线性模型往往不能很好地拟合数据，因此有三种方案克服这一劣势：
+<ol type="1">
+<li>对特征的维数进行变换，例如多项式回归模型就是在线性特征的基础上加入高次项。</li>
+<li>在线性方程后面加入一个非线性变换，即引入一个非线性的激活函数，典型的有线性分类模型如感知机。</li>
+<li>对于一致的线性系数，我们进行多次变换，这样同一个特征不仅仅被单个系数影响，例如多层感知机（深度前馈网络）。</li>
+</ol></li>
+<li>线性回归在整个样本空间都是线性的，我们修改这个限制，在不同区域引入不同的线性或非线性，例如线性样条回归和决策树模型。</li>
+<li>线性回归中使用了所有的样本，但是对数据预先进行加工学习的效果可能更好（所谓的维数灾难，高维度数据更难学习），例如 PCA 算法和流形学习。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Intro_Math.md</title>
+    <url>/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.Intro_Math/</url>
+    <content><![CDATA[<h1 id="introduction">Introduction</h1>
+<p>对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号： <span class="math display">\[
+X_{N\times p}=(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}=(x_{i1},x_{i2},\cdots,x_{ip})^{T}
+\]</span> 这个记号表示有 <span class="math inline">\(N\)</span> 个样本，每个样本都是 <span class="math inline">\(p\)</span> 维向量。其中每个观测都是由 <span class="math inline">\(p(x|\theta)\)</span> 生成的。</p>
+<h2 id="频率派的观点">频率派的观点</h2>
+<p><span class="math inline">\(p(x|\theta)\)</span>中的 <span class="math inline">\(\theta\)</span> 是一个常量。对于 <span class="math inline">\(N\)</span> 个观测来说观测集的概率为 <span class="math inline">\(p(X|\theta)\mathop{=}\limits _{iid}\prod\limits _{i=1}^{N}p(x_{i}|\theta))\)</span> 。为了求 <span class="math inline">\(\theta\)</span> 的大小，我们采用最大对数似然MLE的方法：</p>
+<p><span class="math display">\[
+\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
+\]</span></p>
+<h2 id="贝叶斯派的观点">贝叶斯派的观点</h2>
+<p>贝叶斯派认为 <span class="math inline">\(p(x|\theta)\)</span> 中的 <span class="math inline">\(\theta\)</span> 不是一个常量。这个 <span class="math inline">\(\theta\)</span> 满足一个预设的先验的分布 <span class="math inline">\(\theta\sim p(\theta)\)</span> 。于是根据贝叶斯定理依赖观测集参数的后验可以写成：</p>
+<p><span class="math display">\[
+p(\theta|X)=\frac{p(X|\theta)\cdot p(\theta)}{p(X)}=\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}
+\]</span> 为了求 <span class="math inline">\(\theta\)</span> 的值，我们要最大化这个参数后验MAP：</p>
+<p><span class="math display">\[
+\theta_{MAP}=\mathop{argmax}\limits _{\theta}p(\theta|X)=\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)
+\]</span> 其中第二个等号是由于分母和 <span class="math inline">\(\theta\)</span> 没有关系。求解这个 <span class="math inline">\(\theta\)</span> 值后计算<span class="math inline">\(\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}\)</span> ，就得到了参数的后验概率。其中 <span class="math inline">\(p(X|\theta)\)</span> 叫似然，是我们的模型分布。得到了参数的后验分布后，我们可以将这个分布用于预测贝叶斯预测： <span class="math display">\[
+p(x_{new}|X)=\int\limits _{\theta}p(x_{new}|\theta)\cdot p(\theta|X)d\theta
+\]</span> 其中积分中的被乘数是模型，乘数是后验分布。</p>
+<h2 id="小结">小结</h2>
+<p>频率派和贝叶斯派分别给出了一系列的机器学习算法。频率派的观点导出了一系列的统计机器学习算法而贝叶斯派导出了概率图理论。在应用频率派的 MLE 方法时最优化理论占有重要地位。而贝叶斯派的算法无论是后验概率的建模还是应用这个后验进行推断时积分占有重要地位。因此采样积分方法如 MCMC 有很多应用。</p>
+<h1 id="mathbasics">MathBasics</h1>
+<h2 id="高斯分布">高斯分布</h2>
+<h3 id="一维情况-mle">一维情况 MLE</h3>
+<p>高斯分布在机器学习中占有举足轻重的作用。在 MLE 方法中：</p>
+<p><span class="math display">\[
+\theta=(\mu,\Sigma)=(\mu,\sigma^{2}),\theta_{MLE}=\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{=}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)
+\]</span> 一般地，高斯分布的概率密度函数PDF写为：</p>
+<p><span class="math display">\[
+p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
+\]</span> 带入 MLE 中我们考虑一维的情况</p>
+<p><span class="math display">\[
+\log p(X|\theta)=\sum\limits _{i=1}^{N}\log p(x_{i}|\theta)=\sum\limits _{i=1}^{N}\log\frac{1}{\sqrt{2\pi}\sigma}\exp(-(x_{i}-\mu)^{2}/2\sigma^{2})
+\]</span> 首先对 <span class="math inline">\(\mu\)</span> 的极值可以得到 ： <span class="math display">\[
+\mu_{MLE}=\mathop{argmax}\limits _{\mu}\log p(X|\theta)=\mathop{argmax}\limits _{\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span> 于是： <span class="math display">\[
+\frac{\partial}{\partial\mu}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}=0\longrightarrow\mu_{MLE}=\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}
+\]</span> 其次对 <span class="math inline">\(\theta\)</span> 中的另一个参数 <span class="math inline">\(\sigma\)</span> ，有： <span class="math display">\[
+\begin{align}
+\sigma_{MLE}=\mathop{argmax}\limits _{\sigma}\log p(X|\theta)&amp;=\mathop{argmax}\limits _{\sigma}\sum\limits _{i=1}^{N}[-\log\sigma-\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]\nonumber\\
+&amp;=\mathop{argmin}\limits _{\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]
+\end{align}
+\]</span> 于是： <span class="math display">\[
+\frac{\partial}{\partial\sigma}\sum\limits _{i=1}^{N}[\log\sigma+\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}]=0\longrightarrow\sigma_{MLE}^{2}=\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span> 值得注意的是，上面的推导中，首先对 <span class="math inline">\(\mu\)</span> 求 MLE， 然后利用这个结果求 <span class="math inline">\(\sigma_{MLE}\)</span> ，因此可以预期的是对数据集求期望时 <span class="math inline">\(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]\)</span> 是无偏差的： <span class="math display">\[
+\mathbb{E}_{\mathcal{D}}[\mu_{MLE}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\frac{1}{N}\sum\limits _{i=1}^{N}\mathbb{E}_{\mathcal{D}}[x_{i}]=\mu
+\]</span> 但是当对 <span class="math inline">\(\sigma_{MLE}\)</span> 求 期望的时候由于使用了单个数据集的 <span class="math inline">\(\mu_{MLE}\)</span>，因此对所有数据集求期望的时候我们会发现 <span class="math inline">\(\sigma_{MLE}\)</span> 是 有偏的：</p>
+<p><span class="math display">\[
+\begin{align}
+\mathbb{E}_{\mathcal{D}}[\sigma_{MLE}^{2}]&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}-\mu_{MLE})^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}(x_{i}^{2}-2x_{i}\mu_{MLE}+\mu_{MLE}^{2})\nonumber
+\\&amp;=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu_{MLE}^{2}]=\mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}+\mu^{2}-\mu_{MLE}^{2}]\nonumber\\
+&amp;= \mathbb{E}_{\mathcal{D}}[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}^{2}-\mu^{2}]-\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}-\mu^{2}]=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mu^{2})\nonumber\\&amp;=\sigma^{2}-(\mathbb{E}_{\mathcal{D}}[\mu_{MLE}^{2}]-\mathbb{E}_{\mathcal{D}}^{2}[\mu_{MLE}])=\sigma^{2}-Var[\mu_{MLE}]\nonumber\\&amp;=\sigma^{2}-Var[\frac{1}{N}\sum\limits _{i=1}^{N}x_{i}]=\sigma^{2}-\frac{1}{N^{2}}\sum\limits _{i=1}^{N}Var[x_{i}]=\frac{N-1}{N}\sigma^{2}
+\end{align}
+\]</span> 所以： <span class="math display">\[
+\hat{\sigma}^{2}=\frac{1}{N-1}\sum\limits _{i=1}^{N}(x_{i}-\mu)^{2}
+\]</span></p>
+<h3 id="多维情况">多维情况</h3>
+<p>多维高斯分布表达式为： <span class="math display">\[
+p(x|\mu,\Sigma)=\frac{1}{(2\pi)^{p/2}|\Sigma|^{1/2}}e^{-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)}
+\]</span> 其中 <span class="math inline">\(x,\mu\in\mathbb{R}^{p},\Sigma\in\mathbb{R}^{p\times p}\)</span> ，<span class="math inline">\(\Sigma\)</span> 为协方差矩阵，一般而言也是半正定矩阵。这里我们只考虑正定矩阵。首先我们处理指数上的数字，指数上的数字可以记为 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(\mu\)</span> 之间的马氏距离。对于对称的协方差矩阵可进行特征值分解，<span class="math inline">\(\Sigma=U\Lambda U^{T}=(u_{1},u_{2},\cdots,u_{p})diag(\lambda_{i})(u_{1},u_{2},\cdots,u_{p})^{T}=\sum\limits _{i=1}^{p}u_{i}\lambda_{i}u_{i}^{T}\)</span> ，于是：</p>
+<p><span class="math display">\[
+\Sigma^{-1}=\sum\limits _{i=1}^{p}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}
+\]</span></p>
+<p><span class="math display">\[
+\Delta=(x-\mu)^{T}\Sigma^{-1}(x-\mu)=\sum\limits _{i=1}^{p}(x-\mu)^{T}u_{i}\frac{1}{\lambda_{i}}u_{i}^{T}(x-\mu)=\sum\limits _{i=1}^{p}\frac{y_{i}^{2}}{\lambda_{i}}
+\]</span></p>
+<p>我们注意到 <span class="math inline">\(y_{i}\)</span> 是 <span class="math inline">\(x-\mu\)</span> 在特征向量 <span class="math inline">\(u_{i}\)</span> 上的投影长度，因此上式子就是 <span class="math inline">\(\Delta\)</span> 取不同值时的同心椭圆。</p>
+<p>下面我们看多维高斯模型在实际应用时的两个问题</p>
+<ol type="1">
+<li><p>参数 <span class="math inline">\(\Sigma,\mu\)</span> 的自由度为 <span class="math inline">\(O(p^{2})\)</span> 对于维度很高的数据其自由度太高。解决方案：高自由度的来源是 <span class="math inline">\(\Sigma\)</span> 有 <span class="math inline">\(\frac{p(p+1)}{2}\)</span> 个自由参数，可以假设其是对角矩阵，甚至在各向同性假设中假设其对角线上的元素都相同。前一种的算法有 Factor Analysis，后一种有概率 PCA(p-PCA) 。</p></li>
+<li><p>第二个问题是单个高斯分布是单峰的，对有多个峰的数据分布不能得到好的结果。解决方案：高斯混合GMM 模型。</p></li>
+</ol>
+<p>下面对多维高斯分布的常用定理进行介绍。</p>
+<p>我们记 <span class="math inline">\(x=(x_1, x_2,\cdots,x_p)^T=(x_{a,m\times 1}, x_{b,n\times1})^T,\mu=(\mu_{a,m\times1}, \mu_{b,n\times1}),\Sigma=\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\)</span>，已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma)\)</span>。</p>
+<p>首先是一个高斯分布的定理：</p>
+<blockquote>
+<p>定理：已知 <span class="math inline">\(x\sim\mathcal{N}(\mu,\Sigma), y\sim Ax+b\)</span>，那么 <span class="math inline">\(y\sim\mathcal{N}(A\mu+b, A\Sigma A^T)\)</span>。</p>
+<p>证明：<span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b]=A\mathbb{E}[x]+b=A\mu+b\)</span>，<span class="math inline">\(Var[y]=Var[Ax+b]=Var[Ax]=A\cdot Var[x]\cdot A^T\)</span>。</p>
+</blockquote>
+<p>下面利用这个定理得到 <span class="math inline">\(p(x_a),p(x_b),p(x_a|x_b),p(x_b|x_a)\)</span> 这四个量。</p>
+<ol type="1">
+<li><p><span class="math inline">\(x_a=\begin{pmatrix}\mathbb{I}_{m\times m}&amp;\mathbb{O}_{m\times n})\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}\)</span>，代入定理中得到： <span class="math display">\[
+\mathbb{E}[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_a\\
+Var[x_a]=\begin{pmatrix}\mathbb{I}&amp;\mathbb{O}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}\mathbb{I}\\\mathbb{O}\end{pmatrix}=\Sigma_{aa}
+\]</span> 所以 <span class="math inline">\(x_a\sim\mathcal{N}(\mu_a,\Sigma_{aa})\)</span>。</p></li>
+<li><p>同样的，<span class="math inline">\(x_b\sim\mathcal{N}(\mu_b,\Sigma_{bb})\)</span>。</p></li>
+<li><p>对于两个条件概率，我们引入三个量： <span class="math display">\[
+x_{b\cdot a}=x_b-\Sigma_{ba}\Sigma_{aa}^{-1}x_a\\
+\mu_{b\cdot a}=\mu_b-\Sigma_{ba}\Sigma_{aa}^{-1}\mu_a\\
+\Sigma_{bb\cdot a}=\Sigma_{bb}-\Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}
+\]</span> 特别的，最后一个式子叫做 <span class="math inline">\(\Sigma_{bb}\)</span> 的 Schur Complementary。可以看到： <span class="math display">\[
+x_{b\cdot a}=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}x_a\\x_b\end{pmatrix}
+\]</span> 所以： <span class="math display">\[
+\mathbb{E}[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\mu_a\\\mu_b\end{pmatrix}=\mu_{b\cdot a}\\
+Var[x_{b\cdot a}]=\begin{pmatrix}-\Sigma_{ba}\Sigma_{aa}^{-1}&amp;\mathbb{I}_{n\times n}\end{pmatrix}\begin{pmatrix}\Sigma_{aa}&amp;\Sigma_{ab}\\\Sigma_{ba}&amp;\Sigma_{bb}\end{pmatrix}\begin{pmatrix}-\Sigma_{aa}^{-1}\Sigma_{ba}^T\\\mathbb{I}_{n\times n}\end{pmatrix}=\Sigma_{bb\cdot a}
+\]</span> 利用这三个量可以得到 <span class="math inline">\(x_b=x_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a\)</span>。因此： <span class="math display">\[
+\mathbb{E}[x_b|x_a]=\mu_{b\cdot a}+\Sigma_{ba}\Sigma_{aa}^{-1}x_a
+\]</span></p>
+<p><span class="math display">\[
+Var[x_b|x_a]=\Sigma_{bb\cdot a}
+\]</span></p>
+<p>这里同样用到了定理。</p></li>
+<li><p>同样： <span class="math display">\[
+x_{a\cdot b}=x_a-\Sigma_{ab}\Sigma_{bb}^{-1}x_b\\
+\mu_{a\cdot b}=\mu_a-\Sigma_{ab}\Sigma_{bb}^{-1}\mu_b\\
+\Sigma_{aa\cdot b}=\Sigma_{aa}-\Sigma_{ab}\Sigma_{bb}^{-1}\Sigma_{ba}
+\]</span> 所以： <span class="math display">\[
+\mathbb{E}[x_a|x_b]=\mu_{a\cdot b}+\Sigma_{ab}\Sigma_{bb}^{-1}x_b
+\]</span></p>
+<p><span class="math display">\[
+Var[x_a|x_b]=\Sigma_{aa\cdot b}
+\]</span></p></li>
+</ol>
+<p>下面利用上边四个量，求解线性模型：</p>
+<blockquote>
+<p>已知：<span class="math inline">\(p(x)=\mathcal{N}(\mu,\Lambda^{-1}),p(y|x)=\mathcal{N}(Ax+b,L^{-1})\)</span>，求解：<span class="math inline">\(p(y),p(x|y)\)</span>。</p>
+<p>解：令 <span class="math inline">\(y=Ax+b+\epsilon,\epsilon\sim\mathcal{N}(0,L^{-1})\)</span>，所以 <span class="math inline">\(\mathbb{E}[y]=\mathbb{E}[Ax+b+\epsilon]=A\mu+b\)</span>，<span class="math inline">\(Var[y]=A \Lambda^{-1}A^T+L^{-1}\)</span>，因此： <span class="math display">\[
+  p(y)=\mathcal{N}(A\mu+b,L^{-1}+A\Lambda^{-1}A^T)
+  \]</span> 引入 <span class="math inline">\(z=\begin{pmatrix}x\\y\end{pmatrix}\)</span>，我们可以得到 <span class="math inline">\(Cov[x,y]=\mathbb{E}[(x-\mathbb{E}[x])(y-\mathbb{E}[y])^T]\)</span>。对于这个协方差可以直接计算： <span class="math display">\[
+  \begin{align}
+  Cov(x,y)&amp;=\mathbb{E}[(x-\mu)(Ax-A\mu+\epsilon)^T]=\mathbb{E}[(x-\mu)(x-\mu)^TA^T]=Var[x]A^T=\Lambda^{-1}A^T
+  \end{align}
+  \]</span> 注意到协方差矩阵的对称性，所以 <span class="math inline">\(p(z)=\mathcal{N}\begin{pmatrix}\mu\\A\mu+b\end{pmatrix},\begin{pmatrix}\Lambda^{-1}&amp;\Lambda^{-1}A^T\\A\Lambda^{-1}&amp;L^{-1}+A\Lambda^{-1}A^T\end{pmatrix})\)</span>。根据之前的公式，我们可以得到： <span class="math display">\[
+  \mathbb{E}[x|y]=\mu+\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}(y-A\mu-b)
+  \]</span></p>
+<p><span class="math display">\[
+  Var[x|y]=\Lambda^{-1}-\Lambda^{-1}A^T(L^{-1}+A\Lambda^{-1}A^T)^{-1}A\Lambda^{-1}
+  \]</span></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>工艺流程</title>
+    <url>/2022/11/08/%E6%99%B6%E4%BD%93%E7%AE%A1/%E5%B7%A5%E8%89%BA%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/487910080">揭秘芯片制造：八个步骤，数百个工艺 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://www.thepaper.cn/newsDetail_forward_13166836">芯片制造的10个关键步骤_澎湃号·政务_澎湃新闻-The Paper</a></li>
+<li><a href="https://blog.csdn.net/b18821622297/article/details/120061624">CMOS芯片制造全工艺流程（后端基础第一篇）_IC后端小白的博客-CSDN博客_cmos芯片</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>硬件</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Back Propagation</title>
+    <url>/2022/10/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/BP/</url>
+    <content><![CDATA[
+
+	<div class="row">
+    <embed src="BP.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<!-- 
+
+	<div class="row">
+    <embed src="https://cloud.tsinghua.edu.cn/f/952edbd1e02d409cbd01/" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+<p>--&gt;</p>
+<!-- <iframe src="BP.pdf" width="800px" height="800px" frameborder="0" scrolling="no"></iframe> -->
+<h2 id="梯度下降">梯度下降</h2>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_41800366/article/details/86583789">梯度下降算法原理讲解——机器学习_zhangpaopao0609的博客-CSDN博客_梯度下降</a></li>
+</ol>
+<p><a href="https://so.csdn.net/so/search?q=梯度下降&amp;spm=1001.2101.3001.7020">梯度下降</a>（gradient descent）在机器学习中应用十分的广泛，不论是在线性回归还是Logistic回归中，它的主要目的是通过迭代找到目标函数的最小值，或者收敛到最小值。</p>
+<h3 id="思想">思想</h3>
+<p><strong>梯度下降法的基本思想可以类比为一个下山的过程。</strong> 假设这样一个场景：一个人被困在山上，需要从山上下来(找到山的最低点，也就是山谷)。但此时山上的浓雾很大，导致可视度很低；因此，下山的路径就无法确定，必须利用自己周围的信息一步一步地找到下山的路。这个时候，便可利用梯度下降算法来帮助自己下山。怎么做呢，<strong>首先以他当前的所处的位置为基准，寻找这个位置最陡峭的地方，然后朝着下降方向走一步，然后又继续以当前位置为基准，再找最陡峭的地方，再走直到最后到达最低处；同理上山也是如此，只是这时候就变成梯度上升算法了。</strong></p>
+<p>梯度下降的基本过程就和下山的场景很类似。</p>
+<p>首先，我们有一个可微分的函数。这个函数就代表着一座山。我们的目标就是找到这个函数的最小值，也就是山底。根据之前的场景假设，最快的下山的方式就是找到当前位置最陡峭的方向，然后沿着此方向向下走，对应到函数中，就是找到给定点的梯度 ，然后朝着梯度相反的方向，就能让函数值下降的最快！<strong>因为梯度的方向就是函数之变化最快的方向。</strong></p>
+<h3 id="数学表示">数学表示</h3>
+<p><span class="math display">\[Θ^1=Θ^0+α▽J(Θ)→ evaluated at Θ^0\]</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20190121203434245.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODAwMzY2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:67%;"></p>
+<p>此公式的意义是：<span class="math inline">\(J\)</span>是关于<span class="math inline">\(Θ\)</span>的一个函数，我们当前所处的位置为<span class="math inline">\(Θ^0\)</span>点，要从这个点走到J的最小值点，也就是山底。首先我们先确定前进的方向，也就是梯度的反向，然后走一段距离的步长，也就是<span class="math inline">\(α\)</span>，走完这个段步长，就到达了<span class="math inline">\(Θ^1\)</span>这个点！</p>
+<p><strong><mark>α</mark></strong></p>
+<p><strong>α</strong> 在梯度下降算法中被称作为<strong>学习率</strong>或者<strong>步长</strong>，意味着我们可以通过α来控制每一步走的距离，<strong><u>其实就是不要走太快，错过了最低点。同时也要保证不要走的太慢，导致太阳下山了，还没有走到山下。</u></strong> 所以α的选择在梯度下降法中往往是很重要的！α不能太大也不能太小，太小的话，可能导致迟迟走不到最低点，太大的话，会导致错过最低点！</p>
+<p><strong><mark>梯度要乘以一个负号</mark></strong></p>
+<p>梯度前加一个负号，就意味着朝着梯度相反的方向前进！我们在前文提到，<strong>梯度的方向实际就是函数在此点上升最快的方向</strong>！而我们需要朝着下降最快的方向走，自然就是负的梯度的方向，所以此处需要加上负号；那么如果时上坡，也就是梯度上升算法，当然就不需要添加负号了。</p>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/bp算法.webp" style="zoom:150%;"></p>
+<p>第 <span class="math inline">\(l\)</span> 层的误差项可以通过第 <span class="math inline">\(l + 1\)</span> 层的误差项计算得到，这就是误差的反向传播（BackPropagation，BP）。反向传播算法的含义是：第 <span class="math inline">\(l\)</span> 层的一个神经元的误差项（或敏感性）是所有与该神经元相连的第 <span class="math inline">\(l + 1\)</span> 层的神经元的误差项的权重和．然后，再乘上该神经元激活函数的梯度</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>留学申请</title>
+    <url>/2022/11/08/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E7%95%99%E5%AD%A6%E7%94%B3%E8%AF%B7/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1Ae411G7qp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">别当留学申请大怨种了！半diy英国申请经验_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1J94y1Q7f5/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">香港博士申请最全攻略｜看这一篇就够了_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>区块链</title>
+    <url>/2022/11/08/%E8%AE%BA%E6%96%87/%E5%8C%BA%E5%9D%97%E9%93%BE/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1K54y167W2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">区块链相关论文汇报（四）_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1Tf4y1q7cd/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">区块链相关论文汇报（一）_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
   </entry>
 </search>
