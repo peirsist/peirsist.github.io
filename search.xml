@@ -233,9 +233,20 @@
 <h2 id="comments">1.1 comments</h2>
 <h2 id="近期工作">1.2 近期工作</h2>
 <ol type="1">
-<li><strong><em>2022-11-09，周三</em></strong>，早上看区块链，下午区块链到 5 点，然后准备组会，开会到 10 点，准备区块链。区块链记录在🔗<a href="/2022/11/09/%E8%AE%BA%E6%96%87/%E5%8C%BA%E5%9D%97%E9%93%BE/" title="区块链">区块链</a></li>
+<li><strong><em>2022-11-09，周三</em></strong>，早上看区块链，下午区块链到 5 点，然后准备组会，开会到 10 点，准备区块链。记录在 🔗<a href="/2022/11/09/%E8%AE%BA%E6%96%87/%E5%8C%BA%E5%9D%97%E9%93%BE/" title="区块链">区块链</a>。</li>
 </ol>
+<p>💥 内心活动 &gt; <strong>今天开完组会失眠了，失眠的原因在于</strong>： &gt; 1. <strong>科研上的无助</strong>。一想到自己一个人做，看不懂又没人会，没人商量，全程自己在搞 &gt; 2. 关键自己搞完，还要....... hehe &gt; 3. <strong>生活的不适应</strong>。来到这里饮食、作息（睡眠时间），真的很不适应，饭那么多油，真的吐🤮；然后每天睡这么晚，一超过 12 点就长痘，全是饮食、作息不规律、压力大导致的。脸上这么多痘痘，就足以反应出我的状态不好 &gt; 4. make frequent or unpredictable changes in policy</p>
+<blockquote>
+<p><strong><font color="red">其实你挺容易抑郁的，至少你不是很乐观，但是不能这么悲观，凡事往好的方面想，何必难为自己，多和人交流</font></strong></p>
+</blockquote>
+<blockquote>
+<p><strong><font color="red">人一定要乐观，无论面对什么样的场景，都可以释然，微笑面对，很重要！不要抱怨，发牢骚，这点得改，不然太容易消极悲观了。</font></strong></p>
+</blockquote>
+<blockquote>
+<p><strong>尽快做的事</strong>： 1. 雅思考过 2. C++尽可能精通 3. 机器学习和 python</p>
+</blockquote>
 <h2 id="下一步计划">1.3 下一步计划</h2>
+<hr>
 <h1 id="section-1">2 2022-11-08</h1>
 <h2 id="comments-1">2.1 comments</h2>
 <h2 id="近期工作-1">2.2 近期工作</h2>
@@ -4018,6 +4029,41 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 区块是开放的还是封闭的？新成员准入有没有什么限制和门槛，有没有可能伪造 101 个带假账本的人进入只有 100 个人的小岛</p>
 <p>你可以理解为每一个区块每一个账本的哈希是独一无二的是不同的，你如果做假账哈希就会发生变化，你下一个区块就不认你了。所以说才会有百分之 51 以上才能篡改的说法，你除非整个区块链百分之 51 以上都被你控制了，你才能去篡改</p>
 <p>资本家就是靠信息不对称骗人的啊……说白了就是忽悠人，科技无罪，有罪的是资本和使用的人</p>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何找要读的paper</title>
+    <url>/2022/11/10/%E8%AE%BA%E6%96%87/%E5%A6%82%E4%BD%95%E6%89%BE%E8%A6%81%E8%AF%BB%E7%9A%84paper/</url>
+    <content><![CDATA[<h1 id="有关论文阅读"><a href="#有关论文阅读" class="headerlink" title="有关论文阅读"></a>有关论文阅读</h1><h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0. 前言"></a>0. 前言</h2><p>准备区块链的时候发现了这篇文章，虽然是区块链的，但内容方法应该是通用的。来源 <a href="https://github.com/lulinglingcufe/Blockchain-Top-Paper-Seminar/">link</a></p>
+<p>陈建海老师上学期《计算机科学基础》大作业要求班上的同学翻译了一些区块链相关的国外顶级会议的论文。从中挑选了一些较好的翻译，如果大家有需要的话可以看一下。翻译与原文在 <code>翻译论文</code> 目录下。</p>
+<p>下面简单介绍一下查找论文的方法。</p>
+<h2 id="1-跟区块链相关的学术文献"><a href="#1-跟区块链相关的学术文献" class="headerlink" title="1. 跟区块链相关的学术文献"></a>1. 跟区块链相关的学术文献</h2><p><a href="https://github.com/decrypto-org/blockchain-papers">blockchain-papers</a></p>
+<p>github 上其他人整理的区块链相关学术文献。</p>
+<h2 id="2-中国计算机学会（CCF）推荐国际学术会议和期刊目录"><a href="#2-中国计算机学会（CCF）推荐国际学术会议和期刊目录" class="headerlink" title="2. 中国计算机学会（CCF）推荐国际学术会议和期刊目录"></a>2. 中国计算机学会（CCF）推荐国际学术会议和期刊目录</h2><p><a href="https://www.ccf.org.cn/">https://www.ccf.org.cn/</a></p>
+<p><a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
+<p>以 ABC 等级的形式划分了国外的学术期刊和会议，是浙大现在科研成果认定的评价标准之一。</p>
+<h2 id="3-CCF-推荐国际学术会议-网络与信息安全）"><a href="#3-CCF-推荐国际学术会议-网络与信息安全）" class="headerlink" title="3. CCF 推荐国际学术会议 (网络与信息安全）"></a>3. CCF 推荐国际学术会议 (网络与信息安全）</h2><p><a href="https://www.ccf.org.cn/Academic_Evaluation/NIS/">https://www.ccf.org.cn/Academic_Evaluation/NIS/</a></p>
+<p>网络安全方向 A 类的几个顶级会议：<code>CCS</code>、CRYPTO、EUROCRYPT、S&amp;P、USENIX Security 上有关区块链的文章都值得关注。代表了国际上的相关研究的较高学术水平，值得学习。</p>
+<h3 id="3-1-以-USENIX-Security-会议为例"><a href="#3-1-以-USENIX-Security-会议为例" class="headerlink" title="3.1 以 USENIX Security 会议为例"></a>3.1 以 USENIX Security 会议为例</h3><p><a href="http://dblp.uni-trier.de/db/conf/uss/">http://dblp.uni-trier.de/db/conf/uss/</a></p>
+<p>从 CCF 的推荐网址可以链接到该网址。其下有历年 USENIX Security 会议的论文资源。</p>
+<h3 id="3-2-以-USENIX-Security-Symposium-2015-为例"><a href="#3-2-以-USENIX-Security-Symposium-2015-为例" class="headerlink" title="3.2 以  USENIX Security Symposium 2015 为例"></a>3.2 以  USENIX Security Symposium 2015 为例</h3><p>找到 2015 年下的 USENIX 相关会议： 24th USENIX Security Symposium, USENIX Security 15, Washington, D.C., USA, August 12-14, 2015. USENIX Association 2015 <a href="https://dblp.uni-trier.de/db/conf/uss/uss2015.html">dblp: USENIX Security Symposium 2015 (uni-trier.de)</a></p>
+<p>点击 contents 链接到：<a href="http://dblp.uni-trier.de/db/conf/uss/uss2015.html">http://dblp.uni-trier.de/db/conf/uss/uss2015.html</a></p>
+<p>该网址下有 2015 年 USENIX Security 会议的论文资源。</p>
+<p>会议分不同的专题，每个专题下有一些文章。可以根据关键字：blockchain 或 bitcoin 等搜索论文。</p>
+<h3 id="3-3-会议还会有自己的网站"><a href="#3-3-会议还会有自己的网站" class="headerlink" title="3.3 会议还会有自己的网站"></a>3.3 会议还会有自己的网站</h3><p><a href="https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/heilman">https://www.usenix.org/conference/usenixsecurity15/technical-sessions/presentation/heilman</a></p>
+<ul>
+<li>一些会议网站上有会议视频、演讲 slides 的资源链接。一般在 YouTube 上搜索会议名称+年份，有会议演讲视频的集合。</li>
+<li>在一些科研工作者的个人主页上也可以下载到 slides，或者也可以选择发 email 向他们要相关材料。</li>
+<li>在我们每周的组会上，也可以自己做 slides 讲论文，只要能够讲清楚就可以了。</li>
+</ul>
+<h2 id="4-文献搜索"><a href="#4-文献搜索" class="headerlink" title="4. 文献搜索"></a>4. 文献搜索</h2><h3 id="4-1-谷歌学术"><a href="#4-1-谷歌学术" class="headerlink" title="4.1 谷歌学术"></a>4.1 谷歌学术</h3><p><a href="https://scholar.google.com/">https://scholar.google.com/</a></p>
+<h3 id="4-2-科研团队主页"><a href="#4-2-科研团队主页" class="headerlink" title="4.2 科研团队主页"></a>4.2 科研团队主页</h3><p>在看文献的过程中很自然地会关注到一些积累比较深厚的团队或者科研人员，感兴趣的话可以持续关注他们的主页。</p>
+<p>Loi Luu: <a href="http://www.comp.nus.edu.sg/~loiluu/">http://www.comp.nus.edu.sg/~loiluu/</a></p>
+<p>Andrew Miller: <a href="http://soc1024.ece.illinois.edu/">http://soc1024.ece.illinois.edu/</a></p>
+<p><strong>Advice：当前 SRTP 的同学们如果觉得顶级会议的论文比较难，可以先自己搜索区块链相关文献进行阅读，然后再与大家分享也是很好的。</strong></p>
 ]]></content>
       <categories>
         <category>论文</category>
