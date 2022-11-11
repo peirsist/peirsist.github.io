@@ -81,6 +81,8 @@
 <ol type="1">
 <li><strong><a href="https://www.bilibili.com/video/BV1if4y147hS?spm_id_from=333.999.0.0">动手学深度学习【李沐大神】</a></strong> <!-- 2. **🔗[CNN](机器学习/05DL/CNN.md)** --></li>
 <li><a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/" title="CNN">🔗CNN</a></li>
+<li><a href="https://github.com/open-mmlab/OpenMMLabCourse/blob/main/lecture_sjtu.md">OpenMMLabCourse/lecture_sjtu.md at main · open-mmlab/OpenMMLabCourse (github.com)</a></li>
+<li></li>
 </ol>
 <h2 id="强化学习">1.7 <strong>强化学习</strong></h2>
 <ol type="1">
@@ -258,6 +260,14 @@
 <li>C++尽可能精通</li>
 <li>机器学习和 python</li>
 </ol>
+</blockquote>
+<ol start="2" type="1">
+<li><strong><em>2022-11-10，周四</em></strong>，上午 10:00 去实验室问师兄师姐的方案，到 12:00 ，然后下午超导课，晚上数字图像编码以及大数据时代下的讲座</li>
+<li><strong><em>2022-11-11，周五</em></strong>，上午 9: 00- 10:00 准备区块链，然后打球到 13:00 ，吃饭 14:00 党会，然后一下午准备区块链，晚上区块链的课。</li>
+</ol>
+<p>🔴 <strong>注：如何汇报</strong></p>
+<blockquote>
+<p><strong><font color="red">自信要刻意练习，无论给谁来，同学老师老板做汇报，一定要自信，显的你很会，有板书，显得别人不会我会。</font></strong></p>
 </blockquote>
 <h2 id="下一步计划">1.3 下一步计划</h2>
 <hr>
@@ -2009,12 +2019,13 @@ blockquote {
   <entry>
     <title>雅思题型了解及准备</title>
     <url>/2022/10/31/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/%E4%BA%86%E8%A7%A3%E9%9B%85%E6%80%9D/</url>
-    <content><![CDATA[<h1 id="为什么考">为什么考</h1>
+    <content><![CDATA[<h1 id="为什么考">1 为什么考</h1>
 <p>很早就有考雅思的想法，这次别再犹豫了，以后自己的时间越来越少。 关于是否报辅导机构，根据我的报过大英赛以及大一报英语班被人骗过的经历，大英赛的直播的课其实没什么用，直播讲得其实就是方法，会不会还得靠自己去练。但是那段时间坚持学英语，确实让英语水平提升了。英语学习<strong>一要正确的方法，二要坚持</strong>。所以辅导机构不用报了，你的基础也还可以。如何备考，自己查就行。大一的时候，yu自己留学申请都是自己准备的，<strong>开始总比不开始好</strong>。</p>
 <p><a href="https://www.zhihu.com/question/335517100">学习雅思报哪个机构好？ - 知乎 (zhihu.com)</a> <a href="https://www.zhihu.com/question/551794049">洋葱雅思怎么样？ - 知乎 (zhihu.com)</a></p>
 <p><a href="https://ielts.neea.edu.cn/">雅思网上报名 - 教育部教育考试院 (neea.edu.cn)</a> <a href="https://ielts.neea.cn/">雅思网上报名 - 教育部教育考试院 (neea.cn)</a> <a href="https://www.chinaielts.org/#">雅思考试(IELTS)中文官方网站 (chinaielts.org)</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/87447951">第一次考雅思？雅思首考小白必看！！！ - 知乎 (zhihu.com)</a></p>
 <hr>
+<h1 id="经验">2 经验</h1>
 <blockquote>
 <ol type="1">
 <li><a href="https://www.bilibili.com/video/BV1JK411m7Nq/?spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【雅思机考2个月拿下7.5】全新方法论讲解，低成本无纸化复习，内含所有资料_哔哩哔哩_bilibili</a></li>
@@ -2025,10 +2036,17 @@ blockquote {
 <li><strong><a href="https://www.bilibili.com/video/BV1zP4y1K7Aq/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">8.5分清华学长，详尽无比雅思备考规划，一定考出来！_哔哩哔哩_bilibili</a></strong></li>
 </ol>
 </blockquote>
-<h1 id="如何备考">如何备考</h1>
+<h1 id="资料">3 资料</h1>
+<ol type="1">
+<li><a href="https://www.xuebapan.com/info/40374e648950901a59e7b23df6fc3285.html">【绝版】刘洪波阅读真经9分班网盘资源下载 - 学霸盘 (xuebapan.com)</a></li>
+<li>🔴 <strong><a href="https://zhuanlan.zhihu.com/p/33893805">来自一只老烤鸭的雅思经验贴（5.5-7.5） - 知乎 (zhihu.com)</a></strong></li>
+<li><a href="https://bbs.pinggu.org/thread-7071629-1-1.html">分享雅思刘洪波阅读写作真经课（绝版） - 外语学习 - 经管之家(原人大经济论坛) (pinggu.org)</a></li>
+<li></li>
+</ol>
+<h1 id="如何备考">4 如何备考</h1>
 <p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/雅思备考.5qnuw46v0ds0.png"></p>
-<h1 id="初期准备阶段">初期准备阶段</h1>
-<h2 id="是否报班">是否报班</h2>
+<h1 id="初期准备阶段">5 初期准备阶段</h1>
+<h2 id="是否报班">5.1 是否报班</h2>
 <ol type="1">
 <li>线下班 ❌</li>
 <li>网课班 ✅
@@ -2044,7 +2062,7 @@ blockquote {
 <blockquote>
 <p>选定一位老师的课程，就不要再听别的老师的了，每一为老师都有自己的授课风格，一套思路。尤其是写作和口语，写作和口语是输出项</p>
 </blockquote>
-<h2 id="书籍">书籍</h2>
+<h2 id="书籍">5.2 书籍</h2>
 <ol type="1">
 <li>真题类
 <ol type="1">
@@ -2054,8 +2072,14 @@ blockquote {
 <ol type="1">
 <li>没有必要买，因为和网课的内容是重复的，提升的效果不是很大，消耗精力</li>
 </ol></li>
+<li>单词书
+<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/548241358">刘洪波雅思阅读538考点词，高清PDF可打印 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://www.zhihu.com/question/431595764">大家觉得雅思刘洪波538考点词和179听力有用吗，因为有老师和我说没用，现在纠结要不要背，谢谢大家? - 知乎 (zhihu.com)</a></li>
+<li></li>
+</ol></li>
 </ol>
-<h2 id="app">APP</h2>
+<h2 id="app">5.3 APP</h2>
 <ol type="1">
 <li>每日英语听力
 <ol type="1">
@@ -2073,8 +2097,8 @@ blockquote {
 <li>刷题的时候以倒计时的方式，严格按照考试的时间来，在规定的时间内做完题，并且把答案腾到答题卡上，模拟考场的紧张感</li>
 </ol></li>
 </ol>
-<h1 id="中期集中备考复习阶段">中期集中备考复习阶段</h1>
-<h2 id="刷题">刷题</h2>
+<h1 id="中期集中备考复习阶段">6 中期集中备考复习阶段</h1>
+<h2 id="刷题">6.1 刷题</h2>
 <ol type="1">
 <li>刷剑桥雅思足够</li>
 <li>4-14按照顺序依次来刷，剑8之后，难度上一个level，剑11之后难度又上升一个level。</li>
@@ -2082,12 +2106,12 @@ blockquote {
 <li>阅读60分钟倒计时做完并且把答案填到答题卡上。</li>
 <li>写作要写，批改</li>
 </ol>
-<h2 id="是否购买批改模考预测">是否购买批改模考预测</h2>
+<h2 id="是否购买批改模考预测">6.2 是否购买批改模考预测</h2>
 <ol type="1">
 <li>批改作文需要。不要大机构，小工作室可以</li>
 <li>推荐模拟口语，知道口语又哪些错误和不太好的表现</li>
 </ol>
-<h2 id="背诵要注意的事情">背诵要注意的事情</h2>
+<h2 id="背诵要注意的事情">6.3 背诵要注意的事情</h2>
 <ol type="1">
 <li>每一科都需要背诵</li>
 <li>口语
@@ -2110,7 +2134,7 @@ blockquote {
 <li>高级搭配</li>
 </ol></li>
 </ol>
-<h2 id="报名">报名</h2>
+<h2 id="报名">6.4 报名</h2>
 <ol type="1">
 <li>报名要提前。12月份的考试，11月多点就已经没有位置了。</li>
 <li>雅思考试是分季度的，一个季度它的口语话题会替换掉，所以尽量在12月份尽量考出来，考不出来，到1月份准备的话，要重新准备新的口语话题。</li>
@@ -2131,26 +2155,26 @@ blockquote {
 <li>笔试，写写画画</li>
 </ol></li>
 </ol>
-<h1 id="临近考试阶段">临近考试阶段</h1>
-<h2 id="转考退考">转考退考</h2>
+<h1 id="临近考试阶段">7 临近考试阶段</h1>
+<h2 id="转考退考">7.1 转考退考</h2>
 <ol type="1">
 <li>都要交手续费400大洋.......</li>
 </ol>
-<h2 id="口语预约">口语预约</h2>
+<h2 id="口语预约">7.2 口语预约</h2>
 <ol type="1">
 <li>以邮件的形式</li>
 </ol>
-<h2 id="打印准考证">打印准考证</h2>
+<h2 id="打印准考证">7.3 打印准考证</h2>
 <ol type="1">
 <li>提前打印</li>
 </ol>
-<h2 id="考试当天注意事项">考试当天注意事项</h2>
+<h2 id="考试当天注意事项">7.4 考试当天注意事项</h2>
 <ol type="1">
 <li>不要多喝水，因为会很紧张，时间也长，会上厕所</li>
 <li>考口语之前和考完之后不要说话，否则判为作弊！！！</li>
 <li>阅读的时候，严格按照老师的指令来</li>
 </ol>
-<h2 id="成绩复议">成绩复议</h2>
+<h2 id="成绩复议">7.5 成绩复议</h2>
 <ol type="1">
 <li>手续费1400大洋</li>
 </ol>
@@ -2172,6 +2196,50 @@ blockquote {
 （2）四科词汇背单词的方法要严格区分开来，搞清楚各科词汇的重点。</p></li>
 </ol>
 <p>加油，祝大家顺利拿到想要的分数。</p>
+<hr>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1c54y187SH/?vd_source=83831fc0970a6c8704479f7cfc679937">雅思备考，先看完雅思教父刘洪波的雅思真经第一课。备考雅思|雅思听力|雅思口语|雅思写作|雅思阅读|新东方雅思|新航道雅思|顾家北写作|雅思书籍app_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+<h1 id="关于雅思">8 关于雅思</h1>
+<p>1、 雅思分为学术类和普通类雅思，留学一般考学术类<br>
+2、雅思的分为听说读写 4 个部分，每部分的满分为 9 分，总分是 4 项成绩相加除以 4。整体来说，全球大学对雅思的平均要求是总分 6.5 分，听说读写每门不低于 6 分。</p>
+<h1 id="各部分如何备考">9 各部分如何备考</h1>
+<h2 id="听力">9.1 听力。</h2>
+<p>（1）听力分为4个section。<br>
+Section1:10道题，生活场景，双人对话形式<br>
+Section2:生活场景，单人介绍<br>
+Section3:学习场景，双人教师和学生的讨论<br>
+Section4:学习场景，单人教授讲授学科<br>
+（2）备考<br>
+S1和S3：场景相对固话，<br>
+S2和S4：相对难预测<br>
+可能出现的问题和解决措施：<br>
+听不懂：高频单词的听觉不敏感。解决措施：<strong>精听跟读，即一周只做一套听力或 s1，听一遍，再拿着原文听力对照听，只要是反应滞后的单词全部划记出来，将划记出来的单词反复读</strong>。 <strong><font color="red">任务：一天至少将 50 个听力核心单词变为和 and 一样的熟悉级别。</font></strong><br>
+听不到：对雅思考点不熟悉<br>
+写不对<br>
+资料：刘洪波《雅思听力考点词真经179》——将听力中的同义替换和高频词筛选出来了<br>
+王陆《雅思王听力真题预料库》</p>
+<h2 id="阅读">9.2 阅读</h2>
+<p>（1） 阅读共3篇，40题，共60分钟，4大题型：单词题、句子题、断落题、匹配题<br>
+（2） 备考<br>
+资料：刘洪波《剑桥雅思阅读考点词真经 538》,——归纳了阅读中常考的词汇和同义替换</p>
+<h2 id="写作">9.3 写作</h2>
+<p>（1） 写作分为大作文250字和小作文150字<br>
+小作文分为：曲线图、饼图、柱状图、表图<br>
+大作为一般是议论文，偶尔也有议论文<br>
+（2） 雅思评分标准：谋篇布局、逻辑、词汇、语法</p>
+<h2 id="口语">9.4 口语</h2>
+<p>（1） 三个部分，P1为5分钟的基本寒暄、P2抽卡片回答问题、P3就话题进行深入交流<br>
+（2） 备考<br>
+资料：雅思口语真经总纲<br>
+背诵输入、句型为重——句型能帮助你放到任何话题中、自然放松、逻辑沟通</p>
+<h1 id="备考的基本逻辑">10 备考的基本逻辑</h1>
+<p>1、 <strong>修炼内功</strong>：搭配记忆—这样写作和口语才能适当应用，放到文章中记忆。回忆小学如何增加词汇<br>
+2、 <strong>掌握技巧</strong>：真经总纲、阅读考点词538、真经5预测、写作总纲、口语总纲、听力179词汇<br>
+3、 <strong>真题模考</strong><br>
+4、 <strong>考前预测</strong></p>
+<p><strong>你做题 vs 考试 :)</strong> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Pasted-image-20221111213429.1eojyj6bge2o.png" alt="Pasted-image-20221111213429"></p>
 ]]></content>
       <categories>
         <category>英语</category>
@@ -4092,6 +4160,20 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <p>Loi Luu: <a href="http://www.comp.nus.edu.sg/~loiluu/">http://www.comp.nus.edu.sg/~loiluu/</a></p>
 <p>Andrew Miller: <a href="http://soc1024.ece.illinois.edu/">http://soc1024.ece.illinois.edu/</a></p>
 <p><strong>Advice：当前 SRTP 的同学们如果觉得顶级会议的论文比较难，可以先自己搜索区块链相关文献进行阅读，然后再与大家分享也是很好的。</strong></p>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何科研</title>
+    <url>/2022/11/10/%E8%AE%BA%E6%96%87/%E5%A6%82%E4%BD%95%E7%A7%91%E7%A0%94/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1BD4y1t73e/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">博士科研心得分享【适合研一新生0基础科研入门，纯干货】文献阅读与管理SCI写作技巧_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV14t4y1u75s/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">科研论文写作简介_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1HK411S7EH/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【双语字幕】杨振宁年轻时全英语授课视频，挑战一下你能听懂多少？_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
 ]]></content>
       <categories>
         <category>论文</category>
