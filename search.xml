@@ -85,6 +85,13 @@
 <li></li>
 </ol>
 <h2 id="强化学习">1.7 <strong>强化学习</strong></h2>
+<p><strong>西湖大学赵世钰老师</strong>，<strong><font color="red">强烈推荐！！！</font></strong></p>
+<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1sd4y167NS/?p=2&amp;spm_id_from=333.880.my_history.page.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强化学习的数学原理】从零开始透彻理解强化学习）_哔哩哔哩_bilibili</a></li>
+<li><a href="https://github.com/MathFoundationRL/Book-Mathmatical-Foundation-of-Reinforcement-Learning">课程对应书籍和PPT-MathFoundationRL</a></li>
+<li><a href="https://www.zhihu.com/people/kong-zhong-ji-qi-ren-qian-yan">空中机器人前沿 - 知乎 (zhihu.com)</a></li>
+</ol>
+<hr>
 <ol type="1">
 <li><strong>🔗<a href="机器学习/03RL/02RL介绍.md">第1节什么是强化学习?-北邮-鲁鹏老师</a></strong></li>
 <li><a href="https://blog.csdn.net/SMALL_RL/article/details/123380320">强化学习 (Reinforcement Learning) 基础及论文资料汇总</a></li>
@@ -109,7 +116,7 @@
 <li><strong><a href="https://www.bilibili.com/video/BV1r4411s7Hj/?vd_source=83831fc0970a6c8704479f7cfc679937">【计算机结构 Computer Architecture】-台湾清华大学-黄婷婷教授_哔哩哔哩_bilibili</a></strong></li>
 <li><strong><a href="https://www.bilibili.com/video/BV1554y1s7LS?p=1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【强烈推荐】深入浅出计算机组成原理 - 源自台湾 - 非常值得一看 哔哩哔哩_bilibili</a></strong></li>
 </ol>
-<h2 id="shell编程">1.9 shell编程</h2>
+<h2 id="shell编程">1.9 Shell编程</h2>
 <ol type="1">
 <li><a href="https://www.bilibili.com/video/BV1G7411K7q8/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">尚硅谷-Linux视频教程-shell编程（入门到精通）</a>
 <ol type="1">
@@ -269,6 +276,10 @@
 <blockquote>
 <p><strong><font color="red">自信要刻意练习，无论给谁来，同学老师老板做汇报，一定要自信，显的你很会，有板书，显得别人不会我会。</font></strong></p>
 </blockquote>
+<ol start="4" type="1">
+<li><strong><em>2022-11-12，周六</em></strong>，好像又在玩吧，不知道忘了</li>
+<li><strong><em>2022-11-13，周日</em></strong>，整体又在改材料，不知道为什么，改这总是很费时间。</li>
+</ol>
 <h2 id="下一步计划">1.3 下一步计划</h2>
 <hr>
 <h1 id="section-1">2 2022-11-08</h1>
@@ -435,38 +446,10 @@
 <h2 id="下一步计划-3">5.3 下一步计划</h2>
 ]]></content>
       <categories>
-        <category>科研</category>
+        <category>研究生</category>
       </categories>
       <tags>
         <tag>汇报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何阅读文献</title>
-    <url>/2022/10/20/00/%E8%AF%BB%E6%96%87%E7%8C%AE/</url>
-    <content><![CDATA[<h2 id="如何阅读文献">如何阅读文献</h2>
-<blockquote>
-<p>清华大学唐潇风</p>
-</blockquote>
-<ol type="1">
-<li><p>看标题，摘要，最值得抓取的、不明白的是什么。不适合刚开始读文献的学生。把每篇文献整理成三句话：</p>
-<ul>
-<li>为什么做</li>
-<li>怎么做的</li>
-<li>得到什么</li>
-</ul>
-<p>之所以能做到提炼成三句话，往往是对这个领域特别熟悉的，知道别人做过什么</p></li>
-<li><p>精读<code>20</code> 篇，每一句话。</p></li>
-<li><p>信息抓取的角度，翻译是可以的，<strong>但写文章的时候，就要从头开始想怎么写</strong></p></li>
-<li><p>为了写作，写作的角度，读原文，才能看到别人的语言是如何使用的。</p></li>
-<li><p><strong>做到让自己经常写这件事不是那么容易</strong>，总是拖到最后，写个两三天，一两个礼拜。尽量把 <strong>负荷均摊化，每天写半小时，持续性的写。</strong></p></li>
-</ol>
-]]></content>
-      <categories>
-        <category>科研</category>
-      </categories>
-      <tags>
-        <tag>文献</tag>
       </tags>
   </entry>
   <entry>
@@ -1841,21 +1824,24 @@ blockquote {
 </ol>
 <h2 id="技巧">2.3 技巧</h2>
 <ol type="1">
-<li><p>停顿放网</p></li>
-<li><p>假放真推</p></li>
-<li><p>假推真放</p></li>
-<li><p>接杀挡对角</p></li>
-<li><p>前后调动</p></li>
-<li><p>重复落点</p></li>
-<li><p>打转身</p></li>
-<li><p>杀中路</p></li>
-<li><p>抓推</p></li>
-<li><p>变速</p></li>
-<li><p>往前扑球</p></li>
-<li><p>技术</p></li>
-<li><p>战术</p></li>
-<li><p>心理</p></li>
-<li><p>能力</p></li>
+<li>停顿放网</li>
+<li>假放真推</li>
+<li>假推真放</li>
+<li>接杀挡对角</li>
+<li>前后调动</li>
+<li>重复落点</li>
+<li>打转身</li>
+<li>杀中路</li>
+<li>抓推</li>
+<li>变速</li>
+<li>往前扑球</li>
+</ol>
+<hr>
+<ol type="1">
+<li>技术</li>
+<li>战术</li>
+<li>心理</li>
+<li>能力</li>
 </ol>
 <p><strong>决定性作用：胜利的信念</strong></p>
 <h1 id="每次打球记录总结">3 每次打球记录总结</h1>
@@ -2427,6 +2413,10 @@ S2和S4：相对难预测<br>
       <categories>
         <category>论文</category>
       </categories>
+      <tags>
+        <tag>数据包分类</tag>
+        <tag>决策树</tag>
+      </tags>
   </entry>
   <entry>
     <title>BitCuts</title>
@@ -2446,99 +2436,117 @@ S2和S4：相对难预测<br>
       <categories>
         <category>论文</category>
       </categories>
+      <tags>
+        <tag>数据包分类</tag>
+        <tag>决策树</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据包分类方案整理</title>
     <url>/2022/11/03/%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<h1 id="1-硬件"><a href="#1-硬件" class="headerlink" title="1 硬件"></a>1 硬件</h1><h1 id="2-软件"><a href="#2-软件" class="headerlink" title="2 软件"></a>2 软件</h1><h2 id="2-1-决策树"><a href="#2-1-决策树" class="headerlink" title="2.1 决策树"></a>2.1 决策树</h2><h3 id="2-1-1-规则集分组"><a href="#2-1-1-规则集分组" class="headerlink" title="2.1.1 规则集分组"></a>2.1.1 规则集分组</h3><p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
-<ol>
-<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。<ul>
+    <content><![CDATA[<h1 id="硬件">1 硬件</h1>
+<h1 id="软件">2 软件</h1>
+<h2 id="决策树">2.1 决策树</h2>
+<h3 id="规则集分组">2.1.1 规则集分组</h3>
+<p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
+<ol type="1">
+<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。
+<ul>
 <li><del>HiCuts(1999), HyperCuts(2004)</del>, <em>Efficuts(2010)</em>, <del>HyperSplit(2011),</del> <em>SmartSplit(2014), CutSplit(2018)</em></li>
-</ul>
-</li>
-<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。<ul>
+</ul></li>
+<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。
+<ul>
 <li>HashTable</li>
 <li><em>ByteCuts(2018)</em></li>
-</ul>
-</li>
-<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。<ul>
+</ul></li>
+<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。
+<ul>
 <li><em>ParaSplit</em></li>
-</ul>
-</li>
-<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。<ul>
+</ul></li>
+<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。
+<ul>
 <li><em>NeuroCuts(2019)</em></li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>按字段大小、前缀长度分组等启发式策略建立在对规则集分布特征观察的基础之上，原理相 对简单、容易实现，但对于不同的规则集，往往需 要手动调整部分参数以获得理想结果; 聚类算法、 神经网络模型则可以使用机器学习来替代人工调 整，实现对规则子集的自适应划分，但需要经过大 量的训练和迭代才能收敛。</p>
-<h3 id="2-1-2-节点切割"><a href="#2-1-2-节点切割" class="headerlink" title="2.1.2 节点切割"></a>2.1.2 节点切割</h3><p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
+<h3 id="节点切割">2.1.2 节点切割</h3>
+<p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
 <p>各类决策树算法在节点切割方面的主要区别为:</p>
-<ol>
-<li><p>**<font color="red">切割维度的选择</font>**。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p>
-</li>
+<ol type="1">
+<li><p><strong><font color="red">切割维度的选择</font></strong>。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p></li>
 <li><p><strong><font color="red">切割端点的选择</font></strong></p>
-<ol>
-<li><strong>Equi - size</strong><ul>
-<li>快速将节点等分为 $2^n$ 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
+<ol type="1">
+<li><strong>Equi - size</strong>
+<ul>
+<li>快速将节点等分为 <span class="math inline">\(2^n\)</span> 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
 <li><em>HiCuts(1999), HyperCuts(2004), Efficuts(2010)</em></li>
-</ul>
-</li>
-<li><strong>Equi-dense</strong><ul>
+</ul></li>
+<li><strong>Equi-dense</strong>
+<ul>
 <li>而等密切割能够缓解规则复制问题，但也存在树深度增加、节点索引复杂等问题。</li>
 <li><em>HyperSplit(2011), SmartSplit(2014)</em></li>
-</ul>
-</li>
-<li><strong>Bit cutting</strong><ul>
+</ul></li>
+<li><strong>Bit cutting</strong>
+<ul>
 <li>利用规则每一位都可表示为 0、1 或者 * ( 通配符) 的特点，选择其中有效比特将规则映射到各个子节点中，从而避免了盲目地切割整个搜索空间。</li>
 <li><em>BitCuts(2017), ByteCuts(2018), MBitTree(2021)</em></li>
-</ul>
-</li>
-</ol>
-</li>
+</ul></li>
+</ol></li>
 </ol>
 <blockquote>
 <p>另一个角度看，等分切割也是一种特殊的比特切割，但只允许使用连续的最高有效位。</p>
 </blockquote>
-<h3 id="2-1-3-HiCuts"><a href="#2-1-3-HiCuts" class="headerlink" title="2.1.3 HiCuts"></a>2.1.3 HiCuts</h3><ol>
+<h3 id="hicuts">2.1.3 HiCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择单个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：首个决策树分类算法，快速 切割规则空间</li>
 <li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大</li>
 </ol>
-<h3 id="2-1-4-HyperCuts"><a href="#2-1-4-HyperCuts" class="headerlink" title="2.1.4 HyperCuts"></a>2.1.4 HyperCuts</h3><ol>
+<h3 id="hypercuts">2.1.4 HyperCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择多个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：HiCuts 的改进，树深度较小， 分类速度较快，规则复制相 比 HiCuts 有所优化</li>
 <li><strong>缺点</strong>：内存消耗仍然较大，可扩展性较差</li>
 </ol>
-<h3 id="2-1-5-EffiCuts"><a href="#2-1-5-EffiCuts" class="headerlink" title="2.1.5 EffiCuts"></a>2.1.5 EffiCuts</h3><ol>
-<li><strong>思路</strong>： </li>
+<h3 id="efficuts">2.1.5 EffiCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>：</li>
 <li><strong>规则集分组方式</strong>：</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：大大减少了规则复制</li>
 <li><strong>缺点</strong>：划分树的数目太多，查找速度慢</li>
 </ol>
-<h3 id="2-1-6-HyperSplit"><a href="#2-1-6-HyperSplit" class="headerlink" title="2.1.6 HyperSplit"></a>2.1.6 HyperSplit</h3><p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
-<ol>
+<h3 id="hypersplit">2.1.6 HyperSplit</h3>
+<p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择单个维度和特定的 端点，将搜索空间划分为两 个规则数几乎相等的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-dense</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-dense</em></strong></li>
 <li><strong>优点</strong>：进一步优化规则复制问题， 内存消耗小</li>
 <li><strong>缺点</strong>：树深度较大，遍历树所需 的访存次数较多</li>
 </ol>
-<h3 id="2-1-7-BitCuts"><a href="#2-1-7-BitCuts" class="headerlink" title="2.1.7 BitCuts"></a>2.1.7 BitCuts</h3><ol>
+<h3 id="bitcuts">2.1.7 BitCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 选择规则中的有效比特来划分搜索空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>bit-cutting</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>bit-cutting</em></strong></li>
 <li><strong>优点</strong>：分类速度在 4 种算法中最快，吞吐量高</li>
-<li><strong>缺点</strong>：树深度较大，规则复制问题严重，内存消耗大</li>
+<li><strong>缺点</strong>：树深度较大，规则复制问题严重，内存消耗大 ## 2.2 哈希表</li>
 </ol>
-<h2 id="2-2-哈希表"><a href="#2-2-哈希表" class="headerlink" title="2.2 哈希表"></a>2.2 哈希表</h2><h2 id="2-3-决策树结合哈希表"><a href="#2-3-决策树结合哈希表" class="headerlink" title="2.3 决策树结合哈希表"></a>2.3 决策树结合哈希表</h2><h2 id="2-4-机器学习"><a href="#2-4-机器学习" class="headerlink" title="2.4 机器学习"></a>2.4 机器学习</h2><h2 id="2-5-其他"><a href="#2-5-其他" class="headerlink" title="2.5 其他"></a>2.5 其他</h2>]]></content>
+<h2 id="决策树结合哈希表">2.3 决策树结合哈希表</h2>
+<h2 id="机器学习">2.4 机器学习</h2>
+<h2 id="其他">2.5 其他</h2>
+]]></content>
       <categories>
         <category>论文</category>
       </categories>
+      <tags>
+        <tag>数据包分类</tag>
+      </tags>
   </entry>
   <entry>
     <title>MBitTree</title>
@@ -2683,6 +2691,10 @@ S2和S4：相对难预测<br>
       <categories>
         <category>论文</category>
       </categories>
+      <tags>
+        <tag>数据包分类</tag>
+        <tag>决策树</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据包现状</title>
@@ -3142,8 +3154,11 @@ S2和S4：相对难预测<br>
 <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">只给每一章首页加页眉</span><br><span class="line"></span><br><span class="line"><span class="keyword">\makeatletter</span></span><br><span class="line">  <span class="keyword">\let</span><span class="keyword">\ps@plain</span><span class="keyword">\ps@empty</span></span><br><span class="line"><span class="keyword">\makeatother</span></span><br><span class="line"><span class="keyword">\fancypagestyle</span>&#123;plain&#125;&#123;<span class="comment">%</span></span><br><span class="line">    <span class="keyword">\fancyhf</span>&#123;&#125; <span class="comment">%</span></span><br><span class="line">    <span class="keyword">\fancyhead</span>[LO,RE]&#123;...&#125; <span class="comment">%</span></span><br><span class="line">    <span class="keyword">\fancyhead</span>[RO,LE]&#123;...&#125; <span class="comment">%</span></span><br><span class="line">    <span class="keyword">\fancyfoot</span>[C]&#123;...&#125; <span class="comment">%</span></span><br><span class="line">    <span class="keyword">\renewcommand</span>&#123;<span class="keyword">\headrulewidth</span>&#125;&#123;0.4pt&#125;  <span class="comment">%</span></span><br><span class="line">    <span class="keyword">\renewcommand</span>&#123;<span class="keyword">\footrulewidth</span>&#125;&#123;0.4pt&#125;  <span class="comment">%</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>LaTex</category>
+        <category>软件使用</category>
       </categories>
+      <tags>
+        <tag>LaTex</tag>
+      </tags>
   </entry>
   <entry>
     <title>Office的使用</title>
@@ -3161,6 +3176,9 @@ S2和S4：相对难预测<br>
 <li><a href="https://www.bilibili.com/video/BV1ix41137b7?spm_id_from=333.337.search-card.all.click">【公开课】Excel基础大全（1-66集）【超高清版】_哔哩哔哩_bilibili</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
       <tags>
         <tag>Office</tag>
       </tags>
@@ -3398,7 +3416,7 @@ blockquote {
   </entry>
   <entry>
     <title>脸上长痘痘怎么调理</title>
-    <url>/2022/03/21/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E8%84%B8%E4%B8%8A%E9%95%BF%E7%97%98%E7%97%98%E6%80%8E%E4%B9%88%E8%B0%83%E7%90%86/</url>
+    <url>/2022/11/05/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E8%84%B8%E4%B8%8A%E9%95%BF%E7%97%98%E7%97%98%E6%80%8E%E4%B9%88%E8%B0%83%E7%90%86/</url>
     <content><![CDATA[<p><a href="https://zhuanlan.zhihu.com/p/69344626">脸上长痘痘怎么调理 - 知乎 (zhihu.com)</a></p>
 ]]></content>
       <categories>
@@ -4168,15 +4186,173 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>如何科研</title>
     <url>/2022/11/10/%E8%AE%BA%E6%96%87/%E5%A6%82%E4%BD%95%E7%A7%91%E7%A0%94/</url>
-    <content><![CDATA[<ol type="1">
+    <content><![CDATA[<p>学术圈那就那样，靠人脉，跟娱乐圈一样乱，却有人乐此不疲，前仆后继。 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-02_19-49-47.3nkby7sunre0.png" alt="Snipaste_2022-11-02_19-49-47"></p>
+<hr>
+<p><strong>正文</strong></p>
+<ol type="1">
 <li><a href="https://www.bilibili.com/video/BV1BD4y1t73e/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">博士科研心得分享【适合研一新生0基础科研入门，纯干货】文献阅读与管理SCI写作技巧_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.bilibili.com/video/BV14t4y1u75s/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">科研论文写作简介_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.bilibili.com/video/BV1HK411S7EH/?spm_id_from=333.999.0.0&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【双语字幕】杨振宁年轻时全英语授课视频，挑战一下你能听懂多少？_哔哩哔哩_bilibili</a></li>
-<li></li>
+</ol>
+<p>记笔记还是不要用 markdown 了，总结可以用 markdown，但是比较慢，还是 word，挺好的。</p>
+<h1 id="读文献">读文献</h1>
+<ol type="1">
+<li><p>文献查阅与管理</p>
+<ol type="1">
+<li><p>如何快速找到与研究方向相关文章 ？</p>
+<ul>
+<li><p>查文献：<a href="https://www.sciencedirect.com/">ScienceDirect.com</a></p></li>
+<li><p>查作者：<a href="https://www.scopus.com/search/form.uri?display=basic#basic">Scopus</a></p></li>
+</ul></li>
+<li><p>如何快速了解国内外发展现状 ？</p></li>
+<li><p>找到后，怎么高效阅读 ？ 逐词句阅读？ 逐词句阅读？ 逐词句阅读阅读顺序 ？</p></li>
+<li><p>读完之后，好像懂了也没看懂没看懂 ？</p></li>
+<li><p>读过的文章，用时候（写论、综述） ） 读过的文章，用时候（写论、综述找不到 ？</p></li>
+</ol></li>
+</ol>
+<h1 id="科研软件学习">科研软件学习</h1>
+<ol type="1">
+<li>软件安装与学习</li>
+</ol>
+<h1 id="写论文">写论文</h1>
+<ol type="1">
+<li>科研绘图</li>
+<li>论文构思与写作</li>
+<li>论文排版</li>
+</ol>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_02.4d93t83knrg0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_02"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_03.31ww2lrtty40.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_03"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_04.180w5dk7ighs.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_04"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_05.3xzvg9utkxe0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_05"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_06.6ulmnucv7co0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_06"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_07.5083s5fn4fk0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_07"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_08.1tke8m2cko4g.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_08"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_09.6h62mbt9tu80.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_09"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_10.1kfq0lremu00.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_10"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_11.6gshg8kcdfg0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_11"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_12.589ho11jt6c0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_12"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_13.2eyhdc227qdc.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_13"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_14.4l699wfnm9e0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_14"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_15.1j36h70zgn40.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_15"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_16.75zqcs7o2lg0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_16"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_17.14orlyxm6fc0.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_17"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/郑楠-组会-科研心得体会分享-2022-10-28_页面_18.1u1x72ryc40w.png" alt="郑楠-组会-科研心得体会分享-2022-10-28_页面_18"> <strong>积累句式</strong> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-12_10-16-25.56dcqcxhzw00.png" alt="Snipaste_2022-11-12_10-16-25"></p>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>句式积累</title>
+    <url>/2022/11/12/%E8%AE%BA%E6%96%87/1%E5%8F%A5%E5%BC%8F%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>论文结构大纲</title>
+    <url>/2022/11/12/%E8%AE%BA%E6%96%87/0%E8%AE%BA%E6%96%87%E7%BB%93%E6%9E%84%E5%A4%A7%E7%BA%B2/</url>
+    <content><![CDATA[
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>安装软件记录</title>
+    <url>/2022/11/11/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="安装idm">安装IDM</h1>
+<ol type="1">
+<li><a href="http://www.downza.cn/soft/239667.html">IDM下载器中文破解版_IDM下载器中文破解版下载-下载之家 (downza.cn)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/430535305">IDM序列号 - 知乎 (zhihu.com)</a>
+<ol type="1">
+<li>输入序列号前记得关闭网络，之后会有一个弹错，直接叉掉或取消或关闭，然后一直快速点击，直到它没有响应，最后关闭程序，亲测有效。</li>
+</ol></li>
+</ol>
+<h1 id="安装-zotero-插件">安装 zotero 插件</h1>
+<ol type="1">
+<li><a href="https://zotero-chinese.gitee.io/zotero-plugins/#/">Zotero中文社区 (gitee.io)</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>词汇积累</title>
+    <url>/2022/11/12/%E8%AE%BA%E6%96%87/3%E8%AF%8D%E6%B1%87%E7%A7%AF%E7%B4%AF/</url>
+    <content><![CDATA[<p>naive</p>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>研究生时间节点</title>
+    <url>/2022/11/13/00%E7%A0%94%E7%A9%B6%E7%94%9F/About/</url>
+    <content><![CDATA[<p>个人感悟记在 <strong><em>随笔与个人文集</em></strong> 中，但是这是不成体系的。因此用研究生这个分类主要进行总结，以便等自己毕业后，可以回顾自己干了什么。</p>
+<h1 id="研一上">研一上</h1>
+<p>主要上课，看文献，学好C++、计算机网络、机器学习</p>
+]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>如何阅读文献</title>
+    <url>/2022/10/20/%E8%AE%BA%E6%96%87/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%8C%AE/</url>
+    <content><![CDATA[<h2 id="如何阅读文献">如何阅读文献</h2>
+<blockquote>
+<p>清华大学唐潇风</p>
+</blockquote>
+<ol type="1">
+<li><p>看标题，摘要，最值得抓取的、不明白的是什么。不适合刚开始读文献的学生。把每篇文献整理成三句话：</p>
+<ul>
+<li>为什么做</li>
+<li>怎么做的</li>
+<li>得到什么</li>
+</ul>
+<p>之所以能做到提炼成三句话，往往是对这个领域特别熟悉的，知道别人做过什么</p></li>
+<li><p>精读<code>20</code> 篇，每一句话。</p></li>
+<li><p>信息抓取的角度，翻译是可以的，<strong>但写文章的时候，就要从头开始想怎么写</strong></p></li>
+<li><p>为了写作，写作的角度，读原文，才能看到别人的语言是如何使用的。</p></li>
+<li><p><strong>做到让自己经常写这件事不是那么容易</strong>，总是拖到最后，写个两三天，一两个礼拜。尽量把 <strong>负荷均摊化，每天写半小时，持续性的写。</strong></p></li>
 </ol>
 ]]></content>
       <categories>
         <category>论文</category>
       </categories>
+      <tags>
+        <tag>文献阅读</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>技巧记录</title>
+    <url>/2022/11/13/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/%E6%8A%80%E5%B7%A7%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="如何把图片拼在一起">如何把图片拼在一起？</h1>
+<p><strong>2022/11/13, 周日，研一上写材料</strong></p>
+<ol type="1">
+<li><a href="https://www.zhihu.com/question/471983711">如何把多张图片无缝拼接在一起？ - 知乎 (zhihu.com)</a></li>
+<li><a href="https://imagestool.com/webp2jpg-online/splicing.html#/splicing">视频字幕拼接工具 (imagestool.com)</a></li>
+<li><a href="https://jingyan.baidu.com/article/63acb44a1a1f8a61fcc17e20.html">如何利用word将两张图片合并成一张图片-百度经验 (baidu.com)</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件使用</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>步伐</title>
+    <url>/2022/11/13/%E7%BE%BD%E6%AF%9B%E7%90%83/%E7%BE%BD%E6%AF%9B%E7%90%83fig/</url>
+    <content><![CDATA[<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-12_19-50-03.6mjy5500cec0.png" alt="Snipaste_2022-11-12_19-50-03"><figcaption aria-hidden="true">Snipaste_2022-11-12_19-50-03</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>羽毛球</category>
+      </categories>
+      <tags>
+        <tag>羽毛球</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>旅游</title>
+    <url>/2022/10/24/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/1-0%E6%97%85%E6%B8%B8/</url>
+    <content><![CDATA[<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-13_12-07-58.437qqwwtyeq0.png" alt="Snipaste_2022-11-13_12-07-58"><figcaption aria-hidden="true">Snipaste_2022-11-13_12-07-58</figcaption>
+</figure>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+      </tags>
   </entry>
 </search>

@@ -10,7 +10,11 @@
   
   <title>数据包分类方案整理</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="1 硬件2 软件2.1 决策树2.1.1 规则集分组事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 ( access control list， ACL) 、防火墙 ( firewall，FW) 和 IP 链 ( IP chain， IPC) 类型规则集进行统计分析，结果如图 3 所示。">
+  <meta name="description" content="1 硬件
+2 软件
+2.1 决策树
+2.1.1 规则集分组
+事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 ( access control list， ACL) 、防火墙 ( firewall，FW) 和 IP 链 ( IP chain， IPC) 类型规则集进行统计分析，结果">
   
   
   <meta property="og:title" content="数据包分类方案整理"/>
@@ -71,6 +75,15 @@
 
 
 
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/数据包分类/">数据包分类</a>
+
 
     </div>
     <hr>
@@ -78,92 +91,103 @@
     <div class="picture-container">
       
     </div>
-    <h1 id="1-硬件"><a href="#1-硬件" class="headerlink" title="1 硬件"></a>1 硬件</h1><h1 id="2-软件"><a href="#2-软件" class="headerlink" title="2 软件"></a>2 软件</h1><h2 id="2-1-决策树"><a href="#2-1-决策树" class="headerlink" title="2.1 决策树"></a>2.1 决策树</h2><h3 id="2-1-1-规则集分组"><a href="#2-1-1-规则集分组" class="headerlink" title="2.1.1 规则集分组"></a>2.1.1 规则集分组</h3><p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
-<ol>
-<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。<ul>
+    <h1 id="硬件">1 硬件</h1>
+<h1 id="软件">2 软件</h1>
+<h2 id="决策树">2.1 决策树</h2>
+<h3 id="规则集分组">2.1.1 规则集分组</h3>
+<p>事实上，规则集中部分规则之间存在明显的差异。对访问控制列表 <em>( access control list， ACL)</em> 、防火墙 <em>( firewall，FW)</em> 和 IP 链 <em>( IP chain， IPC)</em> 类型规则集进行统计分析，结果如图 3 所示。从图中可得，IP 地址字段前缀长度为边缘分布，即大部分位于 0 附近或 32 附近。因此不加任何区分直接切割整个搜索空间将导致严重的规则复制，其中一个解决方案便是分治思想，<strong>即将具有相似特征的规则放到一个规则子集中，然后应用节点切割技术为每个子集单独构建决策树</strong>，最后形成多棵决策树。规则集分组方式分为：</p>
+<ol type="1">
+<li><strong>按字段大小分组</strong>。根据规则在每个字段覆盖的范围来划分规则子集，该类方法应用最广泛。
+<ul>
 <li><del>HiCuts(1999), HyperCuts(2004)</del>, <em>Efficuts(2010)</em>, <del>HyperSplit(2011),</del> <em>SmartSplit(2014), CutSplit(2018)</em></li>
-</ul>
-</li>
-<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。<ul>
+</ul></li>
+<li><strong>按前缀长度分组</strong>。根据规则在特定字段的前缀长度来划分规则集。
+<ul>
 <li>HashTable</li>
 <li><em>ByteCuts(2018)</em></li>
-</ul>
-</li>
-<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。<ul>
+</ul></li>
+<li><strong>基于聚类算法分组</strong>。使用聚类算法来划分规则子集。
+<ul>
 <li><em>ParaSplit</em></li>
-</ul>
-</li>
-<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。<ul>
+</ul></li>
+<li><strong>基于深度神经网络模型分组</strong>。将机器学习技术应用到报文分类问题中，如使用深度神经 网络模型来学习优化节点切割和规则集分组，以 获得最大的奖励函数( 分类速度、内存消耗等) ， 从而构建性能优异的决策树。
+<ul>
 <li><em>NeuroCuts(2019)</em></li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>按字段大小、前缀长度分组等启发式策略建立在对规则集分布特征观察的基础之上，原理相 对简单、容易实现，但对于不同的规则集，往往需 要手动调整部分参数以获得理想结果; 聚类算法、 神经网络模型则可以使用机器学习来替代人工调 整，实现对规则子集的自适应划分，但需要经过大 量的训练和迭代才能收敛。</p>
-<h3 id="2-1-2-节点切割"><a href="#2-1-2-节点切割" class="headerlink" title="2.1.2 节点切割"></a>2.1.2 节点切割</h3><p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
+<h3 id="节点切割">2.1.2 节点切割</h3>
+<p>节点切割基本思想是将整个多维规则集视为树的根节点，然后沿一个或多个特定的维度迭代地切割节点，直到每个叶节点包含的规则数不大于预定义的阈值时停止切割，从而构建单棵决策树。</p>
 <p>各类决策树算法在节点切割方面的主要区别为:</p>
-<ol>
-<li><p>**<font color="red">切割维度的选择</font>**。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p>
-</li>
+<ol type="1">
+<li><p><strong><font color="red">切割维度的选择</font></strong>。选择哪个维度切割最优; 一次选择单个维度还是多个维度进行切割。</p></li>
 <li><p><strong><font color="red">切割端点的选择</font></strong></p>
-<ol>
-<li><strong>Equi - size</strong><ul>
-<li>快速将节点等分为 $2^n$ 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
+<ol type="1">
+<li><strong>Equi - size</strong>
+<ul>
+<li>快速将节点等分为 <span class="math inline">\(2^n\)</span> 个子节点，但会带来严重的规则复制问题,即同一条规则分布在多个子节点中</li>
 <li><em>HiCuts(1999), HyperCuts(2004), Efficuts(2010)</em></li>
-</ul>
-</li>
-<li><strong>Equi-dense</strong><ul>
+</ul></li>
+<li><strong>Equi-dense</strong>
+<ul>
 <li>而等密切割能够缓解规则复制问题，但也存在树深度增加、节点索引复杂等问题。</li>
 <li><em>HyperSplit(2011), SmartSplit(2014)</em></li>
-</ul>
-</li>
-<li><strong>Bit cutting</strong><ul>
+</ul></li>
+<li><strong>Bit cutting</strong>
+<ul>
 <li>利用规则每一位都可表示为 0、1 或者 * ( 通配符) 的特点，选择其中有效比特将规则映射到各个子节点中，从而避免了盲目地切割整个搜索空间。</li>
 <li><em>BitCuts(2017), ByteCuts(2018), MBitTree(2021)</em></li>
-</ul>
-</li>
-</ol>
-</li>
+</ul></li>
+</ol></li>
 </ol>
 <blockquote>
 <p>另一个角度看，等分切割也是一种特殊的比特切割，但只允许使用连续的最高有效位。</p>
 </blockquote>
-<h3 id="2-1-3-HiCuts"><a href="#2-1-3-HiCuts" class="headerlink" title="2.1.3 HiCuts"></a>2.1.3 HiCuts</h3><ol>
+<h3 id="hicuts">2.1.3 HiCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择单个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：首个决策树分类算法，快速 切割规则空间</li>
 <li><strong>缺点</strong>：树深度较大，规则复制问 题严重，内存消耗大</li>
 </ol>
-<h3 id="2-1-4-HyperCuts"><a href="#2-1-4-HyperCuts" class="headerlink" title="2.1.4 HyperCuts"></a>2.1.4 HyperCuts</h3><ol>
+<h3 id="hypercuts">2.1.4 HyperCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择多个维度，将搜索 空间划分为等大小的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：HiCuts 的改进，树深度较小， 分类速度较快，规则复制相 比 HiCuts 有所优化</li>
 <li><strong>缺点</strong>：内存消耗仍然较大，可扩展性较差</li>
 </ol>
-<h3 id="2-1-5-EffiCuts"><a href="#2-1-5-EffiCuts" class="headerlink" title="2.1.5 EffiCuts"></a>2.1.5 EffiCuts</h3><ol>
-<li><strong>思路</strong>： </li>
+<h3 id="efficuts">2.1.5 EffiCuts</h3>
+<ol type="1">
+<li><strong>思路</strong>：</li>
 <li><strong>规则集分组方式</strong>：</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-size</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-size</em></strong></li>
 <li><strong>优点</strong>：大大减少了规则复制</li>
 <li><strong>缺点</strong>：划分树的数目太多，查找速度慢</li>
 </ol>
-<h3 id="2-1-6-HyperSplit"><a href="#2-1-6-HyperSplit" class="headerlink" title="2.1.6 HyperSplit"></a>2.1.6 HyperSplit</h3><p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
-<ol>
+<h3 id="hypersplit">2.1.6 HyperSplit</h3>
+<p>HyperSplit 算法提出了等密切割的思路，进一 步缓解了规则复制问题，但由于算法构建的决策树 为二叉树，且每次只能判断一次维度，因此随着规 则集规模的扩大和维度的增加，树的深度也会增 加，相应的遍历决策树所需的访存次数也将增加。</p>
+<ol type="1">
 <li><strong>思路</strong>： 一次选择单个维度和特定的 端点，将搜索空间划分为两 个规则数几乎相等的子空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>equi-dense</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>equi-dense</em></strong></li>
 <li><strong>优点</strong>：进一步优化规则复制问题， 内存消耗小</li>
 <li><strong>缺点</strong>：树深度较大，遍历树所需 的访存次数较多</li>
 </ol>
-<h3 id="2-1-7-BitCuts"><a href="#2-1-7-BitCuts" class="headerlink" title="2.1.7 BitCuts"></a>2.1.7 BitCuts</h3><ol>
+<h3 id="bitcuts">2.1.7 BitCuts</h3>
+<ol type="1">
 <li><strong>思路</strong>： 选择规则中的有效比特来划分搜索空间</li>
 <li><strong>规则集分组方式</strong>：无</li>
-<li><strong>节点切割方式</strong>：<em><strong>bit-cutting</strong></em></li>
+<li><strong>节点切割方式</strong>：<strong><em>bit-cutting</em></strong></li>
 <li><strong>优点</strong>：分类速度在 4 种算法中最快，吞吐量高</li>
-<li><strong>缺点</strong>：树深度较大，规则复制问题严重，内存消耗大</li>
+<li><strong>缺点</strong>：树深度较大，规则复制问题严重，内存消耗大 ## 2.2 哈希表</li>
 </ol>
-<h2 id="2-2-哈希表"><a href="#2-2-哈希表" class="headerlink" title="2.2 哈希表"></a>2.2 哈希表</h2><h2 id="2-3-决策树结合哈希表"><a href="#2-3-决策树结合哈希表" class="headerlink" title="2.3 决策树结合哈希表"></a>2.3 决策树结合哈希表</h2><h2 id="2-4-机器学习"><a href="#2-4-机器学习" class="headerlink" title="2.4 机器学习"></a>2.4 机器学习</h2><h2 id="2-5-其他"><a href="#2-5-其他" class="headerlink" title="2.5 其他"></a>2.5 其他</h2>
+<h2 id="决策树结合哈希表">2.3 决策树结合哈希表</h2>
+<h2 id="机器学习">2.4 机器学习</h2>
+<h2 id="其他">2.5 其他</h2>
+
 
   </article>
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
