@@ -248,8 +248,12 @@
 <p>在这个组需要 大毅力者…大自学家…大抗压家…</p>
 </blockquote>
 <ol start="2" type="1">
-<li><strong><em>2022-11-17，周四</em></strong></li>
+<li><strong><em>2022-11-17，周四</em></strong>，上午到实验室看 BitCuts 这篇论文，下午超导的课程，做英语 PPT，然后还有数字图像编码的课程，然后帮博哥解决 matlab 的一个问题，然后又改 LaTex 做的笔记。</li>
+<li><strong><em>2022-11-18，周五</em></strong>，上午睡到 9: 30，然后洗漱去打球 10:00 -1: 30, 然后拉伸一下，去拿个快递就 2: 00 了，不知不觉就 3: 00 了（写这条就是 3:00），晚上还要区块链的课。</li>
 </ol>
+<blockquote>
+<p>证明自己的研究很有价值，所以要找大牛，去国外一定要找大牛，研究生就是教训。能写出综述的一定是大牛。学术是有游戏规则的，职称高不一定牛，掌握规则诀窍就可以胜利，本质还是一种游戏</p>
+</blockquote>
 <h2 id="下一步计划">1.3 下一步计划</h2>
 <hr>
 <h1 id="section-1">2 2022-11-15</h1>
@@ -1905,6 +1909,11 @@ blockquote {
 </ol></li>
 </ol>
 <hr>
+<h2 id="section-3">3.4 <em>2022.11.18</em></h2>
+<ol type="1">
+<li>感觉球路还是少，停顿没有</li>
+<li>打三个小时，体力就不行了</li>
+</ol>
 ]]></content>
       <categories>
         <category>羽毛球</category>
@@ -2417,17 +2426,15 @@ blockquote {
   <entry>
     <title>数据包分类方案整理</title>
     <url>/2022/11/03/%E8%AE%BA%E6%96%87/%E6%95%B0%E6%8D%AE%E5%8C%85%E5%88%86%E7%B1%BB%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86/</url>
-    <content><![CDATA[<p>2022/11/16晚思考bit cutting</p>
-<p>bit cutting 本质也是 Equi size cutting，但是不是一种“简单的”Equi size cutting，bit cutting 考虑了规则集的分布，Equi size cutting 并没有考虑规则集的分布（我认为 bit cutting 是可以较少 overlapping 的）。bit cutting 通过不同的算法选择不同的 effective bits，选择不同的 effective bits，对应着不同的切割方案，而规则的分布决定了如何选择 effective bits。bit cutting既可以减少overlapping，又可以加速索引。</p>
-<figure>
-<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/位切割.75nmcu7rtww0.png" alt="位切割"><figcaption aria-hidden="true">位切割</figcaption>
-</figure>
-<p>effective bit的多少决定了树的高低，effective bit中0、1分布决定了树的平衡性，effective bit中*的多少决定overlapping多少。我们期望overlapping越少越好，树高度越低越好，树越平衡越好。</p>
+    <content><![CDATA[<p><strong>2022/11/16晚思考bit cutting</strong></p>
+<p>bit cutting 本质也是 Equi size cutting，但是不是一种“简单的”Equi size cutting，bit cutting 考虑了规则集的分布，Equi size cutting 并没有考虑规则集的分布（我认为 bit cutting 是可以较少 overlapping 的）。</p>
+<p>bit cutting 通过不同的算法选择不同的 effective bits，对应着不同的切割方案，而规则的分布决定了如何选择 effective bits。bit cutting既可以减少overlapping，又可以加速索引。 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/位切割.75nmcu7rtww0.png" alt="位切割"></p>
+<p>effective bit 的多少决定了树的高低，effective bit 中 0、1 分布决定了树的平衡性，effective bit 中 * 的多少决定 overlapping 多少。我们期望 overlapping 越少越好，树高度越低越好，树越平衡越好。</p>
 <p>由此得到，选择effective bits需要遵循以下原则：</p>
 <ol type="1">
-<li>尽可能不选择含有通配符 * 的那一列 → 减少overlapping（2021 MBitTree启发得来）</li>
-<li>选的列 0 1 尽可能分布均匀 → 树会平衡（2021 MBitTree启发得来）</li>
-<li>可以选多个effective bit → 树的高度会降低</li>
+<li>尽可能不选择含有通配符 * 的那一列 → 减少 overlapping（2021 MBitTree 启发得来）</li>
+<li>选的列 0 1 尽可能分布均匀 → 树会平衡（2021 MBitTree 启发得来）</li>
+<li>可以选多个 effective bit → 树的高度会降低</li>
 </ol>
 <hr>
 <h1 id="硬件">1 硬件</h1>
@@ -3420,7 +3427,10 @@ blockquote {
   <entry>
     <title>要读博吗</title>
     <url>/2022/11/03/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E8%A6%81%E8%AF%BB%E5%8D%9A%E5%90%97/</url>
-    <content><![CDATA[<p><a href="https://www.bilibili.com/video/BV1ge4y177dV/?spm_id_from=333.1007.tianma.2-1-3.click&vd_source=83831fc0970a6c8704479f7cfc679937">不要盲目追求学历，读博士是什么体验</a></p>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1ge4y177dV/?spm_id_from=333.1007.tianma.2-1-3.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">不要盲目追求学历，读博士是什么体验</a></li>
+<li><a href="https://www.zhihu.com/question/468564547/answer/1972180362?utm_campaign=shareopn&amp;utm_content=group3_Answer&amp;utm_medium=social&amp;utm_oi=910069747331248128&amp;utm_psn=1576492511123415040&amp;utm_source=wechat_session">网传 top2 高校某院士团队的博士生大面积延毕，实际情况如何？ - 知乎 (zhihu.com)</a></li>
+</ol>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
@@ -4127,6 +4137,8 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://blog.csdn.net/wo541075754/article/details/54632929">Merkle Tree（默克尔树）算法解析_程序新视界的博客-CSDN博客_merkle tree</a></li>
 <li><a href="https://blog.csdn.net/sinat_35639885/article/details/103654749?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-103654749-blog-103575956.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-103654749-blog-103575956.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=1">（知识点补充二）merkle树和MB-Tree_无情备课机的博客-CSDN博客</a></li>
 <li><a href="https://www.bilibili.com/video/BV1xY4y1j7xw/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">区块链去中心化的底层原理 - Merkle Tree_哔哩哔哩_bilibili</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/176979849">走近区块链（二）：区块链的数据结构 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://blog.csdn.net/TuxedoLinux/article/details/86764142">区块链的数据结构_TuxedoLinux的博客-CSDN博客_区块链是数据结构吗</a></li>
 <li></li>
 </ol>
 <h1 id="smart-contract">Smart Contract</h1>
@@ -4289,8 +4301,16 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>如何阅读文献及做笔记</title>
     <url>/2022/10/20/%E8%AE%BA%E6%96%87/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%8C%AE/</url>
-    <content><![CDATA[<h1 id="如何记笔记">1 如何记笔记</h1>
-<h2 id="自己的感悟">1.1 自己的感悟</h2>
+    <content><![CDATA[<h1 id="如何写作">1 如何写作</h1>
+<ol type="1">
+<li><a href="https://www.zhihu.com/question/35071142">英文学术论文写作，有什么好书可以推荐? - 知乎 (zhihu.com)</a></li>
+<li><a href="https://slc.berkeley.edu/writing-worksheets-and-other-writing-resources/online-writing-labs">Online Writing Labs | Student Learning Center (berkeley.edu)</a></li>
+<li><a href="https://www.eflbooks.co.uk/samples/9789888390755.pdf">Hart_text.indb (eflbooks.co.uk)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/141530063">有哪些介绍学术论文写作的书籍，值得一读 - 知乎 (zhihu.com)</a></li>
+<li></li>
+</ol>
+<h1 id="如何记笔记">2 如何记笔记</h1>
+<h2 id="自己的感悟">2.1 自己的感悟</h2>
 <p>2022/11/16</p>
 <p>笔记分 <strong><font color="red">三部分</font></strong>：</p>
 <ol type="1">
@@ -4312,9 +4332,28 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <blockquote>
 <p><strong><font color="red">1</font></strong> 是为想创新点，了解某一个领域服务的，<strong><font color="red">2, 3</font></strong> 是为后续自己写论文服务的，具体是如何用英语写，如何写背景部分。方案部分其实由 <strong><font color="red">1</font></strong> 解决了。</p>
 </blockquote>
+<h2 id="网上总结">2.2 网上总结</h2>
+<blockquote>
+<p><a href="https://blog.csdn.net/dujiahei/article/details/80880980">整理牛人看文献的方法_dujiahei的博客-CSDN博客</a></p>
+</blockquote>
+<p>我现在<strong>每天</strong>还保持读<strong>至少2-3篇</strong>的文献的习惯。读文献有不同的读法。但<strong><font color="red">最重要的自己总结概括这篇文献到底说了什么，否则就是白读</font></strong>，<strong>读的时候好像什么都明白，一合上就什么都不知道，这是读文献的大忌</strong>，既浪费时间，最重要的是，没有养成良好的习惯，导致以后不愿意读文献。</p>
+<p>复印或打印的文献，直接用笔标记或批注。pdf 或 html 格式的文献，可以<strong>用编辑器标亮或改变文字颜色</strong>。<strong>这是避免时间浪费的又一重要手段</strong>。否则等于没看。</p>
+<p>读英文原版文献有窍门的。我们每个单词都认识读完了却不知他在说什么，这是最大的问题。在阅读的时候一定要看到大量的关系连词，他们承上启下引领了全文。<strong>中国人喜欢罗列事实，给出一个观点然后就是大量的事实</strong>，这也是中文文献的特点，我们从小都在读这样的文章，很适应。<strong>西方人的文献注重逻辑和推理，从头到尾是非常严格的</strong>，就像 GRE 里面的阅读是一样的，进行的是大量重复、新旧观点的支持和反驳，有严格的提纲，尤其是好的杂志体现得越突出。<strong>读每一段落都要找到他的主题，往往是很容易的，大量的无用信息可以一带而过</strong>，节约你大量的宝贵时间和精力。</p>
+<p><strong>扩充知识面的读法，重点读introduction</strong>，看人家提出的问题，以及目前的进展 类似的文章，每天读一两篇，一个月内就基本上对这个领域的某个方向有个大概的了解。读好的review也行，但这样人容易懒惰。</p>
 <hr>
-<h1 id="如何阅读文献">2 如何阅读文献</h1>
-<h2 id="清华大学唐潇风">2.1 清华大学唐潇风</h2>
+<p><strong>看文献要多多益善</strong>。我以前看到有的同学问看文献要看多少？我的回答是多多益善。<strong>试想一篇文献至少要有三两可取之处，看得多了你的水平自然就上来了</strong>。我自己从研一就开发新方向，没有什么人能帮助我，我靠的只有文献。<strong>我还记得我那半年每天至少 3－5 篇文献</strong>，后来略有小成。我师兄更牛－－每天三篇文献。现在他才博士二年级（硕士读了两年），很多方面超过了我们老板，要知道我们老板也是 973 首席！他现在体系是自己找的，这半年发了两篇 PRB（做物理的同学知道这个不是很容易的）、一篇 JPCM，其中 JPCM 被评为 06 年 100 篇最佳文章之一，供全世界免费下载一年。他告诉我这些成果很多都是看文献得来的，其中包括做东西的思路和写文章的英文表述等等。</p>
+<p>阅读文献和专著是需要积累的，要坚持不懈，多研究和教学工作恐怕一生都要坚持阅读新文献和著作。读文献有个量变到质变的过程，阅读量大了，积累多了，需要总结的方面就多了。这样日久天长，通过知识的整合，知识框架会逐渐完善，自己肚子里的“货”就会感觉逐渐充实起来了，用和取的时候就会很自如。</p>
+<p>从初学者到专家的转变，只要有心，只是一个时间问题。<strong>信息就是资源，知识就是信息的积累和过滤、整合</strong>。无论参加学术会议，还是讨论会，<strong>有些人说了很多，占用很多时间，但你会感觉没有多少新的信息或知识，但有些人一开口，话不多，你马上就会感觉到人家肚子里知识的储存量，激烈争论的氛围，会立即安静下来，听众会被吸引，这就是所谓的专家了</strong>。专家不是万金油。博士毕业后，都应该成为一个领域的专家。再磨练积累几年，就一定会是名副其实的专家了。</p>
+<p>本人英语基础不好，没过六级，所以在硕士的时候基本上看的外文文献很少，现在想想很后悔，2 年的时间少学了很多东西。上了博士，自己给自己的定位也高一些了，开始打算硬着头皮咬着牙很不情愿的也要多看些外文文献，一开始看比较慢，有些很难理解，<strong>到现在大约仔细阅读了 100 篇外文文献，泛读了 100 篇外文文章，受益匪浅，现在基本不怎么看中文的了</strong>，确实也觉得外文的质量就是高（也有凑数的烂文章），现在自己写外文的也很顺手了。谈几点自己的体会。我是材料专业的。</p>
+<hr>
+<p><strong><font color="red">很重要！！！</font></strong></p>
+<p>为了写文章的读法，读文章的时候，尤其是看 discussion 的时候，看到好的英文句型，最好有意识的记一下，看一下作者是谁，哪篇文章，哪个期刊，这样以后照猫画虎写的时候，效率高些。<strong>比自己在那里半天琢磨出一个句子强的多。当然，读的多，写的多，你需要记得句型就越少</strong>。其实很简单，有意识的去总结和记亿，就不容易忘记。</p>
+<hr>
+<p>某少以前跟我讲过一个故事。他的一个朋友因为很早以前就转入编剧行当，一直秉承摸着石头过河的学习方式，不得要领十几年。有一天他拿着一本罗伯特·麦基的《故事一一材质、结构、风格和银幕剧作的原理》给那人看。那人看了，相见恨晚，主要还是恨，他说我这十几年的经验，里面全都包括了，还有我没参透的，里面一句话，忽然间大彻大悟了，我要是没看见这本书，有些东西可能这辈子都悟不到。 显然苟子也经历过这种情况，因此《劝学》里那句话的意思其实是：<strong>想学一样东西，找专业书看一眼，比瞎琢磨好几天都强。</strong> 不登高山，不知天之高也。不临深溪，不知地之厚也。不闻先王之遗言，不知学问之大也。 君子性非异也，善假于物也！</p>
+<p>接受过义务教育，学过几何的，应该都知道：公式与定理多有用，简直就是巨人的肩膀；没有公式与定理。，你得从头证，累死了，也不一定证得出来。 接受过大学教育，写过大学论文的，应该都知道：写一篇论文，读的文献厚度得是论文的若干倍；而那些文献背后，又是堆积如山的材料；如果没有相应文献，要你徒手开始写，累死了也不一定写得出来。 做过菜的都知道，有现成食材与调味料给你，你才能迅速地做一锅，比如说，咖咂鸡。。可是，如果鸡肉得自己去捉鸡杀了切开，蔬菜得自己浇水施肥种出来，咖咂粉。需要自己种植收获姜黄郁金胡椒再来磨粉，在饿死之前，很难做好一顿。 <strong>人类绝大多数的物质与精神的生产，都建立在前人的经验与基础上。</strong> <strong>善用前人留下的经验与工艺，比一个人的努力迅速多了。</strong></p>
+<hr>
+<h1 id="如何阅读文献">3 如何阅读文献</h1>
+<h2 id="清华大学唐潇风">3.1 清华大学唐潇风</h2>
 <p>2022-10-20在工程伦理的课程上说的</p>
 <blockquote>
 <p>清华大学唐潇风</p>
@@ -4333,14 +4372,14 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><p><strong>做到让自己经常写这件事不是那么容易</strong>，总是拖到最后，写个两三天，一两个礼拜。尽量把 <strong>负荷均摊化，每天写半小时，持续性的写。</strong></p></li>
 </ol>
 <hr>
-<h2 id="一篇好的知乎回答">2.2 一篇好的知乎回答</h2>
+<h2 id="一篇好的知乎回答">3.2 一篇好的知乎回答</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/136013652">文献应该怎么看？——科研萌新看过来（已经补充高清图） - 知乎 (zhihu.com)</a></p>
-<h3 id="二看文献的顺序">2.2.1 二、看文献的顺序</h3>
+<h3 id="二看文献的顺序">3.2.1 二、看文献的顺序</h3>
 <p>一开始的时候我是顺着来读的，当然我是那种读下一段的时候又忘了上一段。我试过很多的弯路，比如说把每一段都翻译，然后写下来。我发现后面特别的浪费时间，所以我就省去了这个部分。因为你会发现你把所有的精力和重点都放在去翻译这件事儿上，并没有去想着。这个是文章是如何写的？</p>
 <p>所以后来我的顺序是这样的：我找文献的时候我会先看他<strong>标题</strong>，如果它的标题是我想要研究的课题，那我就会继续下一步。接着我会去看他<strong>结果的图</strong>，如果这些图是我专业方面的，或者说是大部分我看得懂的，那我就会偏好去找这些文章来读。继续看他的摘要，其实这个部分对我读不读这篇文章不会有太大的影响（因为他在一篇文章的开头，如果我读完整篇文章之后，我也不会记得他的摘要是写了什么？当然别的同学可能不是这么认为的，这仅仅是我个人的想法。）然后我会跳到<strong>结果和讨论</strong>部分开始读这篇文章。</p>
 <p>有的人会很好奇，为什么不从引言开始来读？嗯，我觉得引言部分，不是太重要。我会把引言放到后面来读。因为我读完了结果之后，我会带着很多的问题，比如说他为什么要研究这个？他是如何找到的基因？等等问题，然后再返回去读<strong>引言</strong>的时候，你就会耳目一新，恍然大悟。这样也就是加深了你读文献的印象。当然在最后的时候你再去读一遍<strong>摘要</strong>，这个时候你就会明白摘要总结的很精辟啦！我的同学会从实验材料和方法开始读。这也不失为一种好的方法，这样你会更了解他的实验是如何操作的。</p>
 <p>★★★★★★★★★以下是本次经验分享最精华的部分★★★★★★★★★★★</p>
-<h3 id="三如何去看文章的results部分">2.2.2 <strong>三、如何去看文章的results部分？</strong></h3>
+<h3 id="三如何去看文章的results部分">3.2.2 <strong>三、如何去看文章的results部分？</strong></h3>
 <p>（我呢，也害怕大家觉得前面是长篇大论，所以呢就在这儿着重标记一下，这个部分是我看文献最重要的技巧。）</p>
 <p>这里我主要讲的是结果的部分我是怎么看的。首先给大家看一下我的样张部分。</p>
 <p>（在这里，大家不要纠结iPad香不香的问题。无论是纸质的还是pad都可以做到下面的效果。我也一开始是用的纸质版，但是我的那些看过的文献都在实验室，我也没办法拍照下来给大家展示。毕竟疫情期间还请大家见谅！） <img src="https://pic4.zhimg.com/80/v2-22e2cf9fe34c43092e913136a44fd4c3_1440w.webp" alt="img"> <img src="https://pic3.zhimg.com/80/v2-74a961bc69b6b91f0d692c88fb72ed6a_1440w.webp" alt="img"></p>
@@ -4359,7 +4398,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <p>★★讲完单个result，我们继续来说<strong>各个result他之间</strong>的一个关系。能把各个result连接起来的这个东西叫做<strong>逻辑</strong>。通常你会发现好的文章下一个结果往往是上一个结果的延续。比如我图示的这篇文章，它会在第一个结果最后写上他的猜测。第二个结果写作的一开始她就会说。他为了证明上一个猜测。所以他进行了下一个试验。每一个result之间都是存在一定的因果关系或者是并列关系。<strong>所以我建议大家再看每个result的时候，可以拿一张纸在旁边写上他的逻辑线</strong>。也可以用一个软件叫Xmind来总结。等到整篇文章读完的时候，你会恍然大悟。这个时候你不仅学到了如何做一个课题，同时你也学到了如何思维缜密的去写作。</p>
 <p>关于讨论部分，我认为你可以参照结果部分的标注来学习。但是有的讨论部分他并没有写出每一个小标题，而是一整个部分都是段落。这个时候我觉得你可以去找它的中心句来学习。他主要会在开头或段落的最后一句进行总结。而其他的句子往往是他这些总结的证据。当然。你还可以从中找到未来这个课题的研究方向。你也可以就此课题方向来进行研究，也可以发散思维去找别的方向。</p>
 <p>当然大家在看的时候一定要不断地去思考，而不是干巴巴的读完了就完事儿了。换句话来说，如果交给你相同的实验和材料，你应该是怎样去做这个问题？</p>
-<h3 id="四怎样才算看懂了文章">2.2.3 四、怎样才算看懂了文章？</h3>
+<h3 id="四怎样才算看懂了文章">3.2.3 四、怎样才算看懂了文章？</h3>
 <p>这个问题很简单，就是你已经能够脱稿输出这篇文章。大家也知道学习这个东西就是要有输入和输出，读文献只是一个输入的过程，往往只有将文献给大家听的时候，你才会知道哪些地方是你不懂的。如果你一旦把这篇文章完整的逻辑和他讲了什么问题，给大家说明的时候，这个时候就是你看懂了这篇文章。这也就是每个课题组组会讲文献所要达到的目的。</p>
 <p><strong>（进阶版）</strong>最后，我将我现在的老板，他教我看文献的方法总结了几个小点分享给大家。</p>
 <ol type="1">
@@ -4547,6 +4586,36 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 ]]></content>
       <categories>
         <category>软件使用</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>研究生学到的潜规则</title>
+    <url>/2022/11/18/00%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%AD%A6%E5%88%B0%E7%9A%84%E4%B8%9C%E8%A5%BF/</url>
+    <content><![CDATA[<h1 id="教训">教训</h1>
+<ol type="1">
+<li><strong>永远不要什么人的话都相信，尤其在你没了解这个人的时候，自己要去了解形成自己的判断</strong>。谁都会说好听的，有的人全凭一张嘴，就会忽悠人，啥都不会。想想保研，完全就是被骗了。</li>
+</ol>
+<blockquote>
+<p>错误 1. 比如，说“实验室氛围是最好的”，你说最好就是最好的啊???，真是搞笑 错误 2. 说“实验室不挑人”，你不想想为啥不挑人嘛，好的实验室会不挑人嘛？不挑人必有坑啊！There is no free lunch in the world.</p>
+</blockquote>
+<p>瓶颈期可太真实了，旧方向卷不过其他人，想开新方向还不愿意投入时间精力，动不动还忆往昔追忆 n 年前的辉煌。同时让几个学生去干不同的新方向，等学生给他汇报讲解新方向，一人走歪全体走歪无人纠错，退学的退学延毕的延毕。</p>
+<ol start="2" type="1">
+<li><strong>什么事不到最后一刻都说不准</strong>。比如保研的时候，提前和某一个老师说好，但不到最后填系统最后一刻，什么都可以变。（师兄读博、自己的教训）</li>
+</ol>
+]]></content>
+      <categories>
+        <category>研究生</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>一些网址</title>
+    <url>/2022/11/18/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E4%B8%80%E4%BA%9B%E7%BD%91%E5%9D%80/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.gpdf.net/">书行万里 – PDF电子书下载站 (gpdf.net)</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
       </categories>
   </entry>
 </search>

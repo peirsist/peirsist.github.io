@@ -88,17 +88,15 @@ bit cutting 本质也是 Equi size cutting，但是不是一种“简单的”Eq
     <div class="picture-container">
       
     </div>
-    <p>2022/11/16晚思考bit cutting</p>
-<p>bit cutting 本质也是 Equi size cutting，但是不是一种“简单的”Equi size cutting，bit cutting 考虑了规则集的分布，Equi size cutting 并没有考虑规则集的分布（我认为 bit cutting 是可以较少 overlapping 的）。bit cutting 通过不同的算法选择不同的 effective bits，选择不同的 effective bits，对应着不同的切割方案，而规则的分布决定了如何选择 effective bits。bit cutting既可以减少overlapping，又可以加速索引。</p>
-<figure>
-<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/位切割.75nmcu7rtww0.png" alt="位切割"><figcaption aria-hidden="true">位切割</figcaption>
-</figure>
-<p>effective bit的多少决定了树的高低，effective bit中0、1分布决定了树的平衡性，effective bit中*的多少决定overlapping多少。我们期望overlapping越少越好，树高度越低越好，树越平衡越好。</p>
+    <p><strong>2022/11/16晚思考bit cutting</strong></p>
+<p>bit cutting 本质也是 Equi size cutting，但是不是一种“简单的”Equi size cutting，bit cutting 考虑了规则集的分布，Equi size cutting 并没有考虑规则集的分布（我认为 bit cutting 是可以较少 overlapping 的）。</p>
+<p>bit cutting 通过不同的算法选择不同的 effective bits，对应着不同的切割方案，而规则的分布决定了如何选择 effective bits。bit cutting既可以减少overlapping，又可以加速索引。 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/位切割.75nmcu7rtww0.png" alt="位切割"></p>
+<p>effective bit 的多少决定了树的高低，effective bit 中 0、1 分布决定了树的平衡性，effective bit 中 * 的多少决定 overlapping 多少。我们期望 overlapping 越少越好，树高度越低越好，树越平衡越好。</p>
 <p>由此得到，选择effective bits需要遵循以下原则：</p>
 <ol type="1">
-<li>尽可能不选择含有通配符 * 的那一列 → 减少overlapping（2021 MBitTree启发得来）</li>
-<li>选的列 0 1 尽可能分布均匀 → 树会平衡（2021 MBitTree启发得来）</li>
-<li>可以选多个effective bit → 树的高度会降低</li>
+<li>尽可能不选择含有通配符 * 的那一列 → 减少 overlapping（2021 MBitTree 启发得来）</li>
+<li>选的列 0 1 尽可能分布均匀 → 树会平衡（2021 MBitTree 启发得来）</li>
+<li>可以选多个 effective bit → 树的高度会降低</li>
 </ol>
 <hr>
 <h1 id="硬件">1 硬件</h1>
