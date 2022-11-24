@@ -80,18 +80,18 @@
     <div class="picture-container">
       
     </div>
-    <h2 id="面向未来网络的高性能数据包查找与分类技术研究">2019面向未来网络的高性能数据包查找与分类技术研究</h2>
+    <h1 id="面向未来网络的高性能数据包查找与分类技术研究">2019面向未来网络的高性能数据包查找与分类技术研究</h1>
 <p>沈潼 张大方 湖南大学 信息科学与工程学院</p>
 <p>本文提出了范围向量的概念，并依据这个概念提出了一种基于散列函数的支持规则快速更新的高性能包分类算法。本文根据真实规则的源与目的地址前缀长度的分布将规则映射到不同的范围向量空间，数据包分类时需要在各个范围向量空间内查找，通常需要遍历所有范围向量空间。基于这个观察，本文设计并实现了一种基于范围向量的散列算法。每一个范围向量对应的散列表使用各字段的最大公共比特长度进行散列计算。范围向量散列算法具有常数级的规则更新速度。由于数据包分类是根据匹配规则的最高优先级决定，因此该算法需要搜索所有散列表。本文通过定义散列表的优先级对散列表进行优先级排序。因此，该算法可以在不降低更新性能和不增加内存消耗的前提下，进一步提高包分类的速度。</p>
 <p>现有的基于软件的包分类算法大多是单线程，少数算法能够扩展到多线程，因此研究多线程包分类算法具有非常重要理论依据和应用意义。本文针对不同的算法逻辑和数据结构，合理运用数据并行模式和流水线并行模式，设计了一个通用的多线程包分类框架。同时，本文还对多线程的锁机制进行优化，利用原子操作和硬件同步原语设计无锁化多线程版本，实现真正意义上每个线程的独立运行。</p>
-<h3 id="背景">背景</h3>
+<h2 id="背景">背景</h2>
 <p>互联网实际上就是由网络节点和网络链路组成的一个庞大系统。其中，网络节点负责网络功能的实现与运行，而网络链路负责数据与信息的传输。网络链路的传输速度由链路介质及传输技术决定，而网络节点的性能则由数据层的相关技术决定。</p>
 <p>数据包分类是指根据指定的数据包携带的一系列信息（如源地址、目的地址、源端口号、目的端口号和协议等）在一套规则集中按照最高优先级匹配的原则，找到该数据包待执行的操作或任务。</p>
 <p><mark>软件定义网络是什么？</mark></p>
 <p>包分类是交换机、路由器和其他网络设备中用于支持安全性[56]、QoS[57,58]和高级功能[59,60]的基本操作之一，其中数据包在分类器中根据多字段规则集进行匹配。 例如，为了保护网络资源不被攻击，五元组防火墙规则通常被添加到交换机以筛选 哪些数据包应该被通过哪些应该被丢弃。在传统的网络应用中，规则保持相对静态。 因此，离线构建的分类器通常拥有设计精良的数据结构，这类分类器可以实现高效 的数据包分类。数据包分类器设计的主要目标是通过合理的内存占用来执行高速数 据包转发。由于规则更新不频繁，分类器可以离线构建。</p>
 <p>软件定义网络[50,61,62]（SDN）的出现为网络创新提供了巨大的机会，以使网 络支持新的特性和增值功能。这些功能包括流量工程[63]、网络功能虚拟化[64,65]（NFV）和高性能云计算[66,67]的支持。然而，这些新功能除了依赖于基本的快速包 分类外，还依赖于分类器中规则的动态更新能力[40,68]。一方面，网络应用必须对大 量的用户和请求进行即时响应，使得分类器规则必须频繁更新，以满足不同的需求。 另一方面，网络功能的常规迁移或变更总是会改变拓扑结构和策略，从而分类器的 规则必定会有相应的更新。因此，快速的规则更新对于当前的分类器是绝对必要且 有意义的。</p>
 <p>尽管包分类非常重要，并且已经吸引了很多研究者的关注，但是现有的算法往往不能同时满足上述两个要求，即快速包分类的同时支持快速规则更新。决策树的算法，如HyperCuts[36]、EffiCuts[37]和SmartSplit[38]，都能实现快速的包分 类，但不能实现快速的规则更新。基于哈希的算法，比如在Open vSwitch[69]（OVS） 中实现的元组空间搜索[39]（TSS），可以实现快速规则更新但不能实现高速包分类。 PartitionSort[40]（PS）和TupleMerge[41]（TM）可以提升包分类的速度但都牺牲了规 则更新的性能。同时实现快速的包分类和规则更新是满足先进的网络管理和高效云 计算的新需求和基本挑战之一。</p>
-<h3 id="现状">现状</h3>
+<h2 id="现状">现状</h2>
 <p>在工业界，大型路由器以及高端分类器都是利用硬件设备，如三态内容寻址存储器（TCAM）、现场可编程门阵列（FPGA）和专门的网络处理器芯片，来实现高性能的数据包查找和分类。尽管这些器件设备具有非常好的性能，也能满足当前的大多数需求，但是它们的成本非常昂贵，导致它们的售价非常高。</p>
 <p>路由查找算法根据数据结构的不同可分为基于字典树的算法、基于决策搜索树的算法以及基于哈希表过滤器的算法，而包分类算法则可以分为基于维度降解的算法和基于空间划分的算法。本文所提出的所有方法，都是基于软件的，并不针对某一类特殊硬件。</p>
 <p>高性能在线包分类算法的研究。该研究点是对匹配内容的维度的扩展。即从单维度扩展到了多维度。包分类从匹配过程这个角度来看是多个字段的查找匹配，或者说路由查找是包分类在单维度上的特例。为了解决包分类规则频繁更新的问题，本文提出了一种基于范围向量哈希的在线包分类算法，在保证高效的数据包分类的同时，提供快速的规则更新。</p>
@@ -103,7 +103,7 @@
 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/分类器.5fwaxpgm8nk0.png" alt="分类器"><figcaption aria-hidden="true">分类器</figcaption>
 </figure>
 <p>包分类规则集是分类器中最关键的数据结构之一。规则集通常是由控制器生成并进行维护的。规则集包含一系列分类规则，每一个规则又包含了用于分类数据包 需要判断的所有包头字段（匹配域）、规则优先级以及一个或多个行为（操作）。包 分类规则集通常包含几十万条规则，因此存储在片外存储器上。为了加快分类速度， 分类器通常会在片上存储器中维护一个或多个小规则集作为大规则集缓存。在数据 包分类的过程中，可能会有多个规则与分类对象匹配，这时根据最高优先级匹配的 原则，选择这些匹配规则中优先级最高的规则作为最终的匹配结果，并执行其规定的操作。</p>
-<h3 id="包分类算法">包分类算法</h3>
+<h2 id="包分类算法">包分类算法</h2>
 <p>基于维度降解的算法 Cross-producting[33]和RFC[34]将多维规则分割成若干个单维规则。它们逐个与单维规则进行匹配，然后合并各个匹配的结果。这类方法的更新速度非常缓慢，因为 每个单维规则都对应一次规则更新。此外，最终的合并过程将成为性能瓶颈，尤其 当规则集较大时。</p>
 <p>基于空间划分的方法通常将 <strong>整个规则空间划分为若干个子空间，将规则集分为几组分别放入每个子空间中</strong>。 分为两个步骤，<strong>1）确定要搜索的子空间</strong> ，以及 <strong>2）将数据包与相应子空间中的子规则集进行匹配</strong>，而不是将传入的数据包直接与整个规则集进行匹配。这种类型的方法进一步分为两个主要的子类别：基于决策树的方法和基于哈希的方法。</p>
 <p>基于决策树的方法，它们的关键思想如HiCuts[35]和HyperCuts[36]是将搜索空间 <strong>递归划分</strong> 成若干子区域，直到每个区域中的规则数量低于某一阈值。由于决策树的效率，这些方法可以实现高速数据包分类。然而，其中一个缺点是由于规则复制而导致大量内存消耗，因为有些规则可能需要复制到多个分区中。<strong>缓慢和复杂的规则更新是这些方法的另一个缺点</strong>。虽然EffiCuts[37]和SmartSplit[38]基于规则分布，采用不同的规则空间分区策略来减少规则复制和内存访问量，但它们仍然不能支持快速更新。</p>
@@ -114,25 +114,53 @@
 <p>什么是OVS? OVS是一个高质量的，多层虚拟交换机。虚拟交换呢？就是，利用软件的方式形成交换部件，所以也叫软件交换机，跟传统的物理交换机相比，虚拟交换机同要具备很多有点：1.配置灵活，因为是软件实现的，一台物理服务器上可以配置数十太或者数百台虚拟交换机，而且端口数目可以灵活选择 2. 成本低廉，通过软件的方式可轻易达到10Gbps的交换速度。 <a target="_blank" rel="noopener" href="https://blog.csdn.net/sqx2011/article/details/39344869">OVS - 简介</a></p>
 </blockquote>
 <p><strong>数据包查找和分类技术本身并不复杂，但是随着网络技术和网络功能的不断更新和发展，已有的算法已经不适应当前网络对于性能以及功能的需求</strong>。 尤其，面向未来的高性能网络，数据包查找和分类技术还需要进一步被研究和发展。通常情况下，判断一个路由查找算法或数据包分类算法的好坏，往往会从以下四个方面进行 评估。 1. <strong>查找（分类）速度</strong>。算法的性能是判断该算法最直接的评价指标之一。通常， 对于路由查找算法以及数据报分类算法都会使用<strong>每秒完成多少次查找（lps）</strong> 来定量评价算法的性能。在某些时候可以用每秒完成千次查找（Klps）和每 秒完成兆次查找（Mlps）来更合理地描述。 2. <strong>更新速度</strong>。除了查找（分类）性能之外，前缀（规则）更新的速度也是重要 的评价指标之一。尤其近年来，查找和分类算法的更新速度越来越受到重视， 因为当前及未来网络对路由器和分类器的更新性能需求非常高。一般地，对于前缀或规则更新的速度都会使用<strong>每秒完成多少次更新（ups）</strong>、每秒完成多少千次（Kups）或兆次（Mups）更新来定量评价。 3. <strong>内存需求</strong>。一般而言，<strong>对于任何算法它的运行内存占用必定越小越好</strong>。因为 <strong>内存越小就越有可能放入片上存储器，通过提高缓存的命中率来提高算法的性能</strong>。另一方面，对于一些存储非常有限的设备，如TCAM等，内存占用是 一个非常重要的指标。通常情况下，兆字节（MB）会用来评估一个算法运行 内存的大小。对于内存需求很大的算法，往往很难被实际部署。</p>
-<h2 id="基于范围向量的高性能在线数据包分类算法">基于范围向量的高性能在线数据包分类算法</h2>
-<h2 id="基于-gpu-加速的包分类算法研究与实现">2020基于 GPU 加速的包分类算法研究与实现</h2>
+<h1 id="基于范围向量的高性能在线数据包分类算法">基于范围向量的高性能在线数据包分类算法</h1>
+<h1 id="基于-gpu-加速的包分类算法研究与实现">2020基于 GPU 加速的包分类算法研究与实现</h1>
 <p>华南理工大学 专业硕士学位答辩 电子与信息学院 王君君</p>
 <p>虽然 SDN网络有诸多优点，能满足当前或者未来网络的的业务需求，但由于刚起步，整体技术还不完善，性能上存在诸多瓶颈，OpenFlow作为数据层面转 发数据包依据的主流协议，它打破了传统网络分层的概念，所有需要匹配的字段 都包括在一张流表里面，实现了协议的扁平化[2-3]。随着时间的推移，OpenFlow 协议的版本从最初的 1.0，逐渐发展到 1.1，1.2，1.3，1.4 等版本协议，从协议版 本的升级来看，流表里面用来匹配的字段数量不断增加，从最初 1.0 版本的 15 匹配字段，发展到如今高达 45 个匹配字段，其中有 15 个必检字段[4]。而传统五 元组包分类的算法已经无法满足OpenFlow协议字段匹配的需求，由此OpenFlow 协议的匹配成为了数据平面的一个主要的性能瓶颈。</p>
 <p>包分类是一种在预定义规则集中匹配数据包从而根据规则定义的动作处理数据包的方法，其中输入包可以匹配一个或多个规则，我们选择具有最高优先级的规则定义的动作处理输入数据包[5]。</p>
 <h1 id="introduction">Introduction</h1>
 <h2 id="bytecuts-fast-packet-classification-by-interior-bit-extraction"><em>2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</em></h2>
-<p>Packet classification is an important part of many network devices such as firewalls, routers, and other services. When these devices receive a packet, they must decide how to handle it. Most packet classifiers are defined by a list of rule. Each rule matches certain packet headers and defines an action for those packets. Possible actions include “forward onto physical port 1”, “send to the web server running on this device”, and “discard”. The classifier finds the first rule that matches a given packet and follows the action associated with that rule.</p>
+<p>Packet classification is an important part of many network devices such as firewalls, routers, and other services. When these devices receive a packet, they must decide how to handle it. <strong>Most packet classifiers are defined by a list of rule.</strong> Each rule matches certain packet headers and defines an action for those packets. <strong>Possible actions include “forward onto physical port 1”, “send to the web server running on this device”, and “discard”.</strong> The classifier finds the first rule that matches a given packet and follows the action associated with that rule.</p>
 <p>Rule list sizes have been increasing. As new vulnerabilities are found and new devices are added to the network, new rules are added to deal with these new situations. Rule lists with thousands of rules are now commonplace. Any packet classifier used must be able to handle these increasingly large rule lists.</p>
-<p>Packet classifiers must be fast. These network devices have real-time constraints; delays caused at one device propagate through the network as packet take longer to be forwarded between devices.</p>
-<blockquote>
+<p><strong>Packet classifiers must be fast. These network devices have real-time constraints</strong>; delays caused at one device propagate through the network as packet take longer to be forwarded between devices.</p>
 <p>数据包分类是许多网络设备的一个重要部分，如防火墙、路由器和其他服务。当这些设备收到一个数据包时，它们必须决定如何处理它。大多数数据包分类器是由一个规则列表定义的。每个规则匹配某些数据包头，并为这些数据包定义一个动作。可能的行动包括 "转发到物理端口1"、"发送到在此设备上运行的网络服务器 "和 "丢弃"。分类器找到第一个匹配给定数据包的规则，并遵循与该规则相关的行动。 规则列表的大小一直在增加。随着新的漏洞被发现和新的设备被添加到网络中，新的规则也被添加进来以处理这些新情况。现在，拥有数千条规则的规则列表已经很常见了。任何使用的数据包分类器必须能够处理这些越来越大的规则列表。 数据包分类器必须是快速的。这些网络设备有实时限制；在一个设备上造成的延迟会通过网络传播，因为数据包在设备之间需要更长的时间来转发。</p>
-</blockquote>
-<p>Later decision tree variants, such as EffiCuts [3] and SmartSplit [4] have introduced better tools for controlling memory usage at the cost of search times. These methods define several categories of rules which are expected not to require much rule replication, which reduces memory consumption, but it produces multiple trees, which increases search times.</p>
+<p>The packet classification problem is as follows. <strong>Given a rule list L and packet p, find the first (highest-priority) rule in L that matches packet p. This should be done as fast as possible.</strong></p>
+<p>This yields the following objective. <strong>Given a rule list L, construct a classifier, subject to memory or other constraints, that minimizes the expected search time for incoming packets.</strong></p>
+<p>数据包分类问题如下。给定一个规则列表L和数据包p，找到L中第一个（优先级最高的）与数据包p相匹配的规则，这应该尽可能快地完成。</p>
+<p>这就产生了以下目标。给定一个规则列表L，在内存或其他约束条件下，构建一个分类器，使传入数据包的预期搜索时间最小。</p>
+<p>Most existing decision trees, such as HyperCuts [1] and HyperSplit [2] have <strong>favored</strong> spending more memory for fast searches. These methods build a search tree by cutting the rules into several sets spacially. This yields O(log n) expected search times. <strong>However, the cuts are not clean</strong>; some rules are copied into multiple subtrees which produces super-linear memory.</p>
+<p><strong>Later decision tree variants</strong>, such as EffiCuts [3] and SmartSplit [4] have introduced better tools for <strong>controlling memory usage at the cost of search times</strong>. These methods define several categories of rules which are expected not to require much rule replication, which reduces memory consumption, but it produces multiple trees, which increases search times.</p>
 <p>Other methods, such as Tuple Space Search [5], TupleMerge [6], and PartitionSort [7] are able to use only linear memory.</p>
-<p>These methods partition the rules into other sets and then use either hashing (Tuple Space Search, TupleMerge) or sorting (PartitionSort) to be able to search them. Classification time is thus tied to the number of partitions required. If the number of partitions becomes large, then search times suffer.</p>
+<p><strong>These methods partition the rules into other sets</strong> and then <strong>use either hashing (Tuple Space Search, TupleMerge) or sorting (PartitionSort) to be able to search them</strong>. Classification time is thus tied to the number of partitions required. If the number of partitions becomes large, then search times suffer.</p>
 <p>These methods used in OpenFlow and other software-defined networks because they support fast updates.</p>
+<p>大多数现有的决策树，如HyperCuts[1]和HyperSplit[2]都倾向于为快速搜索花费更多的内存。这些方法通过在空间上将规则切割成几组来建立搜索树。这产生了O（log n）的预期搜索时间。然而，切割并不干净；一些规则被复制到多个子树中，产生了超线性的内存。</p>
+<p>后来的决策树变体，如EffiCuts[3]和SmartSplit[4]引入了更好的工具，以搜索时间为代价控制内存使用。这些方法定义了几类规则，预计不需要太多的规则复制，这就减少了内存的消耗，但是它产生了多个树，增加了搜索时间。</p>
+<p>其他的方法，如Tuple Space Search[5]、TupleMerge[6]和PartitionSort[7]，能够只使用线性内存。</p>
+<p><strong>这些方法将规则分割成其他的集合，然后使用散列（Tuple Space Search, TupleMerge）或排序（PartitionSort）来能够搜索它们</strong>。因此，<strong>分类时间与所需分区的数量有关</strong>。如果分区的数量变得很大，那么搜索时间就会受到影响。</p>
+<p>这些方法在OpenFlow和其他软件定义的网络中使用，因为它们支持快速更新。</p>
+<hr>
+<p><strong>Rule replication is caused by rules falling into multiple partitions due to wildcards which forces them to be copied multiple times.</strong></p>
+<p><strong>规则复制</strong>是由于通配符造成的规则落入多个分区，这迫使它们被多次复制。</p>
+<p>Existing methods, such as EffiCuts [3] and SmartSplit [4] have attempted to <strong>alleviate this problem</strong> by <strong>partitioning rules</strong> such that <strong>all rules in the same partition have similar characteristics</strong>. This <strong>significantly</strong> reduces the amount of replication required as <strong>it is easier to find good cuts that do not trigger any of the wildcards.</strong></p>
+<p>现有的方法，如EffiCuts[3]和SmartSplit[4]，试图通过对规则进行分区，使同一分区的所有规则具有类似的特征来缓解这一问题。这大大减少了所需的复制量，因为更容易找到不触发任何通配符的良好切割。</p>
+<h2 id="fast-packet-classification-using-bloom-filters">2006-Fast Packet Classification Using Bloom Filters</h2>
+<p>The general packet classification problem has received a great deal of attention over the last decade. The ability to classify packets into flows based on their packet headers is important for QoS, security, virtual private networks (VPN) and packet filtering applications. Conceptually, a packet classification system must compare each packet header received on a link against a large set of rules, and return the identity of the highest priority rule that matches the packet header (or in some cases, all matching rules). Each rule can match a large number of packet headers, since the rule specification supports address prefixes, wild cards and port number ranges. Much of the research to date has concentrated on the algorithmic techniques which use hardware or software lookup engines, which access data structures stored in commodity memory. However none of the algorithms developed to date has been able to displace TCAMs, in practical applications.</p>
+<p>在过去的十年中，一般的数据包分类问题得到了大量的关注。根据数据包头将数据包分类为流量的能力对于QoS、安全、虚拟专用网络（VPN）和数据包过滤应用非常重要。<strong>从概念上讲，数据包分类系统必须将一条链路上收到的每个数据包头与一大批规则进行比较，并返回与数据包头相匹配的最高优先级规则的身份（或在某些情况下，所有匹配规则）。</strong>由于规则规范支持地址前缀、通配符和端口号范围，每个规则都可以匹配大量的数据包头。迄今为止，大部分研究都集中在使用硬件或软件查找引擎的算法技术上，该引擎访问存储在商品内存中的数据结构。然而，迄今为止开发的算法中没有一个能够在实际应用中取代TCAMs。</p>
+<p>However, we can use Bloom filters to avoid lookups in subsets that contain no matching rules, making it possible to sustain high throughput.</p>
+<p>然而，我们可以<strong>使用布鲁姆过滤器来避免在不包含匹配规则的子集中进行查找，从而使维持高吞吐量成为可能</strong>。</p>
+<blockquote>
+<p><strong>规则集分成子集，如何避免每一个子集查找是提升速度的关键，通过设立树的优先级、这篇文章提到了布鲁姆过滤器</strong></p>
+</blockquote>
+<p>In particular, we demonstrate a method, based on Bloom filters and hash tables, that can classify a packet in 4 + p + ? memory accesses where ? is a small constant ? 1 determined by the false positive proba- bility of the Bloom filters. The first four memory accesses are required to perform a Longest Prefix Matching (LPM) on the source/destination addresses and the source/destination ports.</p>
+<p>特别是，我们展示了一种基于布隆过滤器和哈希表的方法，它可以在4+p+? 的内存访问中对一个数据包进行分类，其中? 是一个小常数? 1，由布隆过滤器的假阳性率决定。<strong>前四个内存访问需要对源/目的地址和源/目的端口进行最长前缀匹配（LPM）。</strong></p>
+<p>The next p memory accesses are requires to lookup the p matching rules for a given packet. Furthermore, the LPM phase and the rule lookup phase can be pipelined with two independent memory chips such that the memory accesses per packet can be reduced to max{4, p}.</p>
+<p><strong>接下来的p个内存访问需要为一个给定的数据包查找p个匹配规则。</strong>此外，LPM阶段和规则查询阶段可以用两个独立的内存芯片进行流水线处理，这样每个数据包的内存访问量可以减少到最大{4, p}。</p>
 <h1 id="related-work">Related Work</h1>
 <h2 id="bytecuts-fast-packet-classification-by-interior-bit-extraction-1"><em>2018-ByteCuts: Fast Packet Classification by Interior Bit Extraction</em></h2>
+<p>Packet classification is a well studied problem. Taylor [8] divides packet classification algorithms into four general area: <strong>exhaustive search, decision trees, field decomposition, and tuple space.</strong> Our proposed ByteCuts classifier <strong>falls into</strong> the decision tree category.</p>
+<p>数据包分类是一个研究得很好的问题。Taylor[8]将数据包分类算法分为四个大的领域：穷举搜索、决策树、场分解和元组空间。我们提出的ByteCuts分类器属于决策树的范畴。</p>
+<p><strong>Summary and Limitations of Prior Art（现有技术的总结和限制）</strong></p>
 <p>Decision trees are a well-studied area of packet classification. HiCuts [9] is one of the oldest and most well-known classifiers of this type and has spawned several derivatives. In HiCuts, one field of the packet domain is partitioned (or cut) into several equal-sized pieces. The rules are then allocated to the partitions that they correspond to. This process is repeated for each of these sublists until only a few rules remain. One problem with HiCuts is that the rule and domain boundaries do not always align and rules that cross these boundaries must be replicated into multiple partitions. Rules that are orthogonal to the field being cut are especially problematic since they must be replicated into each partition. This can result in a significant memory blowup.</p>
 <p>决策树是数据包分类的一个被充分研究的领域。HiCuts[9]是这种类型的最古老和最著名的分类器之一，并且已经产生了几个衍生产品。在HiCuts中，数据包领域的一个领域被分割（或切割）成几个大小相等的部分。然后，规则被分配到它们所对应的分区中。这个过程对每个子列表重复进行，直到只剩下几条规则。HiCuts的一个问题是，规则和领域的边界并不总是一致的，跨越这些边界的规则必须被复制到多个分区。与被切割领域正交的规则尤其成问题，因为它们必须被复制到每个分区。这可能会导致显著的内存爆炸。</p>
 <p>HyperCuts [1] is a variant on HiCuts. Its chief improvement is that it allows cutting on multiple fields at once. This allows the overall tree height to be lower resulting in faster classification times, but it suffers from the same rule replication problem as HiCuts does. The tree that HyperCuts produces for Classifier I can be seen in Figure 2.</p>
@@ -142,11 +170,47 @@
 <p>HyperSplit[2]采取了一种略有不同的方法。HyperSplit不是创建许多大小相等的切割，而是创建一个大小可变的单一切割（或分割）。选择这种分割是为了平衡所产生的两个分区中的规则数量。与HiCuts和HyperCuts相比，这导致了较少的复制和较低的内存需求，因为每个规则最多复制到两个分区中。然而，树的高度通常较高，因为它有一个较小的分支因子。HyperSplit为分类器I产生的树可以在图3中看到。</p>
 <p>这些算法中的每一种都有因大量规则复制而引起的内存问题。ByteCuts通过将不兼容的规则分离到不同的树中来防止这种规则的复制。</p>
 <p>EffiCuts [3] attempts to solve the rule replication problem by dividing the rules into multiple HyperCuts trees. It classifies rules as being either long or short on a particular field (similar to a tuple space method) and all rules with the same classification are placed into the same tree. Since all of the rules in a given tree have similar properties, it is expected that there will not be much replication required. The downside is that searching multiple trees is likely to take longer than searching a single tree.</p>
-<p>SmartSplit [4] tries a similar strategy to EffiCuts except it only considers two fields: source and destination address. This results in fewer trees and thus generally faster search times at the expense of greater rule replication (though generally less than HyperCuts). Additionally, they can estimate the memory usage and tree heights of a rule list to determine whether one or multiple trees would be better as well as if they should use HyperCuts or HyperSplit trees. This allows them to better balance the tradeoffs between speed and memory. This can be seen by comparing the trees in Figure 4 to those in Figures 2 and 3.</p>
-<p>SmartSplit has a small, fixed set of trees available and EffiCuts has a limited ability to merge the rule lists for its larger, otherwise fixed set of trees. In contrast, ByteCuts has a larger, more flexible, set to choose from. This allows it to better fit the rules to trees which leads to less replication and faster searches.</p>
+<p>SmartSplit [4] tries a similar strategy to EffiCuts except it only considers two fields: source and destination address. This results in fewer trees and thus generally faster search times <strong>at the expense of greater rule replication (though generally less than HyperCuts)</strong>. Additionally, they can estimate the memory usage and tree heights of a rule list to determine whether one or multiple trees would be better as well as if they should use HyperCuts or HyperSplit trees. This allows them to better balance the tradeoffs between speed and memory. This can be seen by comparing the trees in Figure 4 to those in Figures 2 and 3.</p>
+<p>SmartSplit has a small, fixed set of trees available and EffiCuts has a limited ability to merge the rule lists for its larger, otherwise fixed set of trees. <strong>In contrast, ByteCuts has a larger, more flexible, set to choose from. This allows it to better fit the rules to trees which leads to less replication and faster searches.</strong></p>
 <p>EffiCuts[3]试图通过将规则分为多个HyperCuts树来解决规则复制的问题。它将规则分类为特定领域的长或短（类似于元组空间方法），所有具有相同分类的规则都被放入同一棵树中。由于一个给定的树中的所有规则都有类似的属性，预计不会有太多的复制要求。缺点是搜索多棵树的时间可能比搜索一棵树要长。</p>
-<p>SmartSplit[4]尝试了一种与EffiCuts类似的策略，只是它只考虑两个字段：源地址和目的地址。这导致了更少的树，因此通常更快的搜索时间，代价是更大的规则复制（尽管通常比HyperCuts少）。此外，他们可以估计内存使用量和规则列表的树高，以确定一个或多个树会更好，以及他们是否应该使用HyperCuts或HyperSplit树。这使他们能够更好地平衡速度和内存之间的权衡。通过比较图4中的树和图2和图3中的树，可以看出这一点。</p>
+<p><strong>SmartSplit[4]尝试了一种与EffiCuts类似的策略，只是它只考虑两个字段：源地址和目的地址。</strong>这导致了更少的树，因此通常更快的搜索时间，代价是更大的规则复制（尽管通常比HyperCuts少）。<strong>此外，他们可以估计内存使用量和规则列表的树高，以确定一个或多个树会更好，以及他们是否应该使用HyperCuts或HyperSplit树。</strong>这使他们能够更好地平衡速度和内存之间的权衡。通过比较图4中的树和图2和图3中的树，可以看出这一点。</p>
 <p>SmartSplit有一个小的、固定的树集可用，EffiCuts有一个有限的能力来合并其较大的、其他固定的树集的规则列表。相比之下，ByteCuts有一个更大、更灵活的集合可供选择。这使得它能够更好地将规则与树相匹配，从而减少复制和加快搜索。</p>
+<p>PartitionSort [7] bases its trees on the rules themselves rather than the decision space. It defines several partial orderings on the rule list and then partitions the list so that each partition is totally ordered on one of these orderings, which can be binary searched. This allows them to completely do away with rule replication (each rule appears only once). PartitionSort’s tree selection strategy is more stringent than ByteCuts, so it requires more trees resulting in slower classification.</p>
+<p>PartitionSort[7]将其树建立在规则本身而不是决策空间上。它在规则列表上定义了几个部分排序，然后对列表进行分区，这样每个分区都是在这些排序中的一个上完全排序，这可以进行二进制搜索。<strong>这使他们能够完全摒弃规则复制（每条规则只出现一次）</strong>。PartitionSort的树选择策略比ByteCuts更严格，<strong>所以它需要更多的树，导致分类更慢。</strong></p>
+<p>With exact match, all of the rules in the list are searched.</p>
+<p>This normally is done in hardware with TCAMs, which can search the entire list in parallel. Unfortunately, TCAMs do not scale very well. Thus methods such as Firewall Compressor [10], TCAM Razor [11], or Diplomat [12] are used to compress the rule list into a smaller list with identical behavior.</p>
+<p>One-dimensional packet classification is a much easier problem; linear-memory solutions with O(log n) search times exist. Field decomposition methods like [13] and [14] classify each field (often in parallel) to acquire some sort of token or partial result. They then use the tokens to determine the matching rule.</p>
+<p>In tuple space classifiers, such as Tuple Space Search [5] and TupleMerge [6], each rule is tagged with a tuple denoting which bits it uses. Rules with the same tuple are grouped together into a hash table. By extracting only the bits associated with that tuple, a consistent hash key can be produced from either rules or packets, allowing each table to be searched in constant time.</p>
+<p>在精确匹配的情况下，列表中的所有规则都被搜索到。</p>
+<p>这通常是在硬件上用TCAM完成的，它可以并行地搜索整个列表。不幸的是，TCAM的规模不是很好。因此，诸如Firewall Compressor[10]、TCAM Razor[11]或Diplomat[12]等方法被用来将规则列表压缩成一个具有相同行为的较小列表。</p>
+<p>一维数据包分类是一个更容易的问题；存在搜索时间为O（log n）的线性内存解决方案。像[13]和[14]这样的字段分解方法对每个字段进行分类（通常是并行的）以获得某种标记或部分结果。然后，他们使用令牌来确定匹配规则。</p>
+<p>在元组空间分类器中，如元组空间搜索[5]和元组合并[6]，每个规则都被标记为元组，表示它使用了哪些位。具有相同元组的规则被归入一个哈希表。通过只提取与该元组相关的比特，可以从规则或数据包中产生一个一致的哈希密钥，允许在恒定时间内搜索每个表。</p>
+<h2 id="fast-packet-classification-using-bloom-filters-1">2006-Fast Packet Classification Using Bloom Filters</h2>
+<p>There is a vast body of literature on packet classification.</p>
+<p>An excellent survey and taxonomy of the existing algorithms and architectures can be found in [11]. Here, we discuss only the algorithms that are closely related to our work. Algorithms that can provide deterministic lookup throughput is somewhat akin to the basic crossproduct algorithm [9].</p>
+<p>The basic idea of the crossproduct algorithm is to perform a lookup on each field first and then combine the results to form a key to index a crossproduct table. The best-matched rule can be retrieved from the crossproduct table in only one memory access. The single field lookup can be performed by direct table lookup as in the RFC algorithm [5] or by using any range searching or LPM algorithms. The BV [6] and ABV [3] algorithms use bit vector intersections to replace the crossproduct table lookup. However, the width of a bit vector equals to the number of rules and each unique value on each field needs to store such a bit vector. Hence, the storage requirement is significant, which limits its scalability.</p>
+<p>关于数据包分类有大量的文献。</p>
+<p>现有算法和架构的优秀调查和分类法可以在[11]中找到。在这里，我们只讨论与我们工作密切相关的算法。能够提供确定性查找吞吐量的算法有点类似于基本的交叉产品算法[9]。</p>
+<p>交叉产品算法的基本思想是先对每个字段进行查找，然后结合结果形成一个键来索引交叉产品表。只需一次内存访问就可以从交叉产品表中检索出最佳匹配的规则。单一字段的查找可以通过RFC算法[5]中的直接查表或使用任何范围搜索或LPM算法来进行。BV[6]和ABV[3]算法使用位向量交集来代替交叉产品表的查找。然而，<strong>位向量的宽度等于规则的数量，每个字段上的每个唯一值都需要存储这样一个位向量。因此，存储需求很大</strong>，这限制了它的可扩展性。</p>
+<p>For example, at the first level, if a packet matches m nested source IP address prefixes and n nested destination IP address prefixes, we need m × n hash queries to the hash table with the keys that combine these two fields and the lookups typically result in multiple valid outputs that require further lookups. For a multi-dimensional packet classification, this incurs a large performance penalty.</p>
+<p>例如，在第一层，如果一个数据包匹配了m个嵌套的源IP地址前缀和n个嵌套的目的IP地址前缀，<strong>我们需要用结合这两个字段的键对哈希表进行m×n个哈希查询，而且查询通常会产生多个有效输出，需要进一步查询。对于一个多维的数据包分类来说，这产生了一个很大的性能损失。</strong></p>
+<p>DIRPE [7], uses a clever technique to encode ranges differently which results in overall lesser rule expansion compared to the traditional method.</p>
+<p><strong>DIRPE[7]，使用了一种巧妙的技术对范围进行不同的编码，与传统方法相比，其结果是整体上较少的规则扩展。</strong></p>
+<p>Yu et. al. described a different algorithm for multimatch packet classification based on geometric intersection of rules [13]. A packet can match multiple rules because the rules overlap. However, if the rules are broken into smaller sub-rules such that all the rules are mutually exclusive then the packet can match only one rule at a time</p>
+<p>Yu等人描述了一种不同的算法，用于基于规则的几何交叉的多匹配包分类[13]。<strong>一个数据包可以匹配多个规则，因为这些规则是重叠的。然而，如果规则被分解成更小的子规则，使所有规则相互排斥，那么数据包一次只能匹配一条规则</strong></p>
+<p>This overlap-free rule set is obtained through geometric intersection. Unfortunately, the rule set expansion due to the newly introduced rules by the intersection can be very large.</p>
+<p>这个无重叠的规则集是通过几何交叉得到的。不幸的是，由于相交所引入的新规则，规则集的扩展可能非常大。</p>
+<p>At the same time one would need to probe each subset independently to search a matching rule. Our algorithm is similar to SSA in that we also try to reduce the overlap between the rules by partitioning them into multiple subsets and thus reduce the overall expansion.</p>
+<p>同时，人们需要独立地探测每一个子集来搜索一个匹配的规则。我们的算法与SSA类似，我们也试图通过将规则划分为多个子集来减少规则之间的重叠，从而减少整体的扩展。</p>
+<p>However, while SSA only cares about an overlap in all the dimensions, our algorithm considers the overlap in any dimension for the purpose of partitioning. Hence the partitioning technique are different.</p>
+<p>Moreover, SSA is a TCAM based algorithm whereas ours is memory based. Finally, SSA requires to probe all the subsets formed, one by one, requiring as many TCAM accesses whereas our algorithm needs only p memory accesses, just as many matching rules as there are per packet.</p>
+<p>然而，SSA只关心所有维度上的重叠，而我们的算法为了分区的目的考虑任何维度上的重叠。因此，分区技术是不同的。</p>
+<p>此外，SSA是一个基于TCAM的算法，而我们的算法是基于内存的。最后，SSA需要逐一探测所有形成的子集，需要同样多的TCAM访问，而我们的算法只需要p个内存访问，就像每个数据包有多少个匹配规则一样。</p>
+<p>For 5-tuple classification, we don’t need to perform the LPM for the protocol field; it can be a direct lookup in a small on-chip table</p>
+<p>对于5元组分类，我们不需要对协议字段进行LPM，它可以直接在一个小型片上表中进行查找</p>
+<blockquote>
+<p>前人只关注源IP、目的IP，却没有说源port和目的port怎么查找，源port和目的port是范围</p>
+</blockquote>
 
 
   </article>
