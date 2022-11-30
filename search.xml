@@ -239,9 +239,22 @@
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
-    <content><![CDATA[<h1 id="section">1 2022-11-30</h1>
+    <content><![CDATA[<h1 id="section">1 2022-12-6</h1>
 <h2 id="comments">1.1 comments</h2>
 <h2 id="近期工作">1.2 近期工作</h2>
+<ol type="1">
+<li></li>
+</ol>
+<h2 id="下一步计划">1.3 下一步计划</h2>
+<hr>
+<h1 id="section-1">1 2022-11-29</h1>
+<h2 id="comments-1">1.1 comments</h2>
+<ol type="1">
+<li>功能上有新的功能，or 新的技术。没新技术那就得工作量得到位，实验全不全，有没有跟新方案比</li>
+<li>找一个现有分割方案，用机器学习、DRL去优化，实现。适配各种规则集</li>
+<li>寻找机器学习的工具RL、DL</li>
+</ol>
+<h2 id="近期工作-1">1.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-23，周三</em></strong>，上午英语project，然后《剑桥16-Test3》精读视频，下午看ByteCuts这篇论文，然后运动拿快递。最近（几个月）买了
 <ol type="1">
@@ -271,12 +284,22 @@
 <p><strong>直接看英文→ ipad 不同颜色标注→ LaTex 文献笔记，顺带着 beamer，做 beamer 前，先在纸上把大纲写出来。</strong> 1. 电脑看论文整句翻译，翻译一篇文章的记法，复习抓不住重点 ❌ 2. 背景需要翻译，单独记，不同颜色Highlight 3. 文章所提出的技术，LaTex整理记</p>
 </blockquote>
 <ol start="7" type="1">
-<li><strong><em>2022-11-28，周一</em></strong>，起床就 9: 00，墨迹一会，《剑桥 16-Test4》看 2、3 篇精读就到中午了，下午完善 beamer，3: 30-4: 10 党支部的组织生活，回来 4:50</li>
+<li><strong><em>2022-11-29，周二</em></strong>，起床就 9: 00，墨迹一会，《剑桥 16-Test4》看 2、3 篇精读就到中午了，下午完善 beamer，3: 30-4: 10 党支部的组织生活，回来 4:50。和师兄讨论bitcut。</li>
+<li><strong><em>2022-11-30，周三</em></strong>，上午《剑桥15-Test1》，被《剑桥16》单词，还要继续背。下午睡到3:00，核酸，跳绳，回来单词准备组会，开会到9:00</li>
 </ol>
-<h2 id="下一步计划">1.3 下一步计划</h2>
-<h1 id="section-1">2 2022-11-22</h1>
-<h2 id="comments-1">2.1 comments</h2>
-<h2 id="近期工作-1">2.2 近期工作</h2>
+<h2 id="下一步计划-1">1.3 下一步计划</h2>
+<ol type="1">
+<li>读一下其他（非决策树哈希表的）论文，继续拓展下思路</li>
+<li>怎么划分的问题
+<ol type="1">
+<li>考虑多少个字段去划分，怎么划分思考范围划分和前缀长度划分的区别，</li>
+<li>为什么有的地方用前缀长度划分，有的地方用范围划分</li>
+</ol></li>
+</ol>
+<hr>
+<h1 id="section-2">2 2022-11-22</h1>
+<h2 id="comments-2">2.1 comments</h2>
+<h2 id="近期工作-2">2.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-16，周三</em></strong>，早上 tm 又在整材料，找到了一个好用的 <em>文献笔记模板（LaTex）</em> ，下午还要党会，下午又 tm 改材料，不到最后提交最后一刻，别想消停，每次发过去必有问题，每次要求还总是一个个说，令人🤮。跳绳 1500 个。</li>
 </ol>
@@ -312,11 +335,11 @@
 </ul></li>
 <li><strong><em>2022-11-22，周二</em></strong>，上午整理bit cutting的优点，下午讨论，洗衣服，晚上开会，《剑桥16-Test2》</li>
 </ol>
-<h2 id="下一步计划-1">2.3 下一步计划</h2>
+<h2 id="下一步计划-2">2.3 下一步计划</h2>
 <hr>
-<h1 id="section-2">3 2022-11-15</h1>
-<h2 id="comments-2">3.1 comments</h2>
-<h2 id="近期工作-2">3.2 近期工作</h2>
+<h1 id="section-3">3 2022-11-15</h1>
+<h2 id="comments-3">3.1 comments</h2>
+<h2 id="近期工作-3">3.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-09，周三</em></strong>，早上看区块链，下午区块链到 5 点，然后准备组会，开会到 10 点，准备区块链。记录在 🔗<a href="/2022/11/09/%E8%AE%BA%E6%96%87/%E5%8C%BA%E5%9D%97%E9%93%BE/" title="区块链">区块链</a>。</li>
 </ol>
@@ -361,10 +384,10 @@
 <blockquote>
 <p>这几天每天又到 12 点睡觉了🤮，以后白天效率高一点，晚上 8 点后不要看电脑。9 点锻炼 1 小时，然后睡觉。</p>
 </blockquote>
-<h2 id="下一步计划-2">3.3 下一步计划</h2>
+<h2 id="下一步计划-3">3.3 下一步计划</h2>
 <hr>
-<h1 id="section-3">4 2022-11-08</h1>
-<h2 id="comments-3">4.1 comments</h2>
+<h1 id="section-4">4 2022-11-08</h1>
+<h2 id="comments-4">4.1 comments</h2>
 <ol type="1">
 <li>为什么位切割比较快，优点相对于其他的方案在哪？</li>
 <li>解决哪个问题，用什么技术解决</li>
@@ -372,7 +395,7 @@
 <li>瞄准一篇最新最好的论文，体会论文哪里有问题可以改进，设计自己的改进方案，怎么改进得认知领域</li>
 <li>11 月底之前找到一个问题，</li>
 </ol>
-<h2 id="近期工作-3">4.2 近期工作</h2>
+<h2 id="近期工作-4">4.2 近期工作</h2>
 <ol type="1">
 <li><p><strong><em>2022-11-02，周三</em></strong>，上午英语 pre 之后，回来取快递 <em>AC108EX</em> 手胶，然后贴手胶，确实好用，然后就在看羽毛球视频，下午睡觉之后，数字图像处理水印现状到 3:30，看论文<em>bitcut</em>。 ✅ ❌ ✘ ✔ ✓ ✗</p></li>
 <li><p><strong><em>2022-11-03，周四</em></strong>，上午看论文<em>2017-BitCuts A Fast Packet Classification algorithm using bit-level cutting-Tsinghua University</em>，但是还没有举出来例子，<strong>注意力集中果然坚持不了长时间，但是看论文又需要集中注意力，所以一篇论文得分段来看。</strong> 下午超导课程，为了发论文，跨学科交流，5:00 跑步，6:30 <em>数字图像编码</em> ，讲到 7:40，安装<em>Obsidian.1.0.3</em></p></li>
@@ -393,7 +416,7 @@
 <blockquote>
 <p><strong><font color="red">组会一定要提前一天准备好，前一天一定要张嘴说，一说出来就会发现，好多东西还不会，张嘴说与心里想有很大区别，同样写出来与心里想也有很大区别。</font></strong></p>
 </blockquote>
-<h2 id="下一步计划-3">4.3 下一步计划</h2>
+<h2 id="下一步计划-4">4.3 下一步计划</h2>
 <ol type="1">
 <li>继续阅读论文 50-60 篇</li>
 <li>瞄准 1、2 篇论文，想解决的问题</li>
@@ -402,8 +425,8 @@
 <li>和师兄师姐交流一下</li>
 </ol>
 <hr>
-<h1 id="section-4">5 2022-11-01</h1>
-<h2 id="comments-4">5.1 comments</h2>
+<h1 id="section-5">5 2022-11-01</h1>
+<h2 id="comments-5">5.1 comments</h2>
 <ol type="1">
 <li>实验在什么平台，怎么做的，跟谁对比，哪些参数对比</li>
 <li>每一组实验，实验结果，哪里的创新导致这样的实验结果</li>
@@ -411,7 +434,7 @@
 </ol>
 <p>🟢 <strong>师姐的笔记</strong></p>
 <p>在就是用他所说的例子讲方案的时候可以配上对应的流程图，他比较喜欢这样，觉得清楚。再就是加上结论（工作之后的成果经过加工后的你自己的想法），还有下周工作。汇报内容序号后面加上（comments1,2,3....），他觉得这样清楚，再就是因为他自己都不记得自己提了啥 comments,你得提醒他一下。</p>
-<h2 id="近期工作-4">5.2 近期工作</h2>
+<h2 id="近期工作-5">5.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-10-26，周三</em></strong>，上午英语，下午海洋</li>
 <li><strong><em>2022-10-27，周四</em></strong>，上午工程伦理考试，下午数字图像处理，晚上考试。</li>
@@ -448,11 +471,11 @@
 <li><strong>周一（提前一天）要把组会所有东西准备好，包括演练。</strong></li>
 </ol>
 </blockquote>
-<h2 id="下一步计划-4">5.3 下一步计划</h2>
+<h2 id="下一步计划-5">5.3 下一步计划</h2>
 <hr>
-<h1 id="section-5">6 2022-10-25</h1>
-<h2 id="comments-5">6.1 comments</h2>
-<h2 id="近期工作-5">6.2 近期工作</h2>
+<h1 id="section-6">6 2022-10-25</h1>
+<h2 id="comments-6">6.1 comments</h2>
+<h2 id="近期工作-6">6.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-10-19，周三</em></strong>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出 <code>packet</code> 和 <code>packet</code> 对应哈希表的序号</li>
 </ol>
@@ -481,9 +504,9 @@
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);    </span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="section-6">7 2022-10-18</h1>
-<h2 id="comments-6">7.1 comments</h2>
-<h2 id="近期工作-6">7.2 近期工作</h2>
+<h1 id="section-7">7 2022-10-18</h1>
+<h2 id="comments-7">7.1 comments</h2>
+<h2 id="近期工作-7">7.2 近期工作</h2>
 <ol type="1">
 <li><p>周三，在实验室电脑上安装虚拟机，安装 gcc、g++，运行 PartitionSort 的代码，从中提取 TSS 的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
 <li><p>周四，与老师讨论，规范 weekly meeting 的内容。跟作者发邮件</p>
@@ -524,7 +547,7 @@
 </ol></li>
 </ul></li>
 </ol>
-<h2 id="下一步计划-5">7.3 下一步计划</h2>
+<h2 id="下一步计划-6">7.3 下一步计划</h2>
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -5067,10 +5090,16 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>《完美主义扼杀效率》</title>
     <url>/2022/11/27/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/2-2%E3%80%8A%E5%AE%8C%E7%BE%8E%E4%B8%BB%E4%B9%89%E6%89%BC%E6%9D%80%E6%95%88%E7%8E%87%E3%80%8B/</url>
-    <content><![CDATA[<p>◆ 完美主义扼杀效率！工作的目标是成果，而不是完美！ ◆ 33个完美主义思维误区！ ◆ 完美根本不存在！做出成果只需抓住20%核心工作 ◆ 日本上班族人手一本！ ◆ 完美主义：以追求完美为借口，不断拖延、犹豫、推迟。 ◆ 时效主义：快速响应，开始行动，在有限条件下追求成果。 ◆ 插图活泼生动，含完美主义诊断测试，蓝黑双色印刷！</p>
+    <content><![CDATA[<p>◆ 完美主义扼杀效率！工作的目标是成果，而不是完美！</p>
+<p>◆ 33个完美主义思维误区！</p>
+<p>◆ 完美根本不存在！做出成果只需抓住20%核心工作</p>
+<p>◆ 日本上班族人手一本！</p>
+<p>◆ 完美主义：以追求完美为借口，不断拖延、犹豫、推迟。</p>
+<p>◆ 时效主义：快速响应，开始行动，在有限条件下追求成果。</p>
+<p>◆ 插图活泼生动，含完美主义诊断测试，蓝黑双色印刷！</p>
 <p>总以追求完美为借口，无论大事小事，一切工作都崇尚极致严谨，不允许出现任何失误，想靠自己的力量去完成所有工作，结果总在拖延、犹豫、推迟……不仅工作还毫无成果，还把自己折腾得疲惫不堪。要知道，工作的目标是成果，而不是完美。实际上，完美根本不存在。</p>
 <p>日本习惯专家古川武士根据多年来从事企业经营、商务人士咨询顾问的经验，对比了33个完美主义者和时效主义者的思维习惯，彻底讲透了职场人如何在有限时间、精力的条件下追求最优解。一旦你掌握了时效主义工作方式，就能在职场上如鱼得水，付出最少的精力，收获最大的成果！</p>
-<p>翻开本书，在有限时间内收获最大化成果 <img src="https://img2.doubanio.com/view/subject/l/public/s34153013.jpg"></p>
+<p>翻开本书，在有限时间内收获最大化成果<br><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/s34153013.2vg7xqdasou0.jpg" alt="s34153013"></p>
 ]]></content>
       <categories>
         <category>随笔与个人文集</category>
