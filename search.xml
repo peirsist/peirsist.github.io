@@ -570,106 +570,123 @@
   <entry>
     <title>VS2019新建C自动添加作者版权等信息</title>
     <url>/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="visualstudio2019新建c自动添加作者版权等信息">VisualStudio2019新建C自动添加作者版权等信息</h1>
-<h4 id="参考">参考</h4>
-<ul>
-<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p></li>
-<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网</a></p></li>
-<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p></li>
-<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p></li>
+    <content><![CDATA[<h1 id="VisualStudio2019新建C自动添加作者版权等信息"><a href="#VisualStudio2019新建C自动添加作者版权等信息" class="headerlink" title="VisualStudio2019新建C自动添加作者版权等信息"></a>VisualStudio2019新建C自动添加作者版权等信息</h1><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p>
+</li>
+<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网 </a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p>
+</li>
 </ul>
-<h3 id="注释规范">注释规范</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
+<h3 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/**══════════════════════════════════╗</span><br><span class="line">*作    者：songbaobao                                                ║</span><br><span class="line">*职    业：我以我血荐轩辕                                              ║                                              </span><br><span class="line">*CSND地址：https://blog.csdn.net/weixin_43949535                       ║</span><br><span class="line">**GitHub ：https://github.com/TsinghuaLucky912/My_own_C-_study_and_blog║</span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*创建时间：                                                           </span><br><span class="line">*功能描述：                                                            </span><br><span class="line">*                                                                      </span><br><span class="line">*                                                                      </span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*结束时间:                                                           </span><br><span class="line">*═══════════════════════════════════╝</span><br><span class="line">//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.</span><br><span class="line">//            __.&#x27;              ~.   .~              `.__</span><br><span class="line">//          .&#x27;//              西南\./联大               \\`.</span><br><span class="line">//        .&#x27;//                     |                     \\`.</span><br><span class="line">//      .&#x27;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.</span><br><span class="line">//    .&#x27;//.-&quot;                 `-.  |  .-&#x27;                 &quot;-.\\`.</span><br><span class="line">//  .&#x27;//______.============-..   \ | /   ..-============.______\\`.</span><br><span class="line">//.&#x27;______________________________\|/______________________________`.</span><br><span class="line">*/</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <tags>
-        <tag>安装软件</tag>
-      </tags>
+      <categories>
+        <category>安装软件</category>
+      </categories>
   </entry>
   <entry>
     <title>虚拟机安装Ubuntu18.04</title>
     <url>/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/</url>
-    <content><![CDATA[<h1 id="安装ubuntu和ndnsim遇到的问题">安装Ubuntu和ndnSIM遇到的问题</h1>
-<h2 id="安装好ubuntu后无法复制粘贴"><mark>安装好Ubuntu后，无法复制粘贴</mark></h2>
-<ul>
+    <content><![CDATA[<h1 id="安装Ubuntu和ndnSIM遇到的问题"><a href="#安装Ubuntu和ndnSIM遇到的问题" class="headerlink" title="安装Ubuntu和ndnSIM遇到的问题"></a>安装Ubuntu和ndnSIM遇到的问题</h1><h2 id="安装好Ubuntu后，无法复制粘贴"><a href="#安装好Ubuntu后，无法复制粘贴" class="headerlink" title="安装好Ubuntu后，无法复制粘贴"></a><mark>安装好Ubuntu后，无法复制粘贴</mark></h2><ul>
 <li>先去装<code>Vmstation tools</code>，安装过程中会遇到的问题。需要在虚拟机中设置一下</li>
 <li>但仍然无法复制粘贴 参考<a href="https://www.zhihu.com/question/41586989">虚拟机安装好了VMtools了,但是还是不能实现文件拖拽和复制功能？(zhihu.com)</a></li>
 <li><strong>埋坑</strong>_办法是 先<code>vmware-uninstall-tools.pl</code>把你安装的不能运行的<code>vmtools</code>卸载了.然后 <code>apt-get install open-vm-tools-desktop</code>。 <code>reboot</code>。then ok</li>
 </ul>
-<h2 id="ubuntu字体大小更改"><mark>Ubuntu字体大小更改</mark></h2>
-<ul>
-<li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p></li>
-<li><p><code>Ubuntu</code>更改源</p></li>
+<h2 id="Ubuntu字体大小更改"><a href="#Ubuntu字体大小更改" class="headerlink" title="Ubuntu字体大小更改"></a><mark>Ubuntu字体大小更改</mark></h2><ul>
+<li><p><strong><a href="https://blog.csdn.net/dghcs18/article/details/104420127">如何调整Ubuntu的字体大小？</a></strong></p>
+</li>
+<li><p><code>Ubuntu</code>更改源</p>
+</li>
 </ul>
-<h2 id="安装ndnsim后无法可视化"><mark>安装ndnSIM后，无法可视化。</mark></h2>
-<ul>
-<li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p></li>
-<li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p></li>
+<h2 id="安装ndnSIM后，无法可视化。"><a href="#安装ndnSIM后，无法可视化。" class="headerlink" title="安装ndnSIM后，无法可视化。"></a><mark>安装ndnSIM后，无法可视化。</mark></h2><ul>
+<li><p><strong><a href="https://blog.csdn.net/GregoryHanson/article/details/83036964">ndnSIM安装教程</a></strong></p>
+</li>
+<li><p>在尝试了网上所有办法后，仍是不行。以下是尝试仍然不行的：</p>
+</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;"></p>
-<p><strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
+  <img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的" style="zoom: 50%;">
+
+<p>  <strong>可以看到图中的Python Binding 和PyViz visualizer都是 not enabled</strong></p>
 <ul>
 <li><strong><a href="https://blog.csdn.net/xiaoxin990214/article/details/70157263">ndnSIM中可视化的解决办法-CSDN博客</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found '') ".. ns3::VisualSimulatorImpl not found"</a></strong></li>
-<li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo ./waf --run second --vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/neuwyt/article/details/52242853">ndnSIM 2.0 因缺少pythonbind无法使用visual组件问题 —pybindgen (found ‘’) “.. ns3::VisualSimulatorImpl not found”</a></strong></li>
+<li><strong><a href="https://blog.csdn.net/sinat_36418396/article/details/106569512">执行 sudo .&#x2F;waf –run second –vis 出现错误：VisualSimulatorImpl not found-CSDN博客</a></strong></li>
 </ul>
-<p>原因在于python依赖的安装包没有安装。</p>
-<h3 id="python-binding解决">python Binding解决</h3>
-<ol type="1">
+<p>  原因在于python依赖的安装包没有安装。</p>
+<h3 id="python-Binding解决"><a href="#python-Binding解决" class="headerlink" title="python Binding解决"></a>python Binding解决</h3><ol>
 <li>安装python3</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br><span class="line">pip3 install pybindgen</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><a href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command 'pip' not found, but there are 18 similar ones.</a></li>
+<li><a href="https://www.lipsuper.com/index.php/2020/10/13/python-pit/">Python报错解决Command ‘pip’ not found, but there are 18 similar ones.</a></li>
 <li><a href="https://blog.csdn.net/qq_31648921/article/details/112404288">ns-3学习手记10_ns3.29中PyViz visualizer没有enabled，进行安装.</a></li>
 <li><a href="https://blog.csdn.net/weixin_43974413/article/details/104899594">ubuntu18下 ndnSIM安装过程详解。</a></li>
 </ul>
-<h3 id="pyviz-visualizer解决">PyViz visualizer解决</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+<h3 id="PyViz-visualizer解决"><a href="#PyViz-visualizer解决" class="headerlink" title="PyViz visualizer解决"></a>PyViz visualizer解决</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-pygraphviz python-kiwi python-pygoocanvas python-gnome2 gir1.2-goocanvas-2.0 python-rsvg</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><p><strong><a href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p></li>
-<li><p><strong><a href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p></li>
-<li><p>可以再把与python有关的再装一遍</p></li>
-<li><figure>
-<img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的"><figcaption aria-hidden="true">可以看到ndnSIM是enabled的</figcaption>
-</figure></li>
-<li><p>出现以下图片后</p></li>
+<li><p><strong><a href="https://blog.csdn.net/qq_31676673/article/details/88107454">在NS-3中安装可视化工具pyviz的一些问题的解决</a></strong></p>
+</li>
+<li><p><strong><a href="https://www.dazhuanlan.com/chenalonso/topics/1556322">ndnSIM仿真平台使用之安装</a></strong></p>
+</li>
+<li><p>可以再把与python有关的再装一遍</p>
+</li>
+<li><p><img src="https://img-blog.csdnimg.cn/20200316154116957.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk3NDQxMw==,size_16,color_FFFFFF,t_70" alt="可以看到ndnSIM是enabled的"></p>
+</li>
+<li><p>出现以下图片后</p>
+</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./waf</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>进行编译，但会出现卡了，这时需要增大虚拟机内存</li>
 <li>重新编译，终于安装好了</li>
 </ul>
-<h2 id="其他参考网站">其他参考网站</h2>
-<ul>
-<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p></li>
-<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p></li>
-<li><p><a href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p></li>
-<li><p><a href="https://cn.bing.com/search?q=vscode运行ns-3&amp;form=ANNTH1&amp;refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p></li>
+<h2 id="其他参考网站"><a href="#其他参考网站" class="headerlink" title="其他参考网站"></a>其他参考网站</h2><ul>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106531060">NS3快速入门（使用VScode查看、编译代码）</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/weixin_43314519/article/details/106504008">NS3 入门环境搭建（VM虚拟机+Ubuntu，常见错误解析）</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/fwhdzh/article/details/106292166">使用vscode开发ns3项目（代码高亮、自动补全支持）</a></p>
+</li>
+<li><p><a href="https://cn.bing.com/search?q=vscode%E8%BF%90%E8%A1%8Cns-3&form=ANNTH1&refig=062a1e9b111042da825ae882e17b4c22">vscode运行ns-3 - 国内版 Bing</a></p>
+</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>安装软件</category>
+      </categories>
       <tags>
-        <tag>安装软件</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
     <title>安装Ubuntu18.04双系统</title>
     <url>/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h2 id="安装ubuntu双系统">安装Ubuntu双系统</h2>
-<ol type="1">
+    <content><![CDATA[<h2 id="安装Ubuntu双系统"><a href="#安装Ubuntu双系统" class="headerlink" title="安装Ubuntu双系统"></a>安装Ubuntu双系统</h2><ol>
 <li><a href="https://blog.csdn.net/qq_43106321/article/details/105361644">Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu</a></li>
 <li><a href="https://blog.csdn.net/weixin_44623637/article/details/106723462">Ubuntu18.04安装教程——超详细的图文教程_Krasjet_Yu.的博客-CSDN博客_ubuntu18.04</a></li>
-<li><a href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
+<li><a href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
 <li><a href="https://blog.csdn.net/baidu_36602427/article/details/86548203">Ubuntu18.04安装教程_寥廓长空的博客-CSDN博客_ubuntu安装教程</a></li>
 </ol>
-<h2 id="注意"><mark>注意</mark></h2>
-<ol type="1">
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><mark>注意</mark></h2><ol>
 <li>进入Bios界面，一直按<code>F2</code></li>
 <li>如何启动进入选择系统界面还没解决，linux系统用的不多，总体来说还是虚拟机方便，但是虚拟机占用内存。</li>
 </ol>
+<p><a href="https://blog.csdn.net/weixin_38570251/article/details/79923451">联想拯救者R720装Ubuntu14.04后开机没有启动项的问题_John9ML的博客-CSDN博客_联想ubuntu启动项找不到</a></p>
+<p><a href="https://blog.csdn.net/qq_44905590/article/details/105292663">Win 10 + Ubuntu双系统，开机没有GRUB选项，直接进入Win10系统的问题解决_我不是程序猿WWW、的博客-CSDN博客_没有grub</a></p>
 ]]></content>
+      <categories>
+        <category>安装软件</category>
+      </categories>
       <tags>
-        <tag>安装软件</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -4507,22 +4524,20 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>安装软件记录</title>
     <url>/2022/11/11/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="安装idm">安装IDM</h1>
-<ol type="1">
+    <content><![CDATA[<h1 id="安装IDM"><a href="#安装IDM" class="headerlink" title="安装IDM"></a>安装IDM</h1><ol>
 <li><a href="http://www.downza.cn/soft/239667.html">IDM下载器中文破解版_IDM下载器中文破解版下载-下载之家 (downza.cn)</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/430535305">IDM序列号 - 知乎 (zhihu.com)</a>
-<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/430535305">IDM序列号 - 知乎 (zhihu.com)</a><ol>
 <li>输入序列号前记得关闭网络，之后会有一个弹错，直接叉掉或取消或关闭，然后一直快速点击，直到它没有响应，最后关闭程序，亲测有效。</li>
-</ol></li>
 </ol>
-<h1 id="安装-zotero-插件">安装 zotero 插件</h1>
-<ol type="1">
+</li>
+</ol>
+<h1 id="安装-zotero-插件"><a href="#安装-zotero-插件" class="headerlink" title="安装 zotero 插件"></a>安装 zotero 插件</h1><ol>
 <li><a href="https://zotero-chinese.gitee.io/zotero-plugins/#/">Zotero中文社区 (gitee.io)</a></li>
 </ol>
 ]]></content>
-      <tags>
-        <tag>安装软件</tag>
-      </tags>
+      <categories>
+        <category>安装软件</category>
+      </categories>
   </entry>
   <entry>
     <title>词汇积累</title>
