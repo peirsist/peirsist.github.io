@@ -8,17 +8,13 @@
   <meta name="google-site-verification" content="" />
   <meta name="referrer" content="unsafe-url">
   
-  <title>感染新冠病毒记录</title>
+  <title>RL思路</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="原因：家里有人阳了，被传染了
-症状（以下序号就是天数）：
-
-2022&amp;#x2F;12&amp;#x2F;9，应该是这一天感染的，但是没感觉被感染了，只是 嗓子干，但是能跑能跳，还跳绳了。
-
-2022&amp;#x2F;12&amp;#x2F;10， 9 号晚上睡觉晚上醒了三次，5: 21 就睡不着了，醒来 低烧 37.5 ">
+  <meta name="description" content="贝尔曼方程是用来求解 state value 的，而 state value 的大小可以表明一个 policy 的好坏，也就是说计算 state value 可以用来 policy evaluation。state value 越大，policy 越好。
+事实上 action value 才是用来评">
   
   
-  <meta property="og:title" content="感染新冠病毒记录"/>
+  <meta property="og:title" content="RL思路"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:site_name" content="EEWIKI"/>
   <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
@@ -48,19 +44,19 @@
       
   
     <h1 class="page-title center">
-        感染新冠病毒记录
+        RL思路
     </h1>
   
 
 
     </div>
     <div class="meta center">
-      <time datetime="2022-12-12T11:06:48.000Z" itemprop="datePublished">
+      <time datetime="2022-12-16T02:54:41.000Z" itemprop="datePublished">
   <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
     <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
   </svg>
   &nbsp;
-  2022-12-12
+  2022-12-16
 </time>
 
 
@@ -71,7 +67,7 @@
       <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
     </svg>
     &nbsp;
-    <a href="/categories/随笔与个人文集/">随笔与个人文集</a>
+    <a href="/categories/强化学习/">强化学习</a>
 
 
 
@@ -83,22 +79,10 @@
     <div class="picture-container">
       
     </div>
-    <p><strong>原因</strong>：家里有人阳了，被传染了</p>
-<p><strong>症状</strong>（以下序号就是天数）：</p>
-<ol>
-<li><p>2022&#x2F;12&#x2F;9，应该是这一天感染的，但是没感觉被感染了，只是 <strong>嗓子干</strong>，但是能跑能跳，还跳绳了。</p>
-</li>
-<li><p>2022&#x2F;12&#x2F;10， 9 号晚上睡觉晚上醒了三次，5: 21 就睡不着了，醒来 <strong>低烧</strong> 37.5 ℃，下午 37.3℃。但是依然能跑能跳没有很难受。</p>
-</li>
-<li><p>2022&#x2F;12&#x2F;11，10 号晚上睡觉， 11:00 睡觉，1: 00 醒，3: 00 醒，往后 40-50min 醒一次，超级难受，到早上 7: 00，醒来 <strong>头有点疼</strong>，但是没感觉发烧，<strong>嗓子干</strong>，晚上没睡好，趟到下午 3: 00，然后起来刷视频，吃饭，状态比上午好一点。晚上 23:00 点睡觉，晚上就醒了一次。</p>
-</li>
-<li><p>2022&#x2F;12&#x2F;12，早上醒来，不头疼，也不发烧，但是还是会 <strong>嗓子疼</strong>，其余没有大问题，状态稍好，但是跑步这样的运动似乎还是不不太行。</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/5MoJr06C4bRmn5YHm9L5RQ">周知！抗原自测9大注意事项</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/rfo4R1gEAExytHdoMnO9bQ">新冠病毒感染者居家中医药干预指引，建议收藏！</a></p>
-</li>
-</ol>
+    <p>贝尔曼方程是用来求解 state value 的，而 state value 的大小可以表明一个 policy 的好坏，也就是说计算 state value 可以用来 policy evaluation。state value 越大，policy 越好。</p>
+<p>事实上 action value 才是用来评判一个 policy 好坏的。action values can be used to evaluate actions.</p>
+<p>贝尔曼最优方程用来求解最优 policy 和最优 state value，一个方程中有 policy 和 state value 两个未知量</p>
+<p>凡是需要大量的采样，然后实验，最后用实验结果来近似的一种方法都可以成为蒙特卡洛估计的方法。</p>
 
 
   </article>
