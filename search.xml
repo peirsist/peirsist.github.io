@@ -281,7 +281,7 @@
 <p><strong><font color="red">背单词切忌死记硬背</font></strong></p>
 </blockquote>
 <ol start="23" type="1">
-<li><strong><em>2022-12-29，周四</em></strong>，</li>
+<li><strong><em>2022-12-29，周四</em></strong>，复习单词，精读 1 篇，长难句，超导（未完成），运行 neruocut （没有成功）。</li>
 </ol>
 <h2 id="下一步计划">1.3 下一步计划</h2>
 <h1 id="section-1">2 2022-12-6</h1>
@@ -5659,6 +5659,56 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
       </categories>
       <tags>
         <tag>雅思</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装tensorflow</title>
+    <url>/2022/12/29/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85tensorflow/</url>
+    <content><![CDATA[<p>anaconda 开始菜单快捷方式找不到</p>
+<ol type="1">
+<li><strong>Win+r，输入 cmd 打开终端</strong></li>
+<li><strong>转到anaconda的安装目录</strong></li>
+<li><strong>然后贴上这句代码，等一下就好了</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python .\Lib\_nsis.py mkmenus</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li><a href="https://blog.csdn.net/qq_46642600/article/details/117025926">anaconda开始菜单快捷方式找不到，怎么办_qq_46642600的博客-CSDN博客_anaconda开始菜单栏没有快捷方式</a></li>
+<li><a href="https://blog.csdn.net/qq_41204464/article/details/86530217">pip与 conda的区别_一颗小树x的博客-CSDN博客_conda和pip</a></li>
+<li><a href="https://blog.csdn.net/lxj1435359352/article/details/111350201">tensorflow使用Session模块时报错：AttributeError: module ‘tensorflow‘ has no attribute ‘Session‘，已解决_luckydogjack的博客-CSDN博客</a></li>
+<li><a href="https://blog.csdn.net/qq_35988224/article/details/109150379">anaconda进入虚拟环境_qq斯国一的博客-CSDN博客_conda进入虚拟环境</a></li>
+<li><a href="https://blog.csdn.net/qiancaobaicheng/article/details/95226499">环境搭建04——如何选择安装的TensorFlow版本？_命名无能的博客-CSDN博客_tensorflow哪个版本</a></li>
+<li><a href="https://www.bilibili.com/video/BV16E41157Ng/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Anaconda+Tensorflow高速安装_哔哩哔哩_bilibili</a></li>
+<li><a href="https://blog.csdn.net/devcloud/article/details/95945189">用Anaconda3搭建自己的TensorFlow环境_华为云开发者联盟的博客-CSDN博客_启用tensorflow</a></li>
+<li><a href="https://blog.csdn.net/qq_41204464/article/details/86530217">pip与 conda的区别_一颗小树x的博客-CSDN博客_conda和pip</a></li>
+<li><a href="https://blog.csdn.net/veritasalice/article/details/109199027">jupyter报错AttributeError: type object IOLoop has no attribute initialized_Dr. 卷心菜的博客-CSDN博客</a></li>
+</ol>
+<hr>
+<ol type="1">
+<li><a href="https://docs.ray.io/en/latest/ray-overview/installation.html">Installing Ray — Ray 2.2.0</a></li>
+<li><a href="https://docs.ray.io/en/latest/rllib/package_ref/evaluation.html">Evaluation and Environment Rollout — Ray 2.2.0</a></li>
+<li><a href="https://www.cnblogs.com/itmorn/p/13760678.html">强化学习框架RLlib教程001：Ray和RLlib介绍 - 黎明程序员 - 博客园 (cnblogs.com)</a></li>
+<li>ModuleNotFoundError: No module named 'ray'
+<ol type="1">
+<li><a href="https://blog.csdn.net/m0_46268055/article/details/125511368">如何在windows下安装ray（install Ray under windows）_balabalahoo的博客-CSDN博客_windows 安装ray</a></li>
+<li><a href="https://blog.csdn.net/weixin_45211921/article/details/117452963">安装ray_停留在十六的风的博客-CSDN博客_ray安装</a></li>
+<li></li>
+</ol></li>
+<li>ModuleNotFoundError: No module named 'redis'
+<ol type="1">
+<li><a href="https://blog.csdn.net/figosoar/article/details/121392308">ModuleNotFoundError: No module named ‘redis‘_jack@london的博客-CSDN博客</a></li>
+</ol></li>
+<li>AttributeError: module 'gym. wrappers' has no attribute 'Monitor'
+<ol type="1">
+<li><a href="https://blog.csdn.net/Tony_0210/article/details/124028754">AttributeError: module ‘gym.wrappers‘ has no attribute ‘Monitor‘_tooony_的博客-CSDN博客</a></li>
+</ol></li>
+<li>ModuleNotFoundError: No module named 'ray. rllib. evaluation. sample_batch'</li>
+</ol>
+]]></content>
+      <categories>
+        <category>安装软件</category>
+      </categories>
+      <tags>
+        <tag>tensorflow</tag>
       </tags>
   </entry>
 </search>
