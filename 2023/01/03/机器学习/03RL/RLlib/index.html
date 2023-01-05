@@ -8,16 +8,14 @@
   <meta name="google-site-verification" content="" />
   <meta name="referrer" content="unsafe-url">
   
-  <title>RL思路</title>
+  <title>RLlib</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="强化学习（三）--Reinforce算法_BUAA小乔的博客-CSDN博客_reinforce算法
-
-科老师的课程
-
-GitHub - PaddlePaddle/PARL: A high-performance distributed training framework for Reinf">
+  <meta name="description" content="【学术向】超强的强化学习系统怎么实现？Ray是啥？tune和rllib又是什么？_哔哩哔哩_bilibili
+Key Concepts — Ray 2.2.0
+RLlib：一个分布式强化学习系统的凝练 - 知乎 (zhihu.com)">
   
   
-  <meta property="og:title" content="RL思路"/>
+  <meta property="og:title" content="RLlib"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:site_name" content="EEWIKI"/>
   <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
@@ -47,19 +45,19 @@ GitHub - PaddlePaddle/PARL: A high-performance distributed training framework fo
       
   
     <h1 class="page-title center">
-        RL思路
+        RLlib
     </h1>
   
 
 
     </div>
     <div class="meta center">
-      <time datetime="2022-12-16T02:54:41.000Z" itemprop="datePublished">
+      <time datetime="2023-01-03T02:54:41.000Z" itemprop="datePublished">
   <svg class="i-calendar" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
     <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
   </svg>
   &nbsp;
-  2022-12-16
+  2023-01-03
 </time>
 
 
@@ -82,39 +80,12 @@ GitHub - PaddlePaddle/PARL: A high-performance distributed training framework fo
     <div class="picture-container">
       
     </div>
-    <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37333048/article/details/115323980">强化学习（三）--Reinforce算法_BUAA小乔的博客-CSDN博客_reinforce算法</a></p>
-<ol type="1">
-<li><p>科老师的课程</p>
-<ol type="1">
-<li><a target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/PARL">GitHub - PaddlePaddle/PARL: A high-performance distributed training framework for Reinforcement Learning</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yv411i7xd?p=20&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Lesson5-3-四轴飞行器与创意赛_哔哩哔哩_bilibili</a></li>
-<li><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/education/group/info/1335">飞桨AI Studio - 人工智能学习实训社区 (baidu.com)</a></li>
-</ol></li>
-<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/477982098">强化学习入门：环境（含机器人）和代码库介绍 - 知乎 (zhihu.com)</a></p>
-<p>一本好的强化学习教材，需要满足以下 3 点：</p>
-<ol type="1">
-<li>讲好基础，包括 MDP、Q-Learning 等。这个大部分教材都能做到。</li>
-<li>跟踪最近的算法，比如 DDPG、PPO、SAC 等。这个也有不少教材能满足。</li>
-<li>提供与内容匹配的良好代码，用 PyTorch 或 Tensorflow。这个对初学者最为重要，只有少部分教材可以。</li>
-</ol></li>
-</ol>
-<p>对于入门教程，在精不在多。除了 Sutton 的开山之作，在 2022 年的今天，推荐 2 本教材：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://hrl.boyuai.com/">《动手学强化学习》</a> ：上海交通大学张伟楠、俞勇团队出品，内容从基础到前沿都有覆盖，还提供了免费视频课程和代码（PyTorch）。</li>
-<li><a target="_blank" rel="noopener" href="https://deepreinforcementlearningbook.org/">《深度强化学习：基础、研究与应用》Deep Reinforcement Learning Book</a> ：北京大学董豪老师联合普林斯顿、UCB 等大学出品，中文/英文电子版都可免费下载，代码（Tensorflow）齐全。</li>
-</ul>
-<ol type="1">
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/344196096">强化学习路线推荐及资料整理 - 知乎 (zhihu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/461334575">深度强化学习入门资料推荐 - 知乎 (zhihu.com)</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BE411W7TA?p=2&amp;vd_source=83831fc0970a6c8704479f7cfc679937">深度强化学习(2/5)：价值学习 Value-Based Reinforcement Learning_哔哩哔哩_bilibili</a></li>
+    <ol type="1">
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1VE411w73P/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【学术向】超强的强化学习系统怎么实现？Ray是啥？tune和rllib又是什么？_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.ray.io/en/latest/rllib/core-concepts.html#rllib-core-concepts">Key Concepts — Ray 2.2.0</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144842398">RLlib：一个分布式强化学习系统的凝练 - 知乎 (zhihu.com)</a></li>
 <li></li>
 </ol>
-<p>贝尔曼方程是用来求解 state value 的，而 state value 的大小可以表明一个 policy 的好坏，也就是说计算 state value 可以用来 policy evaluation。state value 越大，policy 越好。</p>
-<p>事实上 action value 才是用来评判一个 policy 好坏的。action values can be used to evaluate actions.</p>
-<p>贝尔曼最优方程用来求解最优 policy 和最优 state value，一个方程中有 policy 和 state value 两个未知量</p>
-<p>凡是需要大量的采样，然后实验，最后用实验结果来近似的一种方法都可以成为蒙特卡洛估计的方法。</p>
-<p>TD 算法依赖数据，不依赖模型来实现强化学习</p>
-<p>因为一个 agent 在环境当中它一个时刻只能访问一个状态</p>
 
 
   </article>

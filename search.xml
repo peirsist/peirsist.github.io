@@ -239,9 +239,15 @@
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
-    <content><![CDATA[<h1 id="section">1 2022-12-13</h1>
+    <content><![CDATA[<h1 id="section">1 2023-01-10</h1>
 <h2 id="comments">1.1 comments</h2>
 <h2 id="近期工作">1.2 近期工作</h2>
+<ol type="1">
+<li><strong><em>2023-01-04，周三</em></strong>，上午写了一下编码，下午又开会</li>
+</ol>
+<h1 id="section-1">2 2022-12-13</h1>
+<h2 id="comments-1">2.1 comments</h2>
+<h2 id="近期工作-1">2.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-12-07，周三</em></strong>，上午 10 点起，然后看哪个电脑，然后吃饭，看了一篇精读，又去看买哪个显示器了...</li>
 <li><strong><em>2022-12-08，周四</em></strong>，上午《剑桥 15-Tes4》，然后 12- 13:00 又去看 beamer 模板了... 下午精读，跑步，论文。</li>
@@ -271,7 +277,7 @@
 <ol start="16" type="1">
 <li><strong><em>2022-12-22，周四</em></strong>，上午英语，下午超导课，晚上图像编码课</li>
 <li><strong><em>2022-12-23，周五</em></strong>，上午看到 11:00 长难句，然后看完了 CutSplit 论文</li>
-<li><strong><em>2022-12-24，周六</em></strong>， 10:00 复习了一下单词。然后又看来一下强化学习，然后聊天，下午睡觉跑步，回来长难句，背单词，效率太低，晚上失眠了，因为...</li>
+<li><strong><em>2022-12-24，周六</em></strong>， 10:00 复习了一下单词。然后又看来一下强化学习，然后聊天，下午睡觉跑步，回来长难句，背单词，效率太低。</li>
 <li><strong><em>2022-12-25，周日</em></strong>，上午看庆余年，下午CutTSS</li>
 <li><strong><em>2022-12-26，周一</em></strong>，上午醒来 10:00 ，然后背单词，吃饭到 3: 00，睡觉，看论文 MpFPC</li>
 <li><strong><em>2022-12-27，周二</em></strong>， 10:00 醒，背单词到 12:00 。下午睡觉跑步看了 TabTree</li>
@@ -282,11 +288,16 @@
 </blockquote>
 <ol start="23" type="1">
 <li><strong><em>2022-12-29，周四</em></strong>，复习单词，精读 1 篇，长难句，超导（未完成），运行 neruocut （没有成功）。</li>
+<li><strong><em>2022-12-30，周五</em></strong>，上午聊天，下午也在，基本聊了一天</li>
+<li><strong><em>2022-12-31，周六</em></strong>，上午看了《剑桥雅思 14-test2 》错题，然后看了一篇精读。</li>
+<li><strong><em>2023-01-01，周日</em></strong> ，聊天</li>
+<li><strong><em>2023-01-02，周一</em></strong>，编码作业，聊天，英语也没学习</li>
+<li><strong><em>2023-01-03，周二</em></strong>，上午准备组会，下午开会，晚上把超导和编码作业交了</li>
 </ol>
-<h2 id="下一步计划">1.3 下一步计划</h2>
-<h1 id="section-1">2 2022-12-6</h1>
-<h2 id="comments-1">2.1 comments</h2>
-<h2 id="近期工作-1">2.2 近期工作</h2>
+<h2 id="下一步计划">2.3 下一步计划</h2>
+<h1 id="section-2">3 2022-12-6</h1>
+<h2 id="comments-2">3.1 comments</h2>
+<h2 id="近期工作-2">3.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-12-01，周四</em></strong>，9: 00- 10:00 放松，然后到 11:00 看雅思课程，开带本科生毕设的会，下午又找了找哪些实验需要做，晚上数字图像的课程。</li>
 <li><strong><em>2022-12-02，周五</em></strong>，上午 9: 00- 10:00 跑步，然后打羽毛球到 13:00 ，睡觉到 3: 00，然后看雅思《剑桥 15-Test1》两篇精读和题目讲解。到 8: 30，效率太低。</li>
@@ -296,14 +307,14 @@
 <li><strong><em>2022-12-06，周二</em></strong>，上午看精讲视频，下午高铁回家。回到家就是 7: 00 了。</li>
 </ol>
 <hr>
-<h1 id="section-2">3 2022-11-29</h1>
-<h2 id="comments-2">3.1 comments</h2>
+<h1 id="section-3">4 2022-11-29</h1>
+<h2 id="comments-3">4.1 comments</h2>
 <ol type="1">
 <li>功能上有新的功能，or 新的技术。没新技术那就得工作量得到位，实验全不全，有没有跟新方案比</li>
 <li>找一个现有分割方案，用机器学习、DRL去优化，实现。适配各种规则集</li>
 <li>寻找机器学习的工具RL、DL</li>
 </ol>
-<h2 id="近期工作-2">3.2 近期工作</h2>
+<h2 id="近期工作-3">4.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-23，周三</em></strong>，上午英语project，然后《剑桥16-Test3》精读视频，下午看ByteCuts这篇论文，然后运动拿快递。最近（几个月）买了
 <ol type="1">
@@ -336,7 +347,7 @@
 <li><strong><em>2022-11-29，周二</em></strong>，起床就 9: 00，墨迹一会，《剑桥 16-Test4》看 2、3 篇精读就到中午了，下午完善 beamer，3: 30-4: 10 党支部的组织生活，回来 4:50。和师兄讨论bitcut。</li>
 <li><strong><em>2022-11-30，周三</em></strong>，上午《剑桥15-Test1》，被《剑桥16》单词，还要继续背。下午睡到3:00，核酸，跳绳，回来单词准备组会，开会到9:00</li>
 </ol>
-<h2 id="下一步计划-1">3.3 下一步计划</h2>
+<h2 id="下一步计划-1">4.3 下一步计划</h2>
 <ol type="1">
 <li>读一下其他（非决策树哈希表的）论文，继续拓展下思路</li>
 <li>怎么划分的问题
@@ -346,9 +357,9 @@
 </ol></li>
 </ol>
 <hr>
-<h1 id="section-3">4 2022-11-22</h1>
-<h2 id="comments-3">4.1 comments</h2>
-<h2 id="近期工作-3">4.2 近期工作</h2>
+<h1 id="section-4">5 2022-11-22</h1>
+<h2 id="comments-4">5.1 comments</h2>
+<h2 id="近期工作-4">5.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-16，周三</em></strong>，早上 tm 又在整材料，找到了一个好用的 <em>文献笔记模板（LaTex）</em> ，下午还要党会，下午又 tm 改材料，不到最后提交最后一刻，别想消停，每次发过去必有问题，每次要求还总是一个个说，令人🤮。跳绳 1500 个。</li>
 </ol>
@@ -384,11 +395,11 @@
 </ul></li>
 <li><strong><em>2022-11-22，周二</em></strong>，上午整理bit cutting的优点，下午讨论，洗衣服，晚上开会，《剑桥16-Test2》</li>
 </ol>
-<h2 id="下一步计划-2">4.3 下一步计划</h2>
+<h2 id="下一步计划-2">5.3 下一步计划</h2>
 <hr>
-<h1 id="section-4">5 2022-11-15</h1>
-<h2 id="comments-4">5.1 comments</h2>
-<h2 id="近期工作-4">5.2 近期工作</h2>
+<h1 id="section-5">6 2022-11-15</h1>
+<h2 id="comments-5">6.1 comments</h2>
+<h2 id="近期工作-5">6.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-11-09，周三</em></strong>，早上看区块链，下午区块链到 5 点，然后准备组会，开会到 10 点，准备区块链。记录在 🔗<a href="/2022/11/09/%E8%AE%BA%E6%96%87/%E5%8C%BA%E5%9D%97%E9%93%BE/" title="区块链">区块链</a>。</li>
 </ol>
@@ -433,10 +444,10 @@
 <blockquote>
 <p>这几天每天又到 12 点睡觉了🤮，以后白天效率高一点，晚上 8 点后不要看电脑。9 点锻炼 1 小时，然后睡觉。</p>
 </blockquote>
-<h2 id="下一步计划-3">5.3 下一步计划</h2>
+<h2 id="下一步计划-3">6.3 下一步计划</h2>
 <hr>
-<h1 id="section-5">6 2022-11-08</h1>
-<h2 id="comments-5">6.1 comments</h2>
+<h1 id="section-6">7 2022-11-08</h1>
+<h2 id="comments-6">7.1 comments</h2>
 <ol type="1">
 <li>为什么位切割比较快，优点相对于其他的方案在哪？</li>
 <li>解决哪个问题，用什么技术解决</li>
@@ -444,7 +455,7 @@
 <li>瞄准一篇最新最好的论文，体会论文哪里有问题可以改进，设计自己的改进方案，怎么改进得认知领域</li>
 <li>11 月底之前找到一个问题，</li>
 </ol>
-<h2 id="近期工作-5">6.2 近期工作</h2>
+<h2 id="近期工作-6">7.2 近期工作</h2>
 <ol type="1">
 <li><p><strong><em>2022-11-02，周三</em></strong>，上午英语 pre 之后，回来取快递 <em>AC108EX</em> 手胶，然后贴手胶，确实好用，然后就在看羽毛球视频，下午睡觉之后，数字图像处理水印现状到 3:30，看论文<em>bitcut</em>。 ✅ ❌ ✘ ✔ ✓ ✗</p></li>
 <li><p><strong><em>2022-11-03，周四</em></strong>，上午看论文<em>2017-BitCuts A Fast Packet Classification algorithm using bit-level cutting-Tsinghua University</em>，但是还没有举出来例子，<strong>注意力集中果然坚持不了长时间，但是看论文又需要集中注意力，所以一篇论文得分段来看。</strong> 下午超导课程，为了发论文，跨学科交流，5:00 跑步，6:30 <em>数字图像编码</em> ，讲到 7:40，安装<em>Obsidian.1.0.3</em></p></li>
@@ -465,7 +476,7 @@
 <blockquote>
 <p><strong><font color="red">组会一定要提前一天准备好，前一天一定要张嘴说，一说出来就会发现，好多东西还不会，张嘴说与心里想有很大区别，同样写出来与心里想也有很大区别。</font></strong></p>
 </blockquote>
-<h2 id="下一步计划-4">6.3 下一步计划</h2>
+<h2 id="下一步计划-4">7.3 下一步计划</h2>
 <ol type="1">
 <li>继续阅读论文 50-60 篇</li>
 <li>瞄准 1、2 篇论文，想解决的问题</li>
@@ -474,8 +485,8 @@
 <li>和师兄师姐交流一下</li>
 </ol>
 <hr>
-<h1 id="section-6">7 2022-11-01</h1>
-<h2 id="comments-6">7.1 comments</h2>
+<h1 id="section-7">8 2022-11-01</h1>
+<h2 id="comments-7">8.1 comments</h2>
 <ol type="1">
 <li>实验在什么平台，怎么做的，跟谁对比，哪些参数对比</li>
 <li>每一组实验，实验结果，哪里的创新导致这样的实验结果</li>
@@ -483,7 +494,7 @@
 </ol>
 <p>🟢 <strong>师姐的笔记</strong></p>
 <p>在就是用他所说的例子讲方案的时候可以配上对应的流程图，他比较喜欢这样，觉得清楚。再就是加上结论（工作之后的成果经过加工后的你自己的想法），还有下周工作。汇报内容序号后面加上（comments1,2,3....），他觉得这样清楚，再就是因为他自己都不记得自己提了啥 comments,你得提醒他一下。</p>
-<h2 id="近期工作-6">7.2 近期工作</h2>
+<h2 id="近期工作-7">8.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-10-26，周三</em></strong>，上午英语，下午海洋</li>
 <li><strong><em>2022-10-27，周四</em></strong>，上午工程伦理考试，下午数字图像处理，晚上考试。</li>
@@ -520,11 +531,11 @@
 <li><strong>周一（提前一天）要把组会所有东西准备好，包括演练。</strong></li>
 </ol>
 </blockquote>
-<h2 id="下一步计划-5">7.3 下一步计划</h2>
+<h2 id="下一步计划-5">8.3 下一步计划</h2>
 <hr>
-<h1 id="section-7">8 2022-10-25</h1>
-<h2 id="comments-7">8.1 comments</h2>
-<h2 id="近期工作-7">8.2 近期工作</h2>
+<h1 id="section-8">9 2022-10-25</h1>
+<h2 id="comments-8">9.1 comments</h2>
+<h2 id="近期工作-8">9.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2022-10-19，周三</em></strong>，早上英语课，到实验打印论文 <em>An approach to enhance packet classification performance of software-defined network using deep learning</em>，下午中西方海洋史 ，看完了论文，但需要补充神经网络和反向传播算法，才能进一步理解。晚上，输出 <code>packet</code> 和 <code>packet</code> 对应哈希表的序号</li>
 </ol>
@@ -553,9 +564,9 @@
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">TupleMergeOnline::ClassifyAPacket</span><span class="params">(<span class="type">const</span> Packet&amp; p)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;----------------------------------------------\\n&quot;);</span></span><br><span class="line"><span class="comment">//printf(&quot;TupleMergeOnline::ClassifyAPacket\\n&quot;);</span></span><br><span class="line">fstream csv;</span><br><span class="line">csv.<span class="built_in">open</span>(<span class="string">&quot;output.csv&quot;</span>,ios::out|ios::app); <span class="comment">//打开文件路径 ios::out输出，ios::app追加方式，不会覆盖原来的数据</span></span><br><span class="line"><span class="comment">//csv&lt;&lt;&quot;SIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DIP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;SP&quot;&lt;&lt;&quot;,&quot;&lt;&lt;&quot;DP&quot; &lt;&lt;&quot;,&quot;&lt;&lt;&quot;Pro&quot;&lt;&lt;endl;    //输入内容，注意要用逗号，隔开</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//for (int i = 0;i &lt; 5; i++)&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//printf(&quot;p[%d]==%d &quot;,i,p[i]);    </span></span><br><span class="line"><span class="comment">//cout &lt;&lt;&quot;p==&quot; &lt;&lt;p[i] &lt;&lt; &#x27; &#x27; ;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> prior = <span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> q = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b = <span class="number">0</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> &amp; t : tables) &#123;  <span class="comment">//遍历每一个哈希表</span></span><br><span class="line">a++;</span><br><span class="line"><span class="keyword">if</span> (t-&gt;<span class="built_in">MaxPriority</span>() &gt; prior) &#123; <span class="comment">//判断是否要进入哈希表</span></span><br><span class="line"><span class="keyword">if</span>(t-&gt;<span class="built_in">ClassifyAPacket</span>(p) &gt; prior)&#123; </span><br><span class="line"><span class="comment">//一旦进入哈希表查找，当哈希表的规则优先级高时，当前哈希表就有可能匹配的哈希表，就要用b来记录</span></span><br><span class="line">prior = t-&gt;<span class="built_in">ClassifyAPacket</span>(p);</span><br><span class="line">b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prior = max(prior, t-&gt;ClassifyAPacket(p));</span></span><br><span class="line">q++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//printf(&quot;b==%d\\n&quot;,b);</span></span><br><span class="line">csv &lt;&lt; p[<span class="number">0</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">1</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">2</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">3</span>]&lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt;p[<span class="number">4</span>] &lt;&lt;<span class="string">&quot;,&quot;</span>&lt;&lt; b &lt;&lt;endl;</span><br><span class="line">csv.<span class="built_in">close</span>();</span><br><span class="line"><span class="built_in">QueryUpdate</span>(q);</span><br><span class="line"><span class="keyword">return</span> prior;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="section-8">9 2022-10-18</h1>
-<h2 id="comments-8">9.1 comments</h2>
-<h2 id="近期工作-8">9.2 近期工作</h2>
+<h1 id="section-9">10 2022-10-18</h1>
+<h2 id="comments-9">10.1 comments</h2>
+<h2 id="近期工作-9">10.2 近期工作</h2>
 <ol type="1">
 <li><p>周三，在实验室电脑上安装虚拟机，安装 gcc、g++，运行 PartitionSort 的代码，从中提取 TSS 的指标（看图）。问师姐的当前的方案，目前需求是需要找到查找数据包在哪个哈希表的那段代码，</p></li>
 <li><p>周四，与老师讨论，规范 weekly meeting 的内容。跟作者发邮件</p>
@@ -596,7 +607,7 @@
 </ol></li>
 </ul></li>
 </ol>
-<h2 id="下一步计划-6">9.3 下一步计划</h2>
+<h2 id="下一步计划-6">10.3 下一步计划</h2>
 ]]></content>
       <categories>
         <category>研究生</category>
@@ -608,20 +619,17 @@
   <entry>
     <title>VS2019新建C自动添加作者版权等信息</title>
     <url>/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[<h1 id="VisualStudio2019新建C自动添加作者版权等信息"><a href="#VisualStudio2019新建C自动添加作者版权等信息" class="headerlink" title="VisualStudio2019新建C自动添加作者版权等信息"></a>VisualStudio2019新建C自动添加作者版权等信息</h1><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
-<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p>
-</li>
-<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网 </a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p>
-</li>
+    <content><![CDATA[<h1 id="visualstudio2019新建c自动添加作者版权等信息">VisualStudio2019新建C自动添加作者版权等信息</h1>
+<h4 id="参考">参考</h4>
+<ul>
+<li><p><a href="https://blog.csdn.net/weixin_43949535/article/details/100050210">给VS2019添加上自己的个人信息_vs2019添加作者</a></p></li>
+<li><p><a href="http://c.biancheng.net/cpp/html/761.html">华为C语言编程规范（3）—注释_C语言中文网</a></p></li>
+<li><p><a href="https://www.cnblogs.com/minuy/p/14058721.html">【C#】VS2019新建C#类自动添加作者版权等信息</a></p></li>
+<li><p><a href="https://blog.csdn.net/weixin_40962970/article/details/115005630">c语言注释规范_c语言注解</a></p></li>
 </ul>
-<h3 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
-
+<h3 id="注释规范">注释规范</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/*****************************************************************</span><br><span class="line">Copyright: 1988-1999, Huawei Tech. Co., Ltd.</span><br><span class="line">File name: 文件名</span><br><span class="line">Description: 用于详细说明此程序文件完成的主要功能，与其他模块或函数的接口，输出值、取值范围、含义及参数间的控制、顺序、独立或依赖等关系</span><br><span class="line">Author: 作者</span><br><span class="line">Version: 版本</span><br><span class="line">Date: 完成日期</span><br><span class="line">History: 修改历史记录列表， 每条修改记录应包括修改日期、修改者及修改内容简述。</span><br><span class="line">*****************************************************************/</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/**══════════════════════════════════╗</span><br><span class="line">*作    者：songbaobao                                                ║</span><br><span class="line">*职    业：我以我血荐轩辕                                              ║                                              </span><br><span class="line">*CSND地址：https://blog.csdn.net/weixin_43949535                       ║</span><br><span class="line">**GitHub ：https://github.com/TsinghuaLucky912/My_own_C-_study_and_blog║</span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*创建时间：                                                           </span><br><span class="line">*功能描述：                                                            </span><br><span class="line">*                                                                      </span><br><span class="line">*                                                                      </span><br><span class="line">*═══════════════════════════════════╣</span><br><span class="line">*结束时间:                                                           </span><br><span class="line">*═══════════════════════════════════╝</span><br><span class="line">//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.</span><br><span class="line">//            __.&#x27;              ~.   .~              `.__</span><br><span class="line">//          .&#x27;//              西南\./联大               \\`.</span><br><span class="line">//        .&#x27;//                     |                     \\`.</span><br><span class="line">//      .&#x27;// .-~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~~~~-._     |     _,-~~~~&quot;&quot;&quot;&quot;&quot;&quot;&quot;~-. \\`.</span><br><span class="line">//    .&#x27;//.-&quot;                 `-.  |  .-&#x27;                 &quot;-.\\`.</span><br><span class="line">//  .&#x27;//______.============-..   \ | /   ..-============.______\\`.</span><br><span class="line">//.&#x27;______________________________\|/______________________________`.</span><br><span class="line">*/</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>安装软件</category>
@@ -3535,6 +3543,7 @@ blockquote {
     <url>/2022/10/24/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E4%BC%91%E6%81%AF/</url>
     <content><![CDATA[<h1 id="section"></h1>
 <h1 id="如何高效休息">如何高效休息</h1>
+<p>（转载）</p>
 <p>今天不谈工作谈休息。当然休息是为了更好地工作，所以谈休息也是谈工作。</p>
 <p>什么样的休息，才能最大限度地让人精神饱满地投入到接下来的工作？</p>
 <p>流行的休息法大概有两派，就好像气宗和剑宗。老一辈的人认为应该劳逸结合，每工作一段时间就休息一下，搞个什么工间操之类，就好像学生按节上课一样。年轻人强调拼劲，认为最好猛干一天，然后下班拼命放松。具体的休息内容，老一辈建议出门走两圈，或者跟（真）人聊聊天。年轻人则宁可躺在床上读个什么手机段子。</p>
@@ -3668,6 +3677,7 @@ blockquote {
     <content><![CDATA[<figure>
 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/第315封信丨比穷更可怕的是什么.6fpa2n37z3c.jpg" alt="第315封信丨比穷更可怕的是什么"><figcaption aria-hidden="true">第315封信丨比穷更可怕的是什么</figcaption>
 </figure>
+<p>（转载）</p>
 <p><strong>读者，你好！</strong></p>
 <p>一位读者留言说，她的朋友讲，过去穷怕了，因此现在行为有点乖张，请她见谅。虽然她所说的朋友现在不仅不穷，而且拥有多套住房，以中国的房价来衡量，还颇为富有，但是过去的习惯一点也没有改变。</p>
 <p>她说的这种现象似乎并不少见，今天总有人讲，小时候穷，一辈子穷，被很多人用来形容逆袭的艰难。<strong>小时候穷确实会带来很多不良的后果，比如缺乏安全感</strong>，一旦有了权力会用非常赤裸裸的手段贪污。台湾的陈水扁就是一个很好的例证。</p>
@@ -3729,7 +3739,7 @@ blockquote {
 <li><a href="https://mp.weixin.qq.com/s/pliljqn7yo1dxccmkgQDxQ">家境不好应不应该读博？ (qq.com)</a></li>
 <li><a href="https://mp.weixin.qq.com/s/4WzwCfMhY5utJyDlrFOKZw">【学术相关】从长远来看读博的收益是巨大的，为什么读博的人却很少？ (qq.com)</a></li>
 </ol>
-<p>先陈述几个事实：</p>
+<p>先陈述几个事实（转载）：</p>
 <ol type="1">
 <li>工作了之后个人的学习能力和学习机会一定会断崖式下降，唯一能够积累的是“经验”。（获得经验不属于学习，属于应用，是知识的输出）</li>
 <li>高科技行业薪资往往倒挂严重，个人薪资的增长远远赶不上市场的变化，工作几年后可能入手还不如高点入市的新人，这几年 ai 行业尤其明显。</li>
@@ -3869,7 +3879,8 @@ blockquote {
   <entry>
     <title>看李健视频的感悟</title>
     <url>/2022/02/21/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E6%9D%8E%E5%81%A5/</url>
-    <content><![CDATA[<h2 id="看李健视频的感悟"><a href="#看李健视频的感悟" class="headerlink" title="看李健视频的感悟"></a>看李健视频的感悟</h2><p>关于生活</p>
+    <content><![CDATA[<h2 id="看李健视频的感悟">看李健视频的感悟</h2>
+<p>关于生活</p>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1kU4y1P7Hi?spm_id_from=333.999.0.0">【李健】初入大学，这些视频缓解了我很大一部分焦虑|bilibili.</a></li>
 <li><a href="https://www.bilibili.com/video/BV1Sx411s71x?spm_id_from=333.999.0.0">【看见李健四大高校健谈会】第一站 清华大学「看见青春-大时代背景下的个人生活」_2015.11.19 bilibili..</a></li>
@@ -3881,9 +3892,9 @@ blockquote {
 <p><a href="https://www.bilibili.com/video/BV1Sx411s71x?spm_id_from=333.999.0.0">【看见李健四大高校健谈会】第一站 清华大学「看见青春-大时代背景下的个人生活」_2015.11.19 bilibili.</a></p>
 <blockquote>
 <p>[!TIP]</p>
-<ol>
+<ol type="1">
 <li>人最重要的是<strong>拥有自己的生活，拥有自己的快乐</strong>。很多时候所谓事业要达到一个什么样的顶峰其实没有真正的意义。</li>
-<li>一个人一定要拥有自己的爱好，拥有自己的快乐。很少有人能够从事自己热爱的工作，枯燥的生活正是被自己的爱好，生活的小恩小惠所化解掉了。</li>
+<li>一个人一定要拥有自己的爱好，拥有自己的快乐。很少有人能够从事自己热爱的工作，<strong>枯燥的生活正是被自己的爱好，生活的小恩小惠所化解掉了</strong>。</li>
 </ol>
 </blockquote>
 ]]></content>
@@ -4564,7 +4575,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>句式积累</title>
     <url>/2022/11/12/%E8%AE%BA%E6%96%87/1%E5%8F%A5%E5%BC%8F%E7%A7%AF%E7%B4%AF/</url>
-    <content><![CDATA[
+    <content><![CDATA[<p>读英文论文重点关注其中的连接词、动词和句式</p>
 ]]></content>
       <categories>
         <category>论文</category>
@@ -4764,10 +4775,20 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>羽毛球fig</title>
     <url>/2022/11/13/%E7%BE%BD%E6%AF%9B%E7%90%83/%E7%BE%BD%E6%AF%9B%E7%90%83fig/</url>
-    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-12_19-50-03.6mjy5500cec0.png" alt="Snipaste_2022-11-12_19-50-03"></p>
-<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-12-08_16-14-49.6g705vjitb0.png" alt="Snipaste_2022-12-08_16-14-49"></p>
-<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/7c396af49dc5856d71c457fc9f0c30f.7blvmt3k4200.jpg" alt="7c396af49dc5856d71c457fc9f0c30f"></p>
-<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-12-12_17-21-50.5j69hr9nncg0.png" alt="Snipaste_2022-12-12_17-21-50"></p>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/af74863e000f5725b49bcddd9d031c9.626vtl950ys0.jpg" alt="af74863e000f5725b49bcddd9d031c9"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/35c71f42be9de4a16c48bf633384481.5pdvim6pm280.jpg" alt="35c71f42be9de4a16c48bf633384481"></p>
+<p><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/a08de819ab158bd46dbbe9644c54d67.qzutmkezf1c.jpg" alt="a08de819ab158bd46dbbe9644c54d67"> <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/3bef0c72a7b1ad0ef8e6e31d0971b04.57a8nxwekxc0.jpg" alt="3bef0c72a7b1ad0ef8e6e31d0971b04"></p>
+<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-12_19-50-03.6mjy5500cec0.png" alt="Snipaste_2022-11-12_19-50-03"><figcaption aria-hidden="true">Snipaste_2022-11-12_19-50-03</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-12-08_16-14-49.6g705vjitb0.png" alt="Snipaste_2022-12-08_16-14-49"><figcaption aria-hidden="true">Snipaste_2022-12-08_16-14-49</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/7c396af49dc5856d71c457fc9f0c30f.7blvmt3k4200.jpg" alt="7c396af49dc5856d71c457fc9f0c30f"><figcaption aria-hidden="true">7c396af49dc5856d71c457fc9f0c30f</figcaption>
+</figure>
+<figure>
+<img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-12-12_17-21-50.5j69hr9nncg0.png" alt="Snipaste_2022-12-12_17-21-50"><figcaption aria-hidden="true">Snipaste_2022-12-12_17-21-50</figcaption>
+</figure>
 ]]></content>
       <categories>
         <category>羽毛球</category>
@@ -4834,11 +4855,12 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>推挑后场</title>
     <url>/2022/11/15/%E7%BE%BD%E6%AF%9B%E7%90%83/01-4%E6%8E%A8%E6%8C%91%E5%90%8E%E5%9C%BA/</url>
-    <content><![CDATA[<h1 id="什么是挡远网抓推"><a href="#什么是挡远网抓推" class="headerlink" title="什么是挡远网抓推"></a>什么是挡远网抓推</h1><p><a href="https://zhuanlan.zhihu.com/p/104194224">浅谈羽毛球挡近网和挡远网及其优劣势 - 知乎 (zhihu.com)</a><br><a href="https://zhuanlan.zhihu.com/p/104380073">什么是挡远网抓推,如何破解 - 知乎 (zhihu.com)</a></p>
-<p><a href="https://www.bilibili.com/video/BV1UX4y1G7Sf/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=83831fc0970a6c8704479f7cfc679937">被林丹控底线控得“怀疑人生”【推挑技战术赏析】_哔哩哔哩_bilibili</a></p>
+    <content><![CDATA[<h1 id="什么是挡远网抓推">什么是挡远网抓推</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/104194224">浅谈羽毛球挡近网和挡远网及其优劣势 - 知乎 (zhihu.com)</a> <a href="https://zhuanlan.zhihu.com/p/104380073">什么是挡远网抓推,如何破解 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://www.bilibili.com/video/BV1UX4y1G7Sf/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">被林丹控底线控得“怀疑人生”【推挑技战术赏析】_哔哩哔哩_bilibili</a></p>
 <p>🔱“丹强在体能好，防守好，这是基础层面。拿点低，后场除杀球外几乎击球点偏低偏后，推挑弧度适合且到位，控转身抓过渡利用好，这是战术层面。挡远网抓推利用如臻化境，这是技术层面。三种层面缺一不可，才造就了羽毛球历史上最强的王者。补充一点，我认为林丹的拿点低也是关键。正因为拿点低，所以给远网，同时放弃网前争夺，高点抢搓拿进攻机会，而是推挑控转身抓过渡，跑动自然而然就少了”</p>
-<p>虽然看似说了一句废话，但是很有道理，让别人跑动多，自己就可以跑动少。<br><img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-15_14-07-42.2mkb6xt72tm0.png" alt="Snipaste_2022-11-15_14-07-42"></p>
-<p>本质还是核心 bug 级别，力量和速度都史强，进攻端和防守端的硬实力都太恐怖，进攻强对手不愿起高，林丹可以稳定在中前场控球形成恶性循环，防守强所以放心推挑，万一失控也能救回来。这和老李靠变态速度其实一样的。俩本质上还是身体素质领先其他人太多</p>
+<p>虽然看似说了一句废话，但是很有道理，让别人跑动多，自己就可以跑动少。 <img src="https://cdn.staticaly.com/gh/peirsist/blog_img@master/Snipaste_2022-11-15_14-07-42.2mkb6xt72tm0.png" alt="Snipaste_2022-11-15_14-07-42"></p>
+<p>本质还是核心 bug 级别，力量和速度都史强，进攻端和防守端的硬实力都太恐怖，进攻强对手不愿起高，林丹可以稳定在中前场控球形成恶性循环，防守强所以放心推挑，万一失控也能救回来。这和老李靠变态速度其实一样的。俩 <strong>本质上还是身体素质领先其他人太多</strong></p>
 <p>防杀球正常人都是随便一个网前，而🥚直接就精准对角无法接受</p>
 ]]></content>
       <categories>
@@ -5018,7 +5040,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://www.bilibili.com/video/BV1Tv4y1R7Gp/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【雅思词汇真经】单词+例句带读（自用版）|每天一个Chapter，无痛记单词，日常磨耳朵！雅思8分不是梦！_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.bilibili.com/video/BV1Zt4y1G7AY/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">GRE单词地基词全集精讲 | 北大学姐真人带背&amp;串讲考点 | 比GRE3000&amp;佛脚词汇更高效_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.bilibili.com/video/BV19J411E7dR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【GRE课程】GRE单词100天 (第一季)_哔哩哔哩_bilibili</a></li>
-<li></li>
+<li><a href="https://ielts.koolearn.com/yuedu/">2022雅思阅读同义替换_雅思阅读评分标准|技巧|考试时间分配|题型|分数对照表_新东方在线 (koolearn.com)</a></li>
 </ol>
 </blockquote>
 <blockquote>
@@ -5036,6 +5058,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <li><a href="https://www.zhihu.com/question/467530402">雅思阅读为啥一直卡在6.5？ - 知乎 (zhihu.com)</a></li>
 <li><a href="https://www.zhihu.com/question/23923058">雅思阅读如何精读？ - 知乎 (zhihu.com)</a></li>
 <li><strong><a href="http://www.laokaoya.com/43981.html">剑桥雅思真题阅读原文翻译汇总 剑雅阅读文章翻译集合-老烤鸭雅思-专注雅思备考 (laokaoya.com)</a></strong></li>
+<li><strong><a href="http://www.laokaoya.com/10137.html">雅思阅读精读的注意事项 提升阅读水平的不二法宝-老烤鸭雅思-专注雅思备考 (laokaoya.com)</a></strong></li>
 </ol>
 </blockquote>
 <h1 id="长难句">长难句</h1>
@@ -5288,7 +5311,7 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>【夜读】读书、运动、早睡，是性价比最高的投资</title>
     <url>/2022/11/27/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E3%80%90%E5%A4%9C%E8%AF%BB%E3%80%91%E8%AF%BB%E4%B9%A6%E3%80%81%E8%BF%90%E5%8A%A8%E3%80%81%E6%97%A9%E7%9D%A1%EF%BC%8C%E6%98%AF%E6%80%A7%E4%BB%B7%E6%AF%94%E6%9C%80%E9%AB%98%E7%9A%84%E6%8A%95%E8%B5%84/</url>
-    <content><![CDATA[<p>​</p>
+    <content><![CDATA[<p>​（转载）</p>
 <h1 id="读书">读书</h1>
 <p>读书，决定人生的高度。</p>
 <p>　　 在书中，你可以见识到不同的人，也可以看到不同的生活，还可以得到不同的生命感悟。这些会一点一滴地滋养你、改变你，让你找到前行的方向。</p>
@@ -5318,7 +5341,8 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>精确休息法</title>
     <url>/2022/11/27/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E7%B2%BE%E7%A1%AE%E4%BC%91%E6%81%AF%E6%B3%95/</url>
-    <content><![CDATA[<p>今天咱们继续说丹尼尔·平克的《见机》。上次我们说到<strong>一天中的不同时间应该做不同的事情</strong>，比如<strong>下午就不太适合做需要集中注意力的事情</strong>。<strong>那如果你必须要在下午参加重要会议或者数学考试，怎么办呢？你应该先休息。</strong></p>
+    <content><![CDATA[<p>（转载）</p>
+<p>今天咱们继续说丹尼尔·平克的《见机》。上次我们说到<strong>一天中的不同时间应该做不同的事情</strong>，比如<strong>下午就不太适合做需要集中注意力的事情</strong>。<strong>那如果你必须要在下午参加重要会议或者数学考试，怎么办呢？你应该先休息。</strong></p>
 <p>我们在第一季讲《巅峰表现》那本书的时候，提出一个概念叫<strong>“战略休息”</strong>。今天咱们把这个概念再进一步，叫“<strong>精确休息</strong>”。</p>
 <p>我先举个例子。十多年以前就有专家呼吁要让员工在工作日的下午小睡一会儿，精力更充沛，提高工作效率。我听说有的公司真的就实行了小睡的制度，专门开辟一个睡觉的地方，员工可以半躺着，把头遮起来，在不受打扰的状态下小睡一会儿。</p>
 <p>可是公司很快就发现这个效果并不好！很多员工一睡就是一两个小时，好不容易醒过来，一下午都昏昏沉沉，哪有什么工作效率。</p>
@@ -5419,7 +5443,8 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>【夜读】2022年的最后一个月，坚持做这4件事</title>
     <url>/2022/12/04/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E3%80%90%E5%A4%9C%E8%AF%BB%E3%80%912022%E5%B9%B4%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%9C%88%EF%BC%8C%E5%9D%9A%E6%8C%81%E5%81%9A%E8%BF%994%E4%BB%B6%E4%BA%8B/</url>
-    <content><![CDATA[<p>今天过后，2022 年只剩最后一个月。年初许下的愿望都实现了吗？十二月，加倍珍惜，加倍努力，向着未来继续出发。</p>
+    <content><![CDATA[<p>（转载）</p>
+<p>今天过后，2022 年只剩最后一个月。年初许下的愿望都实现了吗？十二月，加倍珍惜，加倍努力，向着未来继续出发。</p>
 <ol type="1">
 <li><strong>不遗余力地提升自己</strong>　</li>
 </ol>
@@ -5598,12 +5623,22 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
   <entry>
     <title>RL思路</title>
     <url>/2022/12/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/RL%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<p><a href="https://blog.csdn.net/qq_37333048/article/details/115323980">强化学习（三）--Reinforce算法_BUAA小乔的博客-CSDN博客_reinforce算法</a> 1. 科老师的课程 1. <a href="https://github.com/PaddlePaddle/PARL">GitHub - PaddlePaddle/PARL: A high-performance distributed training framework for Reinforcement Learning</a> 2. <a href="https://www.bilibili.com/video/BV1yv411i7xd?p=20&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Lesson5-3-四轴飞行器与创意赛_哔哩哔哩_bilibili</a> 3. <a href="https://aistudio.baidu.com/aistudio/education/group/info/1335">飞桨AI Studio - 人工智能学习实训社区 (baidu.com)</a> 2. <a href="https://zhuanlan.zhihu.com/p/477982098">强化学习入门：环境（含机器人）和代码库介绍 - 知乎 (zhihu.com)</a></p>
-<pre><code>一本好的强化学习教材，需要满足以下 3 点：
-
-1.  讲好基础，包括 MDP、Q-Learning 等。这个大部分教材都能做到。
-2.  跟踪最近的算法，比如 DDPG、PPO、SAC 等。这个也有不少教材能满足。
-3.  提供与内容匹配的良好代码，用 PyTorch 或 Tensorflow。这个对初学者最为重要，只有少部分教材可以。</code></pre>
+    <content><![CDATA[<p><a href="https://blog.csdn.net/qq_37333048/article/details/115323980">强化学习（三）--Reinforce算法_BUAA小乔的博客-CSDN博客_reinforce算法</a></p>
+<ol type="1">
+<li><p>科老师的课程</p>
+<ol type="1">
+<li><a href="https://github.com/PaddlePaddle/PARL">GitHub - PaddlePaddle/PARL: A high-performance distributed training framework for Reinforcement Learning</a></li>
+<li><a href="https://www.bilibili.com/video/BV1yv411i7xd?p=20&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Lesson5-3-四轴飞行器与创意赛_哔哩哔哩_bilibili</a></li>
+<li><a href="https://aistudio.baidu.com/aistudio/education/group/info/1335">飞桨AI Studio - 人工智能学习实训社区 (baidu.com)</a></li>
+</ol></li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/477982098">强化学习入门：环境（含机器人）和代码库介绍 - 知乎 (zhihu.com)</a></p>
+<p>一本好的强化学习教材，需要满足以下 3 点：</p>
+<ol type="1">
+<li>讲好基础，包括 MDP、Q-Learning 等。这个大部分教材都能做到。</li>
+<li>跟踪最近的算法，比如 DDPG、PPO、SAC 等。这个也有不少教材能满足。</li>
+<li>提供与内容匹配的良好代码，用 PyTorch 或 Tensorflow。这个对初学者最为重要，只有少部分教材可以。</li>
+</ol></li>
+</ol>
 <p>对于入门教程，在精不在多。除了 Sutton 的开山之作，在 2022 年的今天，推荐 2 本教材：</p>
 <ul>
 <li><a href="http://hrl.boyuai.com/">《动手学强化学习》</a> ：上海交通大学张伟楠、俞勇团队出品，内容从基础到前沿都有覆盖，还提供了免费视频课程和代码（PyTorch）。</li>
@@ -5710,5 +5745,19 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
       <tags>
         <tag>tensorflow</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>RLlib</title>
+    <url>/2023/01/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/RLlib/</url>
+    <content><![CDATA[<ol type="1">
+<li><a href="https://www.bilibili.com/video/BV1VE411w73P/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【学术向】超强的强化学习系统怎么实现？Ray是啥？tune和rllib又是什么？_哔哩哔哩_bilibili</a></li>
+<li><a href="https://docs.ray.io/en/latest/rllib/core-concepts.html#rllib-core-concepts">Key Concepts — Ray 2.2.0</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/144842398">RLlib：一个分布式强化学习系统的凝练 - 知乎 (zhihu.com)</a></li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>强化学习</category>
+      </categories>
   </entry>
 </search>
