@@ -1,345 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="peirsist">
+    
+    <title>
+        
+            C-C3程序猿 |
+        
+        EEWiKi
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"peirsist.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-
-    <meta name="description" content="看c3程序员C++视频的一些笔记 111  你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com) C++中::和:， .和-&gt;的作用和区别? - 知乎 (zhihu.com) static与const - 知乎 (zhihu.com) 一文带你了解static 和const - 知乎 (zhihu.com) (2条消息) c">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C-C3程序猿">
-<meta property="og:url" content="https://peirsist.github.io/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/index.html">
-<meta property="og:site_name" content="EEWIKI">
-<meta property="og:description" content="看c3程序员C++视频的一些笔记 111  你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com) C++中::和:， .和-&gt;的作用和区别? - 知乎 (zhihu.com) static与const - 知乎 (zhihu.com) 一文带你了解static 和const - 知乎 (zhihu.com) (2条消息) c">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211001101337224.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211002165551868.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211004120911813.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211018233256498.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211019172544775.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211019172649352.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211019233541178.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020135253168.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020164955371.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020174208051.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020214242953.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020220806664.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020221534209.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020221707835.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211020221741333.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021202239635.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021202658926.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021203623112.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021203952490.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021204111880.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021220439165.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021221722313.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021225354564.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021225639639.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021230353091.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021230635796.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211021231644579.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211022105401533.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211022110526056.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211022111543036.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211022111709836.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211022121233984.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224340411.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224522966.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224613026.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224747037.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224808615.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211024224924888.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026102816318.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026103235801.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026103307827.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026170316284.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026170448680.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026170501131.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026172757953.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026173241390.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026174105364.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026174241876.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026174807707.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026224231250.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026224303886.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026224329145.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026230436353.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211026230456972.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211027092044192.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211027092222524.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211027092242701.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211027105929960.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211027105946262.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211030172724604.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211030173054674.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211030173746509.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031101246245.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031101741998.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031104651606.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031104853068.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031110403838.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031110431568.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031110841773.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031111537579.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031112511357.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031112810468.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211031112838946.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211110222527770.png">
-<meta property="og:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211110224058824.png">
-<meta property="article:published_time" content="2021-09-21T01:54:41.000Z">
-<meta property="article:modified_time" content="2022-12-09T14:08:28.296Z">
-<meta property="article:author" content="Peirsist">
-<meta property="article:tag" content="C">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://peirsist.github.io/.io//Users/lenovo/AppData/Roaming/Typora/typora-user-images/image-20211001101337224.png">
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/brands.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"peirsist.github.io","root":"/","language":"en","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"16px","font_family":"STHeiti, sans-serif","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving. || 生活有千万中模样，每一种都可以是幸福的样子","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
-<link rel="canonical" href="https://peirsist.github.io/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/">
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
 
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://peirsist.github.io/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/","path":"2021/09/21/编程/C语言/","title":"C-C3程序猿"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>C-C3程序猿 | EEWIKI</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">EEWIKI</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
 </div>
 
 
+<main class="page-container">
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>Schedule</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>Commonweal 404</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
-        </a>
-      </li>
-  </ul>
-</nav>
+    
 
+    <div class="page-main-content">
 
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+               EEWiKi
+            </a>
+        </div>
 
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
 
 </header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">C-C3程序猿</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">peirsist</span>
+                            
+                                <span class="author-label">Lv5</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8Bc3%E7%A8%8B%E5%BA%8F%E5%91%98c%E8%A7%86%E9%A2%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">看c3程序员C++视频的一些笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">1.1.</span> <span class="nav-text">输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">1.3.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-delete"><span class="nav-number">1.4.</span> <span class="nav-text">new &amp; delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%81%9A%E5%8F%82%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">引用做参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.7.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BC%BA%E7%9C%81%E5%80%BC"><span class="nav-number">1.8.</span> <span class="nav-text">函数缺省值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">1.9.</span> <span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">1.10.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8B%E5%85%83"><span class="nav-number">1.11.</span> <span class="nav-text">友元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.12.</span> <span class="nav-text">成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8"><span class="nav-number">1.12.1.</span> <span class="nav-text">构造函数：自动调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E7%A7%81%E6%9C%89%E5%8C%96"><span class="nav-number">1.12.2.</span> <span class="nav-text">成员属性私有化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E6%8C%87%E9%92%88"><span class="nav-number">1.13.</span> <span class="nav-text">this指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#staticconst"><span class="nav-number">1.14.</span> <span class="nav-text">static&amp;const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.15.</span> <span class="nav-text">浅拷贝&amp;深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="nav-number">1.15.1.</span> <span class="nav-text">构造函数初始化列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%BD%9C%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.16.</span> <span class="nav-text">类作对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.17.</span> <span class="nav-text">空指针访问成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">1.18.</span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">1.19.</span> <span class="nav-text">递增运算符重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.20.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">1.21.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA"><span class="nav-number">1.22.</span> <span class="nav-text">如何判断数据是否为空</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">模板</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">0.1.</span> <span class="nav-text">冒泡排序</span></a></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Peirsist</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">98</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">16</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">34</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
-    </div>
-
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2021-09-21 09:54:41</span>
+        <span class="mobile">2021-09-21 09:54</span>
+    </span>
     
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://peirsist.github.io/2021/09/21/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Peirsist">
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2022-12-09 22:08:28</span>
     </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EEWIKI">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="C-C3程序猿 | EEWIKI">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          C-C3程序猿
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-21 09:54:41" itemprop="dateCreated datePublished" datetime="2021-09-21T09:54:41+08:00">2021-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-09 22:08:28" itemprop="dateModified" datetime="2022-12-09T22:08:28+08:00">2022-12-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+    
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
+                    </li>
+                
+            </ul>
         </span>
-    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>20k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>18 mins.</span>
-    </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>4.9k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>24 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
 </div>
 
-        </div>
-      </header>
+                        </div>
+                    </div>
+                </div>
+            
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h2 id="看c3程序员c视频的一些笔记">看c3程序员C++视频的一些笔记</h2>
+            <div class="article-content keep-markdown-body">
+                <h2 id="看c3程序员c视频的一些笔记">看c3程序员C++视频的一些笔记</h2>
 <p>111</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/edisonchou/p/4669098.html">你必须知道的指针基础-8.栈空间与堆空间 - EdisonZhou - 博客园 (cnblogs.com)</a></li>
@@ -694,105 +624,268 @@
 <img src="/.io//Users\lenovo\AppData\Roaming\Typora\typora-user-images\image-20211110224058824.png" alt="image-20211110224058824"><figcaption aria-hidden="true">image-20211110224058824</figcaption>
 </figure>
 
-    </div>
+            </div>
 
-    
-    
-    
+            
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/C/" rel="tag"># C</a>
-          </div>
+            
+                <ul class="post-tags-box">
+                    
+                        <li class="tag-item">
+                            <a href="/tags/C/">#C</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                               rel="prev"
+                               href="/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/"
+                            >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                                <span class="title flex-center">
+                                <span class="post-nav-title-item">虚拟机安装Ubuntu18.04</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2021/05/21/%E6%99%B6%E4%BD%93%E7%AE%A1/%E6%95%B0%E7%94%B5/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">数电</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
 
         
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8Bc3%E7%A8%8B%E5%BA%8F%E5%91%98c%E8%A7%86%E9%A2%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">看c3程序员C++视频的一些笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81"><span class="nav-number">1.1.</span> <span class="nav-text">输入输出流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text">命名空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">1.3.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new-delete"><span class="nav-number">1.4.</span> <span class="nav-text">new &amp; delete</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%81%9A%E5%8F%82%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">引用做参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.7.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%BC%BA%E7%9C%81%E5%80%BC"><span class="nav-number">1.8.</span> <span class="nav-text">函数缺省值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="nav-number">1.9.</span> <span class="nav-text">函数重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-number">1.10.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8B%E5%85%83"><span class="nav-number">1.11.</span> <span class="nav-text">友元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.12.</span> <span class="nav-text">成员函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8"><span class="nav-number">1.12.1.</span> <span class="nav-text">构造函数：自动调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%B1%9E%E6%80%A7%E7%A7%81%E6%9C%89%E5%8C%96"><span class="nav-number">1.12.2.</span> <span class="nav-text">成员属性私有化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E6%8C%87%E9%92%88"><span class="nav-number">1.13.</span> <span class="nav-text">this指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#staticconst"><span class="nav-number">1.14.</span> <span class="nav-text">static&amp;const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="nav-number">1.15.</span> <span class="nav-text">浅拷贝&amp;深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="nav-number">1.15.1.</span> <span class="nav-text">构造函数初始化列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E4%BD%9C%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.16.</span> <span class="nav-text">类作对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E6%8C%87%E9%92%88%E8%AE%BF%E9%97%AE%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">1.17.</span> <span class="nav-text">空指针访问成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">1.18.</span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%A2%9E%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">1.19.</span> <span class="nav-text">递增运算符重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.20.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81"><span class="nav-number">1.21.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA"><span class="nav-number">1.22.</span> <span class="nav-text">如何判断数据是否为空</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.</span> <span class="nav-text">模板</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">0.1.</span> <span class="nav-text">冒泡排序</span></a></li></ol></li></ol>
+    </div>
+</div>
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/05/21/%E6%99%B6%E4%BD%93%E7%AE%A1/%E6%95%B0%E7%94%B5/" rel="prev" title="数电">
-                  <i class="fa fa-chevron-left"></i> 数电
-                </a>
             </div>
-            <div class="post-nav-item">
-                <a href="/2021/10/21/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu/" rel="next" title="虚拟机安装Ubuntu18.04">
-                  虚拟机安装Ubuntu18.04 <i class="fa fa-chevron-right"></i>
-                </a>
+        
+    </div>
+</div>
+
+
+                
             </div>
-          </div>
-    </footer>
-  </article>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+                <span>2021</span> -
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">peirsist</a>
+            
+        </div>
+        
+            <script async data-pjax
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.1</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
 </div>
 
+        </div>
+    
 
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
 
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
 
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
 
+        <!-- rss -->
+        
 
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Peirsist</span>
-</div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-    <span title="Word count total">187k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-    <span title="Reading time total">2:50</span>
-  </span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
 
     </div>
-  </footer>
 
-  
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
 
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/dark-light-toggle.js"></script>
 
 
 
 
-
-  
-
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/local-search.js"></script>
 
 
 
-  
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/code-block.js"></script>
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.4/katex.min.css" integrity="sha256-gMRN4/6qeELzO1wbFa8qQLU8kfuF2dnAPiUoI0ATjx8=" crossorigin="anonymous">
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/post-helper.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/toc.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/anime.min.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 
