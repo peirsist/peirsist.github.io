@@ -244,6 +244,11 @@
 <h2 id="近期工作">1.2 近期工作</h2>
 <ol type="1">
 <li><strong><em>2023-01-04，周三</em></strong>，上午写了一下编码，下午又开会</li>
+<li><strong><em>2023-01-05，周四</em></strong>，上午看强化学习，下午 NeuroCut 论文</li>
+<li><strong><em>2023-01-06，周五</em></strong>，9- 12:00 , 15- 18:00 都在看 NeuroCut （RL）的代码，但是好难啊</li>
+<li><strong><em>2023-01-07，周六</em></strong>，9: 30- 11:50 ，复习《剑桥雅思 14-Test2》，精读翻译了一下，后两篇是复习，积累单词。 12:00 -2: 00 吃饭，聊天。2: 00-3: 00 睡觉，玩了半小时手机到 3: 30, 3: 30-4: 30 跑步，回来 4: 50-5: 30，复习 14-Test2 单词。</li>
+<li><strong><em>2023-01-08，周日</em></strong>，上午好像没怎么干，下午 TupleTree 论文</li>
+<li><strong><em>2023-01-09，周一</em></strong>，想方案</li>
 </ol>
 <h1 id="section-1">2 2022-12-13</h1>
 <h2 id="comments-1">2.1 comments</h2>
@@ -1859,8 +1864,35 @@ AB&#39;&amp; =  AB&#39;(C+C&#39;)=AB&#39;C+AB&#39;C&#39;\\
   <entry>
     <title>Python</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Python/</url>
-    <content><![CDATA[<h2 id="python">Python</h2>
-<p>后续更新...</p>
+    <content><![CDATA[<h1 id="numpy">NumPy</h1>
+<ol type="1">
+<li><a href="https://zhuanlan.zhihu.com/p/51200424">NumPy中的维度(dimension)、轴(axis)、秩(rank)的含义 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://www.numpy.org.cn/user/setting-up.html#%E4%BB%80%E4%B9%88%E6%98%AF-numpy">NumPy 介绍 | NumPy 中文</a></li>
+<li><a href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&amp;vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
+<li></li>
+</ol>
+<p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
+<p>捕捉异常可以使用 try/except 语句。</p>
+<p>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
+<p>如果你不想在异常发生时结束你的程序，只需在 try 里捕获它。</p>
+<ol type="1">
+<li><a href="https://blog.csdn.net/m0_46653437/article/details/111777116">os.path.expanduser(path)使用举例_敲代码的小风的博客-CSDN博客_os.path.expanduser</a></li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20201227200321288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NjUzNDM3,size_16,color_FFFFFF,t_70"></p>
+<ol start="2" type="1">
+<li><a href="https://www.runoob.com/python/python-exceptions.html">Python 异常处理 | 菜鸟教程 (runoob.com)</a></li>
+<li><a href="https://blog.csdn.net/PY0312/article/details/88956795">Python 之 lambda 函数完整详解 &amp; 巧妙运用_Nick Peng的博客-CSDN博客_lambda函数python</a></li>
+<li><a href="https://www.bilibili.com/video/BV1w44y1W7Kg/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Python 命令行参数解析 argparse_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1mv411G7xV/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【argparse】教学,解析命令行，很实用的python模块_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.cnblogs.com/still-smile/p/11636958.html">parse_args（argsparse）：python和命令行之间的交互 - Smah - 博客园 (cnblogs.com)</a></li>
+<li></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python  </span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> os, sys  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 创建的目录  </span></span><br><span class="line">path = <span class="string">&quot;/tmp/home/monthly/daily&quot;</span>  </span><br><span class="line">  </span><br><span class="line">os.makedirs( path, 0755 );  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;路径被创建&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="assert-用法">assert 用法</h2>
+<p>使用 <a href="https://so.csdn.net/so/search?q=assert&amp;spm=1001.2101.3001.7020">assert</a> 是学习 python 的一个非常好的习惯，在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时崩溃，不如在出现错误条件时就崩溃。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span>  <span class="title function_">zero</span>(<span class="params">s</span>):</span><br><span class="line">    a = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span>   <span class="comment">#这句的意思：如果a确实大于0，程序正常往下运行</span></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">zero(<span class="string">&quot;-2&quot;</span>)  <span class="comment">#但是如果a是小于0的，程序会抛出AssertionError错误，报错为参数内容“a超出范围”</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">6</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    zero(<span class="string">&quot;-2&quot;</span>)</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">3</span>, <span class="keyword">in</span> zero</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span></span><br><span class="line">AssertionError: a超出范围</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">True</span>     <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">False</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">1</span>    <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>, <span class="string">&#x27;1 不等于 2&#x27;</span>  </span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError: <span class="number">1</span> 不等于 <span class="number">2</span>  </span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -5656,6 +5688,49 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
 <p>凡是需要大量的采样，然后实验，最后用实验结果来近似的一种方法都可以成为蒙特卡洛估计的方法。</p>
 <p>TD 算法依赖数据，不依赖模型来实现强化学习</p>
 <p>因为一个 agent 在环境当中它一个时刻只能访问一个状态</p>
+<hr>
+<p>通过在环境中进行演算（Roll-out）收集多轮交互信息，即在环境中根据当前的状态和决策策略形成一条具体的包含一系列状态、动作和奖励信息的探索轨迹。在一般的无模型学习中，智能体将在真实的环境中在线演算，并将获得的多轮交互信息用于策略学习。</p>
+<p><strong>轨迹（Trajectories）</strong> 常常也被称作 <strong>回合 (episodes)</strong> 或者 <strong>rollouts</strong>。</p>
+<ol type="1">
+<li><a href="http://www.deeprlhub.com/d/143-2-rollout-episode-epoch-step-trajectory">强化学习中的奇怪概念2-rollout-episode-epoch-step-trajectory - 深度强化学习实验室 (deeprlhub.com)</a></li>
+<li><a href="https://spinningup.qiwihui.com/zh_CN/latest/spinningup/rl_intro.html">第一部分：强化学习中的核心概念 — Spinning Up 文档 (qiwihui.com)</a></li>
+<li><a href="https://www.cnblogs.com/steven-yang/p/6481772.html">强化学习读书笔记 - 00 - 术语和数学符号 - SNYang - 博客园 (cnblogs.com)</a></li>
+<li><a href="https://blog.csdn.net/qq_40206371/article/details/122065998">python 笔记 ：Gym库 （官方文档笔记）_UQI-LIUWJ的博客-CSDN博客_gym库</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/482821112">Gym库中关于Spaces库的使用方法 - 知乎 (zhihu.com)</a></li>
+<li><strong><a href="https://blog.csdn.net/sinat_39620217/article/details/117081680">【编写环境一】遇到常见python函数处理方式_汀、的博客-CSDN博客_spaces.multidiscrete</a></strong></li>
+</ol>
+<p>（转载）</p>
+<p>对这几个概念，我一直理解不能。<br>
+先抛个砖，希望有更确切的中文定义~</p>
+<ol type="1">
+<li>rollout：在 CS 相关论文中，一般 rollout 表示一次试验，一条轨迹。就比如我们我们用 MC 仿真出了一个 episode，这个 episode 就是一个 rollout。<br>
+</li>
+<li>episode：一条轨迹<br>
+</li>
+<li>epoch：可能有多个轨迹？因为强化里面的 epoch 和深度学习的不一样，我在 HER 相关的论文里看到的 epoch，是有 50 个 episode 组成的。<br>
+</li>
+<li>trajectory：一条轨迹<br>
+</li>
+<li>cycle:<br>
+</li>
+<li>simulation step：智能体和环境的一次交互<br>
+</li>
+<li>update step：网络更新一次</li>
+</ol>
+<p>有的甚至在不同的论文和代码里，代表的含义都不一样。</p>
+<hr>
+<h1 id="gym-库">Gym 库</h1>
+<ol type="1">
+<li><a href="https://gymnasium.farama.org/api/spaces/fundamental/">官方文档Fundamental Spaces - Gymnasium Documentation (farama.org)</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/370608508">强化学习gym官方文档翻译 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://blog.csdn.net/qq_40206371/article/details/122065998">python 笔记 ：Gym库 （官方文档笔记）_UQI-LIUWJ的博客-CSDN博客_gym库</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/482821112">Gym库中关于Spaces库的使用方法 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://blog.csdn.net/hl1hl/article/details/89229408">gym.spaces.Discrete()_双木青橙的博客-CSDN博客_spaces.discrete</a></li>
+<li><a href="https://blog.csdn.net/sinat_39620217/article/details/114533928">【一】MADDPG-单智能体|多智能体总结（理论、算法）_汀、的博客-CSDN博客_多智能体理论</a></li>
+<li><a href="https://blog.csdn.net/sinat_39620217/article/details/117081680">【编写环境一】遇到常见python函数处理方式_汀、的博客-CSDN博客_spaces.multidiscrete</a></li>
+<li><a href="https://blog.csdn.net/weixin_43255962/article/details/91628492">RLlib Environments_快乐地笑的博客-CSDN博客</a></li>
+<li></li>
+</ol>
 ]]></content>
       <categories>
         <category>强化学习</category>
@@ -5759,5 +5834,127 @@ Var[x_a|x_b]=\Sigma_{aa\cdot b}
       <categories>
         <category>强化学习</category>
       </categories>
+  </entry>
+  <entry>
+    <title>还没想好题目</title>
+    <url>/2023/01/11/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E8%BF%98%E6%B2%A1%E6%83%B3%E5%A5%BD%E9%A2%98%E7%9B%AE/</url>
+    <content><![CDATA[<p>当自己同时面对多件事，就会变得力不从心，捉襟见肘。<a href="https://www.toutiao.com/question/6681404281054036231/">为什么有的人心里有一件事就会焦虑不安，而有的人心里有多件事却能应对自如？</a></p>
+<p>他说：晋朝有个名将叫羊祜，他曾说过一句话，叫 <strong>“天下不如意，恒十居七八”</strong>，不顺心的事这么多，所以人就会焦虑，焦虑的目的是想改变不顺，但其结果，不但改变不了，反而会更糟，这就进入了恶性循环，你说是不是这个理？</p>
+<p>我说：道理讲得通，可是怎样才能不焦虑呢？</p>
+<p>他说：一个人从不知道焦虑是很难的，比如高考学生，在分数出来之前，是家长和孩子最焦虑的时刻，我问你，这种焦虑有用吗？</p>
+<p>我说：谁都知道没有用，可是谁都会焦虑。</p>
+<p>他说：我孩子高考之后也是这样，我说，你平时不是没有时间看小说，看电视剧吗？现在闲下来了，为什么不看看呢？他喜欢看名人传记，结果他被那本“拿破仑传”迷住了，连公布分数时间都忘了。查完分数以后，他对我说：爸，读完这本书之后，我明白了一个道理，人生有好多盲区，当你进入盲区之后，需要的不是焦虑，而是给自己找一个前进的方向。</p>
+<p>有人说：焦虑，是心中无底的表现，烦躁，是头恼混乱的结果。</p>
+<p>诸葛亮说：非淡泊无以明志，非宁静无以致远。我这位朋友说：心不随境转，便能转境！</p>
+<p>当你焦虑的时候，不要急着去解决问题，也不要让消极的情绪控制你，转移一下自己的情绪，让自己放松下来，或许能找到解决问题的办法。</p>
+<hr>
+<p>很多事是庸人自扰，没发生却过多担忧，增添烦恼。而你如果改变心境，不执意于追求了就非得得到，你若不在意，万事运转如何都不需担忧。心境是一种态度。有好心境，烦扰不解自化。</p>
+<p>遇到事情，有的人焦虑不安，有的人却能应对自如。这不同的面对问题的方式，可以用“境由心生“这个词语来概括。</p>
+<p>先来说说什么是“境由心生“。这是一个成语，表示心情好坏，影响人们看事物的美丑。它的出处是:物随心转，境由心造。烦恼皆心生。</p>
+<p>推及到看待事物的这个层面上也是如此，一个人对世界的看法和感觉，是随着心境的变化而变化的。其实当时的处境根本没有改变，只是个人的心情变化了，觉得处境也就随之不同了。</p>
+<p>其实，一件事情严重与否，都是取决于自己心里怎么想。你认为严重就严重，认为平常就平常，心理暗示起了决定性作用。</p>
+<p>我们把一件事情想得很复杂很严重的时候，那么我们的心里就会十分的焦虑不安，患得患失。相反，把一件事情看得很平常，觉得这是自己必须要经历，要面对的时候，往往就能从容面对，着眼于解决问题。</p>
+<p>那些遇到再大的事情都能处之淡然，从容面对的人，其实他们并不是觉得事情影响不大，不重要，而是因为他们能够积极主动的调节自我的情绪，凡事想得很明白，所以看起来才会无忧无虑。</p>
+<p>而焦虑的情绪总会对我们的生活、学习、工作带来困扰，所以，这应该是我们要好好解决的问题。现在，我就从焦虑的层面进行细致的分析，希望你能走出不良情绪。</p>
+<hr>
+<p><a href="https://baijiahao.baidu.com/s?id=1588462981843339611">物随心转，境由心造，烦恼皆由心生！</a></p>
+<p>人们生活在一个环境当中，难免会有贪心、嗔恨心等等，会执着的追求某一样东西，由此可能会影响到自己的能力，影响到自己的内心，生起烦躁。在这样的环境下，不管多么有压力，多么的充满竞争，可能会有很多的痛苦，但人们还是会不顾一切的继续往下走。这就是我们平时生活当中经历的。</p>
+<p>物随心转，境由心造，烦恼皆由心生。你的心境，决定了你的处境，决定了你的命运。心态，影响着一个人的健康。消极的思想与不满情绪会引发疾病。心态，决定一个人的幸福。为所有而喜，不为所无而忧。<strong>心态，更反映一个人的品德与修养。</strong> <a href="https://www.zhihu.com/question/19596424">如何提高自身的修养？ - 知乎 (zhihu.com)</a></p>
+<p>苦非苦，乐非乐，只是一时的执念而已。执于一念，将受困于一念；一念放下，会自在于心间。物随心转，境由心造，烦恼皆由心生。有些人，有些事，是可遇不可求的，既然这样，就放宽心态，顺其自然。无论何时何地，都要拥有一颗安闲自在的心，保持豁达的心态，不要让自己活得太累。</p>
+<p>生活就是一场修行，给你磨砺，让你变的坚强；给你离别，才会感知聚的喜悦；给你苦痛，才知道什么是甜；经历失去，让你懂得拥有时珍惜；经历失意，让你学会从容的选择，留一颗佛心，花开花落，留一份珍重！一路走过，一路安然，一路喜乐，一路菩提花香。</p>
+<p>一个人的成功与否，不是真正取得了多大的成就，而是成功了不骄傲，不沾沾自喜，而是当成下一次出发的起点；失败了不气馁，觉得平常事而已，整整心情，继续出发吧。<strong><font color="red">真正的成功是心灵轻盈，感觉生命充满了力量，看什么都很顺眼，到哪里都是美景。</font></strong></p>
+<hr>
+<p>我们所有的人，都没生活在真空中，都可能遇到各种各样的问题，遇到突如其来的困难，自我评价低，觉得自己不行，没有安全感的人，遇到问题就会焦虑，在焦虑情绪推动下，进一步觉得自己不行，进一步放大困难程度，造成寝食难安，严重的可能形成焦虑症、强迫症、抑郁症等心理问题，常见的事抑郁症。经历的事情多，自我评价客观，安全感好的人，在遇到问题之后，不容易焦虑，人在心情平静的时候，对自己的评价和困难的评价是客观的，会积极寻找解决问题的方法，经历的事情越多，能力越得到提升，内心也不断强大，处理问题的能力越强，应对突发事件的能力越得心应手。</p>
+<hr>
+<p><strong>而且当一个人不再读书时，那么他（她）对一件事的认知，看待问题的思维、心态基本不会再增长</strong>，2022 年 9-12 月竟然一本书没有读，7-9 月还读了《邓小平时代》、《洗澡》、《活着》、《走在人生边上》4 本书，还有《软能力》、《元智慧》等一些书。读研一学期竟然一本书没有读，每天只盯着自己领域的那一点东西，却连对生活的思考都没有。 <strong><font color="red">一个人真的应该每天花大量的时间在阅读、写作和运动上。</font></strong></p>
+<blockquote>
+<p><strong><font color="red"> 读书，运动真的可以提升一个人的气质，让一个人变得自信、从容，提升一个人的修养</font></strong></p>
+</blockquote>
+<p>其实绝大部分人都很普通，再厉害的人也大多只是在自己研究的领域多了解一点而已，他对一件事的认知不一定会有多好。不盲目崇拜他人，也不要低估自己。</p>
+<p>为什么要读博？自己是否真的需要一个博士学位？难道仅仅是为了追求一个学历？25-30 岁的 5 年时间尤其宝贵。还记得 2021 年保研时候，我说“感觉读博压力好大”，赵老师说“安排好自己生活就不会”。安排好自己的生活听起来简单，却实属不易。每个人生活在社会中，每天与各种各样的人打交道，充当着不同的角色，总会有一些意料之外的事，学生，要完成自己的学习任务，遇到不好的导师，还要与不喜欢的人打交道（与自己讨厌的人相处好也是一种能力）；每天还要运动锻炼身体；如果谈恋爱，那么又多了一种角色，也要承担相应的责任；还有与身边的室友、同学相处，可一个人一天的时间只有 24 小时，哦对，你还想要睡眠 8 个小时。0: 00-8: 00，8: 00-9: 00 洗漱吃饭，9: 00- 11:50 高效学习（科研、英语.......）， 11:50 - 12:30 吃饭消化， 12:30 -2: 00 休息，2: 00-5: 00 学习，5: 00-6: 00 运动，6：00-7: 00 吃饭，7: 00-0: 00 还有 5 个小时可以利用，这么看来你可以干很多事，但是</p>
+<ol type="1">
+<li><strong>9: 00- 11:50 高效学习，你真的高效嘛，你的有效学习时间是多少？</strong> 3 个小时，每小时要起来活动 5mins 放松眼睛，那么活动时间算 20mins，学习时间变为 2 个小时 40 分钟，中途喝水等 10mins，变为 2 个小时 30 分钟；再者 9: 00 开始，你可能不会知道自己马上做什么，这就是任务不明确，再花费 10mins 想自己干什么，然后可能早退 10mins，时间变为 2 个小时 10mins；中途再看看手机 20mins，时间变为 1 个小时 50 分钟，这 1 个小时 50 分钟可能都不会完全专注，周围的环境如果很吵。</li>
+<li>12:30 -2: 00 休息，这段时间你基本上用来看视频，娱乐</li>
+<li>2: 00-5: 00 学习，不一定会准时开始，你还有在路上的时间</li>
+</ol>
+<p>哦对表达能力真的很重要，每次开组会前练 10 遍</p>
+<p>2023 年 1 月 11 日 10 点</p>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>（转载）最终从保研的优秀学生成为一无是处的研究生</title>
+    <url>/2023/01/09/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89%E6%9C%80%E7%BB%88%E4%BB%8E%E4%BF%9D%E7%A0%94%E7%9A%84%E4%BC%98%E7%A7%80%E5%AD%A6%E7%94%9F%E6%88%90%E4%B8%BA%E4%B8%80%E6%97%A0%E6%98%AF%E5%A4%84%E7%9A%84%E7%A0%94%E7%A9%B6%E7%94%9F/</url>
+    <content><![CDATA[<p><a href="https://www.xiaohongshu.com/discovery/item/638fe290000000001f02691a?app_platform=android&amp;app_version=7.64.0&amp;share_from_user_hidden=true&amp;type=normal&amp;xhsshare=WeixinSession&amp;appuid=6365eac5000000001f01afa7&amp;apptime=1671079123">最终从保研的优秀学生成为一无是处的研究生 (xiaohongshu.com)</a></p>
+<p>前几天奖学金结果出来了，</p>
+<p>不出意外地，</p>
+<p>拿到了占比最大的三等。</p>
+<p>我闺蜜笑着说，是学校瞎了眼。</p>
+<p>嗯，在她的眼中我一直很优秀。</p>
+<p>我曾经也是这么以为的。</p>
+<p>也曾拿过特等奖，也曾获得了保研资格，</p>
+<p>觉得自己好像无所不能，</p>
+<p>只要想干就没有我干不成的事情。</p>
+<p>现在想来，就像一个很喜欢的博主说的，</p>
+<p>我们在本科的衡量标准中偶然被定义为了优秀，</p>
+<p>而在研究生的评价体系中被定义为了不及格。</p>
+<p><strong>其实我的专业课成绩都还算不错</strong>，</p>
+<p><strong>但是一没论文成果，</strong></p>
+<p><strong>二没竞赛奖项，三没志愿者活动，</strong></p>
+<p><strong>可以说没有任何的加分项，</strong></p>
+<p>拿个三等奖也是勉勉强强。</p>
+<p><strong>看起来真的很失败。</strong></p>
+<p>但尽管如此，我觉得自己其实成为了更好的人。</p>
+<p>学了攀岩，学了滑板，重新跳爵士；</p>
+<p>徒步去了一些城市，</p>
+<p><strong>在新疆的小黑湖边看漫天星河，</strong></p>
+<p><strong>在敦煌的古城墙上看黄沙飞扬，</strong></p>
+<p><strong>在茶卡盐湖看纯净的天空之境。</strong></p>
+<p><strong>在武功山上看双彩虹；</strong></p>
+<p><strong>在千八的山上追日出；</strong></p>
+<p>前几天还去龙王山上看雪；</p>
+<p>还看了很多杂七杂八的书籍，</p>
+<p>心理学、文学、哲学......诸如此类，</p>
+<p>都是和我的专业方向毫无关联的书籍。</p>
+<p>甚至，我还正经地写了一些</p>
+<p>徒步日记，影评和书评，</p>
+<p>发布在豆瓣、知乎、微信读书上。</p>
+<p>我一度认真地考虑过：</p>
+<p><strong>研究生毕业后的暑假，背上徒步包，</strong></p>
+<p><strong>带上一本书，坐着绿皮火车出发，</strong></p>
+<p><strong>记下旅途中一切有意思的事情。</strong></p>
+<p>如果可以的话，我想一辈子做一个流浪的人。</p>
+<p>我知道，<strong>从世俗的角度来看</strong>，</p>
+<p><strong>上面这些兴趣爱好都是没用的，</strong></p>
+<p><strong>上面的梦想简直是在异想天开，</strong></p>
+<p>没有坚实的家底做支撑，怎么敢这么做这么想。</p>
+<p>但是于我而言，<strong>这些无用的爱好，遥远的梦想</strong>，</p>
+<p><strong>都是我生命中不可缺失的亮色。</strong></p>
+<p>正是它们的存在，</p>
+<p>让我的回忆变得色彩斑斓，</p>
+<p>让我的未来变得充满希望。</p>
+<p>我其实很敬佩这几年的自己，</p>
+<p><strong>坚持不懈地在探索各种各样不知道的事情。</strong></p>
+<p><strong>这些事情没有让钱包变鼓，让秋招变顺，</strong></p>
+<p>甚至因为沉浸于这些事情中，</p>
+<p>我没有去实习，在秋招中毫无优势。</p>
+<p>但我真切地感受到，</p>
+<p><strong>因为它们自己成为了和以前不一样的人，</strong></p>
+<p>我变得 <strong>更有趣，更有勇气，更有主见了。</strong></p>
+<p>我的 <strong>生活变得更扎实，更丰富，更可爱了。</strong></p>
+<p>所以在我自己的评价体系里我给自己一等奖。</p>
+<p>我的评价体系是什么</p>
+<p><strong>是更多的可能性，</strong></p>
+<p><strong>更广阔的视野和更有趣的自己。</strong></p>
+<p>也许在研究生的评价体系里我们不再优秀了，但我们也在努力成长呀！在探索世界，探索自己</p>
+]]></content>
+      <categories>
+        <category>随笔与个人文集</category>
+      </categories>
+      <tags>
+        <tag>夜读</tag>
+      </tags>
   </entry>
 </search>

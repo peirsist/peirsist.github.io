@@ -115,6 +115,49 @@ GitHub - PaddlePaddle/PARL: A high-performance distributed training framework fo
 <p>凡是需要大量的采样，然后实验，最后用实验结果来近似的一种方法都可以成为蒙特卡洛估计的方法。</p>
 <p>TD 算法依赖数据，不依赖模型来实现强化学习</p>
 <p>因为一个 agent 在环境当中它一个时刻只能访问一个状态</p>
+<hr>
+<p>通过在环境中进行演算（Roll-out）收集多轮交互信息，即在环境中根据当前的状态和决策策略形成一条具体的包含一系列状态、动作和奖励信息的探索轨迹。在一般的无模型学习中，智能体将在真实的环境中在线演算，并将获得的多轮交互信息用于策略学习。</p>
+<p><strong>轨迹（Trajectories）</strong> 常常也被称作 <strong>回合 (episodes)</strong> 或者 <strong>rollouts</strong>。</p>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="http://www.deeprlhub.com/d/143-2-rollout-episode-epoch-step-trajectory">强化学习中的奇怪概念2-rollout-episode-epoch-step-trajectory - 深度强化学习实验室 (deeprlhub.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://spinningup.qiwihui.com/zh_CN/latest/spinningup/rl_intro.html">第一部分：强化学习中的核心概念 — Spinning Up 文档 (qiwihui.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/steven-yang/p/6481772.html">强化学习读书笔记 - 00 - 术语和数学符号 - SNYang - 博客园 (cnblogs.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40206371/article/details/122065998">python 笔记 ：Gym库 （官方文档笔记）_UQI-LIUWJ的博客-CSDN博客_gym库</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/482821112">Gym库中关于Spaces库的使用方法 - 知乎 (zhihu.com)</a></li>
+<li><strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_39620217/article/details/117081680">【编写环境一】遇到常见python函数处理方式_汀、的博客-CSDN博客_spaces.multidiscrete</a></strong></li>
+</ol>
+<p>（转载）</p>
+<p>对这几个概念，我一直理解不能。<br>
+先抛个砖，希望有更确切的中文定义~</p>
+<ol type="1">
+<li>rollout：在 CS 相关论文中，一般 rollout 表示一次试验，一条轨迹。就比如我们我们用 MC 仿真出了一个 episode，这个 episode 就是一个 rollout。<br>
+</li>
+<li>episode：一条轨迹<br>
+</li>
+<li>epoch：可能有多个轨迹？因为强化里面的 epoch 和深度学习的不一样，我在 HER 相关的论文里看到的 epoch，是有 50 个 episode 组成的。<br>
+</li>
+<li>trajectory：一条轨迹<br>
+</li>
+<li>cycle:<br>
+</li>
+<li>simulation step：智能体和环境的一次交互<br>
+</li>
+<li>update step：网络更新一次</li>
+</ol>
+<p>有的甚至在不同的论文和代码里，代表的含义都不一样。</p>
+<hr>
+<h1 id="gym-库">Gym 库</h1>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://gymnasium.farama.org/api/spaces/fundamental/">官方文档Fundamental Spaces - Gymnasium Documentation (farama.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/370608508">强化学习gym官方文档翻译 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40206371/article/details/122065998">python 笔记 ：Gym库 （官方文档笔记）_UQI-LIUWJ的博客-CSDN博客_gym库</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/482821112">Gym库中关于Spaces库的使用方法 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hl1hl/article/details/89229408">gym.spaces.Discrete()_双木青橙的博客-CSDN博客_spaces.discrete</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_39620217/article/details/114533928">【一】MADDPG-单智能体|多智能体总结（理论、算法）_汀、的博客-CSDN博客_多智能体理论</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_39620217/article/details/117081680">【编写环境一】遇到常见python函数处理方式_汀、的博客-CSDN博客_spaces.multidiscrete</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43255962/article/details/91628492">RLlib Environments_快乐地笑的博客-CSDN博客</a></li>
+<li></li>
+</ol>
 
 
   </article>
