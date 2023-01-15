@@ -1,1197 +1,792 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="peirsist">
-    
-    <title>
-        
-        EEWiKi
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
+<html>
+	<head>
+		
+<title>Hexo主题-Quiet主题-Hexo扁平化主题安装-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
-    <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/regular.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/solid.min.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/fontawesome/css/brands.min.css">
-    <script id="hexo-configurations">
-    let KEEP = window.KEEP || {};
-    KEEP.hexo_config = {"hostname":"peirsist.github.io","root":"/","language":"en","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","logo":"/images/logo.svg","favicon":"/images/logo.svg","avatar":"/images/avatar.svg","font_size":"16px","font_family":"STHeiti, sans-serif","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"header_transparent":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving. || 生活有千万中模样，每一种都可以是幸福的样子","font_color":null,"hitokoto":{"enable":false}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.5.1"};
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"};
-  </script>
-<meta name="generator" content="Hexo 6.3.0"></head>
+<link rel="stylesheet" href="/css/index.css">
 
 
-<body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
-
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
-</div>
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
 
 
-<main class="page-container">
+<script src="/js/jquery.min.js"></script>
 
-    
 
-    <div class="page-main-content is-home">
+<script src="/js/index.js"></script>
 
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper transparent-1">
 
-    <div class="header-content">
-        <div class="left">
-            
-                <a class="logo-image" href="/">
-                    <img src="/images/logo.svg">
-                </a>
-            
-            <a class="logo-title" href="/">
-               EEWiKi
-            </a>
-        </div>
+<script src="/js/fancybox.umd.js"></script>
 
-        <div class="right">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        <li class="menu-item">
-                            <a class="active"
-                               href="/"
-                            >
-                                HOME
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives"
-                            >
-                                ARCHIVES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories"
-                            >
-                                CATEGORIES
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags"
-                            >
-                                TAGS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/links"
-                            >
-                                LINKS
-                            </a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about"
-                            >
-                                ABOUT
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+							<li class="select">
+								<a href="/">
+									HOME
+								</a>
+								<span class="dot"></span>
+							</li>
+							
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
     </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class="active"
-                       href="/">HOME</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives">ARCHIVES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories">CATEGORIES</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags">TAGS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/links">LINKS</a>
-                </li>
-            
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about">ABOUT</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle">
-
-            <div class="main-content">
-
-                
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
+    <ul>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.LinearRegression/">
-                        线性回归.md
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        线性回归
-假设数据集为： \[
-\mathcal{D}=\{(x_1, y_1),(x_2, y_2),\cdots,(x_N, y_N)\}
-\] 后面我们记： \[
-X=(x_1,x_2,\cdots,x_N)^T,Y=(y_1,y_2,...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Oct 27 2022 23:40:52 GMT+0800">
-                2022-10-27
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.LinearRegression/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.Intro_Math/">
-                        Intro_Math.md
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        Introduction
-对概率的诠释有两大学派，一种是频率派另一种是贝叶斯派。后面我们对观测集采用下面记号： \[
-X_{N\times p}=(x_{1},x_{2},\cdots,x_{N})^{T},x_{i}=(x_{i1},x_{i2...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Oct 27 2022 23:40:44 GMT+0800">
-                2022-10-27
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.Intro_Math/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/20/test-md/">
-                        test.md
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        测试latex
-
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Oct 21 2022 13:18:15 GMT+0800">
-                2022-10-21
-            </span>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/test/">test</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/20/test-md/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/20/hello-world/">
-                        Hello World
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Oct 20 2022 20:52:31 GMT+0800">
-                2022-10-20
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/20/hello-world/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
-                        安装Ubuntu18.04双系统
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        安装Ubuntu双系统
-
-Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu
-Ubuntu18.04安装教程——超详细的图文教程_Krasjet_...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Wed Dec 07 2022 14:33:55 GMT+0800">
-                2022-12-07
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/">安装软件</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Ubuntu/">Ubuntu</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/">
-                        CNN
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        CNN
-如果用全连接神经网络处理大尺寸图像具有三个明显的缺点：
-（1）首先将图像展开为向量会丢失空间信息； （2）其次参数过多效率低下，训练困难； （3）同时大量的参数也很快会导致网络过拟合。
-而使用卷积神经网络可以很好地解决上面的三个问题。...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Oct 28 2022 20:30:49 GMT+0800">
-                2022-10-28
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/CNN/">CNN</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/">
-                        RL介绍
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        强化学习 Reinforcement Learning声明：以下课件来源于 北京邮电大学人工智能学院鲁鹏老师 
-
-机器学习分支
-强化学习特点
-2. Reward
-
-
-
-
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Dec 16 2022 18:14:48 GMT+0800">
-                2022-12-16
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                        线性回归
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        单变量线性回归
-梯度下降做的事就是找到一个值 \(\theta\) 使得代价函数 \(J(\theta)\) 最小
-多变量线性回归
-
-通常用 大写、黑体 字母表示矩阵，用小写字母表示标量或向量。
-正斜体 总的原则是变量（矢量，张量）等用斜体...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Oct 28 2022 20:30:40 GMT+0800">
-                2022-10-28
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
-                        计算机组成原理
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        计算机组成原理
-
-说明
-此课程参考王道计算机考研 计算机组成原理_哔哩哔哩_bilibili， 其中所出现的图片均是学习过程中的截图，放到网页上，以便随时随地地复习。
-正文
-
-硬件上的一个个的金属针脚就是用来传递电信号，传递一个个的高低电...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Oct 21 2022 14:04:13 GMT+0800">
-                2022-10-21
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        数据结构视频
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        视频
-
-数据结构：懒猫老师-数据结构-(34)哈夫曼树(Huffman Tree,霍夫曼树,赫夫曼树)_哔哩哔哩_bilibili
-数据结构：懒猫老师-数据结构-(34)哈夫曼树(PPT文稿) - 知乎 (zhihu.com)
-数据结构：数据...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Oct 25 2022 13:34:32 GMT+0800">
-                2022-10-25
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/21/%E7%BC%96%E7%A8%8B/1.%E4%BE%AF%E6%8D%B7C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-                        侯捷C++面向对象(上)
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        侯捷C++面向对象
-很喜欢这种娓娓道来的讲课，而不是填鸭式的灌输知识点，对零碎的知识点特此记录。
-
-培养正规的、大气的编程习惯
-
-class是C++中最重要的，侯捷老师：“一个人写了一个class，看他是否受过良好的、正规的训练，看以下几点...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Nov 08 2022 22:18:26 GMT+0800">
-                2022-11-08
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/C/">C++</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/21/%E7%BC%96%E7%A8%8B/1.%E4%BE%AF%E6%8D%B7C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/19/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%942-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A7%84%E5%88%92/">
-                        研究生规划
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        研究生（人生）目标研究生需要达到的要求：
-
-专业上
-找到自己的方向，并使之成为擅长的领域
-雅思，英语听说读写，可以正常交流
-
-
-生活上
-对生活有热情
-常怀感恩之心和敬畏之心
-遇事积极向上，不要有负面情绪。一切不好的东西总会过去的~
-
-
-个人
-沉稳、冷...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Nov 15 2022 14:02:50 GMT+0800">
-                2022-11-15
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/">随笔与个人文集</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/">人生规划</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/19/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%942-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A7%84%E5%88%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/17/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%941-%E5%85%B3%E4%BA%8E%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/">
-                        职业规划
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        职业规划2022.5.16于家中
-
-给C++就业方向的应届毕业生的一些分析与建议，帮助大家少浪费时间，多花时间在有意义的事情上_哔哩哔哩_bilibili
-快问快答丨入行&#x2F;转行IC选什么方向？学什么东西？要不要读研？_哔哩哔哩_bilibi...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Tue Nov 15 2022 14:02:48 GMT+0800">
-                2022-11-15
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/">随笔与个人文集</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fas fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/%E4%BA%BA%E7%94%9F%E8%A7%84%E5%88%92/">人生规划</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/17/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%941-%E5%85%B3%E4%BA%8E%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/">
-                        VS2019新建C自动添加作者版权等信息
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        VisualStudio2019新建C自动添加作者版权等信息
-参考
-
-给VS2019添加上自己的个人信息_vs2019添加作者
-华为C语言编程规范（3）—注释_C语言中文网
-【C#】VS2019新建C#类自动添加作者版权等信息
-c语言注释...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Thu Jan 05 2023 16:04:22 GMT+0800">
-                2023-01-05
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/">安装软件</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB/">
-                        URL和URI的区别
-                    </a>
-                </h3>
-
-                <div class="home-article-content keep-markdown-body">
-                    
-                        URL和URI的区别
-URI
-
-定义：统一资源标志符(Uniform Resource Identifier， URI)，表示的是web上每一种可用的资源，如 HTML文档、图像、视频片段、程序等都由一个URI进行标识的。
-如何理解：
-
-...
-                    
-                </div>
-
-                
-<div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span>
-            <i class="fas fa-history"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Oct 21 2022 14:03:56 GMT+0800">
-                2022-10-21
-            </span>
-        </span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a class="read-more" href="/2022/05/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB/">Read more&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-    </ul>
-
-    <div class="home-paginator">
-        <div class="paginator">
-    
-        <a class="prev btn"
-           href="/page/5/"
-        >Prev</a>
-    
-
-    
-        <a class="next btn"
-           href="/page/7/"
-        >Next</a>
-    
-</div>
-
-    </div>
-</div>
-
-
-                
-            </div>
-
-        </div>
-
-        <div class="page-main-content-bottom">
-            
-<footer class="footer">
-    <div class="info-container">
-        <div class="copyright-info info-item">
-            &copy;
-            
-                <span>2021</span> -
-            
-            2023
-            
-                &nbsp;<i class="fas fa-heart icon-animate"></i>
-                &nbsp;<a href="/">peirsist</a>
-            
-        </div>
-        
-            <script async data-pjax
-                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
-                
-                
-                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
-                
-            </div>
-        
-        <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.5.1</a>
-        </div>
-        
-        
-    </div>
-</footer>
-
-        </div>
-    </div>
-
-    
-
-    <div class="right-bottom-side-tools">
-        <div class="side-tools-container">
-    <ul class="side-tools-list">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
+        <li>
+            <a href="/">HOME</a>
         </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-dark-light-toggle flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
         
-
-        
-            <li class="tools-item tool-scroll-to-top flex-center">
-                <i class="fas fa-arrow-up"></i>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
+        <li>
+            <a href="/archives">ARCHIVE</a>
         </li>
-    </ul>
-
-    <ul class="exposed-tools-list">
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
         </li>
         
     </ul>
-</div>
-
-    </div>
-
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="Search..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
     </div>
 </div>
-
-    
-
-</main>
-
-
-
-
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/dark-light-toggle.js"></script>
-
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/local-search.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/code-block.js"></script>
-
-
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/lazyload.js"></script>
-
-
-<div class="post-scripts pjax">
-    
+<div class='shelter'>
 </div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
 
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.5.1/source/js/libs/pjax.min.js"></script>
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-            // scrollTo: true,
-        });
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
 
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart();
-        });
+</script>
 
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd();
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
-            KEEP.refresh();
-        });
-    });
+<div class="home">
+	<div class="header-body-background">
+    <div class="header-body-background-content">
+        <span>
+            <img src="/image/logo.png" alt="Quiet">
+        </span>
+
+        <h2>首页这里应该有一句话，你想想写点什么？</h2>
+    </div>
+</div>
+	<div class="main">
+		
+			<div class="post-card" id="content">
+				
+					<div class="post-card-display">
+						<a href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2.LinearRegression/">
+							<h2 class="post-card-title">
+								线性回归.md
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/机器学习/">
+											机器学习
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-20
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/1.Intro_Math/">
+							<h2 class="post-card-title">
+								Intro_Math.md
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/机器学习/">
+											机器学习
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-20
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/20/test-md/">
+							<h2 class="post-card-title">
+								test.md
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="">
+											Joey
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-20
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/20/hello-world/">
+							<h2 class="post-card-title">
+								Hello World
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="">
+											Joey
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-20
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/18/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/%E5%AE%89%E8%A3%85Ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
+							<h2 class="post-card-title">
+								安装Ubuntu18.04双系统
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/安装软件/">
+											安装软件
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-18
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/05DL/CNN/">
+							<h2 class="post-card-title">
+								CNN
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/深度学习/">
+											深度学习
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-16
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/10/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/03RL/02RL%E4%BB%8B%E7%BB%8D/">
+							<h2 class="post-card-title">
+								RL介绍
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/强化学习/">
+											强化学习
+										</a>
+								</div>
+								<div class="info-data">
+									2022-10-15
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/07/21/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/00Tra_ML/02.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+							<h2 class="post-card-title">
+								线性回归
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/机器学习/">
+											机器学习
+										</a>
+								</div>
+								<div class="info-data">
+									2022-07-21
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/06/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+							<h2 class="post-card-title">
+								计算机组成原理
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/计算机组成原理/">
+											计算机组成原理
+										</a>
+								</div>
+								<div class="info-data">
+									2022-06-01
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+							<h2 class="post-card-title">
+								数据结构视频
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/数据结构/">
+											数据结构
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-23
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/21/%E7%BC%96%E7%A8%8B/1.%E4%BE%AF%E6%8D%B7C++%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+							<h2 class="post-card-title">
+								侯捷C++面向对象(上)
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/编程/">
+											编程
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-21
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/19/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%942-%E7%A0%94%E7%A9%B6%E7%94%9F%E8%A7%84%E5%88%92/">
+							<h2 class="post-card-title">
+								研究生规划
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/随笔与个人文集/">
+											随笔与个人文集
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-19
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/17/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E9%9A%8F%E7%AC%941-%E5%85%B3%E4%BA%8E%E8%81%8C%E4%B8%9A%E8%A7%84%E5%88%92/">
+							<h2 class="post-card-title">
+								职业规划
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/随笔与个人文集/">
+											随笔与个人文集
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-17
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/16/02%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6/VS%E6%96%B0%E5%BB%BAcpp%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E4%BD%9C%E8%80%85%E7%89%88%E6%9D%83%E7%AD%89%E4%BF%A1%E6%81%AF/">
+							<h2 class="post-card-title">
+								VS2019新建C自动添加作者版权等信息
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/安装软件/">
+											安装软件
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-16
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+					<div class="post-card-display">
+						<a href="/2022/05/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB/">
+							<h2 class="post-card-title">
+								URL和URI的区别
+							</h2>
+							
+								<img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="Quiet">
+							
+						</a>
+						<div class="post-card-meat">
+							<div class="meat-info">
+								<div class="info-auth">
+										<a href="categories/计算机网络/">
+											计算机网络
+										</a>
+								</div>
+								<div class="info-data">
+									2022-05-14
+								</div>
+							</div>
+							<div class="meat-type"></div>
+						</div>
+					</div>
+				
+			</div>
+		
+		
+	
+	</div>
+	<div class="change-page">
+		
+			<div class="p-page">
+				<a href="/page/5/">
+					<div class="previous">
+						上一页
+					</div>
+				</a>
+			</div>
+			
+				
+					<div class="n-page">
+						<a href="/page/7/">
+							<div class="next">
+								下一页
+							</div>
+						</a>
+					</div>
+					
+	</div>
+	
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
 </script>
 
 
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
 
-</body>
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
 </html>
+

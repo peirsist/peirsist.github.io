@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>网课-雅思听力-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+
+<meta name="keywords" content="雅思,">
+<meta name="description" content="">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+            
+            <li><a href="/tags/雅思">雅思</a></li>
+            
+            
+        </ul>
+        
+        <h1>网课-雅思听力</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                         <a href="../../categories/英语/" target="_blank" >英语</a>
+                    
+                </div>
+                <p>2023-01-11 18:54:41</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <p><a target="_blank" rel="noopener" href="https://shop107369946.youzan.com/wscvis/course/detail/3npn2yamivx5ezd?kdt_id=107177778&amp;pageType=KNOWLEDGE&amp;is_share=1&amp;is_silence_auth=1">耕伟学长的【20+8天雅思听力加速营】 (youzan.com)</a></p>
+<p><strong>背单词</strong></p>
+<p><strong><font color="red"><font size="5">眼看、嘴读、耳听、心记、手写</font></font></strong></p>
+<p>听力存在的问题</p>
+<blockquote>
+<ol type="1">
+<li>压根就听不懂，不认识的听不懂，认识的还听不到，相当于【听觉单词量】为 0</li>
+<li>听不懂导致找不到题目的位置</li>
+</ol>
+</blockquote>
+<p><strong>各个科目权衡下来，机考优势还是高于笔考优势</strong></p>
+<p>Group Notice</p>
+<p>各位备考雅思听力的小伙伴好（应该很多都是老朋友了），我是耕伟~</p>
+<p>欢迎加入【耕伟学长的 20+8 天雅思听力加速营】。</p>
+<p>听力营即将开始，我跟大家说一说安排以及一些注意事项~</p>
+<p>【一共有 10 个小点】，大家如果有任何问题可以我说完之后再一起提问哈~~</p>
+<p>1）关于【所用资料】</p>
+<p>这一项最为重要，所以放在第一点说。</p>
+<p>【听力营讲义】我会等下发给大家电子版。</p>
+<p>另外我们会用到《剑桥雅思真题集 15》、《剑桥雅思真题集 16》和《剑桥雅思真题集 17》作为练习资料，需要同学自己准备一下【纸质版书籍】（各大网上书店和线下书店都有卖）or 【电子版】（电子版涉及版权问题，我这边无法分享给大家哈）or 【新东方/小站雅思/同桌雅思的免费模考软件】</p>
+<p>（注意我们需要的是《剑桥雅思真题集》，不是《剑桥雅思真题精讲》，不要买错了哈）</p>
+<p>2）关于进度</p>
+<p>时间比较充裕的同学可以跟着我们【微信群的进度走】，每天的具体安排和【课程目录】中的【DayXX】一致。每天【学视频+消化方法论+记忆单词】的时间大概在【2.5 小时】左右。</p>
+<p>考试迫在眉睫的同学可以自己适当往前赶，目前【所有录播课程】的权限都已经解锁。</p>
+<p>听力营之所以叫【20+8 天的听力营】，是因为【前 20 天】是统一的进度，我们共同完成《剑雅 16》和《剑雅 15》，【后 8 天】是大家自行安排（建议考前进行），练习的是最新的那本《剑雅 17》。</p>
+<p>（如果【时间特别特别紧（＜10 天）】的同学，也可以在学习了 Day1-4 之后，直接进入《剑雅 17》。其他同学还是建议循序渐进）</p>
+<p>3）关于每天的任务</p>
+<p>有同学可能有疑问：课程都全部解锁了，这个营（群）用来干啥？</p>
+<p>答案是：我会在这个群内，给大家布置每一天的【作业】，并把当天大家犯的一些共性的错总结出来，用于大家巩固当日所学。</p>
+<p>这一项很重要，可以让大家对视频内容的吸收效果提高到 120%，所以建议大家至少【每晚 21:00 】来群里看一下我发的信息，以免错过重要内容！！！！！</p>
+<p>4）关于提交作业+答疑</p>
+<p>这个群我们主要用来【发通知】。</p>
+<p>【作业提交】部分，请大家加一下群里的【亮亮】（如下），他是我们听力营的小助手，之后每天的作业是【提交给他】，也由他【发送福利资料】给大家。</p>
+<p>除此之外的【所有问题】（【学术疑问】or【报班咨询】等），大家依然【找我】哈。简言之就是：【领资料】找亮亮，【学英语】找我~~</p>
+<p>（另外，我特意嘱咐亮亮【在收作业时需要比我还严格】，所以大家一定保质保量完成作业哦~）</p>
+<p>5）关于群内秩序</p>
+<p>大家有什么想要和大家讨论的雅思听力的问题可以在群里发言，但也请注意不要发【无关信息】和【商业广告】。也请大家不要水群，这样会影响其他同学查收每天我发送的【重点通知】。</p>
+<p>6）课程在哪里看？</p>
+<p>在大家【购买课程】的这个链接里就可以看了。</p>
+<p>【手机端】或【电脑端】的微信都可以观看，建议电脑端打开，大屏观看更舒适。</p>
+<p>7）关于【单词积累】</p>
+<p>我相信，营里的很多同学都在之前欠下了或多或少的【单词债】，并且还没有时间补，而雅思听力又是一个【单词量的测试】。所以，我在听力营中花大力气录制了【精听视频】，把每一篇文章的【字、词、句】都做了精讲、带着大家精听，所以请【单词基础薄弱】的同学千万要认真对待【精听视频】。</p>
+<p>雅思听力的单词需要经历两个层面的激活：<strong><font color="red">【背过、认识它】+【听力能听出来】</font></strong>，几乎所有同学都会在这两方面有问题，而听力营的【精听视频】可以帮助大家同时解决这两个问题，<strong>虽然每一个精听视频动辄 30-40min，但你能积累起的单词数量也是惊人的。一定要趁着这次机会把单词拿下。</strong> 我相信这也是大家在其他机构或者自学时无暇顾及的层面，因此我一定要拿出来重点说！！</p>
+<p>每一套题目的单词学习，我都为大家安排了三个步骤去逐步加深印象、最终拿下单词：<strong>【精听视频学习单词】+【自己背诵单词】+【从亮亮那里领测试题检测单词】</strong>。除开这三个步骤，也 <strong><font color="red">强烈建议大家根据自身情况安排单词的复习+检测。之前有同学听力从 6→8，就是严格做好了这些事情。</font></strong></p>
+<p>（另外，<strong>参加了【阅读营】的同学也请一定重视阅读营的【全文精读视频】，里面讲到的单词完全适用听力、且难度吊打听力，所以在阅读营付出的努力只要足够多，听力营也会轻松很多</strong> ）</p>
+<p>8）关于【做题方法论】</p>
+<p>关于方法论，我说两点我觉得最重要的：</p>
+<p>第 1 点：方法论是有用的，可以帮助【各种水平的同学】提升【至少 1 分】。如：5 分→6 分，7 分→8 分。大家通过【三套题左右】可以大概熟悉方法论。</p>
+<p>第 2 点：方法论没那么多，不要神化它。且【听力的方法论】少于【阅读的方法论】，这一点是好的，因为大家不需要花太多的时间去熟悉；但也是不好的，说明听力更靠大家的【听力硬实力】。所以请每一位入营的同学树立起这样一个信念：<strong><font color="red">【听力营】会让大家的备考路正确+快速，却没办法让大家【移形换影】，直接从【起点到终点】，这中间的辛苦，还是要付出的。</font></strong> 我会陪着大家一起跑~</p>
+<p>9）关于【是否影子跟读 or 全文听写 or 找空闲时间磨耳朵】</p>
+<p>不需要。不是因为无用，而是因为【性价比比较低】。</p>
+<p>具体的原因我会在 Day1 的课上解释。</p>
+<p>10）关于【语法基础】</p>
+<p>大家【不需要单独去学习语法】。</p>
+<p>听力营的【精听视频】我会讲到每句话的语法，能够解决大家的大部分语法疑惑。 但因为视频时长所限，一些语法点不能展开，大家这个时候可以结合【百度 or 知乎】去搜索对应语法点来补坑。</p>
+<p>如，我在视频里可能提到：<strong>这是一个【虚拟语气，是对将来的虚拟】，大家如果虚拟语气掌握得不好，就应该去【百度 or 知乎】搜索【虚拟语气使用方法】，补全整个小体系。</strong></p>
+<p>（另外，<strong><font color="red">参加了【阅读营】的同学也请一定重视阅读营的【全文精读视频】</font></strong>，里面讲到的语法完全适用听力、且难度吊打听力，所以在阅读营付出的努力只要足够多，听力营也会轻松很多）</p>
+<p>最后，关于鼓励</p>
+<p>请大家树立起一个认知：<strong><font color="red">雅思【听力备考】和阅读一样，是最需要踏踏实实、最艰辛的。</font></strong></p>
+<p>从今天起，请扫荡那些【不需要听懂文章也能做题】的幻想。这种想法也许会让大家【出于猎奇而快速开始学习】，却也一定会让我们在【真正做题时梦碎一地】。</p>
+<p>所以，请放下速成的想法，开始跬步的积累。虽然走得会很慢，但会很安心，也会让大家今后的英语学习更光明正大、更胸有成竹。</p>
+<p>同时，也请大家合理安排自己的时间，尤其是同时加入【阅读营】【写作营】【口语营】的同学（每个营的付出时间分别是【阅读写作 2.5 小时/天，口语 3.5 小时/天】如果现在预估自己的时间不够的同学，也可以【今天之内】私信告诉我，把你的【听力营】调整到下一期：2.12）</p>
+<h1 id="day1-2023112">Day1 2023/1/12</h1>
+<p>明天是【Day1】。</p>
+<p>具体任务如下：</p>
+<p>1）观看对应视频《Day1：雅思听力总览》</p>
+<p>2）限时 30min 做完《剑桥雅思 16-Test1》的 4 篇听力（一定要做，而且需要限时，且不能反复听，只能听一遍） 。目的是：了解目前分数</p>
+<p>⚫ 笔考同学：推荐使用纸质版本《剑桥雅思》（书后面有参考答案） ⚫ 机考同学：推荐使用免费的【新东方模考系统】（系统会自动评分）</p>
+<p><a target="_blank" rel="noopener" href="https://ieltscat.xdf.cn/mock/detail/read/5304361">新东方模考系统链接：</a></p>
+<p>同桌雅思也有付费系统，机考细节上的还原度会稍高一些： <a target="_blank" rel="noopener" href="https://ielts.itongzhuo.com/">同桌雅思模考系统</a></p>
+<p>（听力分数对照表如下）</p>
+<p><img src="https://ts1.cn.mm.bing.net/th/id/R-C.01f9ac79e8213d5932ab038fce285454?rik=VCeXWDqFd7sdwA&amp;riu=http%3a%2f%2fphotocdn.sohu.com%2f20150819%2fmp28265967_1439970881313_3.png&amp;ehk=VwQjNaT%2bZVMWMZwqusUpYy%2fxOxjP%2f4K5YtYKzBETmfc%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1"></p>
+<p>听力 4.0</p>
+<h1 id="day-2">Day 2</h1>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+
+    
+    <a href="/2023/01/11/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E7%89%A9%E9%9A%8F%E5%BF%83%E8%BD%AC%EF%BC%8C%E5%A2%83%E7%94%B1%E5%BF%83%E9%80%A0%EF%BC%8C%E7%83%A6%E6%81%BC%E7%9A%86%E7%94%B1%E5%BF%83%E7%94%9F/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>物随心转，境由心造，烦恼皆由心生</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+
