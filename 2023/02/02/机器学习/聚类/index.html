@@ -10,10 +10,12 @@
   
   <title>聚类</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="六大常见聚类方法_cainiao22222的博客-CSDN博客_聚类方法
-聚类算法：层次聚类、k-means 聚类、k-medoids 聚类、密度聚类_哔哩哔哩_bilibili
-make_blobs方法的使用_bingbangx的博客-CSDN博客_make_blobs
-Python层次聚类">
+  <meta name="description" content="层次聚类K-Means
+Visualizing K-Means Clustering (naftaliharris.com)
+
+k-means 初始值是影响很大的，所以要很多值取平均值，每一次的簇都不一样，对初始值很敏感，所以一开始要取很多的初始值，最终不断取平均值
+DBSCAN
+Visualizi">
   
   
   <meta property="og:title" content="聚类"/>
@@ -81,11 +83,27 @@ Python层次聚类">
     <div class="picture-container">
       
     </div>
-    <ol type="1">
+    <h1 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h1><h1 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">Visualizing K-Means Clustering (naftaliharris.com)</a></li>
+</ol>
+<p>k-means 初始值是影响很大的，所以要很多值取平均值，每一次的簇都不一样，对初始值很敏感，所以一开始要取很多的初始值，最终不断取平均值</p>
+<h1 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">Visualizing DBSCAN Clustering (naftaliharris.com)</a></li>
+</ol>
+<p>核心点：我们首先定义一个阈值 minpoints&#x3D;4 密度阈值; 以一个点为半径画圆圈，如果该圆圈里的点大于等于我们设置的阈值，那么这点就是核心点<br>半径大：会把某些离群点包进去<br>所以这个算法对于做异常分析和离群点的分析<br>密度阈值一般取得小一点，多次尝试</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/raychiu757374816/article/details/121056458">机器学习之聚类算法(一:聚类概述和相似度计算)_RayChiu_Labloy的博客-CSDN博客_聚类1,2型糖尿病相似度计算怎么选</a></p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cainiao22222/article/details/84861210">六大常见聚类方法_cainiao22222的博客-CSDN博客_聚类方法</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bg411Z77N/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">聚类算法：层次聚类、k-means 聚类、k-medoids 聚类、密度聚类_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bg411Z77N/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">聚类算法：层次聚类、k-means 聚类、k-medoids 聚类、密度聚类_哔哩哔哩_bilibili</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/bingbangx/article/details/107789538">make_blobs方法的使用_bingbangx的博客-CSDN博客_make_blobs</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Tan_HandSome/article/details/79371076">Python层次聚类sci.cluster.hierarchy.linkage函数详解_DiamondTan的博客-CSDN博客_hierarchy.linkage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15a411x7iW/?p=6&spm_id_from=pageDriver&vd_source=83831fc0970a6c8704479f7cfc679937">3-KMEANS迭代可视化展示_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=birch%E8%81%9A%E7%B1%BB&form=ANNTH1&refig=11549b6bb1204777b8c44a2e5ad449dc&sp=7&qs=LT&pq=birch&sk=CT1MQT3LT2&sc=10-5&cvid=11549b6bb1204777b8c44a2e5ad449dc">birch聚类 - 搜索 (bing.com)</a></li>
+</ol>
+<hr>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/277554784">唐宇迪确实是“深度学习领域一线实战专家”吗？ 他的课程值得报名吗？ - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/532362732">B站搜机器学习为什么全是唐宇迪的？ - 知乎 (zhihu.com)</a></li>
 </ol>
 
 
