@@ -10,14 +10,9 @@
   
   <title>Python</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="NumPy
-
-NumPy中的维度(dimension)、轴(axis)、秩(rank)的含义 - 知乎 (zhihu.com)
-NumPy 介绍 | NumPy 中文
-numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili
-
-
-pass 不做任何事情，一般用">
+  <meta name="description" content="matplotlib解决使用 plt.savefig 保存图片时一片空白
+原因
+其实产生这个现象的原因很简单：在 plt.show() 后调用了 plt.savefig() ，在 plt.show() 后实际上已经创建了一个新的空白的图片（坐标轴），这时候你再 plt.savefig() 就会保存这">
   
   
   <meta property="og:title" content="Python"/>
@@ -94,35 +89,43 @@ pass 不做任何事情，一般用">
     <div class="picture-container">
       
     </div>
-    <h1 id="numpy">NumPy</h1>
-<ol type="1">
+    <h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p>解决使用 plt.savefig 保存图片时一片空白</p>
+<p>原因</p>
+<p>其实产生这个现象的原因很简单：在 <code>plt.show()</code> 后调用了 <code>plt.savefig()</code> ，在 <code>plt.show()</code> 后实际上已经创建了一个新的空白的图片（坐标轴），这时候你再 <code>plt.savefig()</code> 就会保存这个新生成的空白图片。</p>
+<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38052384/article/details/103161009">解决：TypeError: ‘(slice(None, None, None), 1)’ is an invalid key_追枫萨的博客-CSDN博客_typeerror: ‘(2034, slice(none, none, none))’ is an</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6d1677cdacbb">pandas的DataFrame对象抽取“整列”或者“整行”数据 - 简书 (jianshu.com)</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/AwesomeP/article/details/124975721">【数据处理】Pandas读取CSV文件示例及常用方法（入门）_宛如近在咫尺的博客-CSDN博客</a></p>
+<h1 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/51200424">NumPy中的维度(dimension)、轴(axis)、秩(rank)的含义 - 知乎 (zhihu.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.numpy.org.cn/user/setting-up.html#%E4%BB%80%E4%B9%88%E6%98%AF-numpy">NumPy 介绍 | NumPy 中文</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&amp;vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
 <li></li>
 </ol>
 <p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
-<p>捕捉异常可以使用 try/except 语句。</p>
-<p>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
+<p>捕捉异常可以使用 try&#x2F;except 语句。</p>
+<p>try&#x2F;except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
 <p>如果你不想在异常发生时结束你的程序，只需在 try 里捕获它。</p>
-<ol type="1">
+<ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46653437/article/details/111777116">os.path.expanduser(path)使用举例_敲代码的小风的博客-CSDN博客_os.path.expanduser</a></li>
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/20201227200321288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NjUzNDM3,size_16,color_FFFFFF,t_70"></p>
-<ol start="2" type="1">
+<ol start="2">
 <li><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-exceptions.html">Python 异常处理 | 菜鸟教程 (runoob.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/PY0312/article/details/88956795">Python 之 lambda 函数完整详解 &amp; 巧妙运用_Nick Peng的博客-CSDN博客_lambda函数python</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1w44y1W7Kg/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Python 命令行参数解析 argparse_哔哩哔哩_bilibili</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mv411G7xV/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【argparse】教学,解析命令行，很实用的python模块_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1w44y1W7Kg/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">Python 命令行参数解析 argparse_哔哩哔哩_bilibili</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mv411G7xV/?spm_id_from=333.788.recommend_more_video.-1&vd_source=83831fc0970a6c8704479f7cfc679937">【argparse】教学,解析命令行，很实用的python模块_哔哩哔哩_bilibili</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/still-smile/p/11636958.html">parse_args（argsparse）：python和命令行之间的交互 - Smah - 博客园 (cnblogs.com)</a></li>
 <li></li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python  </span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> os, sys  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 创建的目录  </span></span><br><span class="line">path = <span class="string">&quot;/tmp/home/monthly/daily&quot;</span>  </span><br><span class="line">  </span><br><span class="line">os.makedirs( path, 0755 );  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;路径被创建&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="assert-用法">assert 用法</h2>
-<p>使用 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=assert&amp;spm=1001.2101.3001.7020">assert</a> 是学习 python 的一个非常好的习惯，在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时崩溃，不如在出现错误条件时就崩溃。</p>
+
+
+<h2 id="assert-用法"><a href="#assert-用法" class="headerlink" title="assert 用法"></a>assert 用法</h2><p>使用 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=assert&spm=1001.2101.3001.7020">assert</a> 是学习 python 的一个非常好的习惯，在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时崩溃，不如在出现错误条件时就崩溃。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span>  <span class="title function_">zero</span>(<span class="params">s</span>):</span><br><span class="line">    a = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span>   <span class="comment">#这句的意思：如果a确实大于0，程序正常往下运行</span></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">zero(<span class="string">&quot;-2&quot;</span>)  <span class="comment">#但是如果a是小于0的，程序会抛出AssertionError错误，报错为参数内容“a超出范围”</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">6</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    zero(<span class="string">&quot;-2&quot;</span>)</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">3</span>, <span class="keyword">in</span> zero</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span></span><br><span class="line">AssertionError: a超出范围</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">True</span>     <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">False</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">1</span>    <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>, <span class="string">&#x27;1 不等于 2&#x27;</span>  </span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError: <span class="number">1</span> 不等于 <span class="number">2</span>  </span><br></pre></td></tr></table></figure>
+
+
 
 
   </article>

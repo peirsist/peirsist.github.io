@@ -2323,35 +2323,43 @@ blockquote {
   <entry>
     <title>Python</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Python/</url>
-    <content><![CDATA[<h1 id="numpy">NumPy</h1>
-<ol type="1">
+    <content><![CDATA[<h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p>解决使用 plt.savefig 保存图片时一片空白</p>
+<p>原因</p>
+<p>其实产生这个现象的原因很简单：在 <code>plt.show()</code> 后调用了 <code>plt.savefig()</code> ，在 <code>plt.show()</code> 后实际上已经创建了一个新的空白的图片（坐标轴），这时候你再 <code>plt.savefig()</code> 就会保存这个新生成的空白图片。</p>
+<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p><a href="https://blog.csdn.net/m0_38052384/article/details/103161009">解决：TypeError: ‘(slice(None, None, None), 1)’ is an invalid key_追枫萨的博客-CSDN博客_typeerror: ‘(2034, slice(none, none, none))’ is an</a><br><a href="https://www.jianshu.com/p/6d1677cdacbb">pandas的DataFrame对象抽取“整列”或者“整行”数据 - 简书 (jianshu.com)</a><br><a href="https://blog.csdn.net/AwesomeP/article/details/124975721">【数据处理】Pandas读取CSV文件示例及常用方法（入门）_宛如近在咫尺的博客-CSDN博客</a></p>
+<h1 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/51200424">NumPy中的维度(dimension)、轴(axis)、秩(rank)的含义 - 知乎 (zhihu.com)</a></li>
 <li><a href="https://www.numpy.org.cn/user/setting-up.html#%E4%BB%80%E4%B9%88%E6%98%AF-numpy">NumPy 介绍 | NumPy 中文</a></li>
-<li><a href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&amp;vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
 <li></li>
 </ol>
 <p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
-<p>捕捉异常可以使用 try/except 语句。</p>
-<p>try/except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
+<p>捕捉异常可以使用 try&#x2F;except 语句。</p>
+<p>try&#x2F;except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
 <p>如果你不想在异常发生时结束你的程序，只需在 try 里捕获它。</p>
-<ol type="1">
+<ol>
 <li><a href="https://blog.csdn.net/m0_46653437/article/details/111777116">os.path.expanduser(path)使用举例_敲代码的小风的博客-CSDN博客_os.path.expanduser</a></li>
 </ol>
 <p><img src="https://img-blog.csdnimg.cn/20201227200321288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ2NjUzNDM3,size_16,color_FFFFFF,t_70"></p>
-<ol start="2" type="1">
+<ol start="2">
 <li><a href="https://www.runoob.com/python/python-exceptions.html">Python 异常处理 | 菜鸟教程 (runoob.com)</a></li>
 <li><a href="https://blog.csdn.net/PY0312/article/details/88956795">Python 之 lambda 函数完整详解 &amp; 巧妙运用_Nick Peng的博客-CSDN博客_lambda函数python</a></li>
-<li><a href="https://www.bilibili.com/video/BV1w44y1W7Kg/?spm_id_from=333.337.search-card.all.click&amp;vd_source=83831fc0970a6c8704479f7cfc679937">Python 命令行参数解析 argparse_哔哩哔哩_bilibili</a></li>
-<li><a href="https://www.bilibili.com/video/BV1mv411G7xV/?spm_id_from=333.788.recommend_more_video.-1&amp;vd_source=83831fc0970a6c8704479f7cfc679937">【argparse】教学,解析命令行，很实用的python模块_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1w44y1W7Kg/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">Python 命令行参数解析 argparse_哔哩哔哩_bilibili</a></li>
+<li><a href="https://www.bilibili.com/video/BV1mv411G7xV/?spm_id_from=333.788.recommend_more_video.-1&vd_source=83831fc0970a6c8704479f7cfc679937">【argparse】教学,解析命令行，很实用的python模块_哔哩哔哩_bilibili</a></li>
 <li><a href="https://www.cnblogs.com/still-smile/p/11636958.html">parse_args（argsparse）：python和命令行之间的交互 - Smah - 博客园 (cnblogs.com)</a></li>
 <li></li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python  </span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">import</span> os, sys  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 创建的目录  </span></span><br><span class="line">path = <span class="string">&quot;/tmp/home/monthly/daily&quot;</span>  </span><br><span class="line">  </span><br><span class="line">os.makedirs( path, 0755 );  </span><br><span class="line">  </span><br><span class="line"><span class="built_in">print</span> <span class="string">&quot;路径被创建&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="assert-用法">assert 用法</h2>
-<p>使用 <a href="https://so.csdn.net/so/search?q=assert&amp;spm=1001.2101.3001.7020">assert</a> 是学习 python 的一个非常好的习惯，在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时崩溃，不如在出现错误条件时就崩溃。</p>
+
+
+<h2 id="assert-用法"><a href="#assert-用法" class="headerlink" title="assert 用法"></a>assert 用法</h2><p>使用 <a href="https://so.csdn.net/so/search?q=assert&spm=1001.2101.3001.7020">assert</a> 是学习 python 的一个非常好的习惯，在没完善一个程序之前，我们不知道程序在哪里会出错，与其让它在运行时崩溃，不如在出现错误条件时就崩溃。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span>  <span class="title function_">zero</span>(<span class="params">s</span>):</span><br><span class="line">    a = <span class="built_in">int</span>(s)</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span>   <span class="comment">#这句的意思：如果a确实大于0，程序正常往下运行</span></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">zero(<span class="string">&quot;-2&quot;</span>)  <span class="comment">#但是如果a是小于0的，程序会抛出AssertionError错误，报错为参数内容“a超出范围”</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">6</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    zero(<span class="string">&quot;-2&quot;</span>)</span><br><span class="line">  File <span class="string">&quot;e:\Python_list\class_student\temp.py&quot;</span>, line <span class="number">3</span>, <span class="keyword">in</span> zero</span><br><span class="line">    <span class="keyword">assert</span> a &gt; <span class="number">0</span>,<span class="string">&quot;a超出范围&quot;</span></span><br><span class="line">AssertionError: a超出范围</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">True</span>     <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="literal">False</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">1</span>    <span class="comment"># 条件为 true 正常执行  </span></span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>    <span class="comment"># 条件为 false 触发异常  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError  </span><br><span class="line">  </span><br><span class="line">&gt;&gt;&gt; <span class="keyword">assert</span> <span class="number">1</span>==<span class="number">2</span>, <span class="string">&#x27;1 不等于 2&#x27;</span>  </span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">AssertionError: <span class="number">1</span> 不等于 <span class="number">2</span>  </span><br></pre></td></tr></table></figure>
+
+
 ]]></content>
       <categories>
         <category>编程</category>
@@ -5953,6 +5961,7 @@ blockquote {
 <li><a href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">Visualizing DBSCAN Clustering (naftaliharris.com)</a></li>
 </ol>
 <p>核心点：我们首先定义一个阈值 minpoints&#x3D;4 密度阈值; 以一个点为半径画圆圈，如果该圆圈里的点大于等于我们设置的阈值，那么这点就是核心点<br>半径大：会把某些离群点包进去<br>所以这个算法对于做异常分析和离群点的分析<br>密度阈值一般取得小一点，多次尝试</p>
+<p><a href="https://cloud.tencent.com/developer/article/1170578">【无监督学习】DBSCAN聚类算法原理介绍，以及代码实现 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
 <p><a href="https://blog.csdn.net/raychiu757374816/article/details/121056458">机器学习之聚类算法(一:聚类概述和相似度计算)_RayChiu_Labloy的博客-CSDN博客_聚类1,2型糖尿病相似度计算怎么选</a></p>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ol>
 <li><a href="https://blog.csdn.net/cainiao22222/article/details/84861210">六大常见聚类方法_cainiao22222的博客-CSDN博客_聚类方法</a></li>
@@ -6009,5 +6018,21 @@ blockquote {
       <categories>
         <category>随笔与个人文集</category>
       </categories>
+  </entry>
+  <entry>
+    <title>恋爱</title>
+    <url>/2023/02/07/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E6%81%8B%E7%88%B1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7ce2f9db1685d757e0f63016352f161dd39aa2132dce1ae4fef54fab3af2d127">9b8320e8f1c357e7a77f8f7a6a1305636d06204a86a518e3d6067f57136d1c7ffb23727149b303565acc51cd8cd2efa3c8546d23722d1c7cae70f9330c9be2998a8eb6d3a0c90c612b3b2d45038afec5277471e242132d769f2377ede263692af290ec9d6e0f36df04b7ca2c52246e252b7435f560103c895638189f3556a43db6d98dbb8097409c36d5f06d80b958a331310cda6665172a1a685a609df0e90c14d7f4c6e9f9c0cea3903bcac30173fa3c70e38a492f6ec210769aca5fc0df1025d9aeecf280e84f000aa051345c227d01a4b3234cdda901f3f295dfed8b527abaf077940b152a2591ad31ac171fc551b32f97545acdee4917a05ba27a07e4c6cbca67e7730527b12ab021837cbd759e9dba381aa0afc723f18864a114dfc185ca28f0fc47ebbab3441671fa884fb9ff3851753e44ae765ec0ba7a7d3a8b0137fe42ef91fdb30acc758fd58802464afd093978450e9a39bbf662b95610cb30c24e9871ff64f35303637629f423cccc62269145015a55199e15e7947ebd34c21537ce55f6a732bcbe7c4fc1351856665fb751e8427de9d42ee2c84e6f0f2d44cde47ffa4b41cc9170cb663fd06d13f551e126fbfe35703a9b1e780d345d7fc3a50a6185f6ae4445602d0fdf1d31fe2ce45b0cc2e7a93caa2d04623fa3d0d3e1ce048c1df13561faad5ad26fb5577be9296062772724486a1878febe9a7e5eee3cc1ff5fa92070beb141df570d2a9c9a6556c805909f827f9f9758fb69f490154cbddc899a347fc5518e1c413a1997d5749a13de8b23bdcaeddcbfffb75b4509dad5ed7ae2b9f30328dee63fe310e0284e1eaf6bb71caa8cec1a299afa9370d634254064a73bdd0fb2b10e22f20fba05804601bc7c2eff6434ef458ea44bab92765f42a8c046c66f9b31a79c9674f10b37244b06e97780752aee35623cb9a7f8d651a948c6d5348b214cf31ae0c27ab34c68fa9a001becb358ff7d32d544487e318d3fd6310a561466e7f325899ae57b565cc81429267629f0becea29caf5bc112140334edc2b30caf36ef20414361c756959c2ecb2db7ef99fa302e268e320efe00079da6146c6c92779d89f79a4a68ad035dce55f9d96dbbcb4b661a5b193abc4c05ce25129b8cbb232e0d4ed5923fa380c38ad26983e922b5d55c15774397ee6598d8ed42c0cc1cb7d50f689eac0a195421c903208cc6273bb5bfda66b96128454102655df81451194058f2d1957ba9531eb128a3ffdc66e14bbb2bd95361ad0b66ac5d1f4d00bbc64fa846dc887b84240dc0b0eb0c3c8f29727f8e22c69de3aca9987088e123667987cb6a18031a8cb4cb494c1c8cb3bafa059df894e2cb2c0e039de83f0ebdb1153eeb692cd2074ffb51c1a1c49c0b50da8ef25efe8f3c8b4b8dc0b9833f8e2e00e74fc07e6404e0df36fe5491bf3037f91ebad402e77bd23dc67ca507a4d33e0a151bd194301516b31ed904e02dca86616330256dfa7d7dda8d7d5c66673a34d7cd99d084b8045af0870ad47f8129fae1f32e46ed075a5c4cb3d7340e123f9fb7fe577076378ebfc4bb33d503531917a7d2e2d71f4e2b9dadc6f845a15601fdec5d85c75f67fc4e21f77b4cf8d5832a5203ebd7fa538da40c9c090d3591fb758c720c937f13987a8c21ebdb168634f95e24da64d19dc638bb1e3214f5aa0b8e2a6b0f99181d8dff7fc0e005b03d445c110751c159158e49dd637bb1e3b69b0df6db7b4160e56042003f8351705f0060a42f23d4430f31a3acd56a496b267c188d00cea5c1babcae7de1416d8e96df274b3f9eb747d72cedfa4531547b3805a33714b2138c2843419ba879634d5fd030445a55dc1f31f20ebc4c30345969ab0db5cb03f3d7aa9919c56db66c6bd373d8be96b29f18d08e7957da708288d6c0e3d591c59882c71d9f837fd725b1d524305236501d05578aa3e852c1da9c770b356a2aa1ffcd865c54a2b5a493a9999cd9495f7c25ac980a97a1df0882a280a13fda537d41a1f94e1aebd7e026ff2a6bb7c5da274f0d573b1817047755a6cf1a376eeb01b6a5684ceeb69d9060970d28f2c8ea5f660ac2dd39e9187cdca60ef1e56c3421118f3a23fd70e3efcff8a737402fbf9cfa722db432ddff06d0b9524258689034f49f5d80dfee61e79a0017a314ab75f91ee1ac9fd84e79f8e2b97f4f69b09f9a82c68cc6b5f3e3e05a2c9a37bb1d5bb6cff56d59f05e9981298af5035759ebac9aa1f32737e1be03d2e461727488db00a29700be00d260e982fcef848c9030c381638912b49e37be2d5a397fca02fa13f4a4dc3dcd961b39ad6e020772a9665de42946afca86c5d751dca28b59e54a8540158c7650b8605106173db441b97ad861456c7ae0aaf02bc29663f96fcf7bc1732d96e48b78f4d56c856adcab88cffd49a58447be4b7454e719e8ffc1399c36fcde4dd00fe33eb847613ebbce931f39a173d06302c219fe1b0a929c29610088952221a95f4d4e127aa9ed95412f349a1028e8af3cfedc8ffb7ac77d86c461a0f29df7ad454a3a1827247a955ad355c651e8529490f9e235fd276f2fb474c30babe8fd387ecefc9740b7318c0528d9ae5a963537cf2310610a58995b727e28476917c177aa53368562aaec3236ab6ffd94243eec271937448c803c0e0c05f69684fadf9b3f0028bf91a295dfee88fde87be232dd18bcd343b4d2409c7c3fec0f2a2c6eaff10565d1823902fba750a0bb62b0b5297fadd84c53a23c58c11233b9e964df5bbdea45fc4388a46fde34a753d5508c9663a9b0b6046f0fa8e70c7a6fa0bcd9fc44de651aa8dbe9bd55a71007c23a6de84f7c62cbdb8a0503d70b9aad076dd3959a81694a00851b9c073f589b7da829cd4035b193c650528114badc9d43d8c1c309cc3e0c12752e0085085a1e5e6b90e3950a97cce216a430d1f2aa3fcd743c19c3271fc0645d7f5131dace6d64134876b65ae3e72c58f9470f09b64515295a17594e4dd361e46b60919740fb67b5d54ad56ecb1cd3cbdd2d075a0237826ad45443769cf752620fdbfe344a34424fb8d70f662bda5996d6fa0e30d3c9fb894068b8148158360ba516b14d1f1c5966765255fca8ebc68bc22bbf513450cdb7ea9a9605a3550367c90da5c2478cca9fca76212b82916af1c66fbe82fa54f695e5e3372944064156d3a0b669235fe40ddde8b2388fa897b162454ef7495d2fdd7edecf9ecbf08bd33b7782a9d6dbfd926d7969d2c3ffd9461aecd6ec9007b35c3c5b71</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-shrink">
+      <input class="hbe hbe-input-field hbe-input-field-shrink" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-shrink" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-shrink">您好, 这里需要密码.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
 </search>
