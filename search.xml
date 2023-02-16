@@ -251,30 +251,85 @@
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
     <content><![CDATA[<ol>
-<li><em><strong>2023-01-14，周六，腊月二十三</strong></em>，下雪了，什么也没干</li>
-<li><em><strong>2023-01-15，周日，腊月二十四</strong></em>，聊天</li>
-<li><em><strong>2023-01-16，周一，腊月二十五</strong></em>，聊天天</li>
-<li><em><strong>2023-01-17，周二，腊月二十六</strong></em>，买衣服</li>
-<li><em><strong>2023-01-18，周三，腊月二十七</strong></em>，闹矛盾，打电话</li>
-<li><em><strong>2023-01-19，周四，腊月二十八</strong></em>，聊天</li>
-<li><em><strong>2023-01-20，周五，腊月二十九</strong></em>，因为 pyq 问题闹矛盾</li>
-<li><em><strong>2023-01-21，周六，除夕</strong></em>，聊天</li>
-<li><em><strong>2023-01-22，周日，初一</strong></em>，聊天</li>
-<li><em><strong>2023-01-23，周一，初二</strong></em>，在家什么也没干</li>
-<li><em><strong>2023-01-24，周二，初三</strong></em>，舅舅家</li>
-<li><em><strong>2023-01-25，周三，初四</strong></em>，beijing</li>
-<li><em><strong>2023-01-26，周四，初五</strong></em>，beijing</li>
-<li><em><strong>2023-01-27，周五，初六</strong></em>，beijing</li>
-<li><em><strong>2023-01-28，周六，初七</strong></em>，</li>
-<li><em><strong>2023-01-29，周日，初八</strong></em>，单词 chapter1</li>
-<li><em><strong>2023-01-30，周一，初九</strong></em>，单词 chapter1</li>
-<li><em><strong>2023-02-31，周二，初十</strong></em>，单词 chapter2</li>
-<li><em><strong>2023-02-01，周三，十一</strong></em>，单词 chapter3</li>
-<li><em><strong>2023-02-02，周四，十二</strong></em>，单词 chapter4 太空探索，聚类算法</li>
-<li><em><strong>2023-02-03，周五，十三</strong></em>，上午聚类算法，论文看好，下午想好方案</li>
-<li><em><strong>2023-02-04，周六，十四</strong></em>，上午没干，下午聚类</li>
-<li><em><strong>2023-02-05，周日，十五</strong></em>，上午单词 chapter6，下午包饺子皮</li>
-<li><em><strong>2023-02-06，周一，十六</strong></em>，上午单词 chapter7，下午准备组会</li>
+<li>有没有更好的聚类方法，为什么选择这一个<a href="https://scikit-learn.org/stable/modules/clustering.html#clustering">2.3. Clustering — scikit-learn 1.2.1 documentation</a></li>
+<li>换成这种方法那种性能会有提升，规则复制会影响哪些性能</li>
+</ol>
+<ul>
+<li>消除规则复制可以减少内存并实现快速的更新，继续阅读论文，思考有没有其他消除规则复制的方法</li>
+</ul>
+<ol start="3">
+<li><p>如果延用别人的思路，那么性能上是否有提高，创新的价值和意义，提升创新性的故事</p>
+</li>
+<li><p><em><strong>2023-01-14，周六，腊月二十三</strong></em>，下雪了，什么也没干</p>
+</li>
+<li><p><em><strong>2023-01-15，周日，腊月二十四</strong></em>，聊天</p>
+</li>
+<li><p><em><strong>2023-01-16，周一，腊月二十五</strong></em>，聊天天</p>
+</li>
+<li><p><em><strong>2023-01-17，周二，腊月二十六</strong></em>，买衣服</p>
+</li>
+<li><p><em><strong>2023-01-18，周三，腊月二十七</strong></em>，闹矛盾，打电话</p>
+</li>
+<li><p><em><strong>2023-01-19，周四，腊月二十八</strong></em>，聊天</p>
+</li>
+<li><p><em><strong>2023-01-20，周五，腊月二十九</strong></em>，因为 pyq 问题闹矛盾</p>
+</li>
+<li><p><em><strong>2023-01-21，周六，除夕</strong></em>，聊天</p>
+</li>
+<li><p><em><strong>2023-01-22，周日，初一</strong></em>，聊天</p>
+</li>
+<li><p><em><strong>2023-01-23，周一，初二</strong></em>，在家什么也没干</p>
+</li>
+<li><p><em><strong>2023-01-24，周二，初三</strong></em>，舅舅家</p>
+</li>
+<li><p><em><strong>2023-01-25，周三，初四</strong></em>，beijing</p>
+</li>
+<li><p><em><strong>2023-01-26，周四，初五</strong></em>，beijing</p>
+</li>
+<li><p><em><strong>2023-01-27，周五，初六</strong></em>，beijing</p>
+</li>
+<li><p><em><strong>2023-01-28，周六，初七</strong></em>，</p>
+</li>
+<li><p><em><strong>2023-01-29，周日，初八</strong></em>，单词 chapter1</p>
+</li>
+<li><p><em><strong>2023-01-30，周一，初九</strong></em>，单词 chapter1</p>
+</li>
+<li><p><em><strong>2023-02-31，周二，初十</strong></em>，单词 chapter2</p>
+</li>
+<li><p><em><strong>2023-02-01，周三，十一</strong></em>，单词 chapter3</p>
+</li>
+<li><p><em><strong>2023-02-02，周四，十二</strong></em>，单词 chapter4 太空探索，聚类算法</p>
+</li>
+<li><p><em><strong>2023-02-03，周五，十三</strong></em>，上午聚类算法，论文看好，下午想好方案</p>
+</li>
+<li><p><em><strong>2023-02-04，周六，十四</strong></em>，上午没干，下午聚类</p>
+</li>
+<li><p><em><strong>2023-02-05，周日，十五</strong></em>，上午单词 chapter6，下午包饺子皮</p>
+</li>
+<li><p><em><strong>2023-02-06，周一，十六</strong></em>，上午单词 chapter7，下午准备组会</p>
+</li>
+<li><p><em><strong>2023-02-07，周二，十七</strong></em>，上午准备组会，然后不开会了</p>
+</li>
+<li><p><em><strong>2023-02-08，周三，十八</strong></em>，临开学前一天，什么也没有干，没有学习，晚上出去吃饭</p>
+</li>
+<li><p><em><strong>2023-02-09，周四，十九</strong></em>，去学校当天，中午才到，下午收拾东西，晚上出去吃饭</p>
+</li>
+<li><p><em><strong>2023-02-10，周五，二十</strong></em>，上午去实验室和师兄讨论他的方案</p>
+</li>
+<li><p><em><strong>2023-02-11，周六，二一</strong></em>，见面</p>
+</li>
+<li><p><em><strong>2023-02-12，周日，二二</strong></em>，看聚类的代码</p>
+</li>
+<li><p><em><strong>2023-02-13，周一，二三</strong></em>，看pext，然后下午打球，晚上讨论读不读博</p>
+</li>
+<li><p><em><strong>2023-02-14，周二，二四</strong></em>，上午看书，找论文，看论文</p>
+</li>
+<li><p><em><strong>2023-02-15，周三，二五</strong></em>，找论文，看论文</p>
+</li>
+<li><p><em><strong>2023-02-16，周四，二六</strong></em>，上午开组会</p>
+</li>
+<li><p><em><strong>2023-02-17，周五，二七</strong></em>，</p>
+</li>
 </ol>
 <h1 id="1-2023-01-13"><a href="#1-2023-01-13" class="headerlink" title="1 2023-01-13"></a>1 2023-01-13</h1><h2 id="1-1-comments"><a href="#1-1-comments" class="headerlink" title="1.1 comments"></a>1.1 comments</h2><ol>
 <li>思考过程要有正确科学的推导，看懂一篇论文，论文的本质是什么，解决什么问题，能不能用一个新的技术去解决</li>
@@ -2323,16 +2378,64 @@ blockquote {
   <entry>
     <title>Python</title>
     <url>/2022/10/21/%E7%BC%96%E7%A8%8B/Python/</url>
-    <content><![CDATA[<h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p>解决使用 plt.savefig 保存图片时一片空白</p>
+    <content><![CDATA[<ol>
+<li><a href="https://blog.csdn.net/dogyii/article/details/122824087">python &amp;与and运算符_python中的and符号_dogyii的博客-CSDN博客</a></li>
+</ol>
+<h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p>解决使用 plt.savefig 保存图片时一片空白</p>
 <p>原因</p>
 <p>其实产生这个现象的原因很简单：在 <code>plt.show()</code> 后调用了 <code>plt.savefig()</code> ，在 <code>plt.show()</code> 后实际上已经创建了一个新的空白的图片（坐标轴），这时候你再 <code>plt.savefig()</code> 就会保存这个新生成的空白图片。</p>
-<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><p><a href="https://blog.csdn.net/m0_38052384/article/details/103161009">解决：TypeError: ‘(slice(None, None, None), 1)’ is an invalid key_追枫萨的博客-CSDN博客_typeerror: ‘(2034, slice(none, none, none))’ is an</a><br><a href="https://www.jianshu.com/p/6d1677cdacbb">pandas的DataFrame对象抽取“整列”或者“整行”数据 - 简书 (jianshu.com)</a><br><a href="https://blog.csdn.net/AwesomeP/article/details/124975721">【数据处理】Pandas读取CSV文件示例及常用方法（入门）_宛如近在咫尺的博客-CSDN博客</a></p>
+<h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><ol>
+<li><a href="https://blog.csdn.net/m0_38052384/article/details/103161009">解决：TypeError: ‘(slice(None, None, None), 1)’ is an invalid key</a></li>
+<li><a href="https://www.jianshu.com/p/6d1677cdacbb">pandas的DataFrame对象抽取“整列”或者“整行”数据</a></li>
+<li><a href="https://blog.csdn.net/AwesomeP/article/details/124975721">【数据处理】Pandas读取CSV文件示例及常用方法（入门）</a></li>
+<li><a href="https://blog.csdn.net/weixin_44346972/article/details/120308622">python pandas查找DataFrame中指定数据的索引</a></li>
+<li><a href="https://blog.csdn.net/fantine_deng/article/details/105130904">Pandas中DataFrame索引、选取数据_dataframe index</a></li>
+<li></li>
+</ol>
 <h1 id="NumPy"><a href="#NumPy" class="headerlink" title="NumPy"></a>NumPy</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/51200424">NumPy中的维度(dimension)、轴(axis)、秩(rank)的含义 - 知乎 (zhihu.com)</a></li>
 <li><a href="https://www.numpy.org.cn/user/setting-up.html#%E4%BB%80%E4%B9%88%E6%98%AF-numpy">NumPy 介绍 | NumPy 中文</a></li>
 <li><a href="https://www.bilibili.com/video/BV1N34y1t7UR/?spm_id_from=333.788&vd_source=83831fc0970a6c8704479f7cfc679937">numpy教程，Python数据分析，数组与对象(下)_哔哩哔哩_bilibili</a></li>
 <li></li>
 </ol>
+<h2 id="numpy之zeros-like"><a href="#numpy之zeros-like" class="headerlink" title="numpy之zeros_like()"></a>numpy之zeros_like()</h2><blockquote>
+<p>输入为矩阵 x<br>输出为形状和 x 一致的矩阵，其元素全部为 0<br><a href="https://blog.csdn.net/yangwangnndd/article/details/89471447">numpy之zeros_like()</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 给每一个cluster分配一个颜色</span></span><br><span class="line">colors = [plt.cm.Spectral (each) <span class="keyword">for</span> each <span class="keyword">in</span> np.linspace (<span class="number">0</span>, <span class="number">1</span>, <span class="built_in">len</span> (unique_labels))]</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>plt. cm. Spectral () 给不同 label 标记不同的颜色<ol>
+<li><a href="https://blog.csdn.net/robin_Xu_shuai/article/details/79178857">关于plt.cm.Spectral</a></li>
+<li><a href="https://blog.csdn.net/weixin_43289135/article/details/104610405#:~:text=plt.cm.Spectral%E7%9A%84%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B%EF%BC%9A%20%E5%AE%9E%E9%AA%8C%EF%BC%9A%E5%88%86%E5%88%AB%E7%BB%996%E4%B8%AA%E5%85%83%E7%B4%A0%E5%88%86%E9%85%8D%E9%A2%9C%E8%89%B2%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%AC%AC1%EF%BC%8C2%EF%BC%8C5%EF%BC%8C6%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E9%A2%9C%E8%89%B2%E4%B8%80%E8%87%B4%EF%BC%8C%E7%AC%AC2%EF%BC%8C3%E4%B8%AA%E5%85%83%E7%B4%A0%E7%9A%84%E9%A2%9C%E8%89%B2%E4%B8%80%E8%87%B4%E3%80%82%20plt.cm.Spectral%20%28%5B%201%2C,1%2C%200%2C%200%2C%201%2C%201%20%5D%29">【python】plt.cm.Spectral，颜色分配</a></li>
+<li></li>
+</ol>
+</li>
+<li>np. linspace (0, 1, len (unique_labels))</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>)</span><br><span class="line">array([ <span class="number">2.</span>  ,  <span class="number">2.25</span>,  <span class="number">2.5</span> ,  <span class="number">2.75</span>,  <span class="number">3.</span>  ])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>, endpoint=<span class="literal">False</span>)</span><br><span class="line">array([ <span class="number">2.</span> ,  <span class="number">2.2</span>,  <span class="number">2.4</span>,  <span class="number">2.6</span>,  <span class="number">2.8</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.linspace(<span class="number">2.0</span>, <span class="number">3.0</span>, num=<span class="number">5</span>, retstep=<span class="literal">True</span>)</span><br><span class="line">(array([ <span class="number">2.</span>  ,  <span class="number">2.25</span>,  <span class="number">2.5</span> ,  <span class="number">2.75</span>,  <span class="number">3.</span>  ]), <span class="number">0.25</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>For a <em>in</em> range (5)<ol>
+<li>list comprehension →  <a href="https://blog.csdn.net/fribbler/article/details/106780639">python列表推导式(list comprehension)的用法</a><br>  <code>new_list = [expresion_for_member for member in iterable if condition]</code></li>
+<li>expresion_for_member 是表达式。</li>
+<li>member 是可迭代的对象或值。</li>
+<li>iterable 是一个 list，set，序列生成器或可以一次返回其元素的任何其他对象。</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">my_list = [a <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line">my_list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a href="https://blog.csdn.net/weixin_55267022/article/details/122528475">Python中出现TypeError: ‘int‘ object is not iterable的解决方法_花无凋零之时的博客-CSDN博客</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> Name:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br></pre></td></tr></table></figure>
+
+<p>第一种中，Name存储了多个对象，for循环中的name就是其中的对象，就相当于第二种的Name[i]。</p>
+<hr>
 <p><strong>pass</strong> 不做任何事情，一般用做占位语句。</p>
 <p>捕捉异常可以使用 try&#x2F;except 语句。</p>
 <p>try&#x2F;except语句用来检测try语句块中的错误，从而让except语句捕获异常信息并处理。</p>
@@ -6023,7 +6126,7 @@ blockquote {
     <title>恋爱</title>
     <url>/2023/02/07/%E9%9A%8F%E7%AC%94%E4%B8%8E%E4%B8%AA%E4%BA%BA%E6%96%87%E9%9B%86/%E6%81%8B%E7%88%B1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7ce2f9db1685d757e0f63016352f161dd39aa2132dce1ae4fef54fab3af2d127">9b8320e8f1c357e7a77f8f7a6a1305636d06204a86a518e3d6067f57136d1c7ffb23727149b303565acc51cd8cd2efa3c8546d23722d1c7cae70f9330c9be2998a8eb6d3a0c90c612b3b2d45038afec5277471e242132d769f2377ede263692af290ec9d6e0f36df04b7ca2c52246e252b7435f560103c895638189f3556a43db6d98dbb8097409c36d5f06d80b958a331310cda6665172a1a685a609df0e90c14d7f4c6e9f9c0cea3903bcac30173fa3c70e38a492f6ec210769aca5fc0df1025d9aeecf280e84f000aa051345c227d01a4b3234cdda901f3f295dfed8b527abaf077940b152a2591ad31ac171fc551b32f97545acdee4917a05ba27a07e4c6cbca67e7730527b12ab021837cbd759e9dba381aa0afc723f18864a114dfc185ca28f0fc47ebbab3441671fa884fb9ff3851753e44ae765ec0ba7a7d3a8b0137fe42ef91fdb30acc758fd58802464afd093978450e9a39bbf662b95610cb30c24e9871ff64f35303637629f423cccc62269145015a55199e15e7947ebd34c21537ce55f6a732bcbe7c4fc1351856665fb751e8427de9d42ee2c84e6f0f2d44cde47ffa4b41cc9170cb663fd06d13f551e126fbfe35703a9b1e780d345d7fc3a50a6185f6ae4445602d0fdf1d31fe2ce45b0cc2e7a93caa2d04623fa3d0d3e1ce048c1df13561faad5ad26fb5577be9296062772724486a1878febe9a7e5eee3cc1ff5fa92070beb141df570d2a9c9a6556c805909f827f9f9758fb69f490154cbddc899a347fc5518e1c413a1997d5749a13de8b23bdcaeddcbfffb75b4509dad5ed7ae2b9f30328dee63fe310e0284e1eaf6bb71caa8cec1a299afa9370d634254064a73bdd0fb2b10e22f20fba05804601bc7c2eff6434ef458ea44bab92765f42a8c046c66f9b31a79c9674f10b37244b06e97780752aee35623cb9a7f8d651a948c6d5348b214cf31ae0c27ab34c68fa9a001becb358ff7d32d544487e318d3fd6310a561466e7f325899ae57b565cc81429267629f0becea29caf5bc112140334edc2b30caf36ef20414361c756959c2ecb2db7ef99fa302e268e320efe00079da6146c6c92779d89f79a4a68ad035dce55f9d96dbbcb4b661a5b193abc4c05ce25129b8cbb232e0d4ed5923fa380c38ad26983e922b5d55c15774397ee6598d8ed42c0cc1cb7d50f689eac0a195421c903208cc6273bb5bfda66b96128454102655df81451194058f2d1957ba9531eb128a3ffdc66e14bbb2bd95361ad0b66ac5d1f4d00bbc64fa846dc887b84240dc0b0eb0c3c8f29727f8e22c69de3aca9987088e123667987cb6a18031a8cb4cb494c1c8cb3bafa059df894e2cb2c0e039de83f0ebdb1153eeb692cd2074ffb51c1a1c49c0b50da8ef25efe8f3c8b4b8dc0b9833f8e2e00e74fc07e6404e0df36fe5491bf3037f91ebad402e77bd23dc67ca507a4d33e0a151bd194301516b31ed904e02dca86616330256dfa7d7dda8d7d5c66673a34d7cd99d084b8045af0870ad47f8129fae1f32e46ed075a5c4cb3d7340e123f9fb7fe577076378ebfc4bb33d503531917a7d2e2d71f4e2b9dadc6f845a15601fdec5d85c75f67fc4e21f77b4cf8d5832a5203ebd7fa538da40c9c090d3591fb758c720c937f13987a8c21ebdb168634f95e24da64d19dc638bb1e3214f5aa0b8e2a6b0f99181d8dff7fc0e005b03d445c110751c159158e49dd637bb1e3b69b0df6db7b4160e56042003f8351705f0060a42f23d4430f31a3acd56a496b267c188d00cea5c1babcae7de1416d8e96df274b3f9eb747d72cedfa4531547b3805a33714b2138c2843419ba879634d5fd030445a55dc1f31f20ebc4c30345969ab0db5cb03f3d7aa9919c56db66c6bd373d8be96b29f18d08e7957da708288d6c0e3d591c59882c71d9f837fd725b1d524305236501d05578aa3e852c1da9c770b356a2aa1ffcd865c54a2b5a493a9999cd9495f7c25ac980a97a1df0882a280a13fda537d41a1f94e1aebd7e026ff2a6bb7c5da274f0d573b1817047755a6cf1a376eeb01b6a5684ceeb69d9060970d28f2c8ea5f660ac2dd39e9187cdca60ef1e56c3421118f3a23fd70e3efcff8a737402fbf9cfa722db432ddff06d0b9524258689034f49f5d80dfee61e79a0017a314ab75f91ee1ac9fd84e79f8e2b97f4f69b09f9a82c68cc6b5f3e3e05a2c9a37bb1d5bb6cff56d59f05e9981298af5035759ebac9aa1f32737e1be03d2e461727488db00a29700be00d260e982fcef848c9030c381638912b49e37be2d5a397fca02fa13f4a4dc3dcd961b39ad6e020772a9665de42946afca86c5d751dca28b59e54a8540158c7650b8605106173db441b97ad861456c7ae0aaf02bc29663f96fcf7bc1732d96e48b78f4d56c856adcab88cffd49a58447be4b7454e719e8ffc1399c36fcde4dd00fe33eb847613ebbce931f39a173d06302c219fe1b0a929c29610088952221a95f4d4e127aa9ed95412f349a1028e8af3cfedc8ffb7ac77d86c461a0f29df7ad454a3a1827247a955ad355c651e8529490f9e235fd276f2fb474c30babe8fd387ecefc9740b7318c0528d9ae5a963537cf2310610a58995b727e28476917c177aa53368562aaec3236ab6ffd94243eec271937448c803c0e0c05f69684fadf9b3f0028bf91a295dfee88fde87be232dd18bcd343b4d2409c7c3fec0f2a2c6eaff10565d1823902fba750a0bb62b0b5297fadd84c53a23c58c11233b9e964df5bbdea45fc4388a46fde34a753d5508c9663a9b0b6046f0fa8e70c7a6fa0bcd9fc44de651aa8dbe9bd55a71007c23a6de84f7c62cbdb8a0503d70b9aad076dd3959a81694a00851b9c073f589b7da829cd4035b193c650528114badc9d43d8c1c309cc3e0c12752e0085085a1e5e6b90e3950a97cce216a430d1f2aa3fcd743c19c3271fc0645d7f5131dace6d64134876b65ae3e72c58f9470f09b64515295a17594e4dd361e46b60919740fb67b5d54ad56ecb1cd3cbdd2d075a0237826ad45443769cf752620fdbfe344a34424fb8d70f662bda5996d6fa0e30d3c9fb894068b8148158360ba516b14d1f1c5966765255fca8ebc68bc22bbf513450cdb7ea9a9605a3550367c90da5c2478cca9fca76212b82916af1c66fbe82fa54f695e5e3372944064156d3a0b669235fe40ddde8b2388fa897b162454ef7495d2fdd7edecf9ecbf08bd33b7782a9d6dbfd926d7969d2c3ffd9461aecd6ec9007b35c3c5b71</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="5ed96982bf5bd35e0ca0cba885a50c6a13fbd3f7af3ce36f5cbf1790c32b8b8b">9b8320e8f1c357e7a77f8f7a6a1305636d06204a86a518e3d6067f57136d1c7ffb23727149b303565acc51cd8cd2efa3c8546d23722d1c7cae70f9330c9be2998a8eb6d3a0c90c612b3b2d45038afec5277471e242132d769f2377ede263692af290ec9d6e0f36df04b7ca2c52246e252b7435f560103c895638189f3556a43db6d98dbb8097409c36d5f06d80b958a331310cda6665172a1a685a609df0e90c14d7f4c6e9f9c0cea3903bcac30173fa3c70e38a492f6ec210769aca5fc0df1025d9aeecf280e84f000aa051345c227d01a4b3234cdda901f3f295dfed8b527abaf077940b152a2591ad31ac171fc551b32f97545acdee4917a05ba27a07e4c6cbca67e7730527b12ab021837cbd759e9dba381aa0afc723f18864a114dfc185ca28f0fc47ebbab3441671fa884fb9ff3851753e44ae765ec0ba7a7d3a8b0137fe42ef91fdb30acc758fd58802464afd093978450e9a39bbf662b95610cb30c24e9871ff64f35303637629f423cccc62269145015a55199e15e7947ebd34c21537ce55f6a732bcbe7c4fc1351856665fb751e8427de9d42ee2c84e6f0f2d44cde47ffa4b41cc9170cb663fd06d13f551e126fbfe35703a9b1e780d345d7fc3a50a6185f6ae4445602d0fdf1d31fe2ce45b0cc2e7a93caa2d04623fa3d0d3e1ce048c1df13561faad5ad26fb5577be9296062772724486a1878febe9a7e5eee3cc1ff5fa92070beb141df570d2a9c9a6556c805909f827f9f9758fb69f490154cbddc899a347fc5518e1c413a1997d5749a13de8b23bdcaeddcbfffb75b4509dad5ed7ae2b9f30328dee63fe310e0284e1eaf6bb71caa8cec1a299afa9370d634254064a73bdd0fb2b10e22f20fba05804601bc7c2eff6434ef458ea44bab92765f42a8c046c66f9b31a79c9674f10b37244b06e97780752aee35623cb9a7f8d6d4df7647e1292797f662adaa4f8cfc4512c9eecd308f780636a124af6d9868f67d821e45df8774d8097e202a3bff81a133eb0d1c62ebc0132a4e7c49a10cc1858d61a680a208811ed05c255f311792001d217506db3a765c9d5e4d64a5404a6b2d69ac3b4cbc830206ffb782657de8366bb7704db343058e031d561a6fcfb5951b219624be2262b526ee5ba12d2633651db46aaa97af5c1ba866cdd82e9526376245fc3f4a4f39978bf4b1be2d4cd795c368ab776091341481da6507590039b23e36862eb39d80de8c8caeb5ca19c7ad579b56b465abc986eeaae30275ac9a243a0fcfcc4cae23bc67b5f24aef754385776f97eacaa4b42bb7be6673ceed44cc33f279a2a3c74debfc9ee1a10d81f3d114bff7058f2a0acb5f7bc72e39aa922e96a5ed970d3be6e831c8f3da2ee383a933c1d8a1fc479eb5df8cd76421995b162221f88295b1ee9a8adb35b60e385acc64757e172b1e0ecb79fbd5e9b9b259bbd8b0dc24c69bc760c017d6f1dd424143f6b26a243717f386fbbcb42c0b4a019cfc0624fb50958be54e111de8142912cfb5f97ae7c8947454a3292a7951a2232ba046579d9b72fa43d313fbad5cb50488dd7b273dc298ef2a933a72494217579772e9f12cefe0cdef8a5810598df38207aa2dfde3afee346a8012ff467fa0ec2be38f8c55569937995d86e2aa302801989306ac353dfc75d2797ba7d1a14e6a081bbe62c8453366b4e156be790495c22e4c40166f14cd489aa5da5f6b12ece5f02154314f4302c823ee813f0a890930074f2dfebf76349e22a48ef579b120f1e2b1d45844acf196aab74696b2b7928cf199cda40033fcb6e298c6602ff121578a7a269a3f42f803cf48d4bdb6d134acfdcd6012191b3be703ecbdcfa6eec069308ffcc527f8519f15ad9a793f0f75fc5adac6c575123b0e75658766dceb77f7828e6dc6917f80409c657355fa5209a9ad03086b11b63bb4eb920d8d79800634c321856204813005e4eeb4482ed79f3b3d364c747141d77e0966548b62eb38bc2880e97521367cd2ad31cf835076e8c12c9cda0f330e90a9b9452bceac3217375240c62aa65787c6c5fcd23770161506fe6adf3d23e37d6635dbd32c78978ea3260c79e29e15c92fe4753b9b8f8ca4b107574014a9c1face17c2b7be3c9281bc6bb3711ca2ee9e5eb0b48e5033595498b0057bfc9f40187d009a9fddd0d911f3bc9564cbd41e2d665826498088b3e8079443ea9781d2c280b9281df526a283cca6567566a66df6a48b019bb7e845bbb3df8c8f4d2981d057220b225a0824cb82f5ddc6844a1adc9f30cc26d1cd06188e9b3ef7c55eb8b6cf9bf52de8ff3067eca354270219c6e8858ebac301b7f57d601ea69925dbd1433e1f00ed3afdea41c9dfb3dd8a33e363d2e1ab23cc021514e2ff46edb0677c882367969970b8f79b3916b785c6af4337b0b4a890e0fd7ca9e76c812b51b3386831356f439a39e6c5bb4345e782d737b57bbda7d0b3f6a67af0ab6ce316da279537fa11ad0a836ebef953b611d2edd7998cd22b81853a323195d3d4dfeee903b4c955e52ff8b2d4e72b4fc548dbbd7b377577c2d9b22ddf7a1bbc2cc7ecafdf2cc04a716e7b3813b23366fc2f06dbf581feab85c6725cfd3cdda7867598edebf03f13866e30bcacb54699a9482906e6e498b737701b88f7d4e7af29bd644ed7420b6f6d5739af196229d38cb47fac13fe326f1401bee82e373e62ac68c765f297e6c2b9666a4e6d33987a92981f09c5f8e9cff06da2a4d2560b7593a4592f13e9b85d27ac335916f86ec8d2d4815fff70645860604e08689a9af6308a0d2944f2d524de07a5eeb92e56fb59c15c0e04664c1adc98ff882f0251b5e53d30bd8a3260d58a09adfcf7b8a7b2d896ec84e3b6f805b3520121344bbfc242c4a11bf402f429c45061ea5cfb75d7048445188dfffd66cccdb31c9bcc9e8f9ee6022bcd8f38c06efab6912faa87905b5b200193335e8acf82aa6b9c486ce20b49f5a7e0383934cee348dc8d1e85ec5a2bde5bbd1f083e55a85698f4a33a6cd671c0720a7e2fe0b2d9822938119c19d311113cd30411c84fc128539c1d89d4aeefad93e17ce76386efa7c4b662f60dcb220a4968e9b6ce01680dd861a87546131a38d1cbd228a5da76454e7ff0f0d81d5a98d6fc45bd3dce41a2a32a34dfe5222c905ce6f14cf32c5a2ef3fbda0a8b35a09ee671d379e15c257536f6effad6dbc685df68b6802bfff4a44f561381f66f673853743c9126edf496142c9a05a2a412e21be54267d002c610d97a977b7aa54b59773d3d483547a7233418e13907197b23f605060c3c6123202c7eecba07e8d0504ccdb8a86dd85c938778705159dc3f8a1b9a975f7410a8dff1d540880e90a836d3d475b22ca83a5f305ac5d525072e226fa64fe41b0fa68c2e2ea1571d63a10d70b4e58c2205e22a779351ffb6bb58ab5cb1cfac091ee47368d4196cb47fa1b5ed7726b170a5658dad6c5ad8e48bf5062aa7b1ef9f65b8fb91f5503cffa931de12dc1d6f62fecb78b3120cc8ac7f7ae7f7e023b9a639481f0b753102b139a003022d90545c468360f18d2479d832a9586b7ab3fd62f7541ab6aaa13868ee9c9a01f45b1519c35871c7f35a4bf5697226c0761dd5c0fbbd00cda621d4b7979999f2a568fa98ea3a3a82892d1d6efcaa6e7e54403f12433eb947fcf34257d677107416e8c7aa570b28e23ecedbd6001ca13efa0f2aed17851bb07ccaa1a1c9c193ac2dc3ca735376049ff9a460d39d6149426c5151452d47ca0d74463a89f2d927eb7525bb375f34f9b1e5f111047d4e13e3bfae764a7c29c048d3cfde8c8bdb86ad2f71aeda58ca1ba306d40759abc5377974c9d9455411ba71a43cc64fe2994b32f951a2bcdad9ded2d163dfa9d810eeeab76cbdd87e5c3a2d30fcbeab5ebf5509d1519b331ab1380a2495395869a8897c3d8997ef2e08604fc769256ad28bf4b93db9b754772ea8afedd4098aea5f5ae5e7f07947aa43d299f9bdbec3312cc39b0248be8f28e6a338859f24bb91582a2ef6984678b1699d76f921864ae6f15ed69cd4c99d080656671112aca9963079c66ac45835f62cec750eb013d903b4ea2c74b552eb9520a51868e60d9ab8b71fa3f702520e49e07ded1a28837c58d0a984cfc59c650ab5707823c69fd552dd11d378c2121bd4abc015e908e7dfe12e3476c887edebc1b620aee92c982219f1aaee8dfb3681057e1c25538ed0974bf7617597279845accc5404023cc45401ae2147c4ad424c68199672ebeb6f8802b62ec7cc30166092f1ce2e71dd005cf85a373205f7de099907b9fc52dc824b25c1d7b31e4877b77004ef6243b89f52a2896b9cc3f8f745c4b0039ed8304eed99f14203a40ce683c1f994268705369c88eb7e2d207f237d76486148748e06e617309374ef3202d7708b02b078d0caeb58ca8bf7396c08f96b179d751cee18e9b475a439b92a92534fc83ddf07a022f279f74eafffd7b21141e3fbc1f1f5765f6be7cd3698a6a2164770bbbf60f7f4bff8ca7e5108a56fb66d16670a2d85018c58ebc88c662625cb64d75317e60e64a700b1dc4ca37d5dd541cdca21e9e24879ee77aae20b0c0f0fe346ab7699dc65ff3d8bcfaa0ada0c1159eb5ffe52c601a68dab49718b10dfd5d952f705d9ec50078a923a446596676ee4ed2f0e472854d22166a8dbb807927ba619c4d76dca8e1708059869bed724296c5c0439a16853c6eea8486dba2297917a4b770779716ff170ded63dcd778ed9f71e59d38154d14d33a2f8cb8be406225d48a7b5960d7e12be2d162aa671207f25240537f3617a7249b478d034919a2a49c57c4b265a8217ef684aad7c4383f2c9338f26be74f06db7a862d45c5a57a3f21bcfffdb5b9e62f57d213ab6934dd634380b755e479fde22b905d4da9b0d6fd2b8f316d89ffc5edb3b886bbc4e683031414228068fa3af582bf0d77701ee2f14b5f9f0d21226d1fdfb92dfa80b0a23852b9017d9af90fc</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-shrink">
       <input class="hbe hbe-input-field hbe-input-field-shrink" type="password" id="hbePass">
