@@ -12,9 +12,8 @@
   <meta name="author" content="Peirsist">
   <meta name="description" content="python &amp;amp;与and运算符_python中的and符号_dogyii的博客-CSDN博客
 
-matplotlib解决使用 plt.savefig 保存图片时一片空白
-原因
-其实产生这个现象的原因很简单：在 plt.show() 后调用了 plt.savefig() ，在 plt.show">
+matplotlibpython_matplotlib分别使用plot()和scatter()画散点图，以及如何改变点的大小_plot点的大小
+plt.savefig解决使用 plt.savefi">
   
   
   <meta property="og:title" content="Python"/>
@@ -94,9 +93,15 @@ matplotlib解决使用 plt.savefig 保存图片时一片空白
     <ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dogyii/article/details/122824087">python &amp;与and运算符_python中的and符号_dogyii的博客-CSDN博客</a></li>
 </ol>
-<h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p>解决使用 plt.savefig 保存图片时一片空白</p>
+<h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Poul_henry/article/details/88602806">python_matplotlib分别使用plot()和scatter()画散点图，以及如何改变点的大小_plot点的大小</a></p>
+<h2 id="plt-savefig"><a href="#plt-savefig" class="headerlink" title="plt.savefig"></a>plt.savefig</h2><p>解决使用 plt.savefig 保存图片时一片空白</p>
 <p>原因</p>
 <p>其实产生这个现象的原因很简单：在 <code>plt.show()</code> 后调用了 <code>plt.savefig()</code> ，在 <code>plt.show()</code> 后实际上已经创建了一个新的空白的图片（坐标轴），这时候你再 <code>plt.savefig()</code> 就会保存这个新生成的空白图片。</p>
+<hr>
+<h2 id="plt-figure"><a href="#plt-figure" class="headerlink" title="plt.figure()"></a>plt.figure()</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/amstlsx/article/details/122289217">fig &#x3D; plt.figure(),plt.subplots()的作用</a></p>
+</blockquote>
+<p><code>fig = plt.figure()</code>作用就是生成一个图框，但是这个图框还不能用来画图，画图需要在子图(subplot)或者轴域(Axes)中作图，用别人的话说，<code>fig = plt.figure()</code>就是生成了一个画板，在画板fig上使用<code>ax = fig.add_sudplot(a,b,c)</code>就生成了一个子图ax，<code>fig,ax = plt.subplots(a,b)</code> 就是即生成了画板fig，又生成了一组子图ax，使用<code>ax[x,y]</code>便选中了一个子图，下面说一下<code>plt.figure()，plt.subplolts(),fig.add_sudplot()</code>函数的参数</p>
 <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_38052384/article/details/103161009">解决：TypeError: ‘(slice(None, None, None), 1)’ is an invalid key</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6d1677cdacbb">pandas的DataFrame对象抽取“整列”或者“整行”数据</a></li>
