@@ -10,10 +10,9 @@
   
   <title>安装Ubuntu18.04双系统</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="ubuntu下添加新用户（详细教程）_ubuntu添加用户_那记忆微凉的博客-CSDN博客
-安装Ubuntu双系统
-Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu
-Ubuntu18.04安装教程——">
+  <meta name="description" content="2023 年 4 月 16 日
+重新给服务器安装 Ubuntu16.04 和 Windows10 双系统
+前言一般有两种方法，一是使用虚拟机，二是安装双系统。使用虚拟机的好处是占用资源少，相对简单方便，不会碰到实装时出现的一些兼容性问题，使用户的注意力能更好地集中于使用 linux 本身，并且可以创">
   
   
   <meta property="og:title" content="安装Ubuntu18.04双系统"/>
@@ -90,13 +89,31 @@ Ubuntu18.04安装教程——">
     <div class="picture-container">
       
     </div>
-    <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/BigData_Mining/article/details/104986203"> ubuntu下添加新用户（详细教程）_ubuntu添加用户_那记忆微凉的博客-CSDN博客</a></p>
+    <p>2023 年 4 月 16 日</p>
+<p>重新给服务器安装 Ubuntu16.04 和 Windows10 双系统</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一般有两种方法，一是使用虚拟机，二是安装双系统。使用虚拟机的好处是占用资源少，相对简单方便，不会碰到实装时出现的一些兼容性问题，使用户的注意力能更好地集中于使用 linux 本身，并且可以创建多个 linux 环境从而可以使用集群，来回切换 Windows 和 Ubuntu 比较方便。而安装双系统属于实装，会消耗更多硬件资源，会碰到很多兼容性方面的问题，锻炼使用者在实践中发现问题和解决问题的能力，美中不足的是，这种方法无法创建更多 linux 环境，因而不能使用集群操作。</p>
+<p>如果是初次接触  linux  系统，建议在虚拟机里安装使用，这样和外部系统隔开，无论出现什么问题、无论如何折腾都不会影响到当前使用的系统，影响已有的工作环境。虚拟机如  vmware  或者开源的  virtualbox  都是很好的选择。如果已经对  linux  有一定了解了，其实装单系统还是双系统就纯看个人喜好和需求了，比如我个人在在虚拟机里用了大概一个多月的  ubuntu。</p>
+<p>答案是先安装windows，有windows系统后，安装双系统才会更加方便，这个是基础，通常来说安装双系统是先安装windows，再安装linux，但是不能排除有时候只能先安装linux，再安装windows。例如新买的机器，里面只有linux系统。这种情况下安装会稍微复杂一点，最大的区别是为windows系统预留空间。</p>
+<h1 id="u-盘制作系统盘"><a href="#u-盘制作系统盘" class="headerlink" title="u 盘制作系统盘"></a>u 盘制作系统盘</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Roger_Spencer/article/details/127155568">Ventoy的pe盘制作及重装系统步骤【解释的非常清楚！！！】_ventoy重装系统图文教程</a></p>
+<h1 id="下载镜像文件"><a href="#下载镜像文件" class="headerlink" title="下载镜像文件"></a>下载镜像文件</h1><p>安装系统要先下载镜像文件，而且还有很多个版本，区别在于<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33945246/article/details/103065962">Ubuntu Desktop和Server之间的区别</a>，如何找到自己需要的版本，请看 <a target="_blank" rel="noopener" href="https://blog.csdn.net/Cynthialearn/article/details/124710261?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~activity-1-124710261-blog-null.pc_404_mixedpudn&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~activity-1-124710261-blog-null.pc_404_mixedpud">&lt;Ubuntu 镜像的下载_记录如何在官网查找、下载对应版本的 Ubuntu&gt;</a> 。由于官网速度下载很慢，需要从 <a target="_blank" rel="noopener" href="https://blog.csdn.net/erhu_2018/article/details/126233464?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~activity-2-126233464-blog-null.pc_404_mixedpudn&depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~activity-2-126233464-blog-null.pc_404_mixedpud">Ubuntu国内镜像下载网址</a>进行下载，<a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn/ubuntu-releases/">浙大镜像源</a> 比较快。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/560753564">一文读懂Legacy 和 UEFI的区别，到底选择哪一个？ - 知乎 (zhihu.com)</a></p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>开机利用 u 盘进行启动安装</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_70305202/article/details/129206740?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~YuanLiJiHua~Position-2-129206740-blog-105634756.235%5Ev29%5Epc_relevant_default_base3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~YuanLiJiHua~Position-2-129206740-blog-105634756.235%5Ev29%5Epc_relevant_default_base3&utm_relevant_index=3">安装WIN10&amp;Ubuntu双系统二三事</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/canghairoubao/article/details/88411044">Ubuntu安装记录及先安装linux(ubuntu)后安装windows的忠告</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/617640635">安装双系统win10+Ubuntu20.04LTS（详细到我自己都害怕)</a></li>
+<li></li>
+</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/BigData_Mining/article/details/104986203"> ubuntu下添加新用户（详细教程）_ubuntu添加用户_那记忆微凉的博客-CSDN博客</a></p>
 <h2 id="安装Ubuntu双系统"><a href="#安装Ubuntu双系统" class="headerlink" title="安装Ubuntu双系统"></a>安装Ubuntu双系统</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43106321/article/details/105361644">Windows 10 安装ubuntu 18.04 双系统（超详细教程）_Ycitus的博客-CSDN博客_windows10安装双系统ubuntu</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44623637/article/details/106723462">Ubuntu18.04安装教程——超详细的图文教程_Krasjet_Yu.的博客-CSDN博客_ubuntu18.04</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangshiming88/article/details/85333046?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase">安装Ubuntu Linux系统时硬盘分区最合理的方法ubuntu18.04分区设置_wangshiming的博客-CSDN博客_ubuntu18.04安装分区</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_36602427/article/details/86548203">Ubuntu18.04安装教程_寥廓长空的博客-CSDN博客_ubuntu安装教程</a></li>
 </ol>
+<h1 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chencaw/article/details/101106073">Ubuntu18.04完整新手安装教程和分区设置</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ligo106/article/details/120271455#:~:text=7648%20Ubuntu%E5%AE%89%E8%A3%85%20%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%97%A0%E6%B3%95%E7%9C%8B%E5%88%B0%E2%80%9C%E4%B8%8B%20%E4%B8%80%E6%AD%A5%20%2F%20%E7%BB%A7%E7%BB%AD%20%2F%2B%E2%80%9D%E7%AD%89,%E6%8C%89%E9%92%AE%20%E6%97%B6%EF%BC%8C%E8%BF%99%E6%98%AF%E7%94%B1%E4%BA%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E8%BE%A8%E7%8E%87%E9%97%AE%E9%A2%98%E5%AF%BC%E8%87%B4%E7%9A%84%EF%BC%8C%E9%81%87%E5%88%B0%E8%BF%99%E7%A7%8D%E6%83%85%E5%BD%A2%E6%97%B6%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%8C%89%E4%BD%8F%E9%94%AE%E7%9B%98%E7%9A%84%E2%80%9C%20Alt%20%E2%80%9D%E9%94%AE%EF%BC%8C%E5%86%8D%E6%8A%8A%E9%BC%A0%E6%A0%87%E7%A7%BB%E5%8A%A8%E5%88%B0%20%E5%AE%89%E8%A3%85%20%E7%95%8C%E9%9D%A2%E4%B8%8A%EF%BC%8C%20%E7%82%B9%20%E4%BD%8F%E9%BC%A0%E6%A0%87%E5%B7%A6%E9%94%AE%E4%B8%8D%E6%94%BE%EF%BC%8C%E5%90%91%E4%B8%8A%E6%8B%96%E5%8A%A8%E7%95%8C%E9%9D%A2%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%85%B6%E4%BB%96%E8%A2%AB%E9%81%AE%E4%BD%8F%E7%9A%84%E9%83%A8%E5%88%86%E4%BA%86%E3%80%82">安装Ubuntu的时候屏幕太小看不到下一步</a> 方法二：按住alt+f7，此时鼠标变成小手，可以拖到下面（推荐！！！）</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a><mark>注意</mark></h2><ol>
 <li>进入Bios界面，一直按<code>F2</code></li>
 <li>如何启动进入选择系统界面还没解决，linux系统用的不多，总体来说还是虚拟机方便，但是虚拟机占用内存。</li>

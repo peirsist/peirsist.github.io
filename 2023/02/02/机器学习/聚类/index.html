@@ -10,12 +10,12 @@
   
   <title>聚类</title>
   <meta name="author" content="Peirsist">
-  <meta name="description" content="层次聚类K-Means
-Visualizing K-Means Clustering (naftaliharris.com)
-
-k-means 初始值是影响很大的，所以要很多值取平均值，每一次的簇都不一样，对初始值很敏感，所以一开始要取很多的初始值，最终不断取平均值
-DBSCAN
-Visualizi">
+  <meta name="description" content="2023 年 4 月 17 号，中间浪费了两个月的时间，一个东西要彻底搞懂
+讲座物以类聚人以群分：聚类分析的一些挑战和进展
+报告嘉宾：彭玺 (四川大学)
+报告题目：深度聚类：从“模态非完全对齐聚类”到“对比聚类”
+个人主页：http://www.pengxi.me
+报告时间：2021年01月27日(">
   
   
   <meta property="og:title" content="聚类"/>
@@ -83,7 +83,55 @@ Visualizi">
     <div class="picture-container">
       
     </div>
-    <h1 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h1><h1 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h1><ol>
+    <p>2023 年 4 月 17 号，中间浪费了两个月的时间，一个东西要彻底搞懂</p>
+<h1 id="讲座"><a href="#讲座" class="headerlink" title="讲座"></a>讲座</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/kailugaji/p/14340602.html">物以类聚人以群分：聚类分析的一些挑战和进展</a></p>
+<p>报告嘉宾：彭玺 (四川大学)</p>
+<p>报告题目：深度聚类：从“模态非完全对齐聚类”到“对比聚类”</p>
+<p>个人主页：<a target="_blank" rel="noopener" href="http://www.pengxi.me/">http://www.pengxi.me</a></p>
+<p>报告时间：2021年01月27日(星期三)晚上20:00(北京时间)</p>
+<p>报告地址：<a target="_blank" rel="noopener" href="http://valser.org/article-401-1.html">http://valser.org/article-401-1.html</a></p>
+<p>视频回放地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ny4y127v6">https://www.bilibili.com/video/BV1Ny4y127v6</a></p>
+<p>报告嘉宾：刘新旺 (国防科技大学)</p>
+<p>报告题目：一种简单有效的多核聚类算法</p>
+<p>个人主页：<a target="_blank" rel="noopener" href="https://xinwangliu.github.io/">https://xinwangliu.github.io/</a></p>
+<p>报告时间：2021年01月27日(星期三)晚上20:30(北京时间)</p>
+<p>报告地址：<a target="_blank" rel="noopener" href="http://valser.org/article-401-1.html">http://valser.org/article-401-1.html</a></p>
+<p>视频回放地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dU4y1s7Q4">https://www.bilibili.com/video/BV1dU4y1s7Q4</a></p>
+<p>Panel 嘉宾：</p>
+<p>聂飞平 (西北工业大学) 个人主页：<a target="_blank" rel="noopener" href="https://teacher.nwpu.edu.cn/niefeiping.htm">https://teacher.nwpu.edu.cn/niefeiping.htm</a></p>
+<p>白亮 (山西大学) 个人主页：<a target="_blank" rel="noopener" href="http://cs.sxu.edu.cn/faculty/associate_professor/3991/index.htm">http://cs.sxu.edu.cn/faculty/associate_professor&#x2F;3991&#x2F;index.htm</a></p>
+<p>张长青 (天津大学) 个人主页：<a target="_blank" rel="noopener" href="http://cic.tju.edu.cn/faculty/zhangchangqing/index.html">http://cic.tju.edu.cn/faculty/zhangchangqing/index.html</a></p>
+<p>Panel主持人：韩琥 (中国科学院计算技术研究所)</p>
+<p>报告主题：物以类聚人以群分：聚类分析的一些挑战和进展</p>
+<p>报告时间：2021年01月27日(星期三)晚上20:00(北京时间)</p>
+<p>报告地址：<a target="_blank" rel="noopener" href="http://valser.org/article-401-1.html">http://valser.org/article-401-1.html</a></p>
+<p>视频回放地址：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dU4y1s7mN">https://www.bilibili.com/video/BV1dU4y1s7mN</a></p>
+<p>Panel议题：</p>
+<ol>
+<li><p>聚类分析有什么杀手锏应用吗？</p>
+</li>
+<li><p>聚类分析的核心科学问题是什么？</p>
+</li>
+<li><p>当前聚类分析更多受益于无监督&#x2F;自监督表示学习的进展，如何避免聚类的研究和无监督&#x2F;自监督表示学习的同质化？</p>
+</li>
+<li><p>端到端聚类对表示学习和聚类进行联合学习，通过表示学习得到更好的聚类，通过聚类提升表示学习能力，有专家认为端到端聚类聚类对初值敏感，那有必要进行端到端聚类吗？</p>
+</li>
+</ol>
+<h1 id="深度学习聚类"><a href="#深度学习聚类" class="headerlink" title="深度学习聚类"></a>深度学习聚类</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/allein_STR/article/details/128569765">【超详细】深度聚类_深度神经网络聚类</a></li>
+</ol>
+<p>Kernel K-means</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17v411g7WB/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">所以kernel到底是什么_哔哩哔哩_bilibili</a><br><a target="_blank" rel="noopener" href="http://cs229.stanford.edu/summer2020/cs229-notes3.pdf">cs229-notes3.pdf (stanford.edu)</a></p>
+<p>根据聚类方法的实现方式和算法思想，聚类算法可以分为以下几类：</p>
+<ol>
+<li><strong>划分聚类算法（Partitioning Clustering Algorithm）</strong>：该算法通过将数据点划分为不同的簇来进行聚类。K-means算法是最常用的划分聚类算法之一。该算法根据距离度量将数据点分配到最近的聚类中心，并通过迭代更新聚类中心以最小化簇内的误差平方和。K-means算法具有简单易用、可解释性好、计算速度快等优点，但需要提前指定聚类数目k，对初始聚类中心的选择敏感，容易陷入局部最优解。</li>
+<li><strong>层次聚类算法（Hierarchical Clustering Algorithm）</strong>：该算法将数据点逐步合并成越来越大的簇，直到所有数据点都被合并成一个簇或达到预设的聚类数目。层次聚类算法又分为凝聚型和分裂型两种方法。凝聚型层次聚类算法从单个数据点开始，逐步合并最近的两个簇，直到所有数据点都被合并成一个簇。分裂型层次聚类算法则从一个大簇开始，逐步将其分成更小的子簇，直到达到预设的聚类数目。层次聚类算法具有不需要指定聚类数目、聚类结果可视化、灵活性好等优点，但<strong>计算复杂度高，对噪声数据敏感，容易形成不平衡的簇</strong>。</li>
+<li><strong>密度聚类算法（Density-Based Clustering Algorithm）</strong>：该算法将聚类看做是数据点周围密度较高的区域，通过密度高于阈值的点构成的簇来实现聚类。DBSCAN算法是最常用的密度聚类算法之一。该算法通过定义数据点的邻域和核心点的概念来判断数据点是否属于一个簇，并将核心点和可达点连接成一个簇。密度聚类算法具有对噪声数据不敏感、能够发现任意形状的簇等优点，但对密度参数的选择敏感，容易受到数据分布的影响。</li>
+<li><strong>模型聚类算法（Model-Based Clustering Algorithm）</strong>：该算法将聚类看做是生成数据的概率分布模型，通过对数据分布的拟合来进行聚类。高斯混合模型（Gaussian Mixture Model）是最常用的模型聚类算法之一</li>
+</ol>
+<hr>
+<p>2023 年 2 月 2 号</p>
+<h1 id="层次聚类"><a href="#层次聚类" class="headerlink" title="层次聚类"></a>层次聚类</h1><h1 id="K-Means"><a href="#K-Means" class="headerlink" title="K-Means"></a>K-Means</h1><ol>
 <li><a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-k-means-clustering/">Visualizing K-Means Clustering (naftaliharris.com)</a></li>
 </ol>
 <p>k-means 初始值是影响很大的，所以要很多值取平均值，每一次的簇都不一样，对初始值很敏感，所以一开始要取很多的初始值，最终不断取平均值</p>
@@ -91,13 +139,13 @@ Visualizi">
 <li><a target="_blank" rel="noopener" href="https://www.naftaliharris.com/blog/visualizing-dbscan-clustering/">Visualizing DBSCAN Clustering (naftaliharris.com)</a></li>
 </ol>
 <p>核心点：我们首先定义一个阈值 minpoints&#x3D;4 密度阈值; 以一个点为半径画圆圈，如果该圆圈里的点大于等于我们设置的阈值，那么这点就是核心点<br>半径大：会把某些离群点包进去<br>所以这个算法对于做异常分析和离群点的分析<br>密度阈值一般取得小一点，多次尝试</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1170578">【无监督学习】DBSCAN聚类算法原理介绍，以及代码实现 - 腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/raychiu757374816/article/details/121056458">机器学习之聚类算法(一:聚类概述和相似度计算)_RayChiu_Labloy的博客-CSDN博客_聚类1,2型糖尿病相似度计算怎么选</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1170578">【无监督学习】DBSCAN聚类算法原理介绍，以及代码实现 (tencent.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/raychiu757374816/article/details/121056458">机器学习之聚类算法(一:聚类概述和相似度计算)1,2型糖尿病相似度计算怎么选</a></p>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><ol>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cainiao22222/article/details/84861210">六大常见聚类方法_cainiao22222的博客-CSDN博客_聚类方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/cainiao22222/article/details/84861210">六大常见聚类方法</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bg411Z77N/?spm_id_from=333.337.search-card.all.click&vd_source=83831fc0970a6c8704479f7cfc679937">聚类算法：层次聚类、k-means 聚类、k-medoids 聚类、密度聚类_哔哩哔哩_bilibili</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/bingbangx/article/details/107789538">make_blobs方法的使用_bingbangx的博客-CSDN博客_make_blobs</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Tan_HandSome/article/details/79371076">Python层次聚类sci.cluster.hierarchy.linkage函数详解_DiamondTan的博客-CSDN博客_hierarchy.linkage</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/bingbangx/article/details/107789538">make_blobs方法的使用</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/Tan_HandSome/article/details/79371076">Python层次聚类sci.cluster.hierarchy.linkage函数详解</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV15a411x7iW/?p=6&spm_id_from=pageDriver&vd_source=83831fc0970a6c8704479f7cfc679937">3-KMEANS迭代可视化展示_哔哩哔哩_bilibili</a></li>
 <li><a target="_blank" rel="noopener" href="https://cn.bing.com/search?q=birch%E8%81%9A%E7%B1%BB&form=ANNTH1&refig=11549b6bb1204777b8c44a2e5ad449dc&sp=7&qs=LT&pq=birch&sk=CT1MQT3LT2&sc=10-5&cvid=11549b6bb1204777b8c44a2e5ad449dc">birch聚类 - 搜索 (bing.com)</a></li>
 </ol>
