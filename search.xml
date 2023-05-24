@@ -248,7 +248,23 @@
   <entry>
     <title>Weekly Meeting</title>
     <url>/2022/10/27/weeklymeeting/</url>
-    <content><![CDATA[<h1 id="2023-04-06"><a href="#2023-04-06" class="headerlink" title="2023-04-06"></a>2023-04-06</h1><ol>
+    <content><![CDATA[<ol>
+<li><em><strong>2023-05-11，周四</strong></em>，下午给本科生讲方案，然后晚上到实验室看 pextCut 代码。</li>
+<li><em><strong>2023-05-12，周五</strong></em>，上午到实验室，发现 HyperSplit 对于 10K 规则集无法运行，然后上午解决这个问题，fw10k 仍然有这个问题，运行看运气，然后内存剧增，CutTSS 速度变慢不知道为什么。</li>
+<li><em><strong>2023-05-13，周六</strong></em>，上午助教，下午沧州</li>
+<li><em><strong>2023-05-14，周日</strong></em>，上午沧州，下午回来，睡觉</li>
+<li><em><strong>2023-05-15，周一</strong></em>，上午上课，15 周数学考试，下午，晚上看计算机系统，准备ieee</li>
+<li><em><strong>2023-05-16，周二</strong></em>，整天看数学，先看视频，复习线代，晚上 ieee（翻译论文，整理到 PPT 上，2 个半小时，总是做一页 ppt，调整一页格式，效率低，最后边讲边调格式最快。）。</li>
+<li><em><strong>2023-05-17，周三</strong></em>，上午上课，下午复习数学第二章，晚上去西青区吃烧烤，回去 9 点</li>
+<li><em><strong>2023-05-18，周四</strong></em>，复习数学第二章</li>
+<li><em><strong>2023-05-19，周五</strong></em>，上午上课，中午听范数，2-3: 30 党课，4-5: 00 组织生活，然后吃饭，晚上吵架，下大雨，两点才睡。</li>
+<li><em><strong>2023-05-20，周六</strong></em>，上午助教，中午打电话，下午去全季酒店，晚上吃俄式烧烤，回去睡觉。</li>
+<li><em><strong>2023-05-21，周日</strong></em>，生日，上午睡觉，中午去拿蛋糕，吃巷子里火锅，去水上公园，到西康路社区卖水果，7: 00 听求职分享会。晚上整理 ieee 的 ppt 到 1 点，主要边看边玩手机，整理讲稿。</li>
+<li><em><strong>2023-05-22，周一</strong></em>，上午上课，下午复习数学</li>
+<li><em><strong>2023-05-23，周二</strong></em>，上午复习数学，下午 3 点-6 点准备 ieee，主要删除了一些 ppt，然后演练一个半小时。</li>
+<li><em><strong>2023-05-24，周三</strong></em>，上午看 top 规则，发现有重叠的，然后下午看最佳平方估计</li>
+</ol>
+<h1 id="2023-04-06"><a href="#2023-04-06" class="headerlink" title="2023-04-06"></a>2023-04-06</h1><ol>
 <li><em><strong>2023-04-01，周六</strong></em>，上午助教，下午去实验室搞明白神经网络训练哈希函数</li>
 <li><em><strong>2023-04-02，周日</strong></em>，跑到天大和南开新校区，晚上去酒店睡觉</li>
 <li><em><strong>2023-04-03，周一</strong></em>，上午上课，下午助教，然后打羽毛球，晚上运行 CNN 的代码</li>
